@@ -1,7 +1,93 @@
+\chapter{Introduction to GPUE codebase and General Purpose computing with Graphical Processing Units}
+\label{ch-gpu}
 
-\chapter{Introduction to GPUE codebase and General Purpose computing with Graphical Processing Units (GPGPU)} \label{ch-gpu}
+The Graphics Processing Unit (GPU) is a computing card that typically connects to the motherboard through a Peripheral Component Interconnect (PCI) slot.
+As the name implies,
+the GPU is designed to rapidly manipulate memory to create images sent to a display device, such as a monitor.
+Because individual pixels in images are independent of each other and modern computers require updating all pixels on the display device quickly, the GPU has been developed as a massively parallel computing device, capable of quickly performing simple tasks (such as pixel generation) rapidly by distributing the computation among many computing cores.
+This design methodology starkly contrasts the few, powerful cores on the Central Processing Unit (CPU), which is the standard device for computation on modern systems.
 
-% I don't think acronyms should be defined in titles --- ABC
+With the growth of scientific computing, High-Performance Computing (HPC) systems have been developed to facilitate the need for fast computation of various phenomenon.
+HPC systems are often developed as large, distributed networks of compute nodes that are primarily intended for CPU-based computation.
+As such, these systems facilitated the development of highly parallel numerical methods to perform scientific computation.
+
+With new parallel algorithms being developed for HPC systems and GPU technology advancing rapidly to perform more computation in parallel and satiate the consumer demands for high-quality videos and graphics for video games, it became possible to use the GPU as a scientific computing device with a new technique called General Purpose computing on Graphics Processing Units (GPGPU).
 
 \section{General purpose computing with graphics processing units}
+
+GPGPU programming is a relatively new development to the computing world and is generally much faster than CPU-based computation.
+Though benchmarks vary greatly depending programming languages, code quality, and intent of the software being benchmarked, our GPUE codebase is often 5 to 10 times faster than well-optimized C/C++ code and 100-200 times faster than matlab code that is simulating the same system.
+These benchmarks are consistent with those other GPGPU programs [SHOW MORE BENCHMARKS].
+
+At the time of writing, the most common hardware for GPGPU programming is the nvidia Tesla series, with the latest generation card bein the nvidia Tesla V100 with 32 GB of available RAM and 640 Tensor Cores.
+
+\subsection{Massively parallel computation with GPGPU}
+
+As mentioned, GPGPU programming relies heavily on massively parallel computational techniques developed primarily for scientific computing on HPC systems.
+In general, there are two separate methods to parallelize computation: \textit{Task parallelism} and \textit{data parallelism}
+
+Task parallelism allows programmers to split their computationalong multiple cores as separate, non-interacting \textit{tasks}, where each core performs its designated computation before moving on.
+On the other hand, data parallelism allows programmers to perform the same, repetative task along a large data set by distributing across the data.
+Task parallelism is often better for dealing with a large number of specific actors, while data parallelism is often better for dealing with a large number of repetative tasks on the same data, such as a large matrix.
+The latter is more common for scientific computation and will be used extensively in this text.
+
+In the realm of data parallelism, there is an extreme case where the data is \textit{embarrassingly parallel}.
+Here, there could be a large matrix of data to manipulate, but no single element depends on any other element.
+This means that when distributing computation along this matrix, we can simply assign tasks to each core without considering interations with the rest of the data set.
+In this way, it is embarrassingly easy to parallelize, and hence the term \textit{embarrassingly parallel}.
+
+\subsection{Comparison with CPU computation}
+
+Though GPGPU and massively parallel computation work especially well on embarrassingly parallel systems, there are several problems that are poorly suited to parallelization.
+For example, any task that is inherently iterative (such as summation) or recursive (such as tree traversal) is not suited for parallel computation.
+Even so, there are ways to work with these problems such that they are better suited for massively parallel devices, and these will be covered when relelvant to the development of GPUE.
+
+In addition to these algorithmic limitations, GPU cards have several notable drawbacks in terms of memory available on individual cards and data transfer between GPU's and between the GPU and CPU through the PCI bandwidth.
+Thought the GPU is ultimately faster at performing certain tasks, it is better at performing tasks that are not memory limited.
+As such, when simulating a large system on the GPU, we often limit the resolution to what can fit onto the GPU memory.
+Until recently, this limited the size of our simulated wavefunction to roughly $512^3$ on a single Tesla K80 card.
+Higher resolution simulations could be done by using more recent cards (such as the Tesla V100) or by using multiple cards; however, because it takes time to transfer data between GPUs, we preferred to use a single card where possible.
+This has ultimately lead to the implementation of the Compressed Split-Step Fourier Method (CSSFM) on GPU cards for superfluid vortex dynamics.
+
+\subsection{Comparison between various languages for GPGPU computation}
+
+As one might expect, specialized programming languages are necessary to write code that compiles and runs on GPU architecture.
+There are several known libraries to extend modern programming languages such as matlab, python, and C++ (with OpenACC) to GPU devices; however, we will limit this discussion to common programming methods that allow fine-grained control of GPU memory and could be used for the development of GPUE.
+
+\subsubsection{CUDA}
+CUDA is a computing API provided by nvidia for interfacing with nvidia GPUs and is the industry standard for GPGPU programming.
+CUDA is primarily limited by the nvidia-specific hardware it runs on, and although nvidia currently produces the most common GPUs for GPGPU programming, AMD GPU devices are also available and often cheaper for a similar level of computation.
+In addition, CUDA support has recently ceased for MacOS systems as they are no longer bundles with current generation Mac computers.
+
+GPUE was written entirely in CUDA; however, due to the aforementioned limitations, there has been some consideration to re-writing the software in OpenCL or Julia.
+
+\subsubsection{OpenCL}
+
+Though CUDA is the industry-standard for GPGPU programming, OpenCL (Open Compute Language) is competative in terms of performance and has the benefit of being compatable with nvidia and AMD GPU devices.
+OpenCL is completely open-source and works as additional libraries to C or C++ and thus provides all necessary functionality to develop and maintain scientific software.
+In addition, compute kernels are compiled at runtime, meaning that users can modify their functions without recompiling the code.
+This is a huge boon for developers writing software for users who may need to quickly simulate a slightly modified system.
+
+Unfortunately, OpenCL has a rather cumbersome interface and has less peripheral support than CUDA.
+As such, it is rarely used for scientific computing software.
+
+\subsubsection{JulaGPU}
+
 \section{Special considerations for the GPUE codebase}
+
+\subsection{Parallel summation}
+
+\subsection{cuFFT library}
+
+Here, discuss the 1D FFT's over $n$-dimensional data
+
+\subsection{Abstract syntax trees for dynamic fields and memory management}
+
+Mention that OpenCL would potentially solve this without the need for AST's
+
+\subsection{Unit tests available}
+
+\section{Benchmarks with other superfluid simulation software}
+
+\section{Further development}
+In the following chapters, we will discuss further developments to the GPUE codebase and other numerical techniques for simulating various quantum systems with appropriate examples.
