@@ -1,22 +1,168 @@
 \chapter{Introduction to the split-operator method for vortex simulations}
 \label{ch-splitop}
 
+CREATE INTRO QS CHAPTER WITH CONTENTS FROM THIS CHAPTER
+
+The split-operator method is a pseudo-spectral technique for solving partial differential equations and is particularly useful for several nonlinear partial differential equations such as the Gross--Pitaevskii Equation (GPE),
+
+$$
+i \hbar \frac{\partial \Psi(\mathbf{r},t)}{\partial t} = \left(\frac{p^2}{2m} + V_0 + g |\Psi(\mathbf{r},t)|^2 \right)\Psi(\mathbf{r},t)
+$$
+
+where $\mathbf{r}$ is a position vector, $\Psi(\mathbf{r},t)$ is a many-body quantum wavefunction, $p = -i\hbar\nabla$ is the momentum operator, $V_0$ is the trapping potential, g = $\frac{4\pi\hbar^2 a_s}{m}$, $a_s$ is the scattering length of the atomic species, and $m$ is the mass.
+
+As we will see in this section, by solving the GPE with time, we can determine the dynamics of Bose--Einstein Condensates (BECs).
+The states found with the GPE are virtually identical to those found in experiments.
+
+One important technique for solving the GPE is the pseudospectral split-operator method, which requires splitting the hamiltonian into separate operators in position and momentum space and operating on the wavefunction in the appropriate space.
+
 \section{Background information}
+\subsection{The Fourier transform}
+
+The Fourier transform is a fundamental mathematical technique that lies at the heart of the split-operator method.
+There are many intuitive descriptions for interpreting the Fourier transform; however, it is usually introduced as a transformation between the time domain and frequency domain.
+If we have some wave in the time domain with some frequency $\omega$, such as $\sin(2\pi\omega)$, the time-domain and frequency-domain representations are drastically different, as shown in FIGURE.
+Here, it is clear that the signal is full in the time-domain, but is only a single peak in the frequency domain.
+For this reason, the Fourier transform is a fundamental technique for many methods in signal processing.
+
+Mathematically, the Fourier transform can be represented as,
+
+$$
+\mathcal{F}(\xi) = \int_{-\infty}^{\infty}f(t)e^{-2\pi i t \xi}dt
+$$
+
+and the inverse Fourier transform can be represented as,
+
+$$
+f(t) = \int_{-\infty}^{\infty}\mathcal{F}(\xi)e^{2\pi i t \xi}d\xi
+$$
+
+where $t$ is an element in the time-domain, $\xi$ is an element in the frequency domain, $f(t)$ is a time-domain function, and $\mathcal{F}(\xi)$ is a corresponding frequency-domain function.
+
+The Fourier transform is much more powerful for physical systems and can be used to transform between any set of conjugate variables, such as position and momentum.
+This is used heavily in the split-operator method and can be understood in the context of the Heisenberg uncertainty principle.
+
 \subsection{The Heisenberg uncertainty principle}
 
-\subsection{The Fourier transform}
+The Heisenberg uncertainty principle is a relation between the position and momentum components of a quantum system.
+This principle simply states that
+
+$$
+\sigma_x \sigma_p \geq \frac{\hbar}{2},
+$$
+
+where $\sigma_x$ and $\sigma_p$ are the standard deviations of the position-space and momentum-space distributions for a quantum system.
+Because these two variables are inversely proportional, this can be interpreted to mean that as the measurement in one domain becomes more precise, the measurement in to conjugate domain becomes less so.
+
+Because it is possible to transform between position and momentum space with a Fourier transform, we can see this relation simply by performing a Fourier transform on a set of gaussians with an increasing standard deviation, as shown in FIGURE -- SHOW ~10 INCREASINGLY THICK GAUSSIANS NEXT TO THEIR FOURIER TRANSFORM, KEEPING THE COLORS CONSISTENT.
 
 \subsection{The Schr\"odinger equation and the Hamiltonian}
 
-\subsection{Position and momentum-space operators}
+The dynamics of simple quantum systems are governed by the Schr\"odinger equation,
+
+$$
+i\hbar\frac{\partial\Psi(\mathbf{r},t)}{\partial t} = \left(\frac{p^2}{2m} + V_0\right) \Psi(\mathbf{r},t)
+$$
+
+where $\mathbf{r}$ is a position vector, $\Psi(\mathbf{r},t)$ is a many-body quantum wavefunction, $p = -i\hbar\nabla$ is the momentum operator, $V_0$ is the trapping potential.
+For the case of the simple harmonic oscillator in one dimension, $V_0 = \omega_x x^2$, where $\omega_x$ is the trapping frequency in the $x$-dimension.
+In this case, the dynamics can be described almost entirely by the right-hand side of the equation and the Hamiltonian operator,
+
+$$
+\mathcal{\hat H} = \frac{p^2}{2m} + V_0
+$$
+
+which noticeably has two separate operators: one in momentum-space ($\frac{p^2}{2m}$) and another in position-space ($V_0$).
+
+In the case of the GPE, the Hamiltonian is
+
+$$
+\mathcal{\hat H}_{GPE} = \frac{p^2}{2m} + V_0 + g|\Psi(\mathbf{r},t)|^2
+$$
+
+and has an additional position-space component related to the interaction of atoms in a BEC ($g|\Psi(\mathbf{r},t)|^2$).
+For all cases with the NLSE, it is possible to split the Hamiltonian into separate components in separate spaces.
 
 \section{The split-operator method}
 
+As mentioned, the split-operator method splits the Hamiltonian into separate operators and uses the Fourier transform to ensure that these operators work on the wavefunction in the appropriate space.
+
+First, we assume a somewhat general solution to our wavefunction,
+
+$$
+\Psi(\mathbf{r},t + dt) = \left[e^{-\frac{i\hat{H}dt}{\hbar}}\right]\Psi(\mathbf{r},t) = \left[e^{-\frac{i(\hat{H}_r + \hat{H}_k)dt}{\hbar}}\right]\Psi(\mathbf{r},t)
+$$
+
+and assume we are simulating our system by a series of small timesteps ($dt$), we can perform similar splitting by using the Baker-Campbell-Housdorff formula:
+
+$$
+\Psi(\mathbf{r},t+dt) = \left[e^{-\frac{i\hat{H}_rdt}{\hbar}}e^{-\frac{i\hat{H}_kdt}{\hbar}}e^{-\frac{[i\hat{H}_r, i\hat{H}_k]dt^2}{2}}\right]\Psi(\mathbf{r},t)
+$$
+
+This accrues a small amount of error ($dt^2$) related to the commutation of the real and momentum-space components of the Hamiltonian, which is a noticeably high.
+In order to change the $dt^2$ error to $dt^3$, we can split the system by performing a half-step in position space before doing a full-step in momentum space, through a process called \textit{Strang Splitting} like so:
+
+$$
+\Psi(\mathbf{r},t+dt) = \left[e^{-\frac{i\hat{H}_rdt}{2\hbar}}e^{-\frac{i\hat{H}_kdt}{\hbar}}e^{-\frac{i\hat{H}_rdt}{2\hbar}} \right]\Psi(\mathbf{r},t) + \mathcal{O}(dt^3)
+$$
+
+We can then address each part of this solution in chunks, first in position space, then in momentum space, then in position space again by using Fourier Transforms.
+Which looks something like this:
+
+$$
+\Psi(\mathcal{r}, t+dt) = \left[\hat{U}_r\left(\frac{dt}{2}\right)\mathcal{F}^{-1}\left[\hat{U}_k(dt) \mathcal{F} \left[\hat{U}_r\left(\frac{dt}{2}\right) \Psi(\mathbf{r},t) \right] \right] \right] + \mathcal{O}(dt^3)
+$$
+
+where $\hat{U}_r = e^{-\frac{i\hat{H}_rdt}{\hbar}}$, $\hat{U}_k = e^{-\frac{i\hat{H}_kdt}{\hbar}}$, and $\mathcal{F}$ and $\mathcal{F}^{-1}$ indicate forward and inverse Fourier Transforms.
+A flowchart of how we perform this operation can be found in FIGURE, and pseudo-code can be found in LISTING (CHANGE ENUMERATE)
+
+\begin{enumerate}
+\item Multiply the wavefunction in real space with the real-space operator.
+\item Flip to momentum space with a Fourier transform.
+\item Multiply the momentum-space wavefuntion by the momentum-space operator.
+\item Flip to position space with an inverse Fourier transform.
+\item Repeat 1-4 until satisfied.
+\end{enumerate}
+
+This will allow for us to simulate the dynamics of a simple quantum system.
+For example, if we guess that our initial wavefunction is gaussian-like and is slightly offset from the center or the trap, this should allow us to see our wavefunction ``sloshing'' back and forth in our trap, as shown in FIGURE.
+
+In addition, we can find the lowest energy state of our system by performing a Wick rotation and using $\tau = it$ for the simulation.
+This changes the solution from a sinusoidal to an exponential decay in the energy,
+
+$$
+\Psi(\mathbf{r},\tau + d\tau) = \left[e^{-\frac{\hat{H}d\tau}{\hbar}}\right]\Psi(\mathbf{r},\tau) = \left[e^{-\frac{(\hat{H}_r + \hat{H}_k)d\tau}{\hbar}}\right]\Psi(\mathbf{r},\tau)
+$$
+
+ADD ENERGY STATE ARGUMENT
+
 \section{Modifications to the split-operator method for superfluid vortex simulations}
 
-\subsection{Bose--Einstein condensation and the Gross--Pitaevskii equation}
+To induce rotational effects in a BEC, we need to introduce a rotational operator to the Hamiltonian,
+
+$$
+\mathcal{\hat H}_{ROT} = \frac{p^2}{2m} + V_0 + g|\Psi(\mathbf{r},t)|^2 - \Omega L_z
+$$
+
+where $\Omega$ is the rotational frequency and $L_z = xp_y - yp_x$ is the angular momentum operator.
+This will cause a rotation around the $z$ axis and create vortices in the BEC when rotating about some critical rotation frequency.
+Notably, there is also a maximum rotation frequency at which the atoms will leave the trap, which is dependent on the frequency of the external trap.
+
+By using this rotational operator, all vortices will align themselves along the $\hat z$ direction and there are few easy ways to create vortex structures more complicated than vortex lines.
+To generate more complex vortex structures in a stable way, it is often worth implementing an artificial magnetic field by incorporating the rotation term into the $\frac{p^2}{2m}$ term like so:
+
+$$
+\mathcal{\hat H}_{ROT} = \frac{(p-m\mathbf{A})^2}{2m} + V_0 + g|\Psi(\mathbf{r},t)|^2
+$$
+
+Where $\mathbf{A}$ is a gauge field.
+This creates three separate terms: $\frac{p^2}{2m}$, $\frac{\mathbf{mA}^2}(2)$, and $p\mathbf{A}$.
+In the case of rotation, the final term corresponds to $L_z$.
+As we will see in this text, it is possible to generate much more complicated vortex structures with this method.
 
 \subsection{Methods for generating vortex structures}
+
+There are several different methods to generate vortex structures in BEC systems, each of which has distinct advantages and disadvantages.
 
 \subsubsection{Phase imprinting}
 
