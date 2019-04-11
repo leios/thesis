@@ -1,3 +1,42 @@
-\chapter*{Introduction}
+\chapter*{Introduction to quantum systems}
 
-The Split-Step Fourier Method (SSFM) is an essential technique for simulating a large variety of physical systems.
+The Split-Step Fourier Method (SSFM) is an essential technique for simulating a large variety of physical systems; however, for the purposes of this text, we will be focusing on its application to quantum systems and will use primarily physical arguments to understand the details of the method, itself.
+As such, it is important to discuss several important principles of quantum systems, incuding the Schr\"odinger equation which governs the dynamics for simple quantum systems.
+
+\section{The Schr\"odinger equation}
+Quantum particles are often described by their wavefunction $\Psi(\mathbf{r},t)$, where $\mathbf{r}$ is a position-space variable and $t$ is time.
+This does not have a simple physical interpretation; however, the wavefunction density $|\Psi(\mathbf{r},t)|^2$ can be interpreted as a probability distribution in position-space, where peaks represent areas where the quantum particle is likely to be found.
+This means that
+
+$$
+\int_\infty^\infty |\Psi(\mathbf{r},r)|^2 d\mathbf{r} = 1,
+$$
+
+which is a common principle to use to ensure the system is normalized correctly.
+
+For the purposes of this body of work, we can simulate the dynamics of a quantum system by solving the Schr\"odinger equation,
+
+$$
+i\hbar\frac{\partial\Psi(\mathbf{r},t)}{\partial t} = \left(\frac{p^2}{2m} + V_0\right) \Psi(\mathbf{r},t)
+$$
+
+where $p = -i\hbar\nabla$ is the momentum operator and $V_0$ is the trapping potential.
+For the case of the simple harmonic oscillator in one dimension, $V_0 = \omega_x x^2$, where $\omega_x$ is the trapping frequency in the $x$-dimension.
+In this case, the dynamics can be described almost entirely by the right-hand side of the equation and the Hamiltonian operator,
+
+$$
+\mathcal{\hat H} = \frac{p^2}{2m} + V_0
+$$
+
+which noticeably has two separate operators: one in momentum-space ($H_p = \frac{p^2}{2m}$) and another in position-space ($H_v = V_0$).
+In this work, we modify the Hamiltonian to match the various quantum systems we would like to simulate
+
+Now, we will extend this framework to two important quantum systems: the highly correlated Tonks--Girardeau gas and the Bose--Einstein condensate, both of which are used heavily in this work.
+
+\section{Tonks--Girardeau gas}
+
+Discuss Bosons / Fermions
+
+\section{Bose--Einstein condensation}
+
+Discuss BEC
