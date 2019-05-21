@@ -1,8 +1,6 @@
 \chapter{Introduction to the split-operator method for vortex simulations}
 \label{ch-splitop}
 
-CREATE INTRO QS CHAPTER WITH CONTENTS FROM THIS CHAPTER
-
 The split-operator method is a pseudo-spectral technique for solving partial differential equations and is particularly useful for several nonlinear partial differential equations such as the Gross--Pitaevskii Equation (GPE),
 
 $$
@@ -11,7 +9,7 @@ $$
 
 where $\mathbf{r}$ is a position vector, $\Psi(\mathbf{r},t)$ is a many-body quantum wavefunction, $p = -i\hbar\nabla$ is the momentum operator, $V_0$ is the trapping potential, g = $\frac{4\pi\hbar^2 a_s}{m}$, $a_s$ is the scattering length of the atomic species, and $m$ is the mass.
 
-As we will see in this section, by solving the GPE with time, we can determine the dynamics of Bose--Einstein Condensates (BECs).
+By solving the GPE with time, we can determine the dynamics of Bose--Einstein Condensates (BECs).
 The states found with the GPE are virtually identical to those found in experiments.
 
 One important technique for solving the GPE is the pseudospectral split-operator method, which requires splitting the hamiltonian into separate operators in position and momentum space and operating on the wavefunction in the appropriate space.
@@ -56,23 +54,7 @@ Because these two variables are inversely proportional, this can be interpreted 
 
 Because it is possible to transform between position and momentum space with a Fourier transform, we can see this relation simply by performing a Fourier transform on a set of gaussians with an increasing standard deviation, as shown in FIGURE -- SHOW ~10 INCREASINGLY THICK GAUSSIANS NEXT TO THEIR FOURIER TRANSFORM, KEEPING THE COLORS CONSISTENT.
 
-\subsection{The Schr\"odinger equation and the Hamiltonian}
-
-The dynamics of simple quantum systems are governed by the Schr\"odinger equation,
-
-$$
-i\hbar\frac{\partial\Psi(\mathbf{r},t)}{\partial t} = \left(\frac{p^2}{2m} + V_0\right) \Psi(\mathbf{r},t)
-$$
-
-where $\mathbf{r}$ is a position vector, $\Psi(\mathbf{r},t)$ is a many-body quantum wavefunction, $p = -i\hbar\nabla$ is the momentum operator, $V_0$ is the trapping potential.
-For the case of the simple harmonic oscillator in one dimension, $V_0 = \omega_x x^2$, where $\omega_x$ is the trapping frequency in the $x$-dimension.
-In this case, the dynamics can be described almost entirely by the right-hand side of the equation and the Hamiltonian operator,
-
-$$
-\mathcal{\hat H} = \frac{p^2}{2m} + V_0
-$$
-
-which noticeably has two separate operators: one in momentum-space ($\frac{p^2}{2m}$) and another in position-space ($V_0$).
+\subsection{The Gross--Pitaevskii Equation}
 
 In the case of the GPE, the Hamiltonian is
 
