@@ -1,11 +1,8 @@
 \chapter*{Introduction to quantum systems}
-
-ADD CHATTER ABOUT ENERGY SPECTRUMS
-
-CREATE CHAPTER ON VORTEX GENERATION AFTER 1D CHAPTER
+\label{ch:intro}
 
 The Split-Step Fourier Method (SSFM) is an essential technique for simulating a large variety of physical systems; however, for the purposes of this text, we will be focusing on its application to quantum systems and will use primarily physical arguments to understand the details of the method, itself.
-As such, it is important to discuss several important principles of quantum systems, incuding the Schr\"odinger equation which governs the dynamics for simple quantum systems along with several notable variations.
+As such, it is important to discuss several principles of quantum systems, incuding the Schr\"odinger equation which governs the dynamics for simple quantum systems along with several notable variations that correspond to physical systems to be discussed in this work.
 
 \section{The Schr\"odinger equation}
 Quantum particles are often described by their wavefunction $\Psi(\mathbf{r},t)$, where $\mathbf{r}$ is a position-space variable and $t$ is time.
@@ -13,11 +10,13 @@ This does not have a simple physical interpretation; however, the wavefunction d
 As with most probability distributions,
 
 \begin{equation}
+    \label{eqn:norm}
     \int_\infty^\infty |\Psi(\mathbf{r},r)|^2 d\mathbf{r} = N,
 \end{equation}
 
-where $N$ is the number of particles in the system.
-This is a common method to ensure any quantum system is normalized correctly and will be discussed later in this body of work.
+\noindent where $N$ is the number of particles in the system.
+For certain simulations with the SSFM method, it is important to ensure the quantum system is normalized correctly and Equation~(\ref{eqn:norm}) is used for this purpose.
+We will cover techniques to perform the normalization on massively parallel Graphics Processing Units (GPUs) in Chapter~\ref{ch:gpu}.
 
 For the purposes of this body of work, we can simulate the dynamics of a quantum system by solving the Schr\"odinger equation,
 
@@ -26,23 +25,69 @@ For the purposes of this body of work, we can simulate the dynamics of a quantum
     \label{eqn:schrody}
 \end{equation}
 
-where $p = -i\hbar\nabla$ is the momentum operator and $V_0$ is the trapping potential.
-This is a partial differential equation that relates the change in the wavefunction with time to physical arguments like momentum and position.
+\noindent where $p = -i\hbar\nabla$ is the momentum operator and $V_0$ is the trapping potential.
+This is a partial differential equation that relates the change in the wavefunction with time on the left-hand side to physical arguments like momentum and position on the right.
+
 For example, in the case of the simple harmonic oscillator in one dimension, $V_0 = \omega_x x^2$, where $\omega_x$ is the trapping frequency in the $x$-dimension.
-Figure [ADD] shows the lowest energy state, also called the \textit{ground state} of a quantum system in this case.
-Notably, the quantum particle rests in the center of the trap and if the trap is moved, the particle will move with it.
-Many quantum engineering systems require precise control of the trapping potential to manipulate quantum systems, and we will discuss two such methods (quantum optimal control and chortcuts to adiabaticity) in Chapter [REF].
+Figure [ADD] shows the lowest energy state , also called the \textit{ground state} of a quantum system consisting of a single particle.
+Notably, the quantum particle rests in the center of the trap and if the trap is moved, the particle will move with it and oscillate about the new trap location.
+Many quantum engineering systems require precise control of the trapping potential to manipulate quantum systems, and we will discuss two such methods (quantum optimal control and shortcuts to adiabaticity) in Chapter~\ref{ch:1d}.
 
 \section{The Hamiltonian}
 
-In this case of the Schr\"odinger equation in Eqn(\ref{eqn:schrody}), the dynamics can be described almost entirely by the right-hand side of the equation and the Hamiltonian operator,
+In the case of the Schr\"odinger equation in Eqn(\ref{eqn:schrody}), the dynamics can be described almost entirely by the right-hand side of the equation and the Hamiltonian operator,
 
 \begin{equation}
 \mathcal{\hat H} = \frac{p^2}{2m} + V_0
 \end{equation}
 
-which noticeably has two separate operators: one in momentum-space ($H_p = \frac{p^2}{2m}$) and another in position-space ($H_v = V_0$).
-The Hamiltonian describes how the quantum system evolves with time and in this work, we modify the Hamiltonian to match the various quantum systems we would like to simulate.
+\noindent which noticeably has two separate operators: one in momentum-space ($H_p = \frac{p^2}{2m}$) and another in position-space ($H_v = V_0$).
+The Hamiltonian describes how the quantum system evolves with time, and in this work, we modify the Hamiltonian to match the various quantum systems we would like to simulate.
+
+\section{The Heisenberg uncertainty principle}
+
+The Heisenberg uncertainty principle is a relation between the position and momentum components of a quantum system.
+This principle simply states that
+
+$$
+\sigma_x \sigma_p \geq \frac{\hbar}{2},
+$$
+
+where $\sigma_x$ and $\sigma_p$ are the standard deviations of the position-space and momentum-space distributions for a quantum system.
+Because these two variables are inversely proportional, this can be interpreted to mean that as the measurement in one domain becomes more precise, the measurement in to conjugate domain becomes less so.
+
+Because it is possible to transform between position and momentum space with a Fourier transform, we can see this relation simply by performing a Fourier transform on a set of gaussians with an increasing standard deviation, as shown in FIGURE -- SHOW ~10 INCREASINGLY THICK GAUSSIANS NEXT TO THEIR FOURIER TRANSFORM, K
+EEPING THE COLORS CONSISTENT.
+
+\section{The Fourier transform}
+
+The Fourier transform is a fundamental mathematical technique that lies at the heart of the split-operator method.
+There are many intuitive descriptions for interpreting the Fourier transform; however, it is usually introduced as a transformation between the time domain and frequency domain.
+If we have some wave in the time domain with some frequency $\omega$, such as $\sin(2\pi\omega)$, the time-domain and frequency-domain representations are drastically different, as shown in FIGURE.
+Here, it is clear that the signal is full in the time-domain, but is only a single peak in the frequency domain.
+For this reason, the Fourier transform is a fundamental technique for many methods in signal processing.
+
+Mathematically, the Fourier transform can be represented as,
+
+$$
+\mathcal{F}(\xi) = \int_{-\infty}^{\infty}f(t)e^{-2\pi i t \xi}dt
+$$
+
+and the inverse Fourier transform can be represented as,
+
+$$
+f(t) = \int_{-\infty}^{\infty}\mathcal{F}(\xi)e^{2\pi i t \xi}d\xi
+$$
+
+where $t$ is an element in the time-domain, $\xi$ is an element in the frequency domain, $f(t)$ is a time-domain function, and $\mathcal{F}(\xi)$ is a corresponding frequency-domain function.
+
+The Fourier transform is much more powerful for physical systems and can be used to transform between any set of conjugate variables, such as position and momentum.
+This is used heavily in the split-operator method and can be understood in the context of the Heisenberg uncertainty principle.
+
+
+\section{Energy Spectra}
+
+ADD CHATTER ABOUT ENERGY SPECTRA!!!
 
 Now we will begin introducing important details for the physical systems used in this work.
 
@@ -67,7 +112,7 @@ Now, we will extend this framework to two important quantum systems: the Tonks--
 
 \subsection{Tonks--Girardeau gas}
 
-Discuss Bosons / Fermions
+ADD SPINLESS NON-INTERACTING FERMIONS AND BOSE--FERMI MAPPING THEOREM
 
 \subsection{Bose--Einstein condensation and the Gross--Pitaevskii Equation}
 
@@ -128,255 +173,4 @@ When written in the time-independent form it determines the chemical potential $
 \end{equation}
 
 This equation allows us to determine the full dynamics of a BEC system and the numerical solutions will be discuss in Section~\ref{sec:code}. Similar derivations of the GPE can be found in many introductory texts on BEC physics, such as~\cite{Fetter2003,  Pethick2002, Fetter2009}.
-
-\section{Dynamics of superfluid systems}
-\label{sec"superfluid}
-
-A superfluid is a state of matter that acts like a classical fluid withoug viscosity.
-This means that once a superfluid is set in motion, there is no retarding force to keep it from flowing.
-There are a few known systems in which superfluidity can exist, such as $^4$He (sometimes called Helium II when in its superfluid phase)~\cite{Allen1938}, neutron stars~\cite{Migdal1960} or BEC systems~\cite{Einstein1925, Anderson1995}.
-As stated, we will focus on BEC systems, but it is important to note that any results shown for superfluid vortex dynamics may have applications beyond cold, atomic physics.
-
-Though there are many interesting differences between classical fluids and superfluids, we will focus here on vortex dynamics.
-By rotating a fluid, it is possible to create a vortex around the axis of rotation; however, because of the viscosity of a classical fluid, the vortex will begin to shrink and eventually disappear without constant driving.
-In a superfluid, this is not necessarily the case.
-
-In addition, due to the quantization of angular momentum in quantum mechanics, the vorticity in a superfluid is also quantized with the circulation defined as~\cite{Pethick2002},
-\begin{equation}
-\Gamma = \oint\mathbf{v} \cdot d \mathbf{l} = 2\pi \frac{\ell \hbar}{m},
-\label{Eq:phase}
-\end{equation}
-where $\ell$ is an integer value known as the phase winding.
-In this case, the velocity is
-\begin{equation}
-v = \frac{\hbar}{m}\mathbf{\nabla}\phi,
-\end{equation}
-where $m$ is the mass of the atomic species.
-Because the energy $E \propto \ell^2$, as a superfluid is spun faster, a vortex will not grow or shrink in size, but multiple vortices will spawn instead~\cite{Pethick2002}.
-In other words, it is energetically favorable for two vortices of smaller angular mementum to form instead of a single vortex with a large amuont of angular momentum.
-Large amounts of angular momentum will therefore lead to many vortices, which will arrange themselves in a triangular lattice structure known as an Abrikosov lattice~\cite{Abrikosov1957, Fetter2001}.
-This behaviour is identical to that of Type II superconductors under the effects of a magnetic field.
-
-Vortices in superfluid systems are also peculiar in their behaviour when compared to classical vortices.
-Superfluid vortices must either end at the end of the condensate or reconnect in the form of vortex rings or other, more complicated vortex structures~\cite{Reichl2013}.
-Because the circulation around superfluid vortices is quantized, when two vortices approach each other with different velocity fields, they may reconnect into smaller, more energetically favorable vortex structures.
-During this reconnection, the abrupt change in energy will create a sound wave at the reconnection site~\cite{Feynman1955}.
-
-Three dimensional vortex structures have been notoriously difficult to generate in an experimental laboratory... ADD MORE FROM VORTEX STATES PAPER!!!
-
-section{Artificial gauge fields}
-\label{sec:gauge}
-
-BECs are typically weakly interacting and composed of neutral atoms, which do not have charge that is directly affected by electric and magnetic fields; however, artificially magnetic fields can still play a crucial role in many cold atomic systems.
-For example, artificial magnetic fields can lead to the generation of vortices in BEC systems~\cite{Lin2009}.
-Since we desire to generate vortex rings with artificial magnetic fields, a detailed introduction, similar to that given by Dalibard in~\cite{Dalibard2015}, will be presented below.
-
-From classical electrodynamics, we define can the magnetic field as
-\begin{equation}
-\mathbf{B} = \nabla \times \mathbf{A},
-\end{equation}
-where $\mathbf{A}$ is known as a vector potential and has no classical physical interpretation.
-Thus, it can be be defined somewhat arbitrarily.
-For example, if we have a uniform magnetic field in the $\hat z$ direction, $\mathbf{B} = B \hat z$, we may choose from many different options, such as the symmetric gauge
-\begin{equation}
-\mathbf{A}(r) = \frac{B}{2}(x \hat y - y \hat x),
-\end{equation}
-or the Landau gauge
-\begin{equation}
-\begin{split}
-\mathbf{A}(r) &= Bx \hat y, \\
-\mathbf{A}(r) &= By \hat x.
-\end{split}
-\end{equation}
-
-Even though $\mathbf{A}$ has no \textit{classical} ramifications, in the \textit{quantum} realm, it can have physical implications.
-The most famous example of this is the Aharonov-Bohm effect~\cite{Aharonov1959}. 
-Imagine a solenoid extending infinitely in the $\hat z$ direction, with an of electric current circulating through to create a static magnetic field through the center of the solenoid, but not on the exterior. 
-As mentioned above, this magnetic field could correspond to a few different gauge choices.
-If we send a charged particle from one point on the exterior of the solenoid to an identical point on the other side of the solenoid by avoiding the solenoid, no matter what path we choose to send the particle along, there would be no significant difference between the different chosen paths.
-This is obvious because the magnetic field is negligible on the exterior of the solenoid.
-If we instead imagine sending a quantum particle around the solenoid, we could imagine a phase associated with a non-zero $\mathbf{A}$ given by
-\begin{equation}
-\phi = \frac{q}{\hbar}\int_P \mathbf{A} \cdot d\mathbf{r},
-\end{equation}
-where $q$ is the charge of the particle and $P$ is the chosen path.
-If we connect the two paths, then we could imagine a change in phase related to the magnetic flux $\Phi_B = \mathbf{B}\eta$, where $\eta$ is the area within the object. 
-That phase difference would be
-\begin{equation}
-\Delta\phi = \frac{q\Phi_B}{\hbar}.
-\end{equation}
-
-The Aharonov--Bohm effect is a simple example with huge consequences: gauge fields matter in quantum mechanics. 
-In the following, we will discuss how to use this consequence to our advantage by first rotating our system to generate vortices, and then generating vortices again by using geometric gauge fields.
-
-\subsection{Artificial Magnetic Fields With Rotation}
-\label{sec:rot}
-
-Even with an appropriate gauge field, to create rotation we still must somehow provide angular momentum to our cold atomic system.
-Imagine a charged particle in a magnetic field undergoing gyromotion through the Lorentz force law, $F=q\mathbf{v} \times \mathbf{B}$.
-By applying the appropriate transformation, the Hamiltonian for this system becomes
-\begin{equation}
-\hat H = \frac{(\hat{\mathbf{p}} - q \mathbf{A}(\hat{\mathbf{r}}))^2}{2m} + V_0(\hat{\mathbf{r}}),
-\label{eqn:lorentz}
-\end{equation}
-where $q$ is the charge of the particle and $\hat p$ is its momentum.
-Now, let us consider the same law, except with artificial magnetic fields created for cold, atomic systems.
-
-As mentioned before, cold atoms are neutral and because of this, we must find ways to simulate the effects of magnetic fields instead of using magnetic fields themselves.
-Imagine a plane rotating with an angular velocity $\Omega$ around the $z$-axis ($\mathbf{\Omega} = \Omega \hat z$). 
-In this case, the Coriolis force is defined as
-\begin{equation}
-\mathbf{F}_{\text{Coriolis}} = 2m \mathbf{v} \times \mathbf{\Omega},
-\end{equation}
-which is formally similar to the Lorentz force law.
-By applying the transformation $\hat H = \hat H_0 - \Omega \hat L_z$, where $\hat L_z = x\partial_y - y\partial_x$, we find~\cite{Bhat2008}
-\begin{equation}
-\begin{split}
-\hat H &= -\frac{\hbar^2}{2m}\nabla^2 + \frac 1 2 m \omega^2(x^2 + y^2) - \frac{\hbar \Omega}{i}(x\partial_y - y\partial_x) \\
- &= \frac{1}{2m}\left(\frac{\hbar}{i}\nabla - m(\mathbf{\Omega} \times \mathbf{r})\right)^2 + \frac m 2 \left( \omega^2 - \Omega^2 \right)r^2 \\
- &= \frac{(\hat{\mathbf{p}}-m\mathbf{A}(\mathbf{r}))^2}{2m}+ V_0(\mathbf{r}),
-\end{split}
-\end{equation}
-where $\omega$ is the trapping frequency for a symmetric two-dimensional harmonic trap, $\mathbf{A} \equiv \mathbf{\Omega} \times \mathbf{r}$, and $V_0 = m/2 \left( \omega^2 - \Omega^2 \right)r^2$.
-The final form is similar to that of Equation~\eqref{eqn:lorentz} for the Lorentz force law and coincide with an effective magnetic field according to $2 \mathbf \Omega \rightarrow \mathbf B$.
-In this way, we may recreate the rotation expected from the Lorentz force law in a cold atomic system with an artificial magnetic field~\cite{Peshkin1989, Madison2000, Abo-Shaeer2001}.
-
-With this method of generating vortices, the potential term $V_0$ becomes negative when $\Omega > \omega$, which allows particles to exit the trap, and there have been experiments rotating a BEC up to this limit~\cite{Schweikhard2004}.
-In 2009, Lin~\textit{et~al.} showed that it was possible to generate vortices with geometric gauge fields instead, which can circumvent this limitation~\cite{Lin2009}.
-We will now discuss how to generate vortices in BEC systems with geometric gauge fields instead of rotation.
-
-\subsection{Geometric Gauge Fields}
-\label{sec:geom}
-
-In the following, we will discuss the adiabatic motion of free atoms undergoing geometric phase transformations through the Berry phase. 
-For this, we assume that our system has an external parameter $\lambda$ such that
-\begin{equation}
-\hat H(\lambda) \ket{\psi_n(\lambda)} = E_n(\lambda)\ket{\psi_n(\lambda)},
-\end{equation}
-where the set of eigenstates $\left\{ \ket{\psi_n(\lambda)} \right\}$ allow us to define the time evolution of our system such that
-\begin{equation}
-\ket{\psi(t)} = \sum_n c_n(t) \ket{\psi_n(\lambda(t))},
-\end{equation}
-and we consider $\lambda$ to evolve slowly with time. If we consider the system to begin with
-\begin{equation}
-c_l(0) = 1,
-\qquad
-c_n(0) = 0, 
-\qquad
-\text{for all } n\neq l
-\end{equation}
-the state of the system is proportional to $\ket{\psi_l(\lambda(t))}$.
-In this case, $c_l(t)$ is determined by the equation
-\begin{equation}
-i \hbar \dot{c}_l =  [E_l(t) - \dot{\lambda} \cdot \mathbf{A}_l(\lambda)]c_l,
-\label{Bcnx-1}
-\end{equation}
-where 
-\begin{equation}
-\mathbf{A}_l(\lambda) = i \hbar \braket{\psi_l|\nabla\psi_l}.
-\label{eqn:Bcnx}
-\end{equation}
-This quantity is called the Berry connection, which is considered a vector potential, such that we can define a new artificial magnetic field, the Berry curvature as
-\begin{equation}
-\mathbf{B}_l = \mathbf{\nabla} \times \mathbf{A}_l.
-\label{eqn:BC}
-\end{equation}
-
-Now imagine that the $\lambda$ parameter follows the closed contour $C$ such that $\lambda(T) = \lambda(0)$. 
-By integrating Equation~\eqref{Bcnx-1} above, we find
-\begin{equation}
-c_l(t) = e^{i \Phi_{\text{dyn}}(t)}e^{i\Phi_{\text B}(T)}c_l(0),
-\label{eqn:c}
-\end{equation}
-where
-\begin{equation}
-\begin{split}
-\Phi_{\text{dyn}}(T) &= - \frac{1}{\hbar}\int_0^TE_l(t)dt \\
-\Phi_{\text{Berry}} (T)&= \frac{1}{\hbar} \int_0 ^T \dot{\lambda} \cdot \mathbf{A}_l(\lambda)dt = \frac{1}{\hbar}\oint\mathbf{A}_l(\lambda) \cdot d\lambda
-\end{split}
-\end{equation}
-In this case $\Phi_{\text{Berry}}$ is called the Berry phase and it only depends on the motion path of $\lambda$. 
-It should be mentioned that both of the exponential terms in Equation~\eqref{eqn:c} are gauge invariant and thus remain unchanged when $\ket{\psi_n(\lambda)}$ is multiplied by a phase factor.
-This phase allows us to transfer angular momentum into our BEC and generate a vortex geometry like those formed in the 2009 experiment by Lin~\textit{et~al.}~\cite{Lin2009}.
-A method to generate these gauge fields in an experimentally realizable way will be described in Section~\ref{sec:evanescent}, but for now let us discuss the possible dynamics of similar in three dimensional systems.
-
-%-------------------------------------------------------------------------------
-\section{Vortex ring dynamics in BEC systems}
-\label{sec:vortex}
-
-As mentioned in Section~\ref{sec:intro}, in BEC systems with large amounts of angular momentum and a single axis of rotation, the vortices will create a two-dimensional Abrikosov lattice. 
-This regular structure is a direct consequence of the quantization of angular momentum in quantum mechanics.
-There are many interesting features to vortices in superfluid systems, many of which follow from classical fluid dynamic theory~\ref{Fetter2009}, which is a well-studied field and covered in many texts~\cite{Faber1995, Kundu2012, Tritton1988, Landau1987}
-Here, we discuss the dynamics of vortex rings in BEC systems.
-
-In a three dimensional BEC and other superfluid systems, vortices can be described as as a system of freely-moving, current-carrying wires located along the axis of rotation. 
-In this way, it is possible to model such systems using the Biot-Savart law ~\cite{Schwarz1985}
-\begin{equation}
-    \boldsymbol{v}_s(\boldsymbol{r},t) = \frac{\kappa}{4\pi}\int\frac{|s_1-\boldsymbol{r}|\times ds_1}{|s_1-\boldsymbol{r}|^3},
-\label{eqn:BS}
-\end{equation}
-where $\kappa = \hbar / m$ is the circulation. 
-This method of modelling a superfluid system has been called the ``vortex filament model,'' and allows us to attain an intuitive understanding for the motion of vortices in a superfluid system; however, it falls short in several areas, such as sound wave propagation and vortex reconnections~\cite{Zuccher2012}. 
-In electrodynamics, current can only flow within a closed loop or between two conductors.
-Similarly, when a vortex filament is generated by injecting angular momentum into a superfluid system, it must either end at the edges of the superfluid or reconnect with other vortices.
-
-Imagine providing a superfluid with an angular momentum of $\hbar k$.
-In this case, a single vortex will be generated along the axis of rotation.
-If another vortex is generated, we would expect it to change the dynamics of the superfluid and move our initial vortex.
-If the new vortex has an angular momentum of $+\hbar k$, the two vortices will be repelled from each other, and if the new vortex has an angular momentum of  $-\hbar k$, it will be called an ``antivortex'' and the pair will be attracted to each other, eventually annihilating on contact.
-If we rotate the condensate with integer multiples of $\hbar k$ angular momentum, we can generate many vortices, all rotating in the same direction and repelling off each other, creating the Abrikosov lattice structure from their mutual repulsion~\cite{Fetter2010}.
-
-ADD FIGURE
-
-By modifying our axis of rotation, we may imagine more complex vortex topologies to be created. 
-For example, imagine the toroidal velocity field shown in Figure~\ref{fig:V_R}, which will lead to  vortex filaments generating a ring instead of a single line. 
-This vortex ring structure is common in large, three dimensional modelling of fluid systems and is a direct consequence of the required connections of vortex lines.
-In other words, the stability of vortex rings is ensured by Kelvin's theorem~\cite{Donnelly1991}, which means that unstable excitations may decay into vortex rings~\cite{Anderson2001}.
-Now, we will discuss the dynamics of these rings.
-
-We will begin our discussion of vortex rings with the thin-core approximation in inviscid fluids, as described by Barenghi and Donnelly~\cite{Barenghi2009}. 
-If we imagine a thin vortex ring of radius $R\gg a$, where a is the core radius, and  with circulation $\Gamma$ moving in an inviscid fluid with density $\rho$, the kinetic energy of the ring is given by
-\begin{equation}
-    E = \frac 1 2 \rho \Gamma^2R\left[\ln\left(\frac{8R}{a}\right)-\alpha\right],
-\end{equation}
-where $\alpha$ is a parameter determined by the system, and different
-values of $\alpha$ correspond to different core models for vortex motion. 
-For example, it is 1.615 for the GPE~\cite{Roberts1971}.
-This equation follows from the Biot-Savart law (Equation~\eqref{eqn:BS}) above. 
-The momentum of the system is given by
-\begin{equation}
-    p = \rho \Gamma \pi R^2,
-\end{equation}
-and the self-induced velocity is~\cite{Roberts1970}
-\begin{equation}
-    v = \frac{\partial E}{\partial p} = \left(\frac{\Gamma}{4 \pi R}\left[\ln(\frac{8R}{a})-\beta\right]\right),
-\end{equation}
-with $\beta = \alpha - 1$ under constant pressure, and $\beta = \alpha - 3/2$ under constant volume. 
-This method of vortex ring analysis has been extended to rings with finite, but small values of the core radius~\cite{Fraenkel1970, Fraenkel1972}.
-%\tbc{These equations come from the Biot-Savart law above.
-%If we consider a filament that is infinitesimally thin, we find an energy $E = \rho \Gamma^2 R/2$ and a velocity of $v = \Gamma / 4 \pi R$.}
-
-If we imagine a single vortex ring, we can define a vortex bubble as its region of influence within the surrounding fluid. 
-If we take a two-dimensional slice of this ring as shown in Figure~\ref{fig:V_B}, we may represent the vortex bubble as the region influenced by two infinitely long, parallel vortex filaments with opposite vorticity. 
-There is an interesting analog to vortex rings and current-carrying loops in the theory of electromagnetism. 
-With a current-carrying wire, a dipolar magnetic field will be created and there is a well-defined spherical region in space where the loop's field overrides any external field. 
-In this way, the current density within the wire is related to the vorticity of a vortex loop at its core and the wire's magnetic field is related to the fluid velocity, $v$~\cite{Fetter1966}.
-
-ADD FIGURE
-
-In the case of multiple interacting vortex rings, we can expect to find many similar features in superfluids to what has been found previously in classical, viscous fluids. 
-If two vortex rings are generated in the same plane and in close proximity, it could be possible for the two velocity fields to interact, causing one ring to expand and slow down while the other contracts and speeds up. 
-Under the right conditions, the lagging ring can pass the forward ring through a process known as ``leapfrogging"~\cite{Sommerfield1950, Caplan2014}.
-
-In addition to leapfrogging, vortex rings can interact through direct collisions~\cite{Shariff1992}. 
-In superfluid $^4$He, some of the earliest experiments on vortex collisions with vortex rings were performed by Schwarz in 1968~\cite{Schwarz1968}.
-In the case of a head-on collision, two identical, moving vortex rings will first grow in size before dispersing into a series of smaller vortex rings around their common circumference~\cite{Lim1995}. 
-These smaller rings are created by vortex reconnection, which can occur any time vortex lines are facing anti-parallel directions.
-
-Finally, we will briefly discuss vortex reconnections.
-As predicted by Feynman in 1955, vortex reconnections in a superfluid lead to larger vortices continually reconnecting into smaller ones until the loops become small enough to decay from dissipation or from interactions with boundaries.~\cite{Feynman1955}.
-These reconnections are thought to produce sound waves when vortices directly interact and Kelvin waves when vortices indirectly interact~\cite{Paoletti2011}.
-When a vortex ring structure is not pinned by either gauge fields or rotation, it will evolve naturally by reconnecting into smaller and smaller vortex rings~\cite{Jackson1999}. 
-This means that we expect to see vortex reconnections in any sufficiently complicated vortex tangle~\cite{Barenghi2014}.
-In addition, when simulations of vortex rings were performed by Jones and Roberts, they found that by computing vortex rings towards the limit of $R \rightarrow a$, they eventually found a solitary wave~\cite{Jones1982, Berloff2005}.
 

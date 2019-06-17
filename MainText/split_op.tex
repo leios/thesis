@@ -14,57 +14,6 @@ The states found with the GPE are virtually identical to those found in experime
 
 One important technique for solving the GPE is the pseudospectral split-operator method, which requires splitting the hamiltonian into separate operators in position and momentum space and operating on the wavefunction in the appropriate space.
 
-\section{Background information}
-\subsection{The Fourier transform}
-
-The Fourier transform is a fundamental mathematical technique that lies at the heart of the split-operator method.
-There are many intuitive descriptions for interpreting the Fourier transform; however, it is usually introduced as a transformation between the time domain and frequency domain.
-If we have some wave in the time domain with some frequency $\omega$, such as $\sin(2\pi\omega)$, the time-domain and frequency-domain representations are drastically different, as shown in FIGURE.
-Here, it is clear that the signal is full in the time-domain, but is only a single peak in the frequency domain.
-For this reason, the Fourier transform is a fundamental technique for many methods in signal processing.
-
-Mathematically, the Fourier transform can be represented as,
-
-$$
-\mathcal{F}(\xi) = \int_{-\infty}^{\infty}f(t)e^{-2\pi i t \xi}dt
-$$
-
-and the inverse Fourier transform can be represented as,
-
-$$
-f(t) = \int_{-\infty}^{\infty}\mathcal{F}(\xi)e^{2\pi i t \xi}d\xi
-$$
-
-where $t$ is an element in the time-domain, $\xi$ is an element in the frequency domain, $f(t)$ is a time-domain function, and $\mathcal{F}(\xi)$ is a corresponding frequency-domain function.
-
-The Fourier transform is much more powerful for physical systems and can be used to transform between any set of conjugate variables, such as position and momentum.
-This is used heavily in the split-operator method and can be understood in the context of the Heisenberg uncertainty principle.
-
-\subsection{The Heisenberg uncertainty principle}
-
-The Heisenberg uncertainty principle is a relation between the position and momentum components of a quantum system.
-This principle simply states that
-
-$$
-\sigma_x \sigma_p \geq \frac{\hbar}{2},
-$$
-
-where $\sigma_x$ and $\sigma_p$ are the standard deviations of the position-space and momentum-space distributions for a quantum system.
-Because these two variables are inversely proportional, this can be interpreted to mean that as the measurement in one domain becomes more precise, the measurement in to conjugate domain becomes less so.
-
-Because it is possible to transform between position and momentum space with a Fourier transform, we can see this relation simply by performing a Fourier transform on a set of gaussians with an increasing standard deviation, as shown in FIGURE -- SHOW ~10 INCREASINGLY THICK GAUSSIANS NEXT TO THEIR FOURIER TRANSFORM, KEEPING THE COLORS CONSISTENT.
-
-\subsection{The Gross--Pitaevskii Equation}
-
-In the case of the GPE, the Hamiltonian is
-
-$$
-\mathcal{\hat H}_{GPE} = \frac{p^2}{2m} + V_0 + g|\Psi(\mathbf{r},t)|^2
-$$
-
-and has an additional position-space component related to the interaction of atoms in a BEC ($g|\Psi(\mathbf{r},t)|^2$).
-For all cases with the NLSE, it is possible to split the Hamiltonian into separate components in separate spaces.
-
 \section{The split-operator method}
 
 As mentioned, the split-operator method splits the Hamiltonian into separate operators and uses the Fourier transform to ensure that these operators work on the wavefunction in the appropriate space.
