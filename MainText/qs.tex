@@ -1,0 +1,173 @@
+\chapter{Introduction to quantum systems}
+\label{ch:qs}
+
+\section{The Schr\"odinger equation}
+Quantum particles are often described by their wavefunction $\Psi(\mathbf{r},t)$, where $\mathbf{r}$ is a position-space variable and $t$ is time.
+This does not have a simple physical interpretation; however, the wavefunction density $|\Psi(\mathbf{r},t)|^2$ can be interpreted as a probability distribution in position-space, where peaks represent areas where the quantum particle is likely to be found.
+As with most probability distributions,
+
+\begin{equation}
+    \label{eqn:norm}
+    \int_\infty^\infty |\Psi(\mathbf{r},r)|^2 d\mathbf{r} = N,
+\end{equation}
+
+\noindent where $N$ is the number of particles in the system.
+For certain simulations with the SSFM method, it is important to ensure the quantum system is normalized correctly and Equation~(\ref{eqn:norm}) is used for this purpose.
+We will cover techniques to perform the normalization on massively parallel Graphics Processing Units (GPUs) in Chapter~\ref{ch:gpu}.
+
+For the purposes of this body of work, we can simulate the dynamics of a quantum system by solving the Schr\"odinger equation,
+
+\begin{equation}
+    i\hbar\frac{\partial\Psi(\mathbf{r},t)}{\partial t} = \left(\frac{p^2}{2m} + V_0\right) \Psi(\mathbf{r},t)
+    \label{eqn:schrody}
+\end{equation}
+
+\noindent where $p = -i\hbar\nabla$ is the momentum operator and $V_0$ is the trapping potential.
+This is a partial differential equation that relates the change in the wavefunction with time on the left-hand side to physical arguments like momentum and position on the right.
+
+For example, in the case of the simple harmonic oscillator in one dimension, $V_0 = \omega_x x^2$, where $\omega_x$ is the trapping frequency in the $x$-dimension.
+Figure [ADD] shows the lowest energy state , also called the \textit{ground state} of a quantum system consisting of a single particle.
+Notably, the quantum particle rests in the center of the trap and if the trap is moved, the particle will move with it and oscillate about the new trap location.
+Many quantum engineering systems require precise control of the trapping potential to manipulate quantum systems, and we will discuss two such methods (quantum optimal control and shortcuts to adiabaticity) in Chapter~\ref{ch:1d}.
+
+\section{The Hamiltonian}
+
+In the case of the Schr\"odinger equation in Eqn(\ref{eqn:schrody}), the dynamics can be described almost entirely by the right-hand side of the equation and the Hamiltonian operator,
+
+\begin{equation}
+\mathcal{\hat H} = \frac{p^2}{2m} + V_0
+\end{equation}
+
+\noindent which noticeably has two separate operators: one in momentum-space ($H_p = \frac{p^2}{2m}$) and another in position-space ($H_v = V_0$).
+The Hamiltonian describes how the quantum system evolves with time, and in this work, we modify the Hamiltonian to match the various quantum systems we would like to simulate.
+
+\section{The Heisenberg uncertainty principle}
+
+The Heisenberg uncertainty principle is a relation between the position and momentum components of a quantum system.
+This principle simply states that
+
+$$
+\sigma_x \sigma_p \geq \frac{\hbar}{2},
+$$
+
+where $\sigma_x$ and $\sigma_p$ are the standard deviations of the position-space and momentum-space distributions for a quantum system.
+Because these two variables are inversely proportional, this can be interpreted to mean that as the measurement in one domain becomes more precise, the measurement in to conjugate domain becomes less so.
+
+Because it is possible to transform between position and momentum space with a Fourier transform, we can see this relation simply by performing a Fourier transform on a set of gaussians with an increasing standard deviation, as shown in FIGURE -- SHOW ~10 INCREASINGLY THICK GAUSSIANS NEXT TO THEIR FOURIER TRANSFORM, K
+EEPING THE COLORS CONSISTENT.
+
+\section{The Fourier transform}
+
+The Fourier transform is a fundamental mathematical technique that lies at the heart of the split-operator method.
+There are many intuitive descriptions for interpreting the Fourier transform; however, it is usually introduced as a transformation between the time domain and frequency domain.
+If we have some wave in the time domain with some frequency $\omega$, such as $\sin(2\pi\omega)$, the time-domain and frequency-domain representations are drastically different, as shown in FIGURE.
+Here, it is clear that the signal is full in the time-domain, but is only a single peak in the frequency domain.
+For this reason, the Fourier transform is a fundamental technique for many methods in signal processing.
+
+Mathematically, the Fourier transform can be represented as,
+
+$$
+\mathcal{F}(\xi) = \int_{-\infty}^{\infty}f(t)e^{-2\pi i t \xi}dt
+$$
+
+and the inverse Fourier transform can be represented as,
+
+$$
+f(t) = \int_{-\infty}^{\infty}\mathcal{F}(\xi)e^{2\pi i t \xi}d\xi
+$$
+
+where $t$ is an element in the time-domain, $\xi$ is an element in the frequency domain, $f(t)$ is a time-domain function, and $\mathcal{F}(\xi)$ is a corresponding frequency-domain function.
+
+The Fourier transform is much more powerful for physical systems and can be used to transform between any set of conjugate variables, such as position and momentum.
+This is used heavily in the split-operator method and can be understood in the context of the Heisenberg uncertainty principle.
+
+
+\section{Energy Spectra}
+
+ADD CHATTER ABOUT ENERGY SPECTRA!!!
+
+Now we will begin introducing important details for the physical systems used in this work.
+
+\section{Introduction to ultracold quantum systems}
+
+As atomic systems are cooled to temperatures near absolute zero Kelvin, it becomes easier to discern their quantum properties which vary depending on the system.
+Most elementary particles that make up atoms have intrinsic angular momentum known as \textit{spin}.
+Electrons are elementary particles with a spin of $\frac{1}{2}$, and protons and nuetrons are made of elementary particles that sum to a spin of $\frac{1}{2}$.
+The spin of the entire atom is determined by summing the constituent spin components.
+If the sum results in an integer value, the atom is known as a \textit{boson}, and if the sum results in a half-integer value, the atom is known as a \textit{fermion}.
+
+Because fermions have half-integer spin, they must obey the Pauli exclusion principle and are constrained to Fermi--Dirac statistics, which means their ground state will be composed of several pairs.
+This creates a \textit{Fermi sea}, where particles fill defined energy levels from the bottom up with two particles per level.
+
+On the other hand, bosons have integer spin and follow Bose--Einstein statistics and will condense into a single, macroscopic ground state \cite{Einstein1925, Fetter2003}.
+This state of matter is known as a Bose--Einstein Condensate (BEC) and it has the properties of a superfluid, this will be discussed fully in Section~\ref{sec:superfluid}.
+
+There are notable exceptions to these rules, such as the highly correlated Tonks--Girardeau gas where bosons may act as spinless, non-interacting fermions \cite{Girardeau}.
+There also exists a regime where interacting fermions can also condense into a BEC-like system~\cite{Nozieres1985, Bulgac2014}, but this work focuses primarily on bosonic systems and will not discuss this further.
+
+Now, we will extend this framework to two important quantum systems: the Tonks--Girardeau gas and the Bose--Einstein condensate, both of which are used heavily in this work.
+
+\subsection{Tonks--Girardeau gas}
+
+ADD SPINLESS NON-INTERACTING FERMIONS AND BOSE--FERMI MAPPING THEOREM
+
+\subsection{Bose--Einstein condensation and the Gross--Pitaevskii Equation}
+
+As mentioned in Section~\ref{sec:introintro}, bosons in a BEC condense into the same (ground) state, meaning we must introduce a many-body Hamiltonian for the system and take inter-particle interactions into account.
+For the purposes of this body of work, we will only consider two-body interactions and assume any interactions between three or more atoms are unlikely and negligible.
+We may write the Hamiltonian with two body interactions in the second quantized form as
+\begin{equation}
+    \hat H = \int d\mathbf{r} \hat \Psi^\dagger(\mathbf{r})\left[-\frac{\hbar^2}{2m}\nabla^2 + V_0(\mathbf{r}) \right]\hat \Psi(\mathbf{r}) + \frac{1}{2} \int d\mathbf{r} d\mathbf{r'} \hat \Psi^\dagger(\mathbf{r}) \hat \Psi^\dagger(\mathbf{r'}) V(\mathbf{r} - \mathbf{r'})\hat \Psi(\mathbf{r'}) \hat \Psi(\mathbf{r})
+    \label{eqn:2nd}
+\end{equation}
+where $\mathbf{r}$ and $\mathbf{r'}$ are the positions of the two colliding particles, $V(\mathbf{r}-\mathbf{r'})$ is the interaction potential, and $\hat \Psi^\dagger(\mathbf{r})$ and $\hat \Psi(\mathbf{r})$ are the creation and annihilation operators that follow the commutation relation, $[\hat \Psi(\mathbf{r}),\hat \Psi^\dagger(\mathbf{r})] = \delta(\mathbf{r} - \mathbf{r'})$.
+
+In the case of a BEC at $T\approx0$, we may perform a Bogoliubov expansion~\cite{Bogoliubov1947, Dalfovo1999}
+\begin{equation}
+    \hat \Psi (\mathbf{r}, t) = \Phi(\mathbf{r},t) + \delta \hat \Phi(\mathbf{r},t)
+\label{eqn:bog}
+\end{equation}
+where $\Phi(\mathbf{r},t) \equiv \langle \hat \Psi(\mathbf{r},t) \rangle$ is the wavefunction of the condensate known as the ``order parameter'' and $\delta \hat \Phi(\mathbf{r},t)$ represents fluctuations of the BEC system.
+In a BEC, the condensate density is defined as
+\begin{equation}
+    n(\mathbf{r},t) = |\Phi(\mathbf{r},t)|^2.
+\end{equation}
+
+Now we may use the Heisenberg equation of motion
+\begin{equation}
+    i\hbar \frac{\partial}{\partial t}\hat \Psi(\mathbf{r},t) = [\hat \Psi, \hat H]
+\end{equation}
+    to determine the time evolution of the field operator $\hat \Psi(\mathbf{r},t)$ as
+\begin{equation}
+    \frac{\partial}{\partial t}\hat \Psi(\mathbf{r},t) = \frac{1}{i\hbar}\left[-\frac{\hbar^2}{2m}\nabla^2 + V_0(\mathbf{r}) + \int d\mathbf{r'} \hat \Psi^\dagger(\mathbf{r'}, t)V(\mathbf{r'} -\mathbf{r})\hat \Psi(\mathbf{r'},t)\right]\hat \Psi(\mathbf{r},t),
+\end{equation}
+which follows from Equation~\eqref{eqn:2nd} after integrating over $\mathbf{r}$. 
+Now we must apply a few approximations for the BEC:
+\begin{enumerate}
+    \item In the Bogoliubov expansion, Equation~\eqref{eqn:bog}, we assume that $\delta \hat \Phi(\mathbf{r},t)$ is small at $T = 0\text{K}$, and thus $\hat \Psi(\mathbf{r},t) \approx \Phi(\mathbf{r},t)$. 
+    \item Two bosons will only interact with a contact potential of the form
+    \begin{equation}
+        V(\mathbf{r'}-\mathbf{r}) = g\delta(\mathbf{r'} - \mathbf{r}),
+    \end{equation}
+    which has a strength given by
+    \begin{equation}
+        g \equiv \frac{4 \pi \hbar^2 a_s}{m},
+    \end{equation}
+    where $a_s$ is the species and state-dependent s-wave scattering length.
+    %\item The bose gas is dilute and the inter-particle spacing is much larger than $a_s$.
+\end{enumerate}
+
+With these approximations, we may write the time-dependent Schr\"odinger equation as
+\begin{equation}
+    i\hbar \frac{\partial}{\partial t}\Phi(\mathbf{r},t) = \left( - \frac{\hbar^2}{2m} \nabla^2 + V_0(\mathbf{r}) + g |\Phi(\mathbf{r},t)|^2\right)\Phi(\mathbf{r},t).
+\end{equation}
+This equation is known as the nonlinear Schr\"odinger equation due to the presence of the $|\Phi(\mathbf{r},t)|^2$ term.
+In the BEC community, the equation is usually called the Gross-Pitaevskii equation (GPE).
+When written in the time-independent form it determines the chemical potential $\mu$ of the condensate system~\cite{Gross1961, Pitaevskii1961}
+\begin{equation}
+    \mu\Phi(\mathbf{r}) = \left( - \frac{\hbar^2}{2m} \nabla^2 + V_0(\mathbf{r}) + g |\Phi(\mathbf{r})|^2\right)\Phi(\mathbf{r},t).
+    \label{eqn:GP}
+\end{equation}
+
+This equation allows us to determine the full dynamics of a BEC system and the numerical solutions will be discuss in Section~\ref{sec:code}. Similar derivations of the GPE can be found in many introductory texts on BEC physics, such as~\cite{Fetter2003,  Pethick2002, Fetter2009}.
+
