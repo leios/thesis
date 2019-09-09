@@ -5,6 +5,7 @@
 
 Though the GPUE codebase is roughly feature complete, there are several directions for future development.
 In particular, GPUE can potentially incorporate a novel vortex-tracking scheme for two and three-dimensional simulations.
+In addition, there are several performance optimizations that can be done by implementing a multi-GPU transpose, as this would eliminate the issue with coalescence with FFT's across mutliple GPU's and make larger-scale simulations possible.
 The back-bone of GPUE could also be used for a general-purpose Hamiltonian solver by using the AST implementation on GPU devices to easily parse the Hamiltonian into individual components for simulation.
 In addition, due to engineering constraints, it is not currently possible to fund a full-time developer for the GPUE codebase.
 As such, it is important to discuss the future maintainability of GPUE and its utility in for future simulations for quantum systems.

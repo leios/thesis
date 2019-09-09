@@ -1,0 +1,68 @@
+\chapter{Introduction to the GPUE codebase for $n$-dimensional simulations of quantum systems on the GPU}
+\label{ch:3d}
+
+This chapter introduces GPUE, the GPU-based Gross-Pitaevskii Equation solver and all features necessaru for simulations of $n$-dimensional quantum systems to be used in the following chapters.
+
+\subsection{Parallel summation}
+
+\subsection{cuFFT library}
+
+Here, discuss the 1D FFT's over $n$-dimensional data
+
+\subsection{Abstract syntax trees for dynamic fields and memory management}
+
+Mention that OpenCL would potentially solve this without the need for AST's
+
+
+\section{Vortex highlighting via Sobel filter}
+
+As described in Chapter~\ref{ch:dynamics}, vortex tracking in two dimensions is not always straghtforward for non-harmonic traps.
+In three dimensions, vortices are no longer confined to a plane and can extend in any direction, so long as the vortex lines either end at the end of the superfluid or reconnect in the form of vortex rings or more complicated vortex structures.
+This is a much more difficult problem which does not have many solutions in superfluid simulations where the superfluid does not fill the simulation domain.
+
+The current state-of-the-art solution has been proposed by Villois \textit{et. al}, and required finding density dips in the superfluid as initial guesses as to where a vortes might exist.
+From there, a vorticity plane is determined and the entire vortex is discovered by moving perpendicularly to the vorticity plane at each gridpoint.
+This is a tedious and time-consuming process that does not lend itself well to GPGPU computation without largescale communication between the host and device, which is not recommended.
+As such, we are currently seeking a more computationally efficient method for tracking vortices in three dimensions, and a possible method will be further discussed, but not tested in the conclusion of this work.
+
+As our system do not necessarily fill the contents of our simulation domain, the proposed method will not work without some modification.
+We could still use the method if we have some understanding of the trapping geometry; however, this is not always the case, as we will see in a future example simulation in Chapter~\ref{ch:vortex_states}.
+
+As such, instead of focusing on vortex \textit{tracking}, we have instead implemented a simple vortex \textit{highlighting} scheme for three dimensions.
+This is simply a Sobel filter on the condensate density, and can easily create crisp visualizations like those found in the computer graphics literature~\cite{guo2018}.
+
+\jrs{describe edge detection, maybe canny?}
+
+This is a difficult problem that required further study; however, vortex highlighting is enough for most three dimensional vortex simulations.
+A possible method to track vortices by using a sobel filter can be found in the conclusion.
+
+\section{CuFFT routine for gauge field simulation}
+
+\section{DistributedTranspose.jl}
+While working on CuFFT methods for applying gauge fields to the superfluid simulation, we also discussed several smallscale optimizations that could be done.
+
+\begin{itemize}
+\item{FFT needs coalesced data}
+\item{Transposes allow for this}
+\item{Distributed Transposes could allow for multi-GPU simulations}
+\end{itemize}
+\chapter{Introduction to GPUE codebase and General Purpose computing with Graphical Processing Units}
+\label{ch:gpu}
+
+The Graphics Processing Unit (GPU) is a computing card that typically connects to the motherboard through a Peripheral Component Interconnect (PCI) slot.
+As the name implies,
+the GPU is designed to rapidly manipulate memory to create images or graphics that are sent to a display device, such as a monitor.
+Because individual pixels in images are independent of each other and modern computers require updating al l rge number of pixels on the display device quickly, the GPU has been developed as a massively parallel computing device, capable of efficently performing simple tasks (such as pixel generation) rapidly by distributing the computation among many computing cores.
+This design methodology starkly contrasts the few, powerful cores on the Central Processing Unit (CPU), which is the default compute device on modern systems.
+
+With the growth of scientific computing, High-Performance Computing (HPC) systems have been developed to facilitate the need for fast computation of various phenomenon.
+HPC systems are often developed as large, distributed networks of compute nodes that are primarily intended for CPU-based computation.
+As such, these systems facilitated the development of highly parallel numerical methods to perform scientific computation.
+
+With new parallel algorithms being developed for HPC systems and GPU technology advancing rapidly to perform more computation in parallel and satiate the consumer demands for high-quality videos and graphics for video games, it became possible to use the GPU as a scientific computing device with a new technique called General Purpose computing on Graphics Processing Units (GPGPU).
+
+\subsection{Unit tests available}
+
+\section{Benchmarks with other superfluid simulation software}
+
+\section{DistributedTranspose.jl and future development plans}
