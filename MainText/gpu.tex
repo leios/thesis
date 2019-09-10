@@ -1,25 +1,31 @@
-\chapter{Introduction to GPUE codebase and General Purpose computing with Graphical Processing Units}
+\chapter{Introduction General Purpose computing with Graphical Processing Units}
 \label{ch:gpu}
 
 The Graphics Processing Unit (GPU) is a computing card that typically connects to the motherboard through a Peripheral Component Interconnect (PCI) slot.
-As the name implies,
-the GPU is designed to rapidly manipulate memory to create images or graphics that are sent to a display device, such as a monitor.
-Because individual pixels in images are independent of each other and modern computers require updating al l rge number of pixels on the display device quickly, the GPU has been developed as a massively parallel computing device, capable of efficently performing simple tasks (such as pixel generation) rapidly by distributing the computation among many computing cores.
-This design methodology starkly contrasts the few, powerful cores on the Central Processing Unit (CPU), which is the default compute device on modern systems.
+As the name implies, the GPU is designed to rapidly manipulate memory to create images or graphics that are sent to a display device, such as a monitor.
+Because individual pixels in images are independent of each other and modern computers require updating all pixels on the display device quickly, the GPU has been developed as a massively parallel computing device, capable of efficently performing simple tasks (such as pixel generation or manipulation) rapidly by distributing the computation among many computing cores.
+This design methodology starkly contrasts the few, powerful cores on the Central Processing Unit (CPU), which is the default compute device on modern desktop systems.
+Due to this difference in harware design, there are also several optimizations to consider when programming for massively parallel GPU devices, and most of these design optimizations are similar for distributed computation on High-Performance Computing (HPC) systems.
 
-With the growth of scientific computing, High-Performance Computing (HPC) systems have been developed to facilitate the need for fast computation of various phenomenon.
-HPC systems are often developed as large, distributed networks of compute nodes that are primarily intended for CPU-based computation.
-As such, these systems facilitated the development of highly parallel numerical methods to perform scientific computation.
+With the growth of scientific computing, HPC systems have been developed to facilitate the need for fast computation of various scientific phenomenon.
+Historically, HPC systems were often developed as large, distributed networks of compute nodes that are primarily intended for CPU-based computation.
+As such, these systems facilitated the development of highly parallel and distributed numerical methods to perform scientific computation.
+Many of these methods have been further developed and extended for the purposes of GPGPU programming.
 
-With new parallel algorithms being developed for HPC systems and GPU technology advancing rapidly to perform more computation in parallel and satiate the consumer demands for high-quality videos and graphics for video games, it became possible to use the GPU as a scientific computing device with a new technique called General Purpose computing on Graphics Processing Units (GPGPU).
+With new parallel algorithms being developed for HPC systems and GPU technology advancing rapidly to perform more computation in parallel to satiate the consumer demands for high-quality videos and graphics for video games and other media, it became possible to use the GPU as a scientific computing device with a new technique called General Purpose computing on Graphics Processing Units (GPGPU).
+Modern HPC design incorporates the GPU into each compute node, thereby increasing the throughput of the system, overall, and the fastest known supercomputer today (Summit, ORNL~\cite{kahle2019}), is almost entirely composed of GPU nodes with Nvidia Tesla V100 cards (32 GB of available RAM and 640 Tensor Cores) with IBM's power architecture.
+
+Though GPGPU programming is an essential technique used in this work, it is equally important to discuss the history through which GPGPU programming has developed, culminating in current practices used for this and similar work.
+As such, this chapter attempts to briefly describe the history of scientific computing as it related to the development of GPGPU programming, along with modern tools and software design philosophy for those new to the field.
+\jrs{ADD OVERVIEW!}
+
+\section{Brief history of HPC, distributed, and parallel computing}
 
 \section{General purpose computing with graphics processing units}
 
 GPGPU programming is a relatively new development to the computing world and is generally much faster than CPU-based computation.
-Though benchmarks vary greatly depending programming languages, code quality, and intent of the software being benchmarked, our GPUE codebase is often 5 to 10 times faster than well-optimized C/C++ code and 100-200 times faster than matlab code that is simulating the same system.
-These benchmarks are consistent with those other GPGPU programs [SHOW MORE BENCHMARKS].
-
-At the time of writing, the most common hardware for GPGPU programming is the nvidia Tesla series, with the latest generation card bein the nvidia Tesla V100 with 32 GB of available RAM and 640 Tensor Cores.
+Though benchmarks vary greatly depending programming languages, code quality, and intent of the software being benchmarked, our GPUE codebase is often 5 to 10 times faster than well-optimized C/C++ code and 100-200 times faster than matlab code that is simulating the same system \jrs{ADD Witteck's benchmarks or our own?}.
+These benchmarks are consistent with other GPGPU programs.
 
 \subsection{Massively parallel computation with GPGPU}
 
@@ -40,14 +46,19 @@ In this way, it is embarrassingly easy to parallelize, and hence the term \texti
 
 Though GPGPU and massively parallel computation work especially well on embarrassingly parallel systems, there are several problems that are poorly suited to parallelization.
 For example, any task that is inherently iterative (such as summation) or recursive (such as tree traversal) is not suited for parallel computation.
-Even so, there are ways to work with these problems such that they are better suited for massively parallel devices, and these will be covered when relelvant to the development of GPUE.
+Even so, there are methods to reframe these problems such that they are better suited for massively parallel devices, and these will be covered when relelvant to the development of GPUE.
 
 In addition to these algorithmic limitations, GPU cards have several notable drawbacks in terms of memory available on individual cards and data transfer between GPU's and between the GPU and CPU through the PCI bandwidth.
-Thought the GPU is ultimately faster at performing certain tasks, it is better at performing tasks that are not memory limited.
 As such, when simulating a large system on the GPU, we often limit the resolution to what can fit onto the GPU memory.
 Until recently, this limited the size of our simulated wavefunction to roughly $512^3$ on a single Tesla K80 card.
 Higher resolution simulations could be done by using more recent cards (such as the Tesla V100) or by using multiple cards; however, because it takes time to transfer data between GPUs, we preferred to use a single card where possible.
-This has ultimately lead to the implementation of the Compressed Split-Step Fourier Method (CSSFM) on GPU cards for superfluid vortex dynamics.
+
+\begin{itemize}
+\item Shared memory
+\item coalescence
+\item bank conflicts?
+\item transfer time (and NVlink?)
+\end{itemize}
 
 \subsection{Comparison between various languages for GPGPU computation}
 
@@ -71,4 +82,24 @@ This is a huge boon for developers writing software for users who may need to qu
 Unfortunately, OpenCL has a rather cumbersome interface and has less peripheral support than CUDA.
 As such, it is rarely used for scientific computing software.
 
+In the end, although OpenCL does provide the ability to more easily construct ASTs for dynamic fields, the increased engineering time necessary to re-write the current codebase in OpenCL would not be worth the cost, as long-term maintenance would be equally as difficult in  OpenCL; however, further advances in compiler design for heterogenious architecture has been made in the past few years \cite{besard2019}, which has provided the unique opportunity for computer scientists to write maintainable and fast code in new languages, like Julia.
+
+\subsubsection{Julia}
+Julia is a new language to scientific computing, but boasts promising results and claims to be as usable as python, but as performant as C \jrs{Add benchmarks from Tim's paper?}.
+This is a huge boon for maintainability.
+In addition, the language is comparably fast to CUDA C and allows for similar hardware optimizations \cite{besard2016, besard2018}, while allowing users to edit the AST implementations at will, which will lead to less code maintainence in future releases of GPUE.
+
+
 \subsubsection{JulaGPU}
+
+\section{Example of GPGPU}
+
+\subsection{Vector addition}
+\jrs{Is this worth adding in?}
+
+This could discuss:
+\begin{itemize}
+\item CUDA kernels
+\end{itemize}
+
+\subsection{Parallel reduction}

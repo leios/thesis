@@ -1,4 +1,4 @@
-\chapter{Introduction ultracold atomc systems}
+\chapter{Introduction ultracold atomic systems}
 \label{ch:qs}
 
 This chapter intends to provide a simple introduction to fundamental quantum concepts used for simulations throughout this body of work.
@@ -64,13 +64,22 @@ $$
 $$
 
 where $\sigma_x$ and $\sigma_p$ are the standard deviations of the position-space and momentum-space distributions for a quantum system.
-Because these two variables are inversely proportional, this can be interpreted to mean that as the measurement in one domain becomes more precise, the measurement in to conjugate domain becomes less so.
-This is historically interesting, as it seems to provide a fundamental limit to the precision by which the momentum or position of a quantum particle is known.
+Because these two variables are inversely proportional, this can be interpreted to mean that as the measurement in one domain becomes more precise, the measurement in the conjugate domain becomes less so.
+This is historically interesting, as it seems to provide the fundamental limit to the precision by which the momentum or position of a quantum particle can be measured to be Planck's constant $h$.
 
 For the purposes of this work, we do not need to delve too deeply into the interpretation of this principle.
 Instead, we need to find an appropriate mathematical formalism that allows for us to easily recreate the same properties, and thus develop a method for transforming between position and momentum space for quantum simulations.
-In this case, we can see this relation simply by performing a Fourier transform on a set of gaussians with an increasing standard deviation, as shown in FIGURE -- SHOW ~10 INCREASINGLY THICK GAUSSIANS NEXT TO THEIR FOURIER TRANSFORM, K
-EEPING THE COLORS CONSISTENT.
+In this case, we can see this relation simply by performing a Fourier transform on a set of gaussians with an increasing standard deviation, as shown in Figure~\ref{fig:uncertain}
+
+\begin{figure}
+
+\includegraphics[width = 0.5\textwidth]{data/qs/Heisenberg/position.pdf}
+\includegraphics[width = 0.5\textwidth]{data/qs/Heisenberg/momentum.pdf}
+
+\caption{A series of Gaussians with increasing standard deviation. We see that as the standard deviation for the Gaussians in position space increase, the standard devations in momentum space decrease.}
+\label{fig:uncertain}
+\end{figure}
+
 
 As such, it is worth exploring the Fourier transform, itself, and discussing its various applications.
 Further discussions about numerical methods for implementing the Fourier transform will be discussed in Chapter~\ref{ch:splitop}.

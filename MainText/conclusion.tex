@@ -22,31 +22,7 @@ We have considered development of a similar method that leverages our vortex hig
 
 \subsection{General purpose Hamiltonian solver}
 
-\subsection{Development of GPUE in OpenCL or Julia}
-
-Throughout the developmental process of GPUE, we have discussed the possibility ot rewriting the codebase into other languages with their own strengths and weaknesses.
-The most important goal for future development of GPUE is to ensure maintainability as future developers beginto use it for their own work.
-This means we need to ensure all important features mentioned in and developed for this work last for the duration of the software's lifecycle.
-To do this, we have considered re-writing GPUE in a new, more maintainable language.
-In the past, this would mean a clear cost to performance or else a strong division between users and developers; however, with recent advances in compiler design, and accounting for various features of other languages, we no longer need to make this trade-off.
-Here, we will discuss our two primary options beside CUDA C for GPU computing: OpenCL and Julia.
-
-\subsubsection{OpenCL}
-The Open Computing Language (OpenCL), is a computing framework for various hardware, including GPU devices, written in C, with bindings in most available languages.
-In OpenCL, kernels are written as strings and compiled at runtime.
-This is distinctly disadvantageous for typical applications, as it means more code is subject to failure at runtime; however, this is advantageous for GPUE, as one of the primary difficuties of long-term maintainence is the AST implementation for dynamic fields.
-If we use OpenCL instead of CUDA C, it would be possible to allow users to more easily write their own kernels, and thus remove AST maintenance entirely from the long-term developmental goals of GPUE.
-
-in addition, OpenCL has the distinct advantage over CUDA in that it can run on any GPU device, which would allow users to use GPUE even on AMD devices, which have become more popular for GPGPU computing in recent years.
-The biggest cost to OpenCL over CUDA C comes in the total number of lines of code necessary to perform the same functions, and the amount of software engineering knowledge necessary to write OpenCL code.
-
-In the end, although OpenCL does provide the ability to more easily construct ASTs for dynamic fields, the increased engineering time necessary to re-write the current codebase in OpenCL would not be worth the cost, as long-term maintenance would be equally as difficult in OpenCL; however, further advances in compiler design for heterogenious architecture has been made in the past few years \cite{besard2019}, which has provided the unique opportunity for computer scientists to write maintainable and fast code in new languages, like Julia.
-
-\subsubsection{Julia}
-Julia is a new language to scientific computing, but boasts promising results and claims to be as usable as python, but as performant as C \jrs{Add benchmarks from Tim's paper?}.
-This is a huge boon for maintainability.
-In addition, the language is comparably fast to CUDA C and allows for similar hardware optimizations \cite{besard2016, besard2018}, while allowing users to edit the AST implementations at will, which will lead to less code maintainence in future releases of GPUE.
-
+\subsubsection{GPUE.jl}
 After considering our options, we have begun development of GPUE.jl, the a julia re-write of GPUE.
 
 \subsection{Future simulations of quantum systems}
