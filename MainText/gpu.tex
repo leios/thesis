@@ -5,14 +5,13 @@ The Graphics Processing Unit (GPU) is a computing card that typically connects t
 As the name implies, the GPU is designed to rapidly manipulate memory to create images or graphics that are sent to a display device, such as a monitor.
 Because individual pixels in images are independent of each other and modern computers require updating all pixels on the display device quickly, the GPU has been developed as a massively parallel computing device, capable of efficently performing simple tasks (such as pixel generation or manipulation) rapidly by distributing the computation among many computing cores.
 This design methodology starkly contrasts the few, powerful cores on the Central Processing Unit (CPU), which is the default compute device on modern desktop systems.
-Due to this difference in harware design, there are also several optimizations to consider when programming for massively parallel GPU devices, and most of these design optimizations are similar for distributed computation on High-Performance Computing (HPC) systems.
+Due to this difference in hardware design, there are also several optimizations to consider when programming for massively parallel GPU devices, and several of these techniques will be covered in this section.
 
-With the growth of scientific computing, HPC systems have been developed to facilitate the need for fast computation of various scientific phenomenon.
+While GPU technology grew, other areas of computational science became increasingly hungry for computing power, specifically in the area of scientific computing on High-Performance Computing (HPC) systems for the fast computation of various scientific phenomenon.
 Historically, HPC systems were often developed as large, distributed networks of compute nodes that are primarily intended for CPU-based computation.
 As such, these systems facilitated the development of highly parallel and distributed numerical methods to perform scientific computation.
-Many of these methods have been further developed and extended for the purposes of GPGPU programming.
 
-With new parallel algorithms being developed for HPC systems and GPU technology advancing rapidly to perform more computation in parallel to satiate the consumer demands for high-quality videos and graphics for video games and other media, it became possible to use the GPU as a scientific computing device with a new technique called General Purpose computing on Graphics Processing Units (GPGPU).
+With new, parallel algorithms being developed for HPC systems and GPU technology advancing rapidly to perform more computation in parallel to satiate the consumer demands for high-quality videos and graphics for video games and other media, it became possible to use the GPU as a scientific computing device with a new technique called General Purpose computing on Graphics Processing Units (GPGPU).
 Modern HPC design incorporates the GPU into each compute node, thereby increasing the throughput of the system, overall, and the fastest known supercomputer today (Summit, ORNL~\cite{kahle2019}), is almost entirely composed of GPU nodes with Nvidia Tesla V100 cards (32 GB of available RAM and 640 Tensor Cores) with IBM's power architecture.
 
 Though GPGPU programming is an essential technique used in this work, it is equally important to discuss the history through which GPGPU programming has developed, culminating in current practices used for this and similar work.
@@ -21,15 +20,6 @@ As such, this chapter attempts to briefly describe the history of scientific com
 
 \section{Brief history of HPC, distributed, and parallel computing}
 
-\section{General purpose computing with graphics processing units}
-
-GPGPU programming is a relatively new development to the computing world and is generally much faster than CPU-based computation.
-Though benchmarks vary greatly depending programming languages, code quality, and intent of the software being benchmarked, our GPUE codebase is often 5 to 10 times faster than well-optimized C/C++ code and 100-200 times faster than matlab code that is simulating the same system \jrs{ADD Witteck's benchmarks or our own?}.
-These benchmarks are consistent with other GPGPU programs.
-
-\subsection{Massively parallel computation with GPGPU}
-
-As mentioned, GPGPU programming relies heavily on massively parallel computational techniques developed primarily for scientific computing on HPC systems.
 In general, there are two separate methods to parallelize computation: \textit{Task parallelism} and \textit{data parallelism}
 
 Task parallelism allows programmers to split their computationalong multiple cores as separate, non-interacting \textit{tasks}, where each core performs its designated computation before moving on.
@@ -41,6 +31,14 @@ In the realm of data parallelism, there is an extreme case where the data is \te
 Here, there could be a large matrix of data to manipulate, but no single element depends on any other element.
 This means that when distributing computation along this matrix, we can simply assign tasks to each core without considering interations with the rest of the data set.
 In this way, it is embarrassingly easy to parallelize, and hence the term \textit{embarrassingly parallel}.
+
+\section{General purpose computing with graphics processing units}
+
+As mentioned in the previous section, GPGPU programming is a relatively new development to the computing world and is generally much faster than CPU-based computation for tasks that can be easily parallelized in a SIMD fashion.
+Though benchmarks vary greatly depending programming languages, code quality, and intent of the software being benchmarked, our GPUE codebase is often 5 to 10 times faster than well-optimized C/C++ code and 100-200 times faster than matlab code that is simulating the same system~\cite{wittek2016}.
+These benchmarks are consistent with other GPGPU programs.
+
+As it is possible to massively increase the performance of certain programs by using the GPU hardware, it is important to discuss the differences between GPGPU and CPU-based computation, along with important optimizations for GPU computing that will be used throughout this work.
 
 \subsection{Comparison with CPU computation}
 
@@ -95,7 +93,8 @@ In addition, the language is comparably fast to CUDA C and allows for similar ha
 \section{Example of GPGPU}
 
 \subsection{Vector addition}
-\jrs{Is this worth adding in?}
+The simplest example of a parallelizable program that is suitable for GPU hardware is Vector addition, and an example of vector addition with C++, CUDA, OpenCL, and Julia can be found in Appendix~\ref{app:GPU}.
+Even in this case, we cannot expect users to be capable of writing CUDA kernels, as they require SIMD logic not traditionally taught in physics curriculum.
 
 This could discuss:
 \begin{itemize}
@@ -103,3 +102,5 @@ This could discuss:
 \end{itemize}
 
 \subsection{Parallel reduction}
+The first non-trivial example of a parallelizable task used in this work would be a parallel reduction or summation, which is the act of summing each element in a vector into a single value.
+By its nature, this is a sequential task with a complexity of $\mathcal{O}(n)$ that is difficult to parallelize; however, even this problem can be modified for parallelization and ported to GPU hardware.

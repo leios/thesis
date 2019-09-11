@@ -1,4 +1,4 @@
-set terminal epslatex standalone
+set terminal epslatex standalone size 4in, 4in
 
 set output "3_waves.tex"
 set size square
