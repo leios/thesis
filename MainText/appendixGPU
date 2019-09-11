@@ -1,0 +1,294 @@
+\chapter{Simple vector additions in CUDA, OpenCL, and JuliaGPU}
+\label{app:GPU}
+
+This is a compilation of an introductory GPGPU example in three languages (CUDA, OpenCL, and Julia) to show the differences in different approaches to GPGPU computation and the necessary abstractions required by users in order to perform basic tasks using GPGPU
+
+\section{Vector addition with C++}
+
+Firstly, a simple vector addition without GPGPU as a baseline:
+
+\begin{lstlisting}
+#include <iostream>
+
+int main(){
+
+    int n = 1024;
+
+    // Initializing host vectors
+    double *a, *b, *c;
+    a = (double*)malloc(sizeof(double)*n);
+    b = (double*)malloc(sizeof(double)*n);
+    c = (double*)malloc(sizeof(double)*n);
+
+    // Initializing a and b
+    for (size_t i = 0; i < n; ++i){
+        a[i] = i;
+        b[i] = i;
+        c[i] = 0;
+    }
+
+    // Vector Addition
+    for (size_t i = 0; i < n; ++i){
+        c[i] = a[i] + b[i];
+    }
+
+    // Check to make sure everything works
+    for (size_t i = 0; i < n; ++i){
+        if (c[i] != a[i] + b[i]){
+            std::cout << "Yo. You failed. What a loser! Ha\n";
+            exit(1);
+        }
+    }
+
+    std::cout << "You passed the test, congratulations!\n";
+
+    free(a);
+    free(b);
+    free(c);
+}
+
+\end{lstlisting}
+
+\section{Vector addition with CUDA}
+
+Now for vector addition with CUDA.
+Here, it is important to note that it is not practical to ask users to write CUDA kernels, as they are not skilled in GPGPU.
+In addition, direct kernel manipulation would require a recompilation every run, which is cumbersome for most users along with dedicated directories for differently built binaries if running multiple GPUE simulations simultaneously.
+As such additional techniques are used in GPUE to allow users to write their own functions without recompiling the GPUE codebase every run, and these methods are discussed in Chapter~\ref{ch:gpue}
+
+\begin{lstlisting}
+#include <iostream>
+#include <math.h>
+#include <chrono>
+
+__global__ void vecAdd(double *a, double *b, double *c, int n){
+
+    // Global Thread ID
+    int id = blockIdx.x*blockDim.x + threadIdx.x;
+
+    // Check to make sure we are in range
+    if (id < n){
+        c[id] = a[id] + b[id];
+    }
+}
+
+int main(){
+
+    int n = 1024;
+
+    // Initializing host vectors
+    double *a, *b, *c;
+    a = (double*)malloc(sizeof(double)*n);
+    b = (double*)malloc(sizeof(double)*n);
+    c = (double*)malloc(sizeof(double)*n);
+
+    // Initializing all device vectors
+    double *d_a, *d_b, *d_c;
+
+    cudaMalloc(&d_a, sizeof(double)*n);
+    cudaMalloc(&d_b, sizeof(double)*n);
+    cudaMalloc(&d_c, sizeof(double)*n);
+
+    // Initializing a and b
+    for (size_t i = 0; i < n; ++i){
+        a[i] = i;
+        b[i] = i;
+        c[i] = 0;
+    }
+
+    cudaMemcpy(d_a, a, sizeof(double)*n, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_b, b, sizeof(double)*n, cudaMemcpyHostToDevice);
+
+    dim3 threads, grid;
+
+    // threads are arbitrarily chosen
+    threads = {100, 1, 1};
+    grid = {(unsigned int)ceil((float)n/threads.x), 1, 1};
+    vecAdd<<<grid, threads>>>(d_a, d_b, d_c, n);
+
+    // Copying back to host
+    cudaMemcpy(c, d_c, sizeof(double)*n, cudaMemcpyDeviceToHost);
+
+    // Check to make sure everything works
+    for (size_t i = 0; i < n; ++i){
+        if (c[i] != a[i] + b[i]){
+            std::cout << "Yo. You failed. What a loser! Ha\n";
+            exit(1);
+        }
+    }
+
+    std::cout << "You passed the test, congratulations!\n";
+
+    free(a);
+    free(b);
+    free(c);
+
+    cudaFree(d_a);
+    cudaFree(d_b);
+    cudaFree(d_c);
+}
+
+\end{lstlisting}
+
+\section{Vector addition with OpenCL}
+
+Vector addition with OpenCL has notable advantages to CUDA, namely that users can update the kernels without recompilation.
+Though it is tempting to use OpenCL due to this, it is notably more cumbersome to write OpenCL code than CUDA, and it we lack the engineering resources to develop an OpenCL variant of GPUE.
+In addition, Julia provides similar benefits to OpenCL with much higher maintainability.
+
+\begin{lstlisting}
+#define __CL_ENABLE_EXCEPTIONS
+
+#include <CL/cl.hpp>
+#include <iostream>
+#include <vector>
+#include <math.h>
+
+// OpenCL kernel
+const char *kernelSource =                          "\n" \
+"#pragma OPENCL EXTENSION cl_khr_fp64 : enable       \n" \
+"__kernel void vecAdd( __global double *a,           \n" \
+"                      __global double *b,           \n" \
+"                      __global double *c,           \n" \
+"                      const unsigned int n){        \n" \
+"                                                    \n" \
+"    // Global Tread ID                              \n" \
+"    int id = get_global_id(0);                      \n" \
+"                                                    \n" \
+"    // Remain in boundaries                         \n" \
+"    if (id < n){                                    \n" \
+"        c[id] = a[id] + b[id];                      \n" \
+"    }                                               \n" \
+"}                                                   \n";
+
+int main(){
+    unsigned int n = 1024;
+
+    double *h_a, *h_b, *h_c;
+
+    h_a = new double[n];
+    h_b = new double[n];
+    h_c = new double[n];
+
+    for (size_t i = 0; i < n; ++i){
+        h_a[i] = 1;
+        h_b[i] = 1;
+    }
+
+    cl::Buffer d_a, d_b, d_c;
+
+    cl_int err = CL_SUCCESS;
+    try{
+        std::vector<cl::Platform> platforms;
+        cl::Platform::get(&platforms);
+        if(platforms.size() == 0){
+            std::cout << "Platforms size is 0\n";
+            return -1;
+        }
+
+        cl_context_properties properties[] = 
+            { CL_CONTEXT_PLATFORM, (cl_context_properties)(platforms[0])(), 0 };
+
+        cl::Context context(CL_DEVICE_TYPE_GPU, properties);
+        std::vector<cl::Device> devices = context.getInfo<CL_CONTEXT_DEVICES>();
+
+        cl::CommandQueue queue(context, devices[0], 0, &err);
+
+        d_a = cl::Buffer(context, CL_MEM_READ_ONLY, n*sizeof(double));
+        d_b = cl::Buffer(context, CL_MEM_READ_ONLY, n*sizeof(double));
+        d_c = cl::Buffer(context, CL_MEM_WRITE_ONLY, n*sizeof(double));
+
+        queue.enqueueWriteBuffer(d_a, CL_TRUE, 0, n*sizeof(double), h_a);
+        queue.enqueueWriteBuffer(d_b, CL_TRUE, 0, n*sizeof(double), h_b);
+
+        cl::Program::Sources source(1,
+            std::make_pair(kernelSource,strlen(kernelSource)));
+        cl::Program program_ = cl::Program(context, source);
+        program_.build(devices);
+
+        cl::Kernel kernel(program_, "vecAdd", &err);
+
+        kernel.setArg(0, d_a);
+        kernel.setArg(1, d_b);
+        kernel.setArg(2, d_c);
+        kernel.setArg(3, n);
+
+        cl::NDRange localSize(64);
+
+        cl::NDRange globalSize((int)(ceil(n/(float)64)*64));
+
+        cl::Event event;
+        queue.enqueueNDRangeKernel(
+            kernel,
+            cl::NullRange,
+            globalSize,
+            localSize,
+            NULL,
+            &event
+        );
+
+        event.wait();
+        queue.enqueueReadBuffer(d_c, CL_TRUE, 0, n*sizeof(double), h_c);
+    }
+    catch(cl::Error err){
+        std::cerr << "ERROR: " << err.what() << "(" << err.err() << ")\n";
+    }
+
+    // Check to make sure everything works
+    for (size_t i = 0; i < n; ++i){
+        if (h_c[i] != h_a[i] + h_b[i]){
+            std::cout << "Yo. You failed. What a loser! Ha\n";
+            exit(1);
+        }
+    }
+
+    std::cout << "You passed the test, congratulations!\n";
+
+    delete(h_a);
+    delete(h_b);
+    delete(h_c);
+}
+
+\end{lstlisting}
+
+\section{Julia}
+
+Julia is a relatively new language, but boasts the performance of CUDA without as much bulk.
+In addition, Julia allows users to more easily look at the AST for compilation, thus rendering GPUE's AST process obsolete.
+Here is vector addition in Julia.
+
+\begin{lstlisting}[style=julia]
+using CUDAnative, CUDAdrv, CuArrays, Test
+
+function kernel_vadd(a, b, c)
+    i = (blockIdx().x-1) * blockDim().x + threadIdx().x
+    j = (blockIdx().y-1) * blockDim().y + threadIdx().y
+    @inbounds c[i,j] = a[i,j] + b[i,j]
+    return nothing
+end
+
+function main()
+
+    res =1024
+
+    # CUDAdrv functionality: generate and upload data
+    a = round.(rand(Float32, (1024, 1024)) * 100)
+    b = round.(rand(Float32, (1024, 1024)) * 100)
+    d_a = CuArray(a)
+    d_b = CuArray(b)
+    d_c = similar(d_a)  # output array
+
+    # run the kernel and fetch results
+    # syntax: @cuda [kwargs...] kernel(args...)
+    @cuda threads = (128, 1, 1) blocks = (div(res,128),res,1) kernel_vadd(d_a, d_b, d_c)
+
+    # CUDAdrv functionality: download data
+    # this synchronizes the device
+    c = Array(d_c)
+    a = Array(d_a)
+    b = Array(d_b)
+
+    @test isapprox(a+b, c)
+end
+
+\end{lstlisting}

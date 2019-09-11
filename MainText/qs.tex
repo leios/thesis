@@ -35,14 +35,6 @@ For this reason, the operators on the right-hand side are often described as the
 \noindent which noticeably has two separate operators: one in momentum-space ($\mathcal{\hat H}_p = \frac{p^2}{2m}$) and another in position-space ($\mathcal{\hat H}_v = V_0$).
 The Hamiltonian describes how the quantum system evolves with time, and in this work, we modify the Hamiltonian to match the various quantum systems we would like to simulate.
 
-\begin{figure}
-
-\includegraphics[width = \textwidth]{data/qs/SHO/SHO.pdf}
-
-\caption{Simulated results from ground-state evolution from the split-step Fourier method after 10,000 steps. Here, we use a Rubidium 87 atom with $\omega_x = 1$Hz on a 256-point grid of size 200 $\mu$m. The wavefunction has been normalized such that $\int_{-\infty}^\infty|\Psi|^2 dx = 1$, which provides arbitrary units. We have scaled the potential by $m \omega_x^2 dx^2$ to match these units. This simulation was performed with the GPUE codebase \cite{schloss2018}.}
-\label{fig:SHO}
-\end{figure}
-
 When the quantum system is in its lowest energy state, the probability distribution will often follow the trapping potential.
 For example, in the case of the simple harmonic oscillator in one dimension, $V_0 = m \omega_x x^2$, where $\omega_x$ is the trapping frequency in the $x$-dimension and describes the tightness of the trap.
 Figure~\ref{fig:SHO} shows the lowest energy state, also called the \textit{ground state} of a quantum system consisting of a single particle.
@@ -86,15 +78,32 @@ Further discussions about numerical methods for implementing the Fourier transfo
 
 \section{The Fourier transform}
 
-\jrs{CN}
+\begin{figure}
 
-The Fourier transform is a fundamental mathematical technique that lies at the heart of signal processing.
+\begin{centering}
+
+\includegraphics[width = 0.48\textwidth]{data/splitop/fourier/sine_wave.pdf}
+\includegraphics[width = 0.48\textwidth]{data/splitop/fourier/sine_fft.pdf}
+
+\includegraphics[width = 0.48\textwidth]{data/splitop/fourier/3_waves.pdf}
+\includegraphics[width = 0.48\textwidth]{data/splitop/fourier/3_fft.pdf}
+
+\end{centering}
+
+\caption{Depiction of a fourier transform, first with a sine wave with a frequency of 10 Hz, and then with a combination of 3 waves of frequencies 3, 10, and 17 Hz. Note that the signal in the Frequency domain is a sparse representation of the singnal in the time domain.}
+\label{fig:FT}
+\end{figure}
+
+\jrs{CN; move to splitop chapter as well?}
+
+The Fourier transform is a fundamental mathematical technique that lies at the heart of signal processing, and is used for numerous methods, including SSFM, which will be discussed further in Chapter~\ref{ch:splitop}.
 Because it is such a fundamental technique, there are many intuitive descriptions for interpreting the Fourier transform, and it would not be worthwhile to discuss all of these explanations here.
-In most cases, the Foureir transform is introduced as a transformation between the time domain and frequency domain.
-If we have some wave in the time domain with some frequency $\omega$, such as $\sin(2\pi\omega)$, we can plot the signal fully in the time-domain; however, the signal changes to a single peak in the frequency domain, as shown in Figure [ADD](a).
+In most cases, the Foureir transform is introduced as a transformation between the time domain and frequency domain; however, as we discussed in the previous section, it can also transform between any conjugate parameters, such as position and momentum.
+As an example, if we have some wave in the time domain with some frequency $\omega$, such as $\sin(20\pi\omega)$, we can plot the signal fully in the time-domain; however, the signal changes to a single peak in the frequency domain, as shown in Figure~\ref{fig:FT}(a).
 
 In fact, every point in the frequency domain corresponds to another distinct wave in the time-domain.
-As such, we can decompose most wave-like signals into a sparse set of delta-like peaks in the frequency domain, and this can be seen in Figure [ADD].
+As such, we can decompose most wave-like signals into a sparse set of delta-like peaks in the frequency domain, and this can be seen in Figure~\ref{fig:FT}(b).
+In general, if we have a set of parameters that are ``full'' in one domain, it is likely sparse in it's conjugate domain.
 This sparsity has been used for many applications, including compressed sensing, which allows us to reconstruct high-resolution data from low-resolution ouput in a separate domain~\cite{baraniuk2011}.
 We will discuss this in more depth in Chapter~\ref{ch:splitop} when we discuss the compressed split-step Fourier method, which applies tecniques in compressive sensing to the SSFM \cite{bayindir2015}.
 

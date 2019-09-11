@@ -1,18 +1,32 @@
 \chapter{Introduction to the GPUE codebase for $n$-dimensional simulations of quantum systems on the GPU}
-\label{ch:3d}
+\label{ch:gpue}
 
 This chapter introduces GPUE, the GPU-based Gross-Pitaevskii Equation solver and all features necessaru for simulations of $n$-dimensional quantum systems to be used in the following chapters.
 
-\subsection{Parallel summation}
+\subsection{Parallel summation for renormalization and energy calculation}
+
+As mentioned in Chapter~\ref{ch:splitop}, the normalization routine is essential for a proper evolution in imaginary time, and renormalization must occur freqeuntly enough to prevent numerical overflow or underflow errors.
+For safety in GPUE, we do the renormalization every imaginary step; however, this comes at a cost to performance as the renormalization necessitates a parallel summation over the wavefunction.
+Additionally, the user may choose to calculate the energy of the atomic system at every timestep, which requires both a parallel summation and a large memory reseviour.
+
 
 \subsection{cuFFT library}
 
 Here, discuss the 1D FFT's over $n$-dimensional data
 
+\section{Dynamic field input and output in GPUE}
+
+As mentioned in Chapter~\ref{ch:1d}, quantum engineering typically requires some form of time-dependent variables, along with evolution in real time.
+This means that the user must be able to input a time-dependent equation and must be able to read in a time-dependent field of their choosing and read this out in an efficient storage format.
+Because we chose to write GPUE in CUDA, there is no straightforward method for the user to input time-dependent fields without recompiling the source code and modifying CUDA kernels at will, which is unnecessarily cumbersome.
+As such, we have provided a method for users to input the fields of their choosing as strings, which will be transpiled into an array of operations to perform on the GPU through Abstract Syntax Trees (ASTs).
+
+For fileIO, we had initially considered implementing the Compressed Split-Step Fourier Method (CSSFM)~\ref{bayindir2015}; however, this was shown to be unsuitable for the case of $n$-dimensional systems with vortex dynamics.
+Instead, we simply implemented HDF5, and we will discuss this implementation here.
+
 \subsection{Abstract syntax trees for dynamic fields and memory management}
 
-Mention that OpenCL would potentially solve this without the need for AST's
-
+\subsection{Implementation of HDF5 filesystem for fileIO}
 
 \section{Vortex highlighting via Sobel filter}
 

@@ -1,6 +1,8 @@
 set terminal epslatex standalone
 set output "position.tex"
 
+set size square
+
 set xrange [256:768]
 set xtics ("-5" 256, "0" 512, "5" 768)
 
