@@ -7,13 +7,12 @@ $$
 i \hbar \frac{\partial \Psi(\mathbf{r},t)}{\partial t} = \left(\frac{p^2}{2m} + V_0 + g |\Psi(\mathbf{r},t)|^2 \right)\Psi(\mathbf{r},t)
 $$
 
-where $\mathbf{r}$ is a position vector, $\Psi(\mathbf{r},t)$ is a many-body quantum wavefunction, $p = -i\hbar\nabla$ is the momentum operator, $V_0$ is the trapping potential, g = $\frac{4\pi\hbar^2 a_s}{m}$, $a_s$ is the scattering length of the atomic species, and $m$ is the mass.
+\noindent where $\mathbf{r}$ is a position vector, $\Psi(\mathbf{r},t)$ is a many-body quantum wavefunction, $p = -i\hbar\nabla$ is the momentum operator, $V_0$ is the trapping potential, g = $\frac{4\pi\hbar^2 a_s}{m}$, $a_s$ is the scattering length of the atomic species, and $m$ is the mass.
+This equation along with all of its ramifications will be described fully in this chapter.
+By solving the GPE with time, we can determine the dynamics of Bose--Einstein Condensates (BECs), and
+the states found with the GPE are virtually identical to those found in experiments.
 
-By solving the GPE with time, we can determine the dynamics of Bose--Einstein Condensates (BECs).
-The states found with the GPE are virtually identical to those found in experiments.
-
-One important technique for solving the GPE is the pseudospectral split-operator method, which requires splitting the hamiltonian into separate operators in position and momentum space and operating on the wavefunction in the appropriate space.
-To understand how this is done, it is important to first discuss the mathematical formalism used to transform between position and momentum space: the Fourier Transform.
+To begin, we will build up the intuition for the GPE from the ground-up, starting with a discussion of the Schr\"odinger equation and the Hamiltonian.
 
 \section{The Schr\"odinger equation and the Hamiltonian}
 Quantum particles are often described by their wavefunction, $\Psi(\mathbf{r},t)$, where $\mathbf{r}$ is a position-space variable and $t$ is time.
@@ -27,7 +26,7 @@ As with most probability distributions,
 
 \noindent where $N$ is the number of particles in the system.
 For certain simulations with the SSFM method, it is important to ensure the quantum system is normalized correctly and Equation~(\ref{eqn:norm}) is used for this purpose.
-This will be discussed in further detail in Chapter~\ref{ch:splitop}.
+As this operation requires a summation, it is not well-optimized for GPU hardware; however, it is possible to perform a parallel reduction, which allows for a considerable improvement on massively parallel systems~\cite{harris2007}.
 
 For the purposes of this body of work, we can simulate the dynamics of a quantum system by solving the Schr\"odinger equation,
 
@@ -55,18 +54,39 @@ The Hamiltonian describes how the quantum system evolves with time, and in this 
 \label{fig:SHO}
 \end{figure}
 
+It is important to note here that the energy of a quantum system is typically described as,
+
+\begin{equation}
+\int_{-\infty}^{+\infty}\Psi(\mathbf{r},t)\*\mathcal{\hat H}\Psi(\mathbf{r},t)d\mathbf{r}.
+\end{equation}
+
+\noindent Where $\Psi(\mathbf{r},t)\*$ is the Hermitian conjugate of the system.
+Often times, this operation is written in \textit{braket} notation like so,
+
+\begin{equation}
+\braket{\Psi|\mathcal{\hat H}|\Psi}
+\end{equation}
+
+\noindent where the bra ($\bra{}$) operator essentially means that the Hermitian conjugate is required, and the ket ($\ket{}$) means that the vector must remain in whatever space it was in.
+Often times, we will describe the wavefunction as a sum of different energy states like so:
+
+\begin{equation}
+\Psi = \sum_{n=0}^{\infty}c_n\ket{\psi_n}
+\end{equation}
+
+\noindent where $c_n$ is a constant that identifies how much of the wavefunction occupies the state $\psi_n$.
+Additionally, we can set the Hamiltonian as a complete set of energy eigenkets, such that $\mathcal{\hat H}\ket{\Psi} = E_n\ket{\Psi}$.
+
 When the quantum system is in its lowest energy state, the probability distribution will often follow the trapping potential.
 For example, in the case of the simple harmonic oscillator in one dimension, $V_0 = m \omega_x x^2$, where $\omega_x$ is the trapping frequency in the $x$-dimension and describes the tightness of the trap.
 Figure~\ref{fig:SHO} shows the lowest energy state, also called the \textit{ground state} of a quantum system consisting of a single particle.
 Notably, the quantum particle rests in the center of the trap and if the trap is moved, the particle will move with it and oscillate about the new trap location.
 Many quantum engineering systems require precise control of the trapping potential to manipulate quantum systems~\cite{menchon2016}, and we will discuss two such methods (quantum optimal control~\cite{werschnik2007} and shortcuts to adiabaticity~\cite{guery2019}) in Chapter~\ref{ch:1d}.
 
-Quantum systems do now always have a straightforward interpretation, and $\Psi(\mathbf{r},t)$ is a complex-valued object with operators in both position and momentum space.
+Quantum systems do not always have a straightforward interpretation, and $\Psi(\mathbf{r},t)$ is a complex-valued object with operators in both position and momentum space.
 As such, it is important to discuss fundamental relationships between position and momentum space in order to better understand quantum systems, and ultimately how the SSFM acts in both spaces.
 
 \section{The Heisenberg uncertainty principle}
-
-\jrs{NC; Maybe move this to the splitop chapter, as well?}
 
 The Heisenberg uncertainty principle is a relation between the position and momentum components of a quantum system.
 This principle simply states that
@@ -75,7 +95,7 @@ $$
 \sigma_x \sigma_p \geq \frac{\hbar}{2},
 $$
 
-where $\sigma_x$ and $\sigma_p$ are the standard deviations of the position-space and momentum-space distributions for a quantum system.
+\noindent where $\sigma_x$ and $\sigma_p$ are the standard deviations of the position-space and momentum-space distributions for a quantum system.
 Because these two variables are inversely proportional, this can be interpreted to mean that as the measurement in one domain becomes more precise, the measurement in the conjugate domain becomes less so.
 This is historically interesting, as it seems to provide the fundamental limit to the precision by which the momentum or position of a quantum particle can be measured to be Planck's constant $h$.
 
@@ -92,10 +112,7 @@ In this case, we can see this relation simply by performing a Fourier transform 
 \label{fig:uncertain}
 \end{figure}
 
-
-As such, it is worth exploring the Fourier transform, itself, and discussing its various applications.
-Further discussions about numerical methods for implementing the Fourier transform will be discussed in Chapter~\ref{ch:splitop}.
-
+As such, it is worth exploring the Fourier transform further, as it is also fundamental to the SSFM, itself.
 
 \section{The Fourier transform}
 
@@ -115,7 +132,7 @@ Further discussions about numerical methods for implementing the Fourier transfo
 \label{fig:FT}
 \end{figure}
 
-The Fourier transform is a fundamental mathematical technique that lies at the heart of signal processing, and is used for numerous methods, including SSFM, which will be discussed further in Chapter~\ref{ch:splitop}.
+The Fourier transform is a fundamental mathematical technique that lies at the heart of signal processing, and is used for numerous methods, including SSFM.
 Because it is such a fundamental technique, there are many intuitive descriptions for interpreting the Fourier transform, and it would not be worthwhile to discuss all of these explanations here.
 In most cases, the Foureir transform is introduced as a transformation between the time domain and frequency domain; however, as we discussed in the previous section, it can also transform between any conjugate parameters, such as position and momentum.
 As an example, if we have some wave in the time domain with some frequency $\omega$, such as $\sin(20\pi\omega)$, we can plot the signal fully in the time-domain; however, the signal changes to a single peak in the frequency domain, as shown in Figure~\ref{fig:FT}(a).
@@ -124,7 +141,7 @@ In fact, every point in the frequency domain corresponds to another distinct wav
 As such, we can decompose most wave-like signals into a sparse set of delta-like peaks in the frequency domain, and this can be seen in Figure~\ref{fig:FT}(b).
 In general, if we have a set of parameters that are ``full'' in one domain, it is likely sparse in it's conjugate domain.
 This sparsity has been used for many applications, including compressed sensing, which allows us to reconstruct high-resolution data from low-resolution ouput in a separate domain~\cite{baraniuk2011}.
-We will discuss this in more depth in Chapter~\ref{ch:splitop} when we discuss the compressed split-step Fourier method, which applies tecniques in compressive sensing to the SSFM \cite{bayindir2015}.
+We will discuss this in more depth in Chapter~\ref{ch:gpue} when we discuss the compressed split-step Fourier method, which applies tecniques in compressive sensing to the SSFM \cite{bayindir2015}.
 
 Mathematically, the Fourier transform can be represented as,
 
@@ -153,48 +170,53 @@ $$
 
 \noindent where $X_k$ and $x_n$ represent the frequency and time domain signals, respectively, $k$ is a component in the frequency domain, $x$ is a component in the time domain, and N is the total number of elements in the signal.
 Though the primary difference between these two definitions is that the DFT replaced the integral of the Fourier transform with a sum, the DFT also allows for the computational investigation of signal processing, as it can now be interpreted as a sum and matrix multiplication.
-ADD DISCUSSION ON DFT MATRIX? PROBABLY NOT RELEVANT...
-Unfortunately, this comes at a huge cost for complexity, as the matrix multiplication, alone, is of the order of $\mathcal{O}(n^3)$, and with the sum, the DFT has a heafty computational complexity of $\mathcal{O}(n^4)$, assuming a square signal.
+Unfortunately, this comes at a huge cost for complexity, as the matrix multiplication, alone, is of the order of $\mathcal{O}(n^3)$, and with the sum, the DFT has a heafty computational complexity of $\mathcal{O}(n^4)$.
 
 Luckily, there have been several successful attempts to create a Fast Fourier Transform (FFT), including the Cooley-Tukey method, that was first discovered by Gauss and then later contemporized by Cooley and Tukey when they independently discovered it \cite{cooley1965}.
 This method is not straightforwardly parallelizable; however, it has become so fundamental to signal processing, that it has become incredibly well-optimized with several libraries, including FFTW~\cite{frigo1998} and CuFFT~\cite{fatica2008} for distributed and GPU calculations, respectively.
 
-We will discuss the Cooley-Tukey method, itself, along with different parallelization methods for multi-GPU simulations in Chapter~\ref{ch:splitop}.
-For now, we will turn our focus to attributes of the physical systems we will be simulating throughout this work, ultracold atoms.
-
+\jrs{I want to discuss Cooley-Tukey a bit, but don't know if it's relevant until we talk about parallelization of it.}
 
 \section{The split-operator method}
 
+\begin{figure}
+
+\center \includegraphics[width=0.5\textwidth]{data/splitop/method/split_op_method.pdf}
+
+\label{fig:method}
+\caption{A pictorial representation of the split-operator method, created by Julian Schacher~\cite{AAA}.}
+\end{figure}
+
 As mentioned, the split-operator method splits the Hamiltonian into separate operators and uses the Fourier transform to ensure that these operators work on the wavefunction in the appropriate space.
-
-First, we assume a somewhat general solution to our wavefunction,
-
-$$
-\Psi(\mathbf{r},t + dt) = \left[e^{-\frac{i\hat{H}dt}{\hbar}}\right]\Psi(\mathbf{r},t) = \left[e^{-\frac{i(\hat{H}_r + \hat{H}_k)dt}{\hbar}}\right]\Psi(\mathbf{r},t)
-$$
-
-and assume we are simulating our system by a series of small timesteps ($dt$), we can perform similar splitting by using the Baker-Campbell-Housdorff formula:
+As discussed, the Hamiltonian operator describes how the quantum system evolves with time.
+In order to apply the Hamiltonian to the system, we first assume a somewhat general solution to the Schr\"odinger equation,
 
 $$
-\Psi(\mathbf{r},t+dt) = \left[e^{-\frac{i\hat{H}_rdt}{\hbar}}e^{-\frac{i\hat{H}_kdt}{\hbar}}e^{-\frac{[i\hat{H}_r, i\hat{H}_k]dt^2}{2}}\right]\Psi(\mathbf{r},t)
+\Psi(\mathbf{r},t + dt) = \left[e^{-\frac{i\mathcal{\hat{H}}dt}{\hbar}}\right]\Psi(\mathbf{r},t) = \left[e^{-\frac{i(\mathcal{\hat{H}}_v + \mathcal{\hat{H}}_p)dt}{\hbar}}\right]\Psi(\mathbf{r},t).
 $$
 
-This accrues a small amount of error ($dt^2$) related to the commutation of the real and momentum-space components of the Hamiltonian, which is a noticeably high.
-In order to change the $dt^2$ error to $dt^3$, we can split the system by performing a half-step in position space before doing a full-step in momentum space, through a process called \textit{Strang Splitting} like so:
+\noindent If we assume we are simulating our system by a series of small timesteps ($dt$), we can perform similar splitting by using the Baker-Campbell-Housdorff formula:
 
 $$
-\Psi(\mathbf{r},t+dt) = \left[e^{-\frac{i\hat{H}_rdt}{2\hbar}}e^{-\frac{i\hat{H}_kdt}{\hbar}}e^{-\frac{i\hat{H}_rdt}{2\hbar}} \right]\Psi(\mathbf{r},t) + \mathcal{O}(dt^3)
+\Psi(\mathbf{r},t+dt) = \left[e^{-\frac{i\mathcal{\hat{H}}_vdt}{\hbar}}e^{-\frac{i\mathcal{\hat{H}}_pdt}{\hbar}}e^{-\frac{[i\hat{H}_r, i\hat{H}_k]dt^2}{2}}\right]\Psi(\mathbf{r},t)
 $$
 
-We can then address each part of this solution in chunks, first in position space, then in momentum space, then in position space again by using Fourier Transforms.
+\noindent This accrues a small amount of error ($dt^2$) related to the third term, which is a commutation of the real and momentum-space components of the Hamiltonian, which is a noticeably high;
+However, we can decrease the $dt^2$ error to $dt^3$ by performing a half-step in position space before doing a full-step in momentum space, through a process called \textit{Strang Splitting} like so:
+
+$$
+\Psi(\mathbf{r},t+dt) = \left[e^{-\frac{i\mathcal{\hat{H}}_vdt}{2\hbar}}e^{-\frac{i\mathcal{\hat{H}}_pdt}{\hbar}}e^{-\frac{i\mathcal{\hat{H}}_vdt}{2\hbar}} \right]\Psi(\mathbf{r},t) + \mathcal{O}(dt^3)
+$$
+
+\noindent We can then address each part of this solution in chunks, first in position space, then in momentum space, then in position space again by using Fourier transforms.
 Which looks something like this:
 
 $$
 \Psi(\mathcal{r}, t+dt) = \left[\hat{U}_r\left(\frac{dt}{2}\right)\mathcal{F}^{-1}\left[\hat{U}_k(dt) \mathcal{F} \left[\hat{U}_r\left(\frac{dt}{2}\right) \Psi(\mathbf{r},t) \right] \right] \right] + \mathcal{O}(dt^3)
 $$
 
-where $\hat{U}_r = e^{-\frac{i\hat{H}_rdt}{\hbar}}$, $\hat{U}_k = e^{-\frac{i\hat{H}_kdt}{\hbar}}$, and $\mathcal{F}$ and $\mathcal{F}^{-1}$ indicate forward and inverse Fourier Transforms.
-A flowchart of how we perform this operation can be found in FIGURE, and pseudo-code can be found in LISTING (CHANGE ENUMERATE)
+where $\hat{U}_r = e^{-\frac{i\mathcal{\hat{H}}_vdt}{\hbar}}$, $\hat{U}_k = e^{-\frac{i\mathcal{\hat{H}}_pdt}{\hbar}}$, and $\mathcal{F}$ and $\mathcal{F}^{-1}$ indicate forward and inverse Fourier Transforms.
+A flowchart of how we perform this operation can be found in Figure~\ref{fig:method} and is essentially composed of the following steps:
 
 \begin{enumerate}
 \item Multiply the wavefunction in real space with the real-space operator.
@@ -205,16 +227,100 @@ A flowchart of how we perform this operation can be found in FIGURE, and pseudo-
 \end{enumerate}
 
 This will allow for us to simulate the dynamics of a simple quantum system.
-For example, if we guess that our initial wavefunction is gaussian-like and is slightly offset from the center or the trap, this should allow us to see our wavefunction ``sloshing'' back and forth in our trap, as shown in FIGURE.
+For example, if we guess that our initial wavefunction is gaussian-like and is slightly offset from the center or the trap, this should allow us to see our wavefunction ``sloshing'' back and forth in our trap, as shown in FIGURE \jrs{ADD}.
 
 In addition, we can find the lowest energy state of our system by performing a Wick rotation and using $\tau = it$ for the simulation.
 This changes the solution from a sinusoidal to an exponential decay in the energy,
 
 $$
-\Psi(\mathbf{r},\tau + d\tau) = \left[e^{-\frac{\hat{H}d\tau}{\hbar}}\right]\Psi(\mathbf{r},\tau) = \left[e^{-\frac{(\hat{H}_r + \hat{H}_k)d\tau}{\hbar}}\right]\Psi(\mathbf{r},\tau)
+\Psi(\mathbf{r},\tau + d\tau) = \left[e^{-\frac{\mathcal{\hat{H}}d\tau}{\hbar}}\right]\Psi(\mathbf{r},\tau) = \left[e^{-\frac{(E_n d\tau}{\hbar}}\right]\Psi(\mathbf{r},\tau)
 $$
 
-ADD ENERGY STATE ARGUMENT
+\noindent In this way, by moving our simulation in imaginary time, we will see an exponential decay of the energy, along with the wavefunction density, until we have converged to the ground state.
+As we are interested in the dynamics of the quantum system, every step in imaginary time requires a relatively costly renormalization step via Equation~\ref{eqn:norm}.
+A simulation of the same system as in FIGURE, but in imaginary time is shown in FIGURE (a).
+In FIGURE (b), we see the energy exponentially decaying to the known ground-state energy of a quantum harmonic oscillator of $\frac{1}{2}\hbar\omega$.
+
+Now we will turn our focus to systems to be simulated via the split-operator method throughout this work: ultracold atoms.
+
+\section{Introduction to ultracold quantum systems}
+
+As atomic systems are cooled to temperatures near absolute zero Kelvin, it becomes easier to discern their quantum properties which vary depending on the system.
+Most elementary particles that make up atoms have intrinsic angular momentum known as \textit{spin}.
+Electrons are elementary particles with a spin of $\frac{1}{2}$, and protons and nuetrons are made of elementary particles that sum to a spin of $\frac{1}{2}$.
+The spin of the entire atom is determined by summing the constituent spin components.
+If the sum results in an integer value, the atom is known as a \textit{boson}, and if the sum results in a half-integer value, the atom is known as a \textit{fermion}.
+
+Because fermions have half-integer spin, they must obey the Pauli exclusion principle and are constrained to Fermi--Dirac statistics, which means their ground state will be composed of several fermionic pairs.
+This creates a \textit{Fermi sea}, where particles fill defined energy levels from the bottom up with two particles per level.
+
+On the other hand, bosons have integer spin and follow Bose--Einstein statistics and will condense into a single, macroscopic ground state when cooled~\cite{Einstein1925, Fetter2003}.
+This state of matter is known as a Bose--Einstein Condensate (BEC) and it has the properties of a superfluid, this will be discussed fully in Chapter~\ref{ch:vortex}.
+
+There are notable exceptions to these rules, such as the highly correlated Tonks--Girardeau gas where bosons may act as spinless, non-interacting fermions \cite{Girardeau}.
+There also exists a regime where interacting fermions can also condense into a BEC-like system~\cite{Nozieres1985, Bulgac2014}, but this work focuses primarily on bosonic systems and will not discuss fermionic systems further.
+Now we will extend this framework to two important quantum systems: the Bose--Einstein condensate and the Tonks--Girardeau gas, both of which are used heavily in this work.
+
+
+\subsection{Bose--Einstein condensation and the Gross--Pitaevskii Equation}
+
+As mentioned in Section~\ref{sec:introintro}, bosons in a BEC condense into the same (ground) state, meaning we must introduce a many-body Hamiltonian for the system and take inter-particle interactions into account.
+For the purposes of this body of work, we will only consider two-body interactions and assume any interactions between three or more atoms are unlikely and negligible.
+We may write the Hamiltonian with two body interactions in the second quantized form as
+\begin{equation}
+    \hat H = \int d\mathbf{r} \hat \Psi^\dagger(\mathbf{r})\left[-\frac{\hbar^2}{2m}\nabla^2 + V_0(\mathbf{r}) \right]\hat \Psi(\mathbf{r}) + \frac{1}{2} \int d\mathbf{r} d\mathbf{r'} \hat \Psi^\dagger(\mathbf{r}) \hat \Psi^\dagger(\mathbf{r'}) V(\mathbf{r} - \mathbf{r'})\hat \Psi(\mathbf{r'}) \hat \Psi(\mathbf{r})
+    \label{eqn:2nd}
+\end{equation}
+where $\mathbf{r}$ and $\mathbf{r'}$ are the positions of the two colliding particles, $V(\mathbf{r}-\mathbf{r'})$ is the interaction potential, and $\hat \Psi^\dagger(\mathbf{r})$ and $\hat \Psi(\mathbf{r})$ are the creation and annihilation operators that follow the commutation relation, $[\hat \Psi(\mathbf{r}),\hat \Psi^\dagger(\mathbf{r})] = \delta(\mathbf{r} - \mathbf{r'})$.
+
+In the case of a BEC at $T\approx0$, we may perform a Bogoliubov expansion~\cite{Bogoliubov1947, Dalfovo1999}
+\begin{equation}
+    \hat \Psi (\mathbf{r}, t) = \Phi(\mathbf{r},t) + \delta \hat \Phi(\mathbf{r},t)
+\label{eqn:bog}
+\end{equation}
+where $\Phi(\mathbf{r},t) \equiv \langle \hat \Psi(\mathbf{r},t) \rangle$ is the wavefunction of the condensate known as the ``order parameter'' and $\delta \hat \Phi(\mathbf{r},t)$ represents fluctuations of the BEC system.
+In a BEC, the condensate density is defined as
+\begin{equation}
+    n(\mathbf{r},t) = |\Phi(\mathbf{r},t)|^2.
+\end{equation}
+
+Now we may use the Heisenberg equation of motion
+\begin{equation}
+    i\hbar \frac{\partial}{\partial t}\hat \Psi(\mathbf{r},t) = [\hat \Psi, \hat H]
+\end{equation}
+    to determine the time evolution of the field operator $\hat \Psi(\mathbf{r},t)$ as
+\begin{equation}
+    \frac{\partial}{\partial t}\hat \Psi(\mathbf{r},t) = \frac{1}{i\hbar}\left[-\frac{\hbar^2}{2m}\nabla^2 + V_0(\mathbf{r}) + \int d\mathbf{r'} \hat \Psi^\dagger(\mathbf{r'}, t)V(\mathbf{r'} -\mathbf{r})\hat \Psi(\mathbf{r'},t)\right]\hat \Psi(\mathbf{r},t),
+\end{equation}
+which follows from Equation~\eqref{eqn:2nd} after integrating over $\mathbf{r}$. 
+Now we must apply a few approximations for the BEC:
+\begin{enumerate}
+    \item In the Bogoliubov expansion, Equation~\eqref{eqn:bog}, we assume that $\delta \hat \Phi(\mathbf{r},t)$ is small at $T = 0\text{K}$, and thus $\hat \Psi(\mathbf{r},t) \approx \Phi(\mathbf{r},t)$. 
+    \item Two bosons will only interact with a contact potential of the form
+    \begin{equation}
+        V(\mathbf{r'}-\mathbf{r}) = g\delta(\mathbf{r'} - \mathbf{r}),
+    \end{equation}
+    which has a strength given by
+    \begin{equation}
+        g \equiv \frac{4 \pi \hbar^2 a_s}{m},
+    \end{equation}
+    where $a_s$ is the species and state-dependent s-wave scattering length.
+    %\item The bose gas is dilute and the inter-particle spacing is much larger than $a_s$.
+\end{enumerate}
+
+With these approximations, we may write the time-dependent Schr\"odinger equation as
+\begin{equation}
+    i\hbar \frac{\partial}{\partial t}\Phi(\mathbf{r},t) = \left( - \frac{\hbar^2}{2m} \nabla^2 + V_0(\mathbf{r}) + g |\Phi(\mathbf{r},t)|^2\right)\Phi(\mathbf{r},t).
+\end{equation}
+This equation is known as the nonlinear Schr\"odinger equation due to the presence of the $|\Phi(\mathbf{r},t)|^2$ term.
+In the BEC community, the equation is usually called the Gross-Pitaevskii equation (GPE).
+When written in the time-independent form it determines the chemical potential $\mu$ of the condensate system~\cite{Gross1961, Pitaevskii1961}
+\begin{equation}
+    \mu\Phi(\mathbf{r}) = \left( - \frac{\hbar^2}{2m} \nabla^2 + V_0(\mathbf{r}) + g |\Phi(\mathbf{r})|^2\right)\Phi(\mathbf{r},t).
+    \label{eqn:GP}
+\end{equation}
+
+This equation allows us to determine the full dynamics of a BEC system and the numerical solutions will be discuss in Section~\ref{sec:code}. Similar derivations of the GPE can be found in many introductory texts on BEC physics, such as~\cite{Fetter2003,  Pethick2002, Fetter2009}.
 
 \section{Modifications to the split-operator method for superfluid vortex simulations}
 
