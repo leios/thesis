@@ -130,13 +130,13 @@ Threads, blocks, and grids are all \texttt{dim3} variables with $x$, $y$, and $z
 The way in which these threads and blocks are allocated are defined by the user before kernel execution.
 Often times, a thread number of 1024 is chosen, and the number of blocks is decided based on the size of the input array.
 If there are more elements to compute than threads in a block, we then need to use the \texttt{blockDim.x} and \texttt{blockIdx.x} variables to access the appropriate threads for computation.
-All threads are indexed as one-dimensional vectors even in a multidimensional space, as shown in Figure~\ref{fig:threadsnblocks} \jrs{FIGURE = GRID WITH BLOCKS WITH THREAD WITH IDS IN 2D, TRY TO SHOW MEMORY AS WELL?}.
+All threads are indexed as one-dimensional vectors even in a multidimensional space, as shown in Figure~\ref{fig:threadsnblocks}.
 Even though threads are rarely acted on sequentially, the thread ID has important ramifications that will be discussed further with other performance tips.
 
 \begin{figure}
-ADD
+\includegraphics[width=\textwidth]{data/gpu/gputhreads.pdf}
 \label{fig:threadsnblocks}
-\caption{Each grid is subdivided into multiple blocks, which is further subdivided into threads for computation. Each thread has a specified ID, which acts as a one-dimensional array, even in a two or three-dimensional system.}
+\caption{Each grid is subdivided into multiple blocks, which is further subdivided into threads for computation. Each thread has a specified ID, which acts as a one-dimensional array, even in a two or three-dimensional system. Here, all areas outlined in red have access to global memory, and any area outlined in blue has access to shared memory. \jrs{slight modification necessary!}}
 \end{figure}
 
 As another note: CUDA will execute code on unallocated memory if you do not tell it to otherwise.
