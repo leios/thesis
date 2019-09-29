@@ -1,0 +1,220 @@
+% GNUPLOT: LaTeX picture with Postscript
+\documentclass{minimal}
+% Set font size
+\makeatletter
+\def\@ptsize{1}
+\InputIfFileExists{size11.clo}{}{%
+   \GenericError{(gnuplot) \space\space\space\@spaces}{%
+      Gnuplot Error: File `size11.clo' not found! Could not set font size%
+   }{See the gnuplot documentation for explanation.%
+   }{For using a font size a file `size<fontsize>.clo' has to exist.
+        Falling back ^^Jto default fontsize 10pt.}%
+  \def\@ptsize{0}
+  \input{size10.clo}%
+}%
+\makeatother
+% Load packages
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{color}
+\makeatletter
+% Select an appropriate default driver (from TeXLive graphics.cfg)
+\begingroup
+  \chardef\x=0 %
+  % check pdfTeX
+  \@ifundefined{pdfoutput}{}{%
+    \ifcase\pdfoutput
+    \else
+      \chardef\x=1 %
+    \fi
+  }%
+  % check VTeX
+  \@ifundefined{OpMode}{}{%
+    \chardef\x=2 %
+  }%
+\expandafter\endgroup
+\ifcase\x
+  % default case
+  \PassOptionsToPackage{dvips}{geometry}
+\or
+  % pdfTeX is running in pdf mode
+  \PassOptionsToPackage{pdftex}{geometry}
+\else
+  % VTeX is running
+  \PassOptionsToPackage{vtex}{geometry}
+\fi
+\makeatother
+% Set papersize
+\usepackage[papersize={360.00bp,252.00bp},text={360.00bp,252.00bp}]{geometry}
+% No page numbers and no paragraph indentation
+\pagestyle{empty}
+\setlength{\parindent}{0bp}%
+% Load configuration file
+\InputIfFileExists{gnuplot.cfg}{%
+  \typeout{Using configuration file gnuplot.cfg}%
+}{%
+ \typeout{No configuration file gnuplot.cfg found.}%
+}%
+%
+\begin{document}
+\begingroup
+  \makeatletter
+  \providecommand\color[2][]{%
+    \GenericError{(gnuplot) \space\space\space\@spaces}{%
+      Package color not loaded in conjunction with
+      terminal option `colourtext'%
+    }{See the gnuplot documentation for explanation.%
+    }{Either use 'blacktext' in gnuplot or load the package
+      color.sty in LaTeX.}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\includegraphics[2][]{%
+    \GenericError{(gnuplot) \space\space\space\@spaces}{%
+      Package graphicx or graphics not loaded%
+    }{See the gnuplot documentation for explanation.%
+    }{The gnuplot epslatex terminal needs graphicx.sty or graphics.sty.}%
+    \renewcommand\includegraphics[2][]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \@ifundefined{ifGPcolor}{%
+    \newif\ifGPcolor
+    \GPcolortrue
+  }{}%
+  \@ifundefined{ifGPblacktext}{%
+    \newif\ifGPblacktext
+    \GPblacktexttrue
+  }{}%
+  % define a \g@addto@macro without @ in the name:
+  \let\gplgaddtomacro\g@addto@macro
+  % define empty templates for all commands taking text:
+  \gdef\gplbacktext{}%
+  \gdef\gplfronttext{}%
+  \makeatother
+  \ifGPblacktext
+    % no textcolor at all
+    \def\colorrgb#1{}%
+    \def\colorgray#1{}%
+  \else
+    % gray or color?
+    \ifGPcolor
+      \def\colorrgb#1{\color[rgb]{#1}}%
+      \def\colorgray#1{\color[gray]{#1}}%
+      \expandafter\def\csname LTw\endcsname{\color{white}}%
+      \expandafter\def\csname LTb\endcsname{\color{black}}%
+      \expandafter\def\csname LTa\endcsname{\color{black}}%
+      \expandafter\def\csname LT0\endcsname{\color[rgb]{1,0,0}}%
+      \expandafter\def\csname LT1\endcsname{\color[rgb]{0,1,0}}%
+      \expandafter\def\csname LT2\endcsname{\color[rgb]{0,0,1}}%
+      \expandafter\def\csname LT3\endcsname{\color[rgb]{1,0,1}}%
+      \expandafter\def\csname LT4\endcsname{\color[rgb]{0,1,1}}%
+      \expandafter\def\csname LT5\endcsname{\color[rgb]{1,1,0}}%
+      \expandafter\def\csname LT6\endcsname{\color[rgb]{0,0,0}}%
+      \expandafter\def\csname LT7\endcsname{\color[rgb]{1,0.3,0}}%
+      \expandafter\def\csname LT8\endcsname{\color[rgb]{0.5,0.5,0.5}}%
+    \else
+      % gray
+      \def\colorrgb#1{\color{black}}%
+      \def\colorgray#1{\color[gray]{#1}}%
+      \expandafter\def\csname LTw\endcsname{\color{white}}%
+      \expandafter\def\csname LTb\endcsname{\color{black}}%
+      \expandafter\def\csname LTa\endcsname{\color{black}}%
+      \expandafter\def\csname LT0\endcsname{\color{black}}%
+      \expandafter\def\csname LT1\endcsname{\color{black}}%
+      \expandafter\def\csname LT2\endcsname{\color{black}}%
+      \expandafter\def\csname LT3\endcsname{\color{black}}%
+      \expandafter\def\csname LT4\endcsname{\color{black}}%
+      \expandafter\def\csname LT5\endcsname{\color{black}}%
+      \expandafter\def\csname LT6\endcsname{\color{black}}%
+      \expandafter\def\csname LT7\endcsname{\color{black}}%
+      \expandafter\def\csname LT8\endcsname{\color{black}}%
+    \fi
+  \fi
+    \setlength{\unitlength}{0.0500bp}%
+    \ifx\gptboxheight\undefined%
+      \newlength{\gptboxheight}%
+      \newlength{\gptboxwidth}%
+      \newsavebox{\gptboxtext}%
+    \fi%
+    \setlength{\fboxrule}{0.5pt}%
+    \setlength{\fboxsep}{1pt}%
+\begin{picture}(7200.00,5040.00)%
+    \gplgaddtomacro\gplbacktext{%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+      \csname LTb\endcsname%%
+      \put(3006,4406){\makebox(0,0)[r]{\strut{}"data/wfcgrid.dat" matrix}}%
+      \csname LTb\endcsname%%
+      \put(3276,3672){\makebox(0,0){\strut{}0}}%
+      \put(3600,3672){\makebox(0,0){\strut{}5}}%
+      \put(3924,3672){\makebox(0,0){\strut{}10}}%
+      \put(3600,3342){\makebox(0,0){\strut{}time ($\mu$s)}}%
+      \put(3088,3986){\makebox(0,0)[r]{\strut{}-100}}%
+      \put(3088,4148){\makebox(0,0)[r]{\strut{}-50}}%
+      \put(3088,4310){\makebox(0,0)[r]{\strut{}0}}%
+      \put(3088,4472){\makebox(0,0)[r]{\strut{}50}}%
+      \put(3088,4634){\makebox(0,0)[r]{\strut{}100}}%
+      \put(2494,4310){\rotatebox{-270}{\makebox(0,0){\strut{}x ($\mu$m)}}}%
+      \put(4104,3986){\makebox(0,0)[l]{\strut{}$0$}}%
+      \put(4104,4078){\makebox(0,0)[l]{\strut{}$10000$}}%
+      \put(4104,4171){\makebox(0,0)[l]{\strut{}$20000$}}%
+      \put(4104,4263){\makebox(0,0)[l]{\strut{}$30000$}}%
+      \put(4104,4356){\makebox(0,0)[l]{\strut{}$40000$}}%
+      \put(4104,4448){\makebox(0,0)[l]{\strut{}$50000$}}%
+      \put(4104,4541){\makebox(0,0)[l]{\strut{}$60000$}}%
+      \put(4104,4634){\makebox(0,0)[l]{\strut{}$70000$}}%
+      \put(4830,4310){\rotatebox{-270}{\makebox(0,0){\strut{}wavefunction density (arb. units)}}}%
+    }%
+    \gplgaddtomacro\gplbacktext{%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+      \csname LTb\endcsname%%
+      \put(3006,2726){\makebox(0,0)[r]{\strut{}"data/wfcgrid\_im.dat" matrix}}%
+      \csname LTb\endcsname%%
+      \put(3276,1992){\makebox(0,0){\strut{}0}}%
+      \put(3600,1992){\makebox(0,0){\strut{}5}}%
+      \put(3924,1992){\makebox(0,0){\strut{}10}}%
+      \put(3600,1662){\makebox(0,0){\strut{}time ($\mu$s)}}%
+      \put(3088,2306){\makebox(0,0)[r]{\strut{}-100}}%
+      \put(3088,2468){\makebox(0,0)[r]{\strut{}-50}}%
+      \put(3088,2630){\makebox(0,0)[r]{\strut{}0}}%
+      \put(3088,2792){\makebox(0,0)[r]{\strut{}50}}%
+      \put(3088,2954){\makebox(0,0)[r]{\strut{}100}}%
+      \put(2494,2630){\rotatebox{-270}{\makebox(0,0){\strut{}x ($\mu$m)}}}%
+      \put(4104,2306){\makebox(0,0)[l]{\strut{}$0$}}%
+      \put(4104,2398){\makebox(0,0)[l]{\strut{}$10000$}}%
+      \put(4104,2491){\makebox(0,0)[l]{\strut{}$20000$}}%
+      \put(4104,2583){\makebox(0,0)[l]{\strut{}$30000$}}%
+      \put(4104,2676){\makebox(0,0)[l]{\strut{}$40000$}}%
+      \put(4104,2768){\makebox(0,0)[l]{\strut{}$50000$}}%
+      \put(4104,2861){\makebox(0,0)[l]{\strut{}$60000$}}%
+      \put(4104,2954){\makebox(0,0)[l]{\strut{}$70000$}}%
+      \put(4830,2630){\rotatebox{-270}{\makebox(0,0){\strut{}wavefunction density (arb. units)}}}%
+    }%
+    \gplgaddtomacro\gplbacktext{%
+      \csname LTb\endcsname%%
+      \put(3430,704){\makebox(0,0)[r]{\strut{}-100}}%
+      \put(3430,893){\makebox(0,0)[r]{\strut{}-50}}%
+      \put(3430,1082){\makebox(0,0)[r]{\strut{}0}}%
+      \put(3430,1271){\makebox(0,0)[r]{\strut{}50}}%
+      \put(3430,1460){\makebox(0,0)[r]{\strut{}100}}%
+      \put(3562,484){\makebox(0,0){\strut{}0}}%
+      \put(3751,484){\makebox(0,0){\strut{}5}}%
+      \put(3941,484){\makebox(0,0){\strut{}10}}%
+      \put(4130,484){\makebox(0,0){\strut{}15}}%
+      \put(4319,484){\makebox(0,0){\strut{}20}}%
+    }%
+    \gplgaddtomacro\gplfronttext{%
+      \csname LTb\endcsname%%
+      \put(2792,1082){\rotatebox{-270}{\makebox(0,0){\strut{}x ($\mu$m)}}}%
+      \put(3940,154){\makebox(0,0){\strut{}time ($\mu$s)}}%
+      \csname LTb\endcsname%%
+      \put(4899,1232){\makebox(0,0)[r]{\strut{}real energy, (a)}}%
+      \csname LTb\endcsname%%
+      \put(4899,902){\makebox(0,0)[r]{\strut{}imaginary energy, (b)}}%
+    }%
+    \gplbacktext
+    \put(0,0){\includegraphics{SHO_realtime-inc}}%
+    \gplfronttext
+  \end{picture}%
+\endgroup
+\end{document}
