@@ -5,7 +5,7 @@ The Split-Step Fourier Method (SSFM) is a pseudo-spectral technique for solving 
 
 \begin{equation}
 i \hbar \frac{\partial \Psi(\mathbf{r},t)}{\partial t} = \left(\frac{p^2}{2m} + V_0 + g |\Psi(\mathbf{r},t)|^2 \right)\Psi(\mathbf{r},t)
-\label{eqn:GP}
+\label{eqn:GPintro}
 \end{equation}
 
 \noindent where $\mathbf{r}$ is a position vector, $\Psi(\mathbf{r},t)$ is a many-body quantum wavefunction, $p = -i\hbar\nabla$ is the momentum operator, $V_0$ is the trapping potential, g = $\frac{4\pi\hbar^2 a_s}{m}$ is the interaction strength, $a_s$ is the scattering length of the atomic species, and $m$ is the mass.
@@ -67,20 +67,20 @@ This method is not straightforwardly parallelizable; however, FFT's have become 
 We will discuss optimal techniques for using FFTs with the SSFM method in Chapter~\ref{ch:gpue}.
 
 With the method described so far, we can simulate simple quantum systems.
-For example, if we guess that our initial wavefunction is gaussian-like and is slightly offset from the center or the trap, this should allow us to see our wavefunction sloshing back and forth in our trap, as shown in FIGURE \jrs{ADD}(a).
+For example, if we guess that our initial wavefunction is gaussian-like and is slightly offset from the center or the trap, this should allow us to see our wavefunction sloshing back and forth in our trap, as shown in Figure~\ref{fig:evolve}(a).
 
 \begin{figure}
 
 \center \includegraphics[width=0.6\textwidth]{data/splitop/SHO/SHO_gimp.pdf}
-
-\label{fig:evolve}
 
 \caption{Evolution of simple harmonic oscillator in real (a), and imaginary (b) time after slightly shifting the trapping potential in the $\hat x$ direction.
 In (c), we see the energy as a function of time and show that the energy of the system when evolving in real time remains constant, but in imaginary time it will decay to the known ground-state energy of a simple harmonic oscillator.
 The simulated results are from evolution from the split-step Fourier method after 10,000 steps.
 Here, we use a Rubidium 87 atom with $\omega_x = 10$Hz on a 256-point grid of size 200 $\mu$m, where the trap has been shifted by 5 $\mu m$.
 The wavefunction has been normalized such that $\int_{-\infty}^\infty|\Psi|^2 dx = 1$, which provides arbitrary units.
-This simulation was performed with the GPUE codebase \cite{schloss2018}.}
+This simulation was performed with the GPUE codebase \cite{schloss2018}.
+\jrs{WIP}}
+\label{fig:evolve}
 \end{figure}
 
 In addition to this, we can find the lowest energy state of our system with the SSFM by performing a Wick rotation and using $\tau = it$ for the simulation \jrs{CN}.
@@ -101,20 +101,15 @@ As we are interested in the dynamics of the quantum system, every step in imagin
 \noindent where $N$ is the number of particles in the system.
 As this operation requires a summation, it is not well-optimized for GPU hardware; however, it is possible to perform a parallel reduction, which allows for a considerable improvement on massively parallel systems~\cite{harris2007}.
 Even so, the normalization is still a slow operation and should be used sparingly.
-A simulation of the same system as in FIGURE, but in imaginary time is shown in FIGURE (a).
-In FIGURE (b), we see the energy exponentially decaying to the known ground-state energy of a quantum harmonic oscillator of $\frac{1}{2}\hbar\omega$.
+A simulation of the same system as in Figure~\ref{fig:evolve}(a), but in imaginary time is shown in Figure~\ref{fig:evolve}.
+In Figure~\ref{fig:evolve}(c), we see the energy exponentially decaying to the known ground-state energy of a quantum harmonic oscillator of $\frac{1}{2}\hbar\omega$.
 
 Now we will turn our focus to systems to be simulated via the SSFM throughout this work: ultracold atoms.
 
 \section{Introduction to ultracold quantum systems}
 \label{sec:intro}
 
-When atomic systems are cooled to temperatures near absolute zero Kelvin, it becomes easier to discern their quantum properties which vary depending on the system.
-Most elementary particles that make up atoms have intrinsic angular momentum known as \textit{spin}.
-Electrons are elementary particles with a spin of $\frac{1}{2}$, and protons and nuetrons are made of elementary particles that sum to a spin of $\frac{1}{2}$.
-The spin of the entire atom is determined by summing the constituent spin components.
-If the sum results in an integer value, the atom is known as a \textit{boson}, and if the sum results in a half-integer value, the atom is known as a \textit{fermion}.
-
+When atomic systems are cooled to temperatures near absolute zero Kelvin, it becomes easier to discern their quantum properties which vary drastically depending on whether the particle is bosonic or fermionic.
 Because fermions have half-integer spin, they must obey the Pauli exclusion principle and are constrained to Fermi--Dirac statistics, which means their ground state will be composed of several fermionic pairs.
 This creates a \textit{Fermi sea}, where particles fill defined energy levels from the bottom up with two particles per level.
 On the other hand, bosons have integer spin and follow Bose--Einstein statistics.
@@ -129,9 +124,10 @@ For now, we will focus on BEC systems, but will also discuss Tonks--Girardeau ga
 
 \subsection{Bose--Einstein condensation and the Gross--Pitaevskii Equation}
 
-The dynamics of BEC systems can be described by the Gross--Pitaevskii equation, shown in Equation~\ref{eqn:GP}, and for this section, we will follow a straightforward derivation with the second quantization~\cite{aversa2008}.
+\jrs{DERIVATION NEEDS HELP}
+The dynamics of BEC systems can be described by the Gross--Pitaevskii equation, shown in Equation~\ref{eqn:GPintro}, and for this section, we will follow a straightforward derivation with the second quantization~\cite{aversa2008}.
 As mentioned in Section~\ref{sec:intro}, bosons in a BEC condense into the same (ground) state, meaning we must introduce a many-body Hamiltonian for the system and take inter-particle interactions into account.
-For the purposes of this body of work, we will only consider two-body interactions and assume any interactions between three or more atoms are unlikely and negligible.
+For the purposes of this body of work, we will only consider two-body interactions and assume any interactions between three or more atoms to be unlikely and negligible.
 We can write the Hamiltonian with two body interactions in the second quantized form as
 \begin{equation}
     \mathcal{\hat H} = \int \hat \Psi^\dagger(\mathbf{r})\left[-\frac{\hbar^2}{2m}\nabla^2 + V_0(\mathbf{r}) \right]\hat \Psi(\mathbf{r}) d\mathbf{r} + \frac{1}{2} \int  \hat \Psi^\dagger(\mathbf{r}) \hat \Psi^\dagger(\mathbf{r'}) V(\mathbf{r} - \mathbf{r'})\hat \Psi(\mathbf{r'}) \hat \Psi(\mathbf{r}) d\mathbf{r} d\mathbf{r'}
@@ -191,13 +187,16 @@ When written in the time-independent form it determines the chemical potential $
     \label{eqn:GP}
 \end{equation}
 
-This equation allows us to determine the full dynamics of a BEC system and the numerical solutions will be discuss in Section~\ref{sec:code}. Similar derivations of the GPE can be found in many introductory texts on BEC physics, such as~\cite{Fetter2003,  Pethick2002, Fetter2009}.
+This equation allows us to determine the full dynamics of a BEC system and the numerical solutions will be discussed in subsequent chapters.
+Similar derivations of the GPE can be found in many introductory texts on BEC physics, such as~\cite{Fetter2003, Pethick2002, Fetter2009}.
 
-
-A superfluid is a state of matter that acts like a classical fluid withoug viscosity.
+It is important to note that a BEC acts like a superfluid, which is a state of matter that is similar to a classical fluid without viscosity.
 This means that once a superfluid is set in motion, there is no retarding force to keep it from flowing.
-There are a few known systems in which superfluidity can exist, such as $^4$He (sometimes called Helium II when in its superfluid phase)~\cite{Allen1938}, neutron stars~\cite{Migdal1960} or BEC systems~\cite{Einstein1925, Anderson1995}.
-As stated, we will focus on BEC systems, but it is important to note that any results shown for superfluid vortex dynamics may have applications beyond cold, atomic physics.
+There are a few known systems in which superfluidity can exist, such as $^4$He (sometimes called Helium II when in its superfluid phase)~\cite{Allen1938}, neutron stars~\cite{Migdal1960}, or BEC systems~\cite{Einstein1925, Anderson1995}.
+BEC systems are generally cleaner experimental systems to create, as they do not have a classical fluid fraction, like $^4$He.
+As stated, we will focus on BEC systems in this work, but it is important to note that any results shown for BEC systems may have applications beyond cold, atomic physics.
+
+\section{Superfluid systems and vortex dynamics}
 
 Though there are many interesting differences between classical fluids and superfluids, we will focus here on vortex dynamics.
 By rotating a fluid, it is possible to create a vortex around the axis of rotation; however, because of the viscosity of a classical fluid, the vortex will begin to shrink and eventually disappear without constant driving.
@@ -208,27 +207,80 @@ In addition, due to the quantization of angular momentum in quantum mechanics, t
 \Gamma = \oint\mathbf{v} \cdot d \mathbf{l} = 2\pi \frac{\ell \hbar}{m},
 \label{Eq:phase}
 \end{equation}
-where $\ell$ is an integer value known as the phase winding.
+where $\ell$ is an integer value known as the phase winding, and $m$ is the mass of the atomic species.
 In this case, the velocity is
 \begin{equation}
 v = \frac{\hbar}{m}\mathbf{\nabla}\phi,
 \end{equation}
-where $m$ is the mass of the atomic species.
-Because the energy $E \propto \ell^2$, as a superfluid is spun faster, a vortex will not grow or shrink in size, but multiple vortices will spawn instead~\cite{Pethick2002}.
-In other words, it is energetically favorable for two vortices of smaller angular mementum to form instead of a single vortex with a large amuont of angular momentum.
-Large amounts of angular momentum will therefore lead to many vortices, which will arrange themselves in a triangular lattice structure known as an Abrikosov lattice~\cite{Abrikosov1957, Fetter2001}.
-This behaviour is identical to that of Type II superconductors under the effects of a magnetic field.
+with $\phi$ as the phase.
+Every singly-charged vortex in a BEC will have a $2\pi$ phase winding, and an example simulation with one vortex and its corresponding phase can be seen in FIGURE (a and b).
 
-Vortices in superfluid systems are also peculiar in their behaviour when compared to classical vortices.
+\begin{figure}
+
+\begin{centering}
+\includegraphics[width=0.48\textwidth]{data/splitop/rot/density_L1.pdf}
+\includegraphics[width=0.48\textwidth]{data/splitop/rot/phase_L1.pdf}
+
+\includegraphics[width=0.48\textwidth]{data/splitop/rot/density_L10.pdf}
+\includegraphics[width=0.48\textwidth]{data/splitop/rot/phase_L10.pdf}
+
+\end{centering}
+
+\caption{
+Simulation of rotation with a single vortex (a, b) and a vortex lattice (c, d).
+The wavefunction density is shown in a and c, while the corresponding phase is shown in b and d.
+A rotation of $\Omega = 0.35\omega_x$ was used for a and b, while a rotation of $\Omega = 0.99\omega_x$ was used for c and d.
+Here, we use a Rubidium 87 atom with $\omega_x = 2\pi$Hz on a 512-point grid of size 200 $\mu$m.
+This simulation was performed with the GPUE codebase \cite{schloss2018}.
+\jrs{WIP}}
+\label{fig:rot}
+\end{figure}
+
+Because the energy $E \propto \ell^2$ and $\ell$ is an integer value, as a superfluid is spun faster, a vortex will not grow or shrink in size, but multiple vortices will spawn instead~\cite{Pethick2002}.
+In other words, it is energetically favorable for two vortices of smaller angular mementum to form instead of a single vortex with a large amount of angular momentum.
+Large amounts of angular momentum will therefore lead to many vortices, which will arrange themselves in a triangular lattice structure known as an Abrikosov lattice~\cite{Abrikosov1957, Fetter2001}.
+This behaviour is identical to that of Type II superconductors under the effects of a magnetic field, where the size of each vortex is described by a physical property known as the healing length.
+An example of this vortex lattice and its phase can be seen in FIGURE (c and d).
+
+\jrs{ADD FIGURE OF SINGLE VORTEX AND VORTEX LATTICE WITH PHASE}
+
+The three-dimensional properties of vortices in superfluid systems are also peculiar in their behaviour when compared to their classical counterparts.
 Superfluid vortices must either end at the end of the condensate or reconnect in the form of vortex rings or other, more complicated vortex structures~\cite{Reichl2013}.
 Because the circulation around superfluid vortices is quantized, when two vortices approach each other with different velocity fields, they may reconnect into smaller, more energetically favorable vortex structures.
 During this reconnection, the abrupt change in energy will create a sound wave at the reconnection site~\cite{Feynman1955}.
 
-Three dimensional vortex structures have been notoriously difficult to generate in an experimental laboratory... ADD MORE FROM VORTEX STATES PAPER!!!
+Three dimensional vortex structures of non-trivial topology have been notoriously difficult to generate in a controllable way experimentally, but we will discuss an experimentally viable method to generate, control, and detect vortex ring-like structures in superfluid BEC systems in Chapter~\ref{ch:vortex_states}.
+There are currently three primary process to controllably generate vortex structres in superfluid systems: rotation, phase imprinting, and artificial magnetic fields.
 
-\section{Methods for vortex generation in superfluid BEC systems}
+\subsection{Rotation}
+
+As mentioned, rotation of a BEC system will provide vortex lines that follow the axis of rotation and start and end on the BEC boundary, and examples of vortex lines in two-dimensions can be seen in FIGURE (above).
+To simulate the effects of rotation, we simply need to append the angular momentum operator $L_z = xp_y - yp_x$ to the GPE:
+
+\begin{equation}
+i \hbar \frac{\partial \Psi(\mathbf{r},t)}{\partial t} = \left(\frac{p^2}{2m} + V_0 + g |\Psi(\mathbf{r},t)|^2 -\Omega L_z \right)\Psi(\mathbf{r},t),
+\end{equation}
+
+\noindent where $\Omega$ is the rotation frequency. 
+In order to generate a vortex via rotation, we must rotate faster than the critical velocity of $\Omega_c = 0.3 \omega_x$, where $\omega_x$ is the trapping frequency.
+In addition, if the rotation frequecy is greater than the trapping frequency, the atoms will no longer be bound by the trap.
+As such, finding the appropriate rotation frequency for creating vortex lattices in BEC systems is a precarious balancing act.
+Largescale vortex lattices have been generated both experimentally and theoretically, with the largest vortex lattices being generated with $\Omega \approx \omega_x$ \cite{o2016, o2016topo, abo2001}.
+
+In this work, we use rotation in a similar way; however, we will later introduce articifial magnetic fields, which is a broader framework that encompases rotation and will be used in all our simulations moving forward.
+We will discuss this in more detail in Section~\ref{sec:implementation}.
 
 \subsection{Phase imprinting}
+
+Phase imprinting is a powerful tool to allow for the generation of various structures in atomic systems \cite{kumar2018, moulder2012, burger1999, denschlag2000}.
+In principle, this technique relies on imprinting a $2\pi$ phase winding along the vortex line researchers wish to create.
+Experimentally, phase imprinting can be done in a number of ways.
+As an example, the phase could be imprinted with a Raman two-photon process where the phase of the photon is imprinted onto the phase of the BEC \cite{moulder2012, kasevich1991, ryu2007}.
+Another method is through pulsing a spatially dependent potential for a short time when compared to the trapping frequency, which will imprint the potential onto the phase of the system~\cite{kasevich1991}.
+
+Phase imprinting has allowed for the generation of many interesting vortex topologies in theoretical and experimental studies~\cite{white2014, maucher2016}; however, it is a destructive process that does not create eigenstates of the system.
+As such, it is not as useful for engineering stable vortex structures, but is instead useful for dynamical studies, such as those found in Chapter~\ref{ch:2d}.
+
 \subsection{Artificial magnetic fields}
 \label{sec:gauge}
 
@@ -274,7 +326,7 @@ That phase difference would be
 The Aharonov--Bohm effect is a simple example with huge consequences: gauge fields matter in quantum mechanics. 
 In the following, we will discuss how to use this consequence to our advantage by first rotating our system to generate vortices, and then generating vortices again by using geometric gauge fields.
 
-\subsubsection{Artificial Magnetic Fields With Rotation}
+\subsubsection{Artificial magnetic fields with rotation}
 \label{sec:rot}
 
 Even with an appropriate gauge field, to create rotation we still must somehow provide angular momentum to our cold atomic system.
@@ -365,87 +417,8 @@ It should be mentioned that both of the exponential terms in Equation~\eqref{eqn
 This phase allows us to transfer angular momentum into our BEC and generate a vortex geometry like those formed in the 2009 experiment by Lin~\textit{et~al.}~\cite{Lin2009}.
 A method to generate these gauge fields in an experimentally realizable way will be described in Section~\ref{sec:evanescent}, but for now let us discuss the possible dynamics of similar in three dimensional systems.
 
-%-------------------------------------------------------------------------------
-\section{Vortex ring dynamics in BEC systems}
-\label{sec:vortex}
-
-As mentioned in Section~\ref{sec:intro}, in BEC systems with large amounts of angular momentum and a single axis of rotation, the vortices will create a two-dimensional Abrikosov lattice. 
-This regular structure is a direct consequence of the quantization of angular momentum in quantum mechanics.
-There are many interesting features to vortices in superfluid systems, many of which follow from classical fluid dynamic theory~\ref{Fetter2009}, which is a well-studied field and covered in many texts~\cite{Faber1995, Kundu2012, Tritton1988, Landau1987}
-Here, we discuss the dynamics of vortex rings in BEC systems.
-
-In a three dimensional BEC and other superfluid systems, vortices can be described as as a system of freely-moving, current-carrying wires located along the axis of rotation. 
-In this way, it is possible to model such systems using the Biot-Savart law ~\cite{Schwarz1985}
-\begin{equation}
-    \boldsymbol{v}_s(\boldsymbol{r},t) = \frac{\kappa}{4\pi}\int\frac{|s_1-\boldsymbol{r}|\times ds_1}{|s_1-\boldsymbol{r}|^3},
-\label{eqn:BS}
-\end{equation}
-where $\kappa = \hbar / m$ is the circulation. 
-This method of modelling a superfluid system has been called the ``vortex filament model,'' and allows us to attain an intuitive understanding for the motion of vortices in a superfluid system; however, it falls short in several areas, such as sound wave propagation and vortex reconnections~\cite{Zuccher2012}. 
-In electrodynamics, current can only flow within a closed loop or between two conductors.
-Similarly, when a vortex filament is generated by injecting angular momentum into a superfluid system, it must either end at the edges of the superfluid or reconnect with other vortices.
-
-Imagine providing a superfluid with an angular momentum of $\hbar k$.
-In this case, a single vortex will be generated along the axis of rotation.
-If another vortex is generated, we would expect it to change the dynamics of the superfluid and move our initial vortex.
-If the new vortex has an angular momentum of $+\hbar k$, the two vortices will be repelled from each other, and if the new vortex has an angular momentum of  $-\hbar k$, it will be called an ``antivortex'' and the pair will be attracted to each other, eventually annihilating on contact.
-If we rotate the condensate with integer multiples of $\hbar k$ angular momentum, we can generate many vortices, all rotating in the same direction and repelling off each other, creating the Abrikosov lattice structure from their mutual repulsion~\cite{Fetter2010}.
-
-ADD FIGURE
-
-By modifying our axis of rotation, we may imagine more complex vortex topologies to be created. 
-For example, imagine the toroidal velocity field shown in Figure~\ref{fig:V_R}, which will lead to  vortex filaments generating a ring instead of a single line. 
-This vortex ring structure is common in large, three dimensional modelling of fluid systems and is a direct consequence of the required connections of vortex lines.
-In other words, the stability of vortex rings is ensured by Kelvin's theorem~\cite{Donnelly1991}, which means that unstable excitations may decay into vortex rings~\cite{Anderson2001}.
-Now, we will discuss the dynamics of these rings.
-
-We will begin our discussion of vortex rings with the thin-core approximation in inviscid fluids, as described by Barenghi and Donnelly~\cite{Barenghi2009}. 
-If we imagine a thin vortex ring of radius $R\gg a$, where a is the core radius, and  with circulation $\Gamma$ moving in an inviscid fluid with density $\rho$, the kinetic energy of the ring is given by
-\begin{equation}
-    E = \frac 1 2 \rho \Gamma^2R\left[\ln\left(\frac{8R}{a}\right)-\alpha\right],
-\end{equation}
-where $\alpha$ is a parameter determined by the system, and different
-values of $\alpha$ correspond to different core models for vortex motion. 
-For example, it is 1.615 for the GPE~\cite{Roberts1971}.
-This equation follows from the Biot-Savart law (Equation~\eqref{eqn:BS}) above. 
-The momentum of the system is given by
-\begin{equation}
-    p = \rho \Gamma \pi R^2,
-\end{equation}
-and the self-induced velocity is~\cite{Roberts1970}
-\begin{equation}
-    v = \frac{\partial E}{\partial p} = \left(\frac{\Gamma}{4 \pi R}\left[\ln(\frac{8R}{a})-\beta\right]\right),
-\end{equation}
-with $\beta = \alpha - 1$ under constant pressure, and $\beta = \alpha - 3/2$ under constant volume. 
-This method of vortex ring analysis has been extended to rings with finite, but small values of the core radius~\cite{Fraenkel1970, Fraenkel1972}.
-%\tbc{These equations come from the Biot-Savart law above.
-%If we consider a filament that is infinitesimally thin, we find an energy $E = \rho \Gamma^2 R/2$ and a velocity of $v = \Gamma / 4 \pi R$.}
-
-If we imagine a single vortex ring, we can define a vortex bubble as its region of influence within the surrounding fluid. 
-If we take a two-dimensional slice of this ring as shown in Figure~\ref{fig:V_B}, we may represent the vortex bubble as the region influenced by two infinitely long, parallel vortex filaments with opposite vorticity. 
-There is an interesting analog to vortex rings and current-carrying loops in the theory of electromagnetism. 
-With a current-carrying wire, a dipolar magnetic field will be created and there is a well-defined spherical region in space where the loop's field overrides any external field. 
-In this way, the current density within the wire is related to the vorticity of a vortex loop at its core and the wire's magnetic field is related to the fluid velocity, $v$~\cite{Fetter1966}.
-
-ADD FIGURE
-
-In the case of multiple interacting vortex rings, we can expect to find many similar features in superfluids to what has been found previously in classical, viscous fluids. 
-If two vortex rings are generated in the same plane and in close proximity, it could be possible for the two velocity fields to interact, causing one ring to expand and slow down while the other contracts and speeds up. 
-Under the right conditions, the lagging ring can pass the forward ring through a process known as ``leapfrogging"~\cite{Sommerfield1950, Caplan2014}.
-
-In addition to leapfrogging, vortex rings can interact through direct collisions~\cite{Shariff1992}. 
-In superfluid $^4$He, some of the earliest experiments on vortex collisions with vortex rings were performed by Schwarz in 1968~\cite{Schwarz1968}.
-In the case of a head-on collision, two identical, moving vortex rings will first grow in size before dispersing into a series of smaller vortex rings around their common circumference~\cite{Lim1995}. 
-These smaller rings are created by vortex reconnection, which can occur any time vortex lines are facing anti-parallel directions.
-
-Finally, we will briefly discuss vortex reconnections.
-As predicted by Feynman in 1955, vortex reconnections in a superfluid lead to larger vortices continually reconnecting into smaller ones until the loops become small enough to decay from dissipation or from interactions with boundaries.~\cite{Feynman1955}.
-These reconnections are thought to produce sound waves when vortices directly interact and Kelvin waves when vortices indirectly interact~\cite{Paoletti2011}.
-When a vortex ring structure is not pinned by either gauge fields or rotation, it will evolve naturally by reconnecting into smaller and smaller vortex rings~\cite{Jackson1999}. 
-This means that we expect to see vortex reconnections in any sufficiently complicated vortex tangle~\cite{Barenghi2014}.
-In addition, when simulations of vortex rings were performed by Jones and Roberts, they found that by computing vortex rings towards the limit of $R \rightarrow a$, they eventually found a solitary wave~\cite{Jones1982, Berloff2005}.
-
 \section{Modifications to the SSFM for superfluid vortex simulations}
+\label{sec:implementation}
 
 To induce rotational effects in a BEC, we need to introduce a rotational operator to the Hamiltonian,
 
@@ -469,14 +442,8 @@ This creates three separate terms: $\frac{p^2}{2m}$, $\frac{\mathbf{mA}^2}(2)$, 
 In the case of rotation, the final term corresponds to $L_z$.
 As we will see in this text, it is possible to generate much more complicated vortex structures with this method.
 
-\section{Numerical considerations for implementing the SSFM}
-
-\subsection{Numerical accuracy}
-
-\subsection{Periodic boundary conditions}
-
-\subsection{Comparison with other methods for simulating superfluid systems}
+\section{Comparison with other methods for simulating superfluid systems}
 \begin{itemize}
-\item Point-vortx / vortex filament
+\item Point-vortex / vortex filament
 \item RK
 \end{itemize}
