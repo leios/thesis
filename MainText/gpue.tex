@@ -303,7 +303,7 @@ This codebase will be used for all remaining simulations performed in this work 
 
 Some additional information on prior development of GPUE can be found in other sources~\cite{o2017}.
 
-\subsection{FFT optimzation}
+\subsection{FFT optimization}
 
 As mentioned in Chapter~\ref{ch:splitop}, the SSFM is primarily limited by the complexity of the FFT operations.
 For a three dimensional simulation with gauge fields in the $\hat x$, $\hat y$, and $\hat z$ directions, one set of global FFTs and three sets of one-dimensional FFTs must be performed.
@@ -322,8 +322,22 @@ This means that the user must be able to input a time-dependent equation and mus
 Because we chose to write GPUE in CUDA, there is no straightforward method for the user to input time-dependent fields without recompiling the source code and modifying CUDA kernels at will, which is unnecessarily cumbersome.
 As such, we have provided a method for users to input the fields of their choosing as strings, which will be transpiled into an array of operations to perform on the GPU through expression trees, which are similar to Abstract Syntax Trees (ASTs) in compiler design~\cite{cohen1991, reyes2011}.
 
-An example of an expression tree can be seen in FIGURE.
+\begin{figure}
+\center \input{data/gpu/expression/expression.tex}
+\caption{
+Example of expression tree for $V=\frac{1}{2}m \omega^2 x^2 t$.
+Blue, filled nodes are operations, leaf nodes are variables, time has been highlighted in red, and spatially-dependent variables are in green.
+This visualization was modified from a form provided by Xadisten during a Twitch livestream.
+}
+\label{fig:expr_tree}
+\end{figure}
+
+
+An example of an expression tree can be seen in Figure~\ref{fig:expr_tree}.
+These are evaluated depth-first to follow the traditional order of operations.
 With this method, a user can type in a string, like \texttt{"V = m*omega*x*x/2"}, and this will be parsed into a set of operations to be performed on-the-fly by the GPU.
+After parsing user-provided equations, we designate certain leaf nodes that are either spatially or temporally dynamic.
+In the case of spatially dynamic variables (\texttt{x}, \texttt{y}, and \texttt{z}), we pull values from constituent vectors based on their \texttt{threadIdx.xyx} values, and for any equation that is dependent on \texttt{t}, we pull upon a stored \texttt{time} variable.
 This operation necessitates the usage of a dictionary data structure to hold all variables in some fashion, which inhibits host performance; however, because the bulk of the computation is performed onthe GPU, this does not significantly impact GPUE performance, overall.
 Because parsing expression trees is an inherently iterative process, the longer the expression, the less optimal using this method is.
 Ultimately, more work could be done in the future to maxize instruction throughput with our implementation of GPU-accelerated expression trees.
@@ -331,6 +345,7 @@ Ultimately, more work could be done in the future to maxize instruction throughp
 Not only do expression trees allow for STA methods to be used with GPUE, but they also eliminate the need to store any operators in GPU memory, effectively increasing the available memory by a factor of 5 for each three dimensional simulation, as $V$, $K$, $A_x$, $A_y$, and $A_z$ no longer need to be stored.
 This allowed us to perform higher-resolution simulations and could allow for dynamical turbulence studies in the future; however, in order to scale beyond this limit, either multiple GPUs must be used or we must find some way to compress the wavefuntion.
 This will be discussed further in Section~\ref{sec:multiGPU}.
+As a final note, this feature can be implemented easier in other GPU frameworks, such as OpenCL and Julia.
 
 \subsection{Vortex tracking and highlighting}
 \label{sec:tracking}
