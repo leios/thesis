@@ -1,17 +1,17 @@
 set terminal epslatex standalone
-set output "SHO_2.tex"
+set output "SHO.tex"
 
 set xrange [0:256]
-set yrange [0:100000]
+set yrange [0:4.2e8]
 set key spacing 1.5
 
 set xlabel 'x ($\mu$m)'
-set xtics ("-100" 0, "-50" 64, "0" 128, "50" 192, "100" 256)
+set xtics ("-250" 0, "-125" 64, "0" 128, "125" 192, "256" 256)
 
 set ylabel "arb. units"
-set key center top
+#set key center top
 #set key box opaque
 #set border back
 
-plot "Vfinal_2.dat" w l lw 3 dt 2 title '$\frac{2V}{m \omega_x^2 dx^2}$', \
-     "wfcfinal_2.dat" w l lw 3 title '$|\Psi|^2$'
+plot "wfcfinal.dat" w l lw 3 dt 4 title 'Schr\"odinger density', \
+     "wfc_GPEfinal.dat" w l lw 3 title 'GPE density'

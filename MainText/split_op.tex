@@ -1,17 +1,14 @@
 \chapter{Introduction to the SSFM for vortex simulations}
 \label{ch:splitop}
+The Split-Step Fourier Method (SSFM) is an essential technique for simulating a variety of physical systems and is particularly useful for simulating the propagation of wave packets for single and multimode fibers~\cite{agrawal2000, sinkin2003, meirelles2005, min2003} along with various quantum systems~\cite{bayindir2015, weideman1986, wang2005}, including all simulations performed in this work.
+Though other methods, such as explicit and implicit Euler~\cite{butcher2016}, Crank-Nicholson~\cite{crank1947}, and Runge-Kutta~\cite{butcher2016}, can solve similar differential equations, the SSFM has distinct advantages over these methods.
+For example, the SSFM is often much easier to parallelize than Runge-Kutta~\cite{brehler2017}, as it primarily relies on embarrassingly parallel element-wise matrix multiplications and Fast Fourier Transform (FFT) routines that have been optimized for parallel and distributed systems.
+The SSFM also provides a lower error bound than either the Euler or Crank-Nicholson methods, and does not require implicit or tridiagonal solver \cite{conte2017, thomas1949} which are also not easily parallelizable~\cite{goddeke2010, wang1981, sweet1977}.
 
-The Split-Step Fourier Method (SSFM) is a pseudo-spectral technique for solving partial differential equations and is particularly useful for NonLinear Scr\"odinger Equations (NLSEs), such as the Gross--Pitaevskii Equation (GPE),
+For the purposes of this text, we will be focusing on the application of the SSFM to quantum systems and will use primarily physical arguments to understand the details of the method, itself.
+We will also discuss several numerical techniques for optimally simulating quantum systems on massively parallel Graphics Processing Units (GPUs), along with software developed for this purpose: GPUE, the Graphics Processing Unit Gross-Pitaevskii Equation Solver.
+This work will discuss several additional areas of interest for implementing similar solvers on GPUs, including distributed transposes and important considerations for traditional FFT routines for simulating quantum systems on multiple GPU devices.
 
-\begin{equation}
-i \hbar \frac{\partial \Psi(\mathbf{r},t)}{\partial t} = \left(\frac{p^2}{2m} + V_0 + g |\Psi(\mathbf{r},t)|^2 \right)\Psi(\mathbf{r},t)
-\label{eqn:GPintro}
-\end{equation}
-
-\noindent where $\mathbf{r}$ is a position vector, $\Psi(\mathbf{r},t)$ is a many-body quantum wavefunction, $p = -i\hbar\nabla$ is the momentum operator, $V_0$ is the trapping potential, g = $\frac{4\pi\hbar^2 a_s}{m}$ is the interaction strength, $a_s$ is the scattering length of the atomic species, and $m$ is the mass.
-This equation along with all of its ramifications will be described fully in this chapter.
-By solving the GPE with time, we can determine the dynamics of Bose--Einstein Condensates (BECs), and
-the states found with the GPE are virtually identical to those found in experiments.
 
 This chapter will assume familiarity with basic principles of quantum mechanics and instead focus on specific performance penalties for simulating quantum systems with the SSFM.
 
@@ -125,7 +122,28 @@ For now, we will focus on BEC systems, but will also discuss Tonks--Girardeau ga
 \subsection{Bose--Einstein condensation and the Gross--Pitaevskii Equation}
 
 \jrs{DERIVATION NEEDS HELP}
-The dynamics of BEC systems can be described by the Gross--Pitaevskii equation, shown in Equation~\ref{eqn:GPintro}, and for this section, we will follow a straightforward derivation with the second quantization~\cite{aversa2008}.
+The dynamics of BEC systems can be described by the Gross--Pitaevskii equation, 
+
+\begin{equation}
+i \hbar \frac{\partial \Psi(\mathbf{r},t)}{\partial t} = \left(\frac{p^2}{2m} + V_0 + g |\Psi(\mathbf{r},t)|^2 \right)\Psi(\mathbf{r},t)
+\label{eqn:GPE}
+\end{equation}
+
+\noindent where $\mathbf{r}$ is a position vector, $\Psi(\mathbf{r},t)$ is a many-body quantum wavefunction, $p = -i\hbar\nabla$ is the momentum operator, $V_0$ is the trapping potential, g = $\frac{4\pi\hbar^2 a_s}{m}$ is the interaction strength, $a_s$ is the scattering length of the atomic species, and $m$ is the mass.
+The main difference between this equation and the Schr\"odinger equation is the non-linear, interaction term of $g|\Psi|^2$.
+When simulating this system, we will find different distribution for the atomic system, known as a Thomas-Fermi distribution, shown in Figure~\ref{fig:TF}
+
+\begin{figure}
+\center \includegraphics[width = \textwidth]{data/qs/SHO/SHO.pdf}
+
+\caption{Ground state of simple harmonic oscillator for the Schr\"odinger equation (purple, dashed) and the GPE (cyan).
+Here, we see that the GPE solution follows a Thomas-Fermi distribution, while the Schr\"odinger equation is Gaussian.
+This simulation was performed with GPUE~\cite{schloss2018} for a two-dimensional grid of $256^2$ elements of size $250 \mu m$ with a trapping potential of $\omega_x = \omega_y = 1$, and $1\times 10^6$ particles.}
+\label{fig:TF}
+\end{figure}
+
+
+For this section, we will follow a straightforward derivation with the second quantization~\cite{aversa2008}.
 As mentioned in Section~\ref{sec:intro}, bosons in a BEC condense into the same (ground) state, meaning we must introduce a many-body Hamiltonian for the system and take inter-particle interactions into account.
 For the purposes of this body of work, we will only consider two-body interactions and assume any interactions between three or more atoms to be unlikely and negligible.
 We can write the Hamiltonian with two body interactions in the second quantized form as
@@ -213,25 +231,18 @@ In this case, the velocity is
 v = \frac{\hbar}{m}\mathbf{\nabla}\phi,
 \end{equation}
 with $\phi$ as the phase.
-Every singly-charged vortex in a BEC will have a $2\pi$ phase winding, and an example simulation with one vortex and its corresponding phase can be seen in FIGURE (a and b).
+Every singly-charged vortex in a BEC will have a $2\pi$ phase winding, and an example simulation with one vortex and its corresponding phase can be seen in Figure~\ref{fig:rot} (a and b).
 
 \begin{figure}
 
-\begin{centering}
-\includegraphics[width=0.48\textwidth]{data/splitop/rot/density_L1.pdf}
-\includegraphics[width=0.48\textwidth]{data/splitop/rot/phase_L1.pdf}
-
-\includegraphics[width=0.48\textwidth]{data/splitop/rot/density_L10.pdf}
-\includegraphics[width=0.48\textwidth]{data/splitop/rot/phase_L10.pdf}
-
-\end{centering}
+\includegraphics[width=\textwidth]{data/splitop/rot/WIP.pdf}
 
 \caption{
 Simulation of rotation with a single vortex (a, b) and a vortex lattice (c, d).
 The wavefunction density is shown in a and c, while the corresponding phase is shown in b and d.
 A rotation of $\Omega = 0.35\omega_x$ was used for a and b, while a rotation of $\Omega = 0.99\omega_x$ was used for c and d.
 Here, we use a Rubidium 87 atom with $\omega_x = 2\pi$Hz on a 512-point grid of size 200 $\mu$m.
-This simulation was performed with the GPUE codebase \cite{schloss2018}.
+This simulation was performed with the GPUE codebase \cite{schloss2018}, and the phase plost are created by multiplying the phase by the wavefunction density to remove anomalous noise beyond the BEC boundary.
 \jrs{WIP}}
 \label{fig:rot}
 \end{figure}
@@ -240,9 +251,7 @@ Because the energy $E \propto \ell^2$ and $\ell$ is an integer value, as a super
 In other words, it is energetically favorable for two vortices of smaller angular mementum to form instead of a single vortex with a large amount of angular momentum.
 Large amounts of angular momentum will therefore lead to many vortices, which will arrange themselves in a triangular lattice structure known as an Abrikosov lattice~\cite{Abrikosov1957, Fetter2001}.
 This behaviour is identical to that of Type II superconductors under the effects of a magnetic field, where the size of each vortex is described by a physical property known as the healing length.
-An example of this vortex lattice and its phase can be seen in FIGURE (c and d).
-
-\jrs{ADD FIGURE OF SINGLE VORTEX AND VORTEX LATTICE WITH PHASE}
+An example of this vortex lattice and its phase can be seen in Figure~\ref{fig:rot} (c and d).
 
 The three-dimensional properties of vortices in superfluid systems are also peculiar in their behaviour when compared to their classical counterparts.
 Superfluid vortices must either end at the end of the condensate or reconnect in the form of vortex rings or other, more complicated vortex structures~\cite{Reichl2013}.
@@ -254,18 +263,20 @@ There are currently three primary process to controllably generate vortex struct
 
 \subsection{Rotation}
 
-As mentioned, rotation of a BEC system will provide vortex lines that follow the axis of rotation and start and end on the BEC boundary, and examples of vortex lines in two-dimensions can be seen in FIGURE (above).
-To simulate the effects of rotation, we simply need to append the angular momentum operator $L_z = xp_y - yp_x$ to the GPE:
+\label{sec:rot}
+As mentioned, rotation of a BEC system will provide vortex lines that follow the axis of rotation and start and end on the BEC boundary.
+Examples of vortex lines in two-dimensions can be seen in Figure~\ref{fig:rot}.
+To simulate the effects of rotation, we simply need to append the angular momentum operator $L_z = -i\hbar(xp_y - yp_x)$ to the GPE:
 
 \begin{equation}
 i \hbar \frac{\partial \Psi(\mathbf{r},t)}{\partial t} = \left(\frac{p^2}{2m} + V_0 + g |\Psi(\mathbf{r},t)|^2 -\Omega L_z \right)\Psi(\mathbf{r},t),
 \end{equation}
 
 \noindent where $\Omega$ is the rotation frequency. 
-In order to generate a vortex via rotation, we must rotate faster than the critical velocity of $\Omega_c = 0.3 \omega_x$, where $\omega_x$ is the trapping frequency.
-In addition, if the rotation frequecy is greater than the trapping frequency, the atoms will no longer be bound by the trap.
+In order to generate a vortex via rotation, we must rotate faster than the critical velocity of $\Omega_c \simeq 0.3 \omega_x$, where $\omega_x$ is the trapping frequency.
+In addition, if the rotation frequecy is greater than the trapping frequency, the atoms will no longer be bound by the trap due to centripetal forces.
 As such, finding the appropriate rotation frequency for creating vortex lattices in BEC systems is a precarious balancing act.
-Largescale vortex lattices have been generated both experimentally and theoretically, with the largest vortex lattices being generated with $\Omega \approx \omega_x$ \cite{o2016, o2016topo, abo2001}.
+Largescale vortex lattices have been generated both experimentally and theoretically, with the largest vortex lattices being generated with $\Omega \approx \omega_x$ \cite{o2016, o2016topo, abo2001, Schweikhard2004}.
 
 In this work, we use rotation in a similar way; however, we will later introduce articifial magnetic fields, which is a broader framework that encompases rotation and will be used in all our simulations moving forward.
 We will discuss this in more detail in Section~\ref{sec:implementation}.
@@ -277,6 +288,7 @@ In principle, this technique relies on imprinting a $2\pi$ phase winding along t
 Experimentally, phase imprinting can be done in a number of ways.
 As an example, the phase could be imprinted with a Raman two-photon process where the phase of the photon is imprinted onto the phase of the BEC \cite{moulder2012, kasevich1991, ryu2007}.
 Another method is through pulsing a spatially dependent potential for a short time when compared to the trapping frequency, which will imprint the potential onto the phase of the system~\cite{kasevich1991}.
+In both of these methods, it is possible to create vortex structures that are more complex than simple vortex lines.
 
 Phase imprinting has allowed for the generation of many interesting vortex topologies in theoretical and experimental studies~\cite{white2014, maucher2016}; however, it is a destructive process that does not create eigenstates of the system.
 As such, it is not as useful for engineering stable vortex structures, but is instead useful for dynamical studies, such as those found in Chapter~\ref{ch:2d}.
@@ -284,62 +296,22 @@ As such, it is not as useful for engineering stable vortex structures, but is in
 \subsection{Artificial magnetic fields}
 \label{sec:gauge}
 
-BECs are typically weakly interacting and composed of neutral atoms, which do not have charge that is directly affected by electric and magnetic fields; however, artificially magnetic fields can still play a crucial role in many cold atomic systems.
-For example, artificial magnetic fields can lead to the generation of vortices in BEC systems~\cite{Lin2009}.
-Since we desire to generate vortex rings with artificial magnetic fields, a detailed introduction, similar to that given by Dalibard in~\cite{Dalibard2015}, will be presented below.
+Magnetic fields are capable of generating rotational effects in charged systems through the Lorentz force, $F_l = q(\mathbf{E} + \mathbf{v} \times \mathbf{B})$, where $q$ is the charge of the system, $\mathbf{E}$ is the electric field, $\mathbf{B}$ is the magnetic field, and $\mathbf{v}$ is the velocity of the particle.
+This effect will allow for the creation of vortices in type II superconductors; however, it is not directly applicable to BEC systems because BECs are typically weakly interacting and composed of neutral atoms, which do not have charge.
+Even so, it is possible to generate artificial magnetic fields with similar effects, and these artificial magnetic fields have even been shown to create vortices experimentally~\cite{Lin2009}.
+In addition, artificial magnetic fields create a broader framework that encompassses rotational effects previously shown in Section~\ref{sec:rot}, and we will use this framework for the remainder of this work.
+As such, a detailed introduction, similar to that given by Dalibard in~\cite{Dalibard2015}, will be presented below.
 
-From classical electrodynamics, we define can the magnetic field as
+If written in the Hamiltonian formalism, the Lorentz force law becomes
+
 \begin{equation}
-\mathbf{B} = \nabla \times \mathbf{A},
-\end{equation}
-where $\mathbf{A}$ is known as a vector potential and has no classical physical interpretation.
-Thus, it can be be defined somewhat arbitrarily.
-For example, if we have a uniform magnetic field in the $\hat z$ direction, $\mathbf{B} = B \hat z$, we may choose from many different options, such as the symmetric gauge
-\begin{equation}
-\mathbf{A}(r) = \frac{B}{2}(x \hat y - y \hat x),
-\end{equation}
-or the Landau gauge
-\begin{equation}
-\begin{split}
-\mathbf{A}(r) &= Bx \hat y, \\
-\mathbf{A}(r) &= By \hat x.
-\end{split}
+\mathcal{\hat{H}} = \frac{(\mathbf{\hat p} - q\mathbf{A}(\mathbf{r}))^2}{2m}
 \end{equation}
 
-Even though $\mathbf{A}$ has no \textit{classical} ramifications, in the \textit{quantum} realm, it can have physical implications.
-The most famous example of this is the Aharonov-Bohm effect~\cite{Aharonov1959}. 
-Imagine a solenoid extending infinitely in the $\hat z$ direction, with an of electric current circulating through to create a static magnetic field through the center of the solenoid, but not on the exterior. 
-As mentioned above, this magnetic field could correspond to a few different gauge choices.
-If we send a charged particle from one point on the exterior of the solenoid to an identical point on the other side of the solenoid by avoiding the solenoid, no matter what path we choose to send the particle along, there would be no significant difference between the different chosen paths.
-This is obvious because the magnetic field is negligible on the exterior of the solenoid.
-If we instead imagine sending a quantum particle around the solenoid, we could imagine a phase associated with a non-zero $\mathbf{A}$ given by
-\begin{equation}
-\phi = \frac{q}{\hbar}\int_P \mathbf{A} \cdot d\mathbf{r},
-\end{equation}
-where $q$ is the charge of the particle and $P$ is the chosen path.
-If we connect the two paths, then we could imagine a change in phase related to the magnetic flux $\Phi_B = \mathbf{B}\eta$, where $\eta$ is the area within the object. 
-That phase difference would be
-\begin{equation}
-\Delta\phi = \frac{q\Phi_B}{\hbar}.
-\end{equation}
+\noindent where $\mathbf{A}$ is a vector potential such that $\mathbf{B} = \nabla \times \mathbf{A}$ and $q$ is the charge of the particle.
+Because cold atoms are neutral, we must find ways to simulate the effects of magnetic fields instead of using magnetic fields themselves.
 
-The Aharonov--Bohm effect is a simple example with huge consequences: gauge fields matter in quantum mechanics. 
-In the following, we will discuss how to use this consequence to our advantage by first rotating our system to generate vortices, and then generating vortices again by using geometric gauge fields.
-
-\subsubsection{Artificial magnetic fields with rotation}
-\label{sec:rot}
-
-Even with an appropriate gauge field, to create rotation we still must somehow provide angular momentum to our cold atomic system.
-Imagine a charged particle in a magnetic field undergoing gyromotion through the Lorentz force law, $F=q\mathbf{v} \times \mathbf{B}$.
-By applying the appropriate transformation, the Hamiltonian for this system becomes
-\begin{equation}
-\hat H = \frac{(\hat{\mathbf{p}} - q \mathbf{A}(\hat{\mathbf{r}}))^2}{2m} + V_0(\hat{\mathbf{r}}),
-\label{eqn:lorentz}
-\end{equation}
-where $q$ is the charge of the particle and $\hat p$ is its momentum.
-Now, let us consider the same law, except with artificial magnetic fields created for cold, atomic systems.
-
-As mentioned before, cold atoms are neutral and because of this, we must find ways to simulate the effects of magnetic fields instead of using magnetic fields themselves.
+Firstly, let us describe how rotation can be considered to be an artificial vector potential and thus generate vortex structures in BEC systems.
 Imagine a plane rotating with an angular velocity $\Omega$ around the $z$-axis ($\mathbf{\Omega} = \Omega \hat z$). 
 In this case, the Coriolis force is defined as
 \begin{equation}
@@ -355,17 +327,18 @@ By applying the transformation $\hat H = \hat H_0 - \Omega \hat L_z$, where $\ha
 \end{split}
 \end{equation}
 where $\omega$ is the trapping frequency for a symmetric two-dimensional harmonic trap, $\mathbf{A} \equiv \mathbf{\Omega} \times \mathbf{r}$, and $V_0 = m/2 \left( \omega^2 - \Omega^2 \right)r^2$.
-The final form is similar to that of Equation~\eqref{eqn:lorentz} for the Lorentz force law and coincide with an effective magnetic field according to $2 \mathbf \Omega \rightarrow \mathbf B$.
+The final form is similar to that of the Lorentz force law and coincides with an effective magnetic field of $2 \mathbf \Omega \propto \mathbf B$.
 In this way, we may recreate the rotation expected from the Lorentz force law in a cold atomic system with an artificial magnetic field~\cite{Peshkin1989, Madison2000, Abo-Shaeer2001}.
 
-With this method of generating vortices, the potential term $V_0$ becomes negative when $\Omega > \omega$, which allows particles to exit the trap, and there have been experiments rotating a BEC up to this limit~\cite{Schweikhard2004}.
-In 2009, Lin~\textit{et~al.} showed that it was possible to generate vortices with geometric gauge fields instead, which can circumvent this limitation~\cite{Lin2009}.
-We will now discuss how to generate vortices in BEC systems with geometric gauge fields instead of rotation.
+Here, it becomes more obvious why it is impossible to rotate a system when $\Omega > \omega_x$, as the potential term $V_0$ becomes negative at that point.
+Artificial magnetic fields provide a powerful tool to researchers who wish to generate and control complex vortex structures, and because of this, it is worth discussing them in further detail.
+Important implementation details for how to use artificial magnetic fields with the SSFM will be noted in Section~\ref{sec:implementation}.
 
 \subsubsection{Geometric Gauge Fields}
 \label{sec:geom}
 
-In the following, we will discuss the adiabatic motion of free atoms undergoing geometric phase transformations through the Berry phase. 
+As we have already described how rotation can act as an artificial Lorentz force, we now turn our attention towards methods that might allow us to generate more general rotational effects and vortex structures.
+In particular, we will discuss the adiabatic motion of free atoms undergoing geometric phase transformations through the Berry phase. 
 For this, we assume that our system has an external parameter $\lambda$ such that
 \begin{equation}
 \hat H(\lambda) \ket{\psi_n(\lambda)} = E_n(\lambda)\ket{\psi_n(\lambda)},
@@ -415,35 +388,49 @@ where
 In this case $\Phi_{\text{Berry}}$ is called the Berry phase and it only depends on the motion path of $\lambda$. 
 It should be mentioned that both of the exponential terms in Equation~\eqref{eqn:c} are gauge invariant and thus remain unchanged when $\ket{\psi_n(\lambda)}$ is multiplied by a phase factor.
 This phase allows us to transfer angular momentum into our BEC and generate a vortex geometry like those formed in the 2009 experiment by Lin~\textit{et~al.}~\cite{Lin2009}.
-A method to generate these gauge fields in an experimentally realizable way will be described in Section~\ref{sec:evanescent}, but for now let us discuss the possible dynamics of similar in three dimensional systems.
+As a note, the vortex structures generated in this way follow the magnetic fields lines, thus providing the capability to generate complex vortex structures beyond vortex lines.
+Outside of rotation, another method to generate these gauge fields in an experimentally realizable way will be described in Chapter~\ref{ch:vortex_states}, but for now we should discuss how these fields can be implemented in the SSFM, with an emphasis on their effects for superfluid simulations.
 
 \section{Modifications to the SSFM for superfluid vortex simulations}
 \label{sec:implementation}
 
-To induce rotational effects in a BEC, we need to introduce a rotational operator to the Hamiltonian,
+In order to simulate the effects of artificial magnetic fields on BEC systems, we must slightly modify the Hamiltonian, like so:
 
-$$
-\mathcal{\hat H}_{ROT} = \frac{p^2}{2m} + V_0 + g|\Psi(\mathbf{r},t)|^2 - \Omega L_z
-$$
+\begin{equation}
+\mathcal{\hat H} = \frac{(p-m\mathbf{A})^2}{2m} + V_0 + g|\Psi(\mathbf{r},t)|^2
+\end{equation}
 
-where $\Omega$ is the rotational frequency and $L_z = xp_y - yp_x$ is the angular momentum operator.
-This will cause a rotation around the $z$ axis and create vortices in the BEC when rotating about some critical rotation frequency.
-Notably, there is also a maximum rotation frequency at which the atoms will leave the trap, which is dependent on the frequency of the external trap.
+Where $\mathbf{A}$ is an artificial vector potential of various forms.
+As a note, some texts absorb the mass term into the artificial vector potential, but here we are stating it explicitly for convenience.
+When expanded, we note that the gauge field has a component in position space, $\frac{m\mathbf{A}^2}{2}$, which couples with the trapping potential, and another component that is partially in both position and momentum space, $p\mathbf{A}$.
 
-By using this rotational operator, all vortices will align themselves along the $\hat z$ direction and there are few easy ways to create vortex structures more complicated than vortex lines.
-To generate more complex vortex structures in a stable way, it is often worth implementing an artificial magnetic field by incorporating the rotation term into the $\frac{p^2}{2m}$ term like so:
+Firstly, let us discuss the component purely in position space.
+Here, we see that it is important to properly balance the trapping potential and the artificial vector potential when simulating BEC systems with rotation or other artificial vector potentials, otherwise, the trapping geometry will become warped.
+As mentioned in Section~\ref{sec:rot}, this is effectively balanced by the centripetal force; however, 
+in the case of arbitrarily chosen vector potentials, this can create rather unusual wavefunction geometries, as shown in Figure~\ref{fig:V_change} for a gaussian $\mathbf{A_x}$ and $\mathbf{A_y}$.
+Though we might be able to balance this warping with a centripetal force tailored to the gauge fields we introduce, we did not consider this for the purposes of this work.
 
-$$
-\mathcal{\hat H}_{ROT} = \frac{(p-m\mathbf{A})^2}{2m} + V_0 + g|\Psi(\mathbf{r},t)|^2
-$$
+\begin{figure}
 
-Where $\mathbf{A}$ is a gauge field.
-This creates three separate terms: $\frac{p^2}{2m}$, $\frac{\mathbf{mA}^2}(2)$, and $p\mathbf{A}$.
-In the case of rotation, the final term corresponds to $L_z$.
-As we will see in this text, it is possible to generate much more complicated vortex structures with this method.
+\begin{centering}
+\includegraphics[width=0.48\textwidth]{data/splitop/gauge/check.pdf}
+\includegraphics[width=0.48\textwidth]{data/splitop/gauge/density.pdf}
+\end{centering}
 
-\section{Comparison with other methods for simulating superfluid systems}
-\begin{itemize}
-\item Point-vortex / vortex filament
-\item RK
-\end{itemize}
+\caption{
+Simulation of GPE with an arbitrarily chosen gaussian artificial vector potential.
+For this simulation, we have removed the $pA$ term to focus on the warped potential, itself.
+This simulation was performed with the GPUE codebase \cite{schloss2018}.
+\jrs{WIP}}
+\label{fig:V_change}
+\end{figure}
+
+The components of the artificial vector potential that are partially in position and momentum space are somewhat difficult to consider numerically.
+As they reside in both spaces, it is required to perform a one-dimensional FFT acros $n$-dimensional data.
+This means that if we have three operators, $p\mathbf{A}_x \hat x$, $p\mathbf{A}_y \hat y$, and $p\mathbf{A}_z \hat z$, we will need to perform an FFT on our wavefunction in the $\hat x$, $\hat y$, and $\hat z$ dimensions, respectively, before applying the operators through element-wise multiplication. 
+As discussed in Chapter~\ref{ch:gpu}, this has significant performance penalties if we do not consider appropriate memory coalescence.
+This also requires the usage of more intricate FFT plans for the FFTW or CuFFT libraries, which are non-trivial for three-dimensional simulations.
+In particular, it should be noted that more optimal FFT schemes require transposing the data to ensure memory coalescence for each of these FFT operations.
+In fact, a tranpose of this nature would also made the global FFT operations faster for the SSFM without rotation.
+As such, we have also designed an in-place, three-dimensional, distributed transpose for multi-GPU SSFM calculations.
+Direct implementation details will be further described in Chapter~\ref{ch:gpue}.
