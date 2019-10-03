@@ -1,0 +1,606 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.8.25)  11 SEP 2019 12:37
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**plot_momentum.gp
+(./plot_momentum.gp
+LaTeX2e <2018-12-01>
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 s
+     et terminal epslatex standalone size 6in, 6in
+? 
+! Interruption.
+\GenericError  ...                                
+                                                  \endgroup 
+l.1 s
+     et terminal epslatex standalone size 6in, 6in
+? 
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no 6 in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no 6 in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no " in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no " in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 1--3
+[]
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4 s
+     et size square
+? 
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no z in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no q in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no e in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 4--5
+[]
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.6 s
+     et xrange [256:768]
+? 
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no [ in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 6 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no 6 in font nullfont!
+Missing character: There is no 8 in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no x in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no ( in font nullfont!
+Missing character: There is no " in font nullfont!
+Missing character: There is no - in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no " in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 6 in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no " in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no " in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no 1 in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no , in font nullfont!
+Missing character: There is no " in font nullfont!
+Missing character: There is no 5 in font nullfont!
+Missing character: There is no " in font nullfont!
+Missing character: There is no 7 in font nullfont!
+Missing character: There is no 6 in font nullfont!
+Missing character: There is no 8 in font nullfont!
+Missing character: There is no ) in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 6--8
+[]
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.9 s
+     et title "Momentum space distributions"
+? 
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no " in font nullfont!
+Missing character: There is no M in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no " in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 9--10
+[]
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.11 p
+      lot for [i=0:9] "gaussian_fft_data.dat" index i title sprintf('$\sigma...
+
+? 
+Missing character: There is no p in font nullfont!
+Missing character: There is no l in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no f in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no [ in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no : in font nullfont!
+Missing character: There is no 9 in font nullfont!
+Missing character: There is no ] in font nullfont!
+Missing character: There is no " in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no n in font nullfont!
+! Missing $ inserted.
+<inserted text> 
+                $
+l.11 plot for [i=0:9] "gaussian_
+                                fft_data.dat" index i title sprintf('$\sigma...
+
+? 
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 11.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 11.
+! Missing $ inserted.
+<inserted text> 
+                $
+l.11 ...t_data.dat" index i title sprintf('$\sigma
+                                                   = %.1f$', (i+1)/10.0) w l...
+
+? 
+! Missing $ inserted.
+<inserted text> 
+                $
+l.12 
+     
+? 
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 11--12
+[]
+ []
+
+
+Overfull \hbox (159.32794pt too wide) in paragraph at lines 11--12
+[]\OML/cmm/m/it/10 ft[]ata:dat\OT1/cmr/m/n/10 "\OML/cmm/m/it/10 indexititlespri
+ntf\OT1/cmr/m/n/10 ([]$$\OML/cmm/m/it/10 ^^[ \OT1/cmr/m/n/10 =$ 
+ []
+
+! Interruption.
+l.71600620 
+           
+? 
+! Interruption.
+l.77299895 
+           
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.82355318 
+           
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.87405963 
+           
+? 
+! Interruption.
+l.92258683 
+           
+? 
+! Interruption.
+l.110405780 
+            
+? 
+! Interruption.
+l.111490421 
+            
+? 
+! Interruption.
+l.112591021 
+            
+? 
+! Interruption.
+l.113668299 
+            
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.114775203 
+            
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.115879775 
+            
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.116979425 
+            
+? 
+! Interruption.
+l.118091424 
+            
+? 
+! Interruption.
+l.119173115 
+            
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.120277144 
+            
+? 
+! Interruption.
+l.121311187 
+            
+? 
+! Interruption.
+l.122430402 
+            
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.123497212 
+            
+? 
+! Interruption.
+l.124603619 
+            
+? 
+! Interruption.
+l.125541478 
+            
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.126596440 
+            
+? 
+! Interruption.
+l.127660130 
+            
+? 
+! Interruption.
+l.128759151 
+            
+? 
+! Interruption.
+l.129867953 
+            
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.130976831 
+            
+? 
+! Interruption.
+l.132061347 
+            
+? 
+! Interruption.
+l.133159675 
+            
+? 
+! Interruption.
+l.134262080 
+            
+? 
+! Interruption.
+l.135370283 
+            
+? 
+! Interruption.
+l.136483652 
+            
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.137575593 
+            
+? 
+! Interruption.
+l.138683139 
+            
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.139775161 
+            
+? 
+! Interruption.
+l.140795213 
+            
+? 
+! Interruption.
+l.141887055 
+            
+? 
+! Interruption.
+l.142971974 
+            
+? 
+! Interruption.
+l.144077098 
+            
+? 
+! Interruption.
+l.145141523 
+            
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.146229733 
+            
+? 
+! Interruption.
+l.147311428 
+            
+? 
+! Interruption.
+l.148407997 
+            
+? 
+! Interruption.
+l.149516780 
+            
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.150612918 
+            
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.151720901 
+            
+? 
+! Interruption.
+l.152799905 
+            
+? 
+! Interruption.
+l.153918758 
+            
+? 
+! Interruption.
+l.155025175 
+            
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.156116821 
+            
+? 
+! Interruption.
+l.157207876 
+            
+? 
+! Interruption.
+l.158310484 
+            
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.159404663 
+            
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.160525112 
+            
+? 
+! Interruption.
+l.161638934 
+            
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.162746909 
+            
+? 
+! Interruption.
+l.163825324 
+            
+? 
+! Interruption.
+l.164924014 
+            
+? 
+! Interruption.
+l.166039529 
+            
+? 
+! Interruption.
+l.167097397 
+            
+? 
+! Interruption.
+l.168205130 
+            
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.169289324 
+            
+? 
+! Interruption.
+l.170398191 
+            
+? 
+! Interruption.
+l.171503519 
+            
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.172612998 
+            
+? 
+! Interruption.
+l.173664255 
+            
+? 
+! Interruption.
+<to be read again> 
+                   \par 
+l.174776213 
+            
+? 
+! Interr

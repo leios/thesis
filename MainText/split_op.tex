@@ -286,9 +286,20 @@ We will discuss this in more detail in Section~\ref{sec:implementation}.
 Phase imprinting is a powerful tool to allow for the generation of various structures in atomic systems \cite{kumar2018, moulder2012, burger1999, denschlag2000}.
 In principle, this technique relies on imprinting a $2\pi$ phase winding along the vortex line researchers wish to create.
 Experimentally, phase imprinting can be done in a number of ways.
-As an example, the phase could be imprinted with a Raman two-photon process where the phase of the photon is imprinted onto the phase of the BEC \cite{moulder2012, kasevich1991, ryu2007}.
-Another method is through pulsing a spatially dependent potential for a short time when compared to the trapping frequency, which will imprint the potential onto the phase of the system~\cite{kasevich1991}.
+As an example, the phase could be imprinted with a Raman two-photon process to transfer orbital angular momentum to atoms from a Laguerre--Gaussian beam \cite{moulder2012, ryu2007}.
+Another method is through pulsing a spatially dependent potential for a short time when compared to the trapping frequency, which will imprint the potential onto the phase of the system~\cite{kasevich1991} and can be used to generate a soliton~\cite{denschlag2000}, vortex~\cite{gajda1999}, or other states with quantized circulation~\cite{kumar2018}.
 In both of these methods, it is possible to create vortex structures that are more complex than simple vortex lines.
+Phase imprinting has also been used in theoretical studies to create a defect in a large vortex lattice by flipping the phase (and therefore rotation direction) of a selected vortex by imprinting a $-4\pi$ phase at the vortex's location~\cite{o2016topo}.
+Note that if a phase greater than $|2\pi|$ is imprinted onto the system, the vortices are likely to decay into vortices of $|2\pi|$ phase~\cite{shin2004}.
+
+For the purposes of this work, we will only consider imprinting vortex lines with this method by apply phase imprinting operations to our condensate, such that
+
+\begin{equation}
+\Psi_{IMP}(x,y,t) = |\Psi(x,y,t)|e^{i(\theta(x,y,t) + \theta_{IMP}(x,y))}
+\end{equation}
+
+\noindent where $\Psi_{IMP}(x,y,t)$ is the quantum wavefunction after phase imprinting, $\theta(x,y,t)$ is the phase of the quantum system, and $\theta(x,y) = \text{arctan}(y-y_0, x-x_0)$ centers the phase profile at position $(x_0, y_0)$.
+This method allows us to apply a phase mask to any location in the transverse plane and will be applied further in Chapter~\ref{ch:2d}.
 
 Phase imprinting has allowed for the generation of many interesting vortex topologies in theoretical and experimental studies~\cite{white2014, maucher2016}; however, it is a destructive process that does not create eigenstates of the system.
 As such, it is not as useful for engineering stable vortex structures, but is instead useful for dynamical studies, such as those found in Chapter~\ref{ch:2d}.
@@ -433,4 +444,4 @@ This also requires the usage of more intricate FFT plans for the FFTW or CuFFT l
 In particular, it should be noted that more optimal FFT schemes require transposing the data to ensure memory coalescence for each of these FFT operations.
 In fact, a tranpose of this nature would also made the global FFT operations faster for the SSFM without rotation.
 As such, we have also designed an in-place, three-dimensional, distributed transpose for multi-GPU SSFM calculations.
-Direct implementation details will be further described in Chapter~\ref{ch:gpue}.
+Direct implementation details will be further described in Chapter~\ref{ch:gpu}.

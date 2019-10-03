@@ -370,7 +370,7 @@ Instead, the phase can be used to uniquely identify vortex location, as shown in
 In the highlighted region, all elements sum to a value of $2\pi$.
 In this way, vortex tracking essentially becomes a straightforward task of locating all the $2\pi$ phase windings in the simulated domain via minimization of
 This process also necessitates a mask for regions outside of this domain.
-Further discussion on how to refine this position can be found in previous work~\ref{o2017, docs}.
+Further discussion on how to refine this position can be found in previous work~\cite{o2017, docs}.
 
 \jrs{I don't think vortex position refinement is relevant to what I did, which was the vortex highlighting in 3D, but I can add it in...}.
 
@@ -398,7 +398,7 @@ For two-dimensional simulations for vortex dynamics, it is typically sufficient 
 For two-dimensional dynamical studies, it was n
 For this reason, we need some new method for compressing the data output from GPUE
 
-For fileIO, we had initially considered implementing the Compressed Split-Step Fourier Method (CSSFM)~\ref{bayindir2015}; however, this was shown to be unsuitable for the case of $n$-dimensional systems with vortex dynamics.
+For fileIO, we had initially considered implementing the Compressed Split-Step Fourier Method (CSSFM)~\cite{bayindir2015}; however, this was shown to be unsuitable for the case of $n$-dimensional systems with vortex dynamics.
 Instead, we simply implemented HDF5, and we will discuss this implementation here.
 
 \subsection{Benchmarks with other software suites}
