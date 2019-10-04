@@ -332,7 +332,6 @@ This visualization was modified from a form provided by Xadisten during a Twitch
 \label{fig:expr_tree}
 \end{figure}
 
-
 An example of an expression tree can be seen in Figure~\ref{fig:expr_tree}.
 These are evaluated depth-first to follow the traditional order of operations.
 With this method, a user can type in a string, like \texttt{"V = m*omega*x*x/2"}, and this will be parsed into a set of operations to be performed on-the-fly by the GPU.
@@ -385,11 +384,63 @@ As such, we are currently seeking a more computationally efficient method for tr
 As our system do not necessarily fill the contents of our simulation domain, the proposed method will not work without some modification.
 We could still use the method if we have some understanding of the trapping geometry; however, as we discussed in Chapter~\ref{ch:splitop}, this is not always the case with gauge fields.
 
+\begin{figure}
+\center \includegraphics[width=0.75\textwidth]{data/gpu/vortex_highlighting/all.png}
+\caption{
+An example of vortex highlighting with a Sobel filter.
+The upper left quadrant is the superfluid density with no modifications, the left two quadrants are the superfluid density after Sobel filtering, and the bottom left quadrant is an isosuface on the Sobel filtered density.
+Here, we can easily create isosurfaces of vortices that would be occluded when using the density, alone.
+\jrs{WIP: ADD ISOSURFACE OF JUST DENSITY TO SHOW HOW IT IS DIFFICULT TO SEE INSIDE}
+}
+\label{fig:highlight}
+\end{figure}
+
 As such, instead of focusing on vortex \textit{tracking}, we have instead implemented a simple vortex \textit{highlighting} scheme for three dimensions.
 This can be done simply with a Sobel filter on the condensate density, and can easily create crisp visualizations like those found in the computer graphics literature~\cite{guo2018}.
-An example of a vortex highlighted wavefunction density, along with an isosurface can be seen in FIGURE.
+An example of a vortex highlighted wavefunction density, along with an isosurface of both the density and the highlighted density can be seen in Figure~\ref{fig:highlight}.
 Though it would be possible to use further edge detection methods, such as the Canny edge detector~\cite{canny1986}, this would add a significant computational overhead to the computation, itself, and thus was not implemented in the current work.
 This is a difficult problem that required further study; however, vortex highlighting is enough for most three dimensional vortex simulations.
+
+\subsection{Energy calculation for superfluid simulations}
+
+As discussed in Chapter~\ref{ch:splitop}, energy calculations can play an essential role in SSFM simulations and can be used to help understand vortex dynamics in certain simulations.
+More importantly, energy calculations lie at the heart of convergence criteria for imaginary time propagation.
+Essentially, in order to avoid unnecessary computation, many SSFM methods will cease simulating the system in imaginary time when the change in energy every timestep drops below a certain threshold value.
+Though we have this option available in GPUE, it is not a native feature for at least three important reasons:
+
+\begin{enumerate}
+\item Certain systems, such as large vortex lattices with high rotation, have a seemingly degenerate groundstate with different vortex configurations~\cite{o2017, o2016, o2016topo}.
+\item GPUE is often run on a computing cluster where the maximum simulation time is set before-hand.
+For this, the user must be able to estimate the duration of their simulation, and this is not straightforward if imaginary-time propagation finishes at an unknown time.
+\item The energy calculation is memory and operation-intensive and requires at least one additional object of the size of the wavefunction to be created and stored on GPU memory.
+\end{enumerate}
+
+\noindent The first and second of these are somewhat self-explanatory, but the third requires further elucidation.
+
+Energy calculations in GPUE are essentially composed of the following operation,
+
+\begin{equation}
+E = \braket{\Psi|\mathcal{\hat H}|\Psi}
+\end{equation}
+
+\noindent The first problem with this operation is that it requires a sum.
+Even though we have a robust implementation of parallel reduction, this is still a slow process in the GPU.
+The next problem comes from the nature of the Hamiltonian, itself.
+As described in Chapter~\ref{ch:splitop}, the Hamiltonian is essentially composed of three separate components for vortex simulations:
+
+\begin{align}
+\mathcal{\hat H}_v &= V_0 + g|\Psi|^2 + \frac{m\mathbf{A}^2}{2} \\
+\mathcal{\hat H}_p &= \frac{p^2}{2m} \\
+\mathcal{\hat H}_{pv} &= p\mathbf{A}
+\end{align}
+
+\noindent where $\mathcal{\hat H}_v$, $\mathcal{\hat H}_p$, and $\mathcal{\hat H}_{pv}$ are the Hamiltonians in position-space, momentum-space, and mixed-space, respectively.
+These operations can be considered with expression trees; however, for three-dimensional simulations they still require either a set of forward and inverse FFT's or a derivative function with fixed stride along with the parallel reduction operation.
+This ultimately amounts to the same number of operations required for a single step of imaginary-time evolution; however, because we do not want to influence the simulated wavefunction, it requires at least one additional allocation of a wavefunction-sized array.
+Due to the computational time required for each energy calculation, we request users to input the set of timesteps they would like to compute the energy for before-hand.
+
+Though finding the energy of the wavefunction is a useful feature for certain simulations, it should not be used regularly for memory-limited tasks or tasks that should be performed quickly.
+Even so, for most applications of GPUE on HPC environments, there should be no problem running the energy-calculation alongside the simulation, itself.
 
 \subsection{Implementation of HDF5 filesystem for fileIO}
 

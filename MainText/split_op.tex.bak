@@ -63,11 +63,11 @@ A flowchart of how we perform this operation can be found in Figure~\ref{fig:met
 
 The major performance bottleneck for this simulation comes from Discrete Fourier Transform (DFT) operations, which require costly accesses to global memory and are particularly harsh on GPU architecture.
 In practice, DFTs are often replaced by Fast Fourier Transforms (FFTs), which typically use a variation on the Cooley-Tukey method, which was first discovered by Gauss and later contemporized by Cooley and Tukey when they independently discovered it \cite{cooley1965}.
-This method is not straightforwardly parallelizable; however, FFTs have become so fundamental to signal processing, that they have been incredibly well-optimized with several libraries, including FFTW~\cite{frigo1998} and CuFFT~\cite{fatica2008} for distributed and GPU calculations, respectively.
+This method is not straightforwardly parallelizable; however, FFT's have become so fundamental to signal processing, that they have been incredibly well-optimized with several libraries, including FFTW~\cite{frigo1998} and CuFFT~\cite{fatica2008} for distributed and GPU calculations, respectively.
 We will discuss optimal techniques for using FFTs with the SSFM method in Chapter~\ref{ch:gpu}.
 
 With the method described so far, we can simulate simple quantum systems.
-For example, if we guess that our initial wavefunction is Gaussian-like and is slightly offset from the center of a simple harmonic oscillator, we can simulate our wavefunction oscillating back and forth in our trap, as shown in Figure~\ref{fig:evolve}(a).
+For example, if we guess that our initial wavefunction is gaussian-like and is slightly offset from the center of a simple harmonic oscillator, we can simulate our wavefunction oscillating back and forth in our trap, as shown in Figure~\ref{fig:evolve}(a).
 
 \begin{figure}
 
@@ -106,7 +106,7 @@ In addition, because we are interested in the dynamics of the quantum system, ev
 \end{equation}
 
 \noindent where $N$ is the number of particles in the system.
-Computationally, this operation requires a summation, which is not well-optimized for GPU hardware; however, it is possible to perform a parallel reduction (summation), which allows for a considerable improvement on massively parallel systems~\cite{harris2007}.
+Computationall, this operation requires a summation, which is not well-optimized for GPU hardware; however, it is possible to perform a parallel reduction (summation), which allows for a considerable improvement on massively parallel systems~\cite{harris2007}.
 Even so, the normalization is still a slow operation and should be used sparingly.
 
 Now we will turn our focus to systems to be simulated via the SSFM throughout this work: ultracold atoms.
@@ -250,18 +250,18 @@ Simulation of rotation with a single vortex (a, b) and a vortex lattice (c, d).
 The wavefunction density is shown in a and c, while the corresponding phase is shown in b and d.
 A rotation of $\Omega = 0.35\omega_x$ was used for a and b, while a rotation of $\Omega = 0.99\omega_x$ was used for c and d.
 Here, we use a Rubidium 87 atom with $\omega_x = 2\pi$Hz on a 512-point grid of size 200 $\mu$m.
-This simulation was performed with the GPUE codebase \cite{schloss2018}, and the phase plots are created by multiplying the phase by the wavefunction density to remove anomalous noise beyond the BEC boundary.
+This simulation was performed with the GPUE codebase \cite{schloss2018}, and the phase plost are created by multiplying the phase by the wavefunction density to remove anomalous noise beyond the BEC boundary.
 \jrs{WIP}}
 \label{fig:rot}
 \end{figure}
 
 Because $E \propto \ell^2$ and $\ell$ is an integer value, as a superfluid is spun faster beyond a critical angular velocity, a vortex will not grow or shrink in size, but multiple vortices will spawn instead~\cite{Pethick2002}.
-In other words, it is energetically favorable for two vortices of smaller angular momentum to form instead of a single vortex with a large amount of angular momentum.
+In other words, it is energetically favorable for two vortices of smaller angular mementum to form instead of a single vortex with a large amount of angular momentum.
 As angular momentum increases and more vortices are introduced into the system, they will eventually arrange themselves in a triangular lattice structure known as an Abrikosov lattice~\cite{Abrikosov1957, Fetter2001}.
-This behavior is identical to that of type II superconductors under the effects of a magnetic field, and the size of each vortex is described by a physical property known as the healing length.
+This behaviour is identical to that of type II superconductors under the effects of a magnetic field, and the size of each vortex is described by a physical property known as the healing length.
 An example of this vortex lattice and its phase can be seen in Figure~\ref{fig:rot} (b and d).
 
-The three-dimensional properties of vortices in superfluid systems are also peculiar in their behavior when compared to their classical counterparts.
+The three-dimensional properties of vortices in superfluid systems are also peculiar in their behaviour when compared to their classical counterparts.
 Superfluid vortices must either end at the end of the condensate or reconnect in the form of vortex rings or other, more complicated vortex structures~\cite{Reichl2013}.
 Because the circulation around superfluid vortices is quantized, when two vortices approach each other with different velocity fields, they may reconnect into smaller, more energetically favorable vortex structures.
 During this reconnection, the abrupt change in energy will create a sound wave at the reconnection site~\cite{Feynman1955}.
@@ -286,11 +286,11 @@ i \hbar \frac{\partial \Psi(\mathbf{r},t)}{\partial t} = \left(\frac{p^2}{2m} + 
 
 
 In order to generate a vortex via rotation, we must rotate faster than the critical velocity of $\Omega_c \approx 0.3 \omega_x$, where $\omega_x$ is the trapping frequency.
-In addition, if the rotation frequency is greater than the trapping frequency, the atoms will no longer be bound by the trap due to centripetal forces.
+In addition, if the rotation frequecy is greater than the trapping frequency, the atoms will no longer be bound by the trap due to centripetal forces.
 As such, finding the appropriate rotation frequency for creating vortex lattices in BEC systems is a precarious balancing act.
-Even so, large scale vortex lattices have been generated both experimentally and theoretically, with the largest vortex lattices being generated with $\Omega \approx \omega_x$ \cite{o2016, o2016topo, abo2001, Schweikhard2004}.
+Even so, largescale vortex lattices have been generated both experimentally and theoretically, with the largest vortex lattices being generated with $\Omega \approx \omega_x$ \cite{o2016, o2016topo, abo2001, Schweikhard2004}.
 
-In this work, we use rotation in a qualitatively similar way to Equation~\ref{eqn:GPErot}; however, we will later introduce artificial magnetic fields, which is a broader framework that encompass rotation and will be used in all our simulations moving forward.
+In this work, we use rotation in a qualitatively similar way to Equation~\ref{eqn:GPErot}; however, we will later introduce articifial magnetic fields, which is a broader framework that encompases rotation and will be used in all our simulations moving forward.
 We will discuss this in more detail in Section~\ref{sec:implementation}.
 
 \subsection{Phase imprinting}
@@ -323,7 +323,7 @@ As such, it is not as useful for engineering stable vortex structures, but is in
 Magnetic fields are capable of generating rotational effects in charged systems through the Lorentz force, $F_l = q(\mathbf{E} + \mathbf{v} \times \mathbf{B})$, where $q$ is the charge of the system, $\mathbf{E}$ is the electric field, $\mathbf{B}$ is the magnetic field, and $\mathbf{v}$ is the velocity of the particle.
 This effect will allow for the creation of vortices in type II superconductors; however, it is not directly applicable to BEC systems because BECs are typically weakly interacting and composed of neutral atoms, which do not have charge.
 Even so, it is possible to generate artificial magnetic fields with similar effects, and these artificial magnetic fields have even been shown to create vortices experimentally~\cite{Lin2009}.
-In addition, artificial magnetic fields create a broader framework that encompasses rotational effects previously shown in Section~\ref{sec:rot}, and we will use this framework for the remainder of this work.
+In addition, artificial magnetic fields create a broader framework that encompassses rotational effects previously shown in Section~\ref{sec:rot}, and we will use this framework for the remainder of this work.
 As such, a detailed introduction, similar to that given by Dalibard in~\cite{Dalibard2015}, will be presented below.
 
 If written in the Hamiltonian formalism, the Lorentz force law becomes
@@ -430,7 +430,7 @@ When expanded, we note that the gauge field has a component in position space, $
 Firstly, let us discuss the component purely in position space.
 Here, we see that it is important to properly balance the trapping potential and the artificial vector potential when simulating BEC systems with artificial vector potentials, otherwise, the trapping geometry will become warped.
 In the case of rotation, this is effectively balanced by the centripetal force; however, 
-in the case of arbitrarily chosen vector potentials, this can create rather unusual wavefunction geometries, as shown in Figure~\ref{fig:V_change} for a Gaussian $\mathbf{A_x}$ and $\mathbf{A_y}$.
+in the case of arbitrarily chosen vector potentials, this can create rather unusual wavefunction geometries, as shown in Figure~\ref{fig:V_change} for a gaussian $\mathbf{A_x}$ and $\mathbf{A_y}$.
 Though we might be able to balance this warping with a centripetal force tailored to the gauge fields we introduce, we did not consider this for the purposes of this work.
 
 \begin{figure}
@@ -441,7 +441,7 @@ Though we might be able to balance this warping with a centripetal force tailore
 \end{centering}
 
 \caption{
-Simulation of GPE with an arbitrarily chosen Gaussian artificial vector potential.
+Simulation of GPE with an arbitrarily chosen gaussian artificial vector potential.
 For this simulation, we have removed the $pA$ term to focus on the warped potential, itself.
 This simulation was performed with the GPUE codebase \cite{schloss2018}.
 \jrs{WIP}}
