@@ -307,12 +307,29 @@ Some additional information on prior development of GPUE can be found in other s
 
 As mentioned in Chapter~\ref{ch:splitop}, the SSFM is primarily limited by the complexity of the FFT operations.
 For a three dimensional simulation with gauge fields in the $\hat x$, $\hat y$, and $\hat z$ directions, one set of global FFTs and three sets of one-dimensional FFTs must be performed.
-The CuFFT library allows for definitions of strided axes with the \texttt{cufftPlanMany(...)} API, it is not straightforward to design an FFT method that works on the $\hat y$ axis for a three-dimensional array.
+The CuFFT API provides an option for computing FFT's on separate batches of an array in GPU memory with the \texttt{cufftPlanMany(...)} command; however, if this command is repurposed for one-dimensional FFT operations, it does not provide the necessary functionality for FFTs across the $\hat y$ or $\hat z$ dimensions.
+In principle, all FFT operations performed with this plan follow an indexing pattern, such that 
 
-EXPLAIN MORE... MAYBE PICTURES?
+\begin{lstlisting}
+input[b*idist + x*istride]
+output[b*odist + x*ostride]
+\end{lstlisting}
 
-Even with this considered, only one-third of the necessary FFT operations are appropriately coalesced in memory for three dimensional simulations.
-Because FFTs are global operations that require operating on contiguous chunks of memory, multi-GPU simulations with the SSFM are even less optimal.
+\noindent where \texttt{b} is the batch ID, \texttt{x} is the element ID, \texttt{idist} and \texttt{odist} are the distances between batches for the input and output array, respectively, and \texttt{istride} and \texttt{ostride} are the stride between consequtive elements for computation with the input and output array, respectively.
+Because all GPU data are indexed as one-dimensional arrays, they are indexed as,
+
+\begin{lstlisting}
+array[i + j*xDim + k*xDim*yDim]
+\end{lstlisting}
+
+\noindent where \texttt{i}, \texttt{j}, and \texttt{k} are iterable variables in the $\hat x$, $\hat y$, and $\hat z$ directions, and \texttt{xDim} and \texttt{yDim} are the dimensions in $\hat x$ and $\hat y$, respectively.
+As such, it is not possible to use the \texttt{cufftPlanMany} functionality to perform one-dimensional FFTs in $\hat y$ and $\hat z$; however, if we increase the number of batches to \texttt{xDim*yDim*zDim}, set the distance betwen each stride to 1, and assume the stride between each element is \texttt{xDim*yDim}, we can recreate the functionality of the FFT in the $\hat z$ direction.
+For the $\hat y$ FFT operations, we need an extrernal loop that iterates over each $xy$ slab, performing \texttt{xDim} operations on each slab, and this greatly hampers performance.
+
+\jrs{Not sure if images will help here}
+
+With this considered, only one-third of the necessary FFT operations are appropriately coalesced in memory for three dimensional simulations.
+Because FFTs are global operations that are best performed on contiguous chunks of memory, multi-GPU simulations with the SSFM are even less optimal.
 This has motivated the development of other packages to allow for memory coalescence with FFT operations, such as the DistributedTranspose, which will be described in Section~\ref{sec:DT}
 
 \subsection{Dynamic field input and output in GPUE with expression trees}
@@ -388,9 +405,11 @@ We could still use the method if we have some understanding of the trapping geom
 \center \includegraphics[width=0.75\textwidth]{data/gpu/vortex_highlighting/all.png}
 \caption{
 An example of vortex highlighting with a Sobel filter.
-The upper left quadrant is the superfluid density with no modifications, the left two quadrants are the superfluid density after Sobel filtering, and the bottom left quadrant is an isosuface on the Sobel filtered density.
+The upper left quadrant is the superfluid density with no modifications and the upper right quadrant is an isosurface of the density with an opacity of 0.6.
+Note here that if there is no opacity set, it is not possible to see the vortex because it is obscured by the outside boundary of the BEC.
+The lower right quadrant is the superfluid density after Sobel filtering and the bottom left quadrant is an isosuface on the Sobel filtered density.
 Here, we can easily create isosurfaces of vortices that would be occluded when using the density, alone.
-\jrs{WIP: ADD ISOSURFACE OF JUST DENSITY TO SHOW HOW IT IS DIFFICULT TO SEE INSIDE}
+The scale varies depending on whether it is coloring the normalized wavefunction density or the filtered density.
 }
 \label{fig:highlight}
 \end{figure}
@@ -398,6 +417,7 @@ Here, we can easily create isosurfaces of vortices that would be occluded when u
 As such, instead of focusing on vortex \textit{tracking}, we have instead implemented a simple vortex \textit{highlighting} scheme for three dimensions.
 This can be done simply with a Sobel filter on the condensate density, and can easily create crisp visualizations like those found in the computer graphics literature~\cite{guo2018}.
 An example of a vortex highlighted wavefunction density, along with an isosurface of both the density and the highlighted density can be seen in Figure~\ref{fig:highlight}.
+In this figure, we show that the density after being Sobel filtered can be more easily used to isolate vortex structures without the background BEC.
 Though it would be possible to use further edge detection methods, such as the Canny edge detector~\cite{canny1986}, this would add a significant computational overhead to the computation, itself, and thus was not implemented in the current work.
 This is a difficult problem that required further study; however, vortex highlighting is enough for most three dimensional vortex simulations.
 

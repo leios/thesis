@@ -107,14 +107,6 @@
 \setcounter{page}{2} % Include the title page in page counting
 \doublespacing % Double spacing
 
-\input{Preamble/declaration}
-\input{Preamble/abstract}
-\input{Preamble/acknowledgments}
-\input{Preamble/abbreviations}
-\input{Preamble/glossary}
-\input{Preamble/nomenclature}
-\input{Preamble/dedication}
-
 %-------------------------------------------------------------------------------
 %	LIST OF CONTENTS/FIGURES/TABLES
 %-------------------------------------------------------------------------------
@@ -134,17 +126,17 @@
 \mainmatter % Begin numeric (1,2,3...) page numbering
 
 \unnumberedchapter{Introduction} % Title of the unnumbered chapter
-\input{MainText/introduction} % Introduction (unnumbered)
+%\input{MainText/introduction} % Introduction (unnumbered)
 
 \numberedchapter % Regular chapters following
-\input{MainText/split_op}
-\input{MainText/1d}
-\input{MainText/gpue}
+%\input{MainText/split_op}
+%\input{MainText/1d}
+%\input{MainText/gpue}
 \input{MainText/2d}
-\input{MainText/vortex_states}
+%\input{MainText/vortex_states}
 
-\unnumberedchapter{Conclusion} % Title of the unnumbered chapter
-\input{MainText/conclusion} % Conclusion (unnumbered)
+%\unnumberedchapter{Conclusion} % Title of the unnumbered chapter
+%\input{MainText/conclusion} % Conclusion (unnumbered)
 
 %-------------------------------------------------------------------------------
 %	APPENDICES
@@ -153,7 +145,7 @@
 \appendix
 
 \numberedchapter % Regular chapters following
-\input{MainText/appendixGPU}
+%\input{MainText/appendixGPU}
 %\input{MainText/appendixB}
 %\input{MainText/appendixC}
 
@@ -170,12 +162,5 @@
 %-------------------------------------------------------------------------------
 
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
-\unnumberedchapter{Published articles} % Title of the unnumbered chapter
-\chapter*{Published articles} % Starts a chapter which will remain empty
-
-\includepdf[pages=2-, offset=0.54cm \voffset]{./Images/papers/NJP_TG.pdf} % Includes pdf
-\includepdf[pages=-, offset=0.54cm \voffset]{./Images/papers/GPUE_JOSS.pdf} % Includes pdf
-\includepdf[pages=-, offset=0.54cm \voffset]{./Images/papers/PRF_CHAOS.pdf} % Includes pdf
-\includepdf[pages=-, offset=0.54cm \voffset]{./Images/papers/PRF_VORTEX.pdf} % Includes pdf
 
 \end{document}

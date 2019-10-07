@@ -7,7 +7,7 @@ In addition, this chapter intends to display the dependence of post-processing m
 In a similar fashion to Chapter~\ref{ch:1d}, this chapter will start with a disclaimer about the dimensionality of the system we will be simulating.
 In principle, all real-world physics is three-dimensional, but just as a one-dimensional cigar-shaped BEC can be created, a pancake-like geometry can also be constructed by increasing the trapping frequency in the $\hat z$ (perpendicular) direction with respect to the $\hat x$ and $\hat y$ (transverse) directions.
 With this geometry, we can assume that the condensate is in the ground state along the $\hat z$ dimension and rewrite the wavefunction as $\Psi(\mathbf{r},t) = \Psi(x, y, t)\phi(z)$, where $\Psi(x, y, t)$ is the wavefunction in the transverse plane and $\phi(z) = (m \omega_z/(\pi\hbar))\text{exp}(z^2 m\omega_z/(2\hbar))$ is the ground state along the $\hat z$ dimension.
-By integrating over $\hat z$, we also find that the interaction strength is modified for a two-dimensional condensate to be
+By integrating over $\hat z$, we also find that the interaction strength is modified for a two-dimensional consensate to be
 
 \begin{equation}
 g_{2D} = g \sqrt{\frac{m\omega_z}{2\pi\hbar}}.
@@ -25,7 +25,7 @@ In spite of the differences between the fluid models, vortex dynamics in superfl
 
 In this study, we would like to create a quantum system that is chaotic without relying on quantum turbulence, itself.
 As a note, it is known that it is not possible to excite quantum chaos in large vortex lattices, as these systems have been proven to be stable to external perturbations~\cite{o2017}.
-For this reason, we wish to probe quantum chaos with a small number of vortices, such that quantum turbulent effects are not excited.
+For this reason, we wish to probe quantum chaos with a small number of vortices, such that quantum tuburlent effects are not excited.
 These chaotic, few-vortex systems have been studied previously by Aref and Pomphrey~\cite{aref1982, aref1980, aref1983}, who showed that quantum chaos can be excited in systems with as few as four vortices in an infinite plane~\cite{aref1982}.
 Unlike classical chaos, the onset of quantum chaos seems to appear with fewer vortices present, and few-vortex systems have been explored experimentally for two, three, and four vortices in harmonically trapped BECs~\cite{navarro2013}.
 When analyzed with a reduced Hamiltonian approach, harmonically trapped BECs seem to exhibit chaotic effects with as few as three vortices, two co-rotating vortices and an anti-vortex rotating in the other direction~\cite{kyriakopoulos2014,koukouloyannis2014}.
@@ -34,7 +34,7 @@ Experimentally, it is now possible to detect vortex circulation~\cite{seo2017}, 
 Because quantum vortices are simple and BECs are highly controllable experimental systems in two-dimensions, there has been significant interest in two-dimensional quantum turbulent systems as well~\cite{neely2013,shin2004}.
 Additional effects, such as the K\'arm\'an vortex street~\cite{kwon2014} and Onsager vortex clusters~\cite{gauthier2018,johnstone2018} have also been shown to exist experimentally.
 
-In order to engineer well-controlled initial conditions, we will create a small vortex lattice of four vortices, and then create a defect in this lattice with phase imprinting, as described in Chapter~\ref{ch:splitop}.
+In order to engineer well-controlled initial conditions, we will create a small vortex lattice of four vortices, and then create a defect in this lattice with phase imprinting, as described in Chapter~\ref{splitop}.
 This process will controllably induce chaotic vortex dynamics in an experimentally feasible way.
 We also show that these chaotic dynamics are enhanced by the close approach of vortices in the simulated results.
 By using phase imprinting in this way on a larger number of vortices in a vortex lattice, it might be possible to induce chaotic events there as well, which might enable studying a set of vortex trajectories that is chaotic at specific points, but stable overall.
@@ -58,7 +58,7 @@ Here, the s-wave scattering length is $a_s \approx 90a_0$ and the effective inte
 These simulations were performed on a grid of $2^{10} \times 2^{10}$ points and covering an extent of $700\mu \text{m} \times 700 \mu \text{m}$
 
 First, ground-state evolution was performed with a low rotation frequency of $\Omega = 0.3 \times 2\pi$ Hz via GPUE~\cite{schloss2018}.
-Though large rotational frequencies will create a triangular lattice, for smaller frequencies, other configurations are known ~\cite{aftalion2001}, and we will focus on the regime where the ground state is composed of four vortices in a square configuration~\cite{zampetaki2013}.
+Though large rotational frequencies will create a triangular lattice, for smaller frequencies, other configurations are known ~\cite{aftalion2001}, and we will focus on the regine where the ground state is composed of four vortices in a square configuration~\cite{zampetaki2013}.
 Once this configuration is achieved, we then manipulate a vortex via phase imprinting, such that three co-rotating vortices and one anti-vortex exist in the system.
 Examples of phase imprinting on this system can be seen in figure~\ref{fig:phase}, where the top row shows a simple vortex annihilation and the bottom row shows a vortex flip.
 
@@ -68,7 +68,7 @@ Examples of phase imprinting on this system can be seen in figure~\ref{fig:phase
 \includegraphics[width=\textwidth]{data/2d/histogram/histogram}
 
 \caption{
-Histograms of the positions of each vortex in the transversal plane for 20 seconds in the co-rotating frame.
+Histograms of the positions of each vortex in the transversal plane for 20 secons in the co-rotating frame.
 The lower left vortex has been annihilated and re-imprinted with (a) the same and (b) the opposite direction of rotation, exactly on the location of the previous vortex.
 The area of each plot is $400\mu \text(m) \times 400 \mu \text{m}$, and the white circles correspond to iso-lines at 40\% the maximum density to highlight the extent of the vortex motion.
 In (a), we see that if all four vortices are co-rotating, regular trajectories appear, but in (b), we see that flipping the rotation direction of a single vortex creates disordered trajectories.
@@ -76,7 +76,7 @@ In (a), we see that if all four vortices are co-rotating, regular trajectories a
 \label{fig:histogram}
 \end{figure}
 
-It is known that a lattice of vortices with the same direction of rotation will exhibit regular dynamics~\cite{abo2001}, and in Figure~\ref{fig:histogram}(a), we confirm this for this system.
+It is known that a lattice of vortices with the same direction of rotation will exhibit regular dymanics~\cite{abo2001}, and in Figure~\ref{fig:histogram}(a), we confirm this for this system.
 In this figure, we show a histogram of the vortex trajectory over 20 seconds of evolution when removing and then re-imprinting a vortex of the same rotational direction at the same location.
 Even though a small residual movement appears, potentially due to phonon excitations that were not fully removed from the imaginary time evolution, the vortices remain stationary.
 In Figure~\ref{fig:histogram}(b), we also show that if the re-imprinted rotation is of the opposite direction, the vortex dynamics become more disordered, with vortices traversing a larger width of the condensate.
@@ -95,7 +95,7 @@ The difference in trajectory of the anti-vortex, $\Delta \mathbf{r}_0$, is shown
 \end{figure}
 
 Even though the introduction of the anti-vortex creates a disordered trajectory, it could be entirely possible that this trajectory is still stable.
-To uniquely identify chaotic behavior, we need to show that any small perturbation in the vortex location will also provide a significantly different trajectory.
+To uniquely identify chaotic behaviour, we need to show that any small perterbation in the vortex location will also provide a significantly different trajectory.
 To check this, we compare two sets of vortex trajectories with slightly different shifts in the initial position of the anti-vortex, $\mathbf{r}_0$ and $\mathbf{r}'_0$, where $\mathbf{r}_0 - \mathbf{r}'_0 = \xi/3$ and $\xi$ is the healing length.
 In Figure~\ref{fig:evolution}, we show the differences in trajectories, defined as $\Delta \mathbf{r}_i(t) = \mathbf{r}_{i}(t)-\mathbf{r}'_{i}(t)$, where $\mathbf{r}_i$ refers to the position of the $i$th vortex from the center of the condensate and $i\in \{1,2,3\}$ corresponds to the vortex number.
 The unique ID for each vortex is shown in Figure~\ref{fig:histogram}.
@@ -105,7 +105,7 @@ After closely inspecting the vortex dynamics (shown in the supplementary movie~\
 Because the velocity fields of each vortex decays as $1/\mathbf{r}$, where $\mathbf{r}$ is the distance from the vortex's core, the vortices experience stronger velocity fields when they are closer; therefore, the point of minimal separation can be seen as a highly nonlinear multi-vortex scattering event that accelerates the divergence shown in Figure~\ref{fig:evolution}.
 In Figure~\ref{fig:snapshots} we study this further by showing snapshots of the condensate density before ($t = 6$s), at ($t = 10$s), and after ($t = 15$s) the scattering in (a) and (b) for the non-shifted and shifted anti-vortex locations.
 The differences between position of each vortex and the anti-vortex is also shown (c) for the case where the anti-vortex is shifted by $\xi/3$.
-Here, we see that there is a clear minimum at $t \approx 10$ seconds, which is the same time at which the  trajectories begin to diverge in Figure~\ref{fig:evolution}.
+Here, we see that there is a clear minimum at $t \approx 10$ seconds, which is the same time at which the  trajetories begin to diverge in Figure~\ref{fig:evolution}.
 In order to characterize this divergence in trajectory, we must analyze the vortex dynamics in more detail and calculate the Lyapunov exponent.
 
 \begin{figure}
@@ -136,7 +136,7 @@ The negative Lyapunov exponents (orange) indicate that shifting the vortex about
 
 
 To characterize the degree of chaos for the shown vortex dynamics, we have chosen to use Lyapunov exponents, which give the rates of divergence for nearby orbits in phase space~\cite{wolf1985}.
-With this measure, we track two trajectories in phase space and assume that the divergence between the two trajectories will either exponentially converge or diverge, and we can model this behavior with
+With this measure, we track two trajectories in phase space and assume that the divergence between the two trajectories will either exponentially converge or diverge, and we can model this behaviour with
 
 \begin{equation}
 |\delta\mathbf{Z}(t)| \approx e^{\lambda t} |\delta \mathbf{Z}_0|.
@@ -160,8 +160,8 @@ The exponent can then be calculated as
 In this case, we track each vortex with the methods outlined in Chapter~\ref{ch:gpu}, and use both the position and velocity of the vortex.
 Because we wish to determine whether the total system is chaotic, beyond its constituent vortices, we use a center of mass (COM) variable, defined as $\mathbf{R}_M = \frac{1}{n+1}\sum_{i=0}^nr_i$, where $n+1$ is the number of vortices.
 Similarly, the center of velocity is defined as $\mathbf{v}_M = \frac{1}{n+1}\sum_{i=0}^nv_i$.
-These values are then used with Equation~\eqref{eqn:lyap}, and the results are shown in Figure~\ref{fig:lyap}.
-The insets in Figure~\ref{fig:lyap} show the histograms of the COM trajectories for the case where an anti-vortex is and is not present.
+These values are then used with Equation~\ref{eqn:lyap}, and the results are shown in Figure~\ref{fig:lyap}.
+The insets in Figure~\ref{fig:lyap} show the histograms of the COM trajectories for the case where an antivortex is and is not present.
 
 As expected, the exponent spectrum calculated in Figure~\ref{fig:lyap} shows that the regular, co-rotating system always shows a negative (converging) exponential value, but the system with the anti-vortex is largely positive (diverging).
 During the scattering event shown in Figures~\ref{fig:snapshots} and \ref{fig:evolution}, we see that the exponent becomes positive for the remaining duration of the simulation.
@@ -171,13 +171,13 @@ It is worth noting that other global measurements could be used instead of the C
 \section{Conclusions}
 
 With this study, we have shown that it is possible to induce chaotic vortex dynamics in few-vortex systems by using phase imprinting to flip the rotational direction of a vortex in two dimensions.
-We also show that a scattering event seems to be correlated to a positive Lyapunov exponent and an acceleration of chaotic behavior.
+We also show that a scattering event seems to be correlated to a positive Lyapunov exponent and an acceleration of chaotic behaviour.
 Though not shown here, we have also performed similar simulations for small lattices of five and six vortices, which seem to still exhibit chaotic dynamics with Lyapunov exponents of 0.24, 0.24, and 0.27 for the four, five, and six vortex cases, respectively after 20 seconds of evolution~\cite{zhang2017}.
-This behavior is radically different than the behavior of large scale vortex lattices, as similar techniques for these systems have been shown to only cause local disturbances~\cite{o2016topo}.
+This behaviour is radically different than the behaviour of largescale vortex lattices, as similar techniques for these systems have been shown to only cause local disturbances~\cite{o2016topo}.
 Further exploration of the crossover from regular to turbulent dynamics, and the crossover from chaotic to stable dynamics for large-scale vortex lattices remains an interesting extension for future work.
 
 This study shows that there is strong utility in simulating two-dimensional quantum gases and highlights dynamic measures, such as the Lyapunov exponent.
-Here, it is obvious that fast vortex tracking methods are essential to dynamical turbulence and chaos modelling, and a major limitation to performing similar studies in three dimensions is the computational hurdle of vortex tracking in this area.
+Here, it is obvious that fast vortex tracking methods are essential to dyanamical turbulence and chaos modelling, and a major limitation to performing similar studies in three dimensions is the computational hurdle of vortex tracking in this area.
 As such, most three-dimensional studies of quantum chaos rely on other methods, such as vortex filament methods which provide vortex skeletons during the simulation, itself.
 As mentioned in Chapter~\ref{ch:splitop}, these methods cannot simulate the underlying dynamics of the condensate, and are thus removed from experimental application.
 Further extensions of this work in three dimensions would also allow for studies on the movement of the vortex lines, themselves, which were projected onto two-dimensional point-vortices in this model.

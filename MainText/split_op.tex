@@ -4,6 +4,7 @@ The Split-Step Fourier Method (SSFM) is an essential technique for simulating a 
 Though other methods, such as explicit and implicit Euler~\cite{butcher2016}, Crank-Nicholson~\cite{crank1947}, and Runge-Kutta~\cite{butcher2016}, can solve similar differential equations, the SSFM has distinct advantages over these methods.
 For example, the SSFM is often much easier to parallelize than Runge-Kutta~\cite{brehler2017}, as it primarily relies on embarrassingly parallel element-wise matrix multiplications and Fast Fourier Transform (FFT) routines that have been optimized for parallel and distributed systems.
 The SSFM also provides a lower error bound than either the Euler or Crank-Nicholson methods, and does not require an implicit or tridiagonal solver \cite{conte2017, thomas1949} which are also not easily parallelizable~\cite{goddeke2010, wang1981, sweet1977}.
+Though much of this work focuses on using the SSFM to simulate superfluid vortex states, I will not be discussing vortex-point or vortex-filament simulations in rigorous detail, as this work focuses primarily on engineering appropriate quantums states, while vortex-point and vortex filament methods focus primarily on vortex structures, themselves.
 
 For the purposes of this text, I will be focusing on the application of the SSFM to superfluid vortex simulations and will use primarily physical arguments to understand the details of the method, itself.
 We will also discuss several numerical techniques for optimally simulating quantum systems on massively parallel Graphics Processing Units (GPUs), along with software developed for this purpose: GPUE, the Graphics Processing Unit Gross-Pitaevskii Equation Solver.
@@ -118,12 +119,12 @@ When atomic systems are cooled to temperatures near absolute zero Kelvin, it bec
 Because fermions have half-integer spin, they must obey the Pauli exclusion principle and are constrained to Fermi--Dirac statistics, which means their ground state will be composed of several fermionic pairs.
 This creates a \textit{Fermi sea}, where particles fill defined energy levels from the bottom-up with two particles per level.
 On the other hand, bosons have integer spin and follow Bose--Einstein statistics.
-They will condense into a single, macroscopic ground state when cooled~\cite{Einstein1925, Fetter2003}, and
+They will condense into a single, macroscopic ground state when cooled~\cite{einstein1925, fetter2003}, and
 this state of matter is known as a Bose--Einstein Condensate (BEC).
 The BEC has the properties of a superfluid, which will be discussed more completely in the following section.
 
-There are notable exceptions to these rules, such as the highly correlated Tonks--Girardeau gas where bosons may act as spinless, non-interacting fermions \cite{Girardeau, schloss2016}.
-Though there also exists a regime where interacting fermions can condense into a BEC-like system~\cite{Nozieres1985, Bulgac2014}, we will not discuss fermionic systems further in this work.
+There are notable exceptions to these rules, such as the highly correlated Tonks--Girardeau gas where bosons may act as spinless, non-interacting fermions \cite{girardeau1960, schloss2016}.
+Though there also exists a regime where interacting fermions can condense into a BEC-like system~\cite{nozieres1985, bulgac2014}, we will not discuss fermionic systems further in this work.
 For now, we will focus on BEC systems, but will also discuss Tonks--Girardeau gas systems later in Chapter~\ref{ch:1d}.
 
 
@@ -166,7 +167,7 @@ where $\mathbf{r}$ and $\mathbf{r'}$ are the positions of the two colliding part
  [\hat \Psi(\mathbf{r}),\hat \Psi(\mathbf{r})] &= 0.
 \end{align}
 
-In the case of a BEC at $T\approx0$, we may perform a Bogoliubov expansion~\cite{Bogoliubov1947, Dalfovo1999}
+In the case of a BEC at $T\approx0$, we may perform a Bogoliubov expansion~\cite{bogoliubov1947, dalfovo1999}
 \begin{equation}
     \hat \Psi (\mathbf{r}, t) = \Phi(\mathbf{r},t) + \delta \hat \Phi(\mathbf{r},t),
 \label{eqn:bog}
@@ -206,19 +207,19 @@ With these approximations, we may write the time-dependent Schr\"odinger equatio
     i\hbar \frac{\partial}{\partial t}\Phi(\mathbf{r},t) = \left( - \frac{\hbar^2}{2m} \nabla^2 + V_0(\mathbf{r}) + g |\Phi(\mathbf{r},t)|^2\right)\Phi(\mathbf{r},t).
 \end{equation}
 
-This is simply the GPE as stated in Equation~\ref{eqn:GPE}.
-When written in the time-independent form it determines the chemical potential $\mu$ of the condensate system~\cite{Gross1961, Pitaevskii1961}
+This is simply the GPE as stated in Equation~\eqref{eqn:GPE}.
+When written in the time-independent form it determines the chemical potential $\mu$ of the condensate system~\cite{gross1961, pitaevskii1961}
 \begin{equation}
     \mu\Phi(\mathbf{r}) = \left( - \frac{\hbar^2}{2m} \nabla^2 + V_0(\mathbf{r}) + g |\Phi(\mathbf{r})|^2\right)\Phi(\mathbf{r},t).
     \label{eqn:GP}
 \end{equation}
 
 This equation allows us to determine the full dynamics of a BEC system and the numerical solutions will be discussed in subsequent chapters.
-Similar derivations of the GPE can be found in many introductory texts on BEC physics~\cite{Fetter2003, Pethick2002, Fetter2009}.
+Similar derivations of the GPE can be found in many introductory texts on BEC physics~\cite{fetter2003, pethick2002, fetter2009}.
 
 It is important to note that a BEC acts like a superfluid, which is a state of matter that is similar to a classical fluid without viscosity.
 This means that once a superfluid is set in motion, there is no retarding force to keep it from flowing.
-There are a few known systems in which superfluidity can exist, such as $^4$He (sometimes called Helium II when in its superfluid phase)~\cite{Allen1938}, neutron stars~\cite{Migdal1960}, or BEC systems~\cite{Einstein1925, Anderson1995}.
+There are a few known systems in which superfluidity can exist, such as $^4$He (sometimes called Helium II when in its superfluid phase)~\cite{allen1938}, neutron stars~\cite{migdal1960}, or BEC systems~\cite{einstein1925, anderson1995}.
 BEC systems are generally cleaner experimental systems to create, as they do not have a classical fluid fraction, like $^4$He.
 As stated, we will focus on BEC systems in this work, but it is important to note that any results shown here may have applications beyond cold, atomic physics.
 
@@ -228,7 +229,7 @@ Though there are many interesting differences between classical fluids and super
 By rotating a fluid, it is possible to create a vortex around the axis of rotation; however, because of the viscosity of a classical fluid, the vortex will eventually disappear without constant driving.
 In a superfluid, this is not necessarily the case.
 
-In addition, due to the quantization of angular momentum in quantum mechanics, the vorticity in a superfluid is also quantized with the circulation defined as~\cite{Pethick2002},
+In addition, due to the quantization of angular momentum in quantum mechanics, the vorticity in a superfluid is also quantized with the circulation defined as~\cite{pethick2002},
 \begin{equation}
 \Gamma = \oint\mathbf{v} \cdot d \mathbf{l} = 2\pi \frac{\ell \hbar}{m},
 \label{Eq:phase}
@@ -255,16 +256,16 @@ This simulation was performed with the GPUE codebase \cite{schloss2018}, and the
 \label{fig:rot}
 \end{figure}
 
-Because $E \propto \ell^2$ and $\ell$ is an integer value, as a superfluid is spun faster beyond a critical angular velocity, a vortex will not grow or shrink in size, but multiple vortices will spawn instead~\cite{Pethick2002}.
+Because $E \propto \ell^2$ and $\ell$ is an integer value, as a superfluid is spun faster beyond a critical angular velocity, a vortex will not grow or shrink in size, but multiple vortices will spawn instead~\cite{pethick2002}.
 In other words, it is energetically favorable for two vortices of smaller angular momentum to form instead of a single vortex with a large amount of angular momentum.
-As angular momentum increases and more vortices are introduced into the system, they will eventually arrange themselves in a triangular lattice structure known as an Abrikosov lattice~\cite{Abrikosov1957, Fetter2001}.
+As angular momentum increases and more vortices are introduced into the system, they will eventually arrange themselves in a triangular lattice structure known as an Abrikosov lattice~\cite{abrikosov1957, fetter2001}.
 This behavior is identical to that of type II superconductors under the effects of a magnetic field, and the size of each vortex is described by a physical property known as the healing length.
 An example of this vortex lattice and its phase can be seen in Figure~\ref{fig:rot} (b and d).
 
 The three-dimensional properties of vortices in superfluid systems are also peculiar in their behavior when compared to their classical counterparts.
-Superfluid vortices must either end at the end of the condensate or reconnect in the form of vortex rings or other, more complicated vortex structures~\cite{Reichl2013}.
+Superfluid vortices must either end at the end of the condensate~\cite{madison2000} or reconnect in the form of vortex rings or other, more complicated vortex structures~\cite{reichl2013, barenghi2014}.
 Because the circulation around superfluid vortices is quantized, when two vortices approach each other with different velocity fields, they may reconnect into smaller, more energetically favorable vortex structures.
-During this reconnection, the abrupt change in energy will create a sound wave at the reconnection site~\cite{Feynman1955}.
+During this reconnection, the abrupt change in energy will create a sound wave at the reconnection site~\cite{feynman1955}.
 
 Three dimensional vortex structures of non-trivial topology have been notoriously difficult to controllably generate experimentally, but we will discuss an experimentally viable method to generate, control, and detect vortex ring-like structures in superfluid BEC systems in Chapter~\ref{ch:vortex_states}.
 In that chapter, I will also further discuss three-dimensional vortex motion.
@@ -288,9 +289,9 @@ i \hbar \frac{\partial \Psi(\mathbf{r},t)}{\partial t} = \left(\frac{p^2}{2m} + 
 In order to generate a vortex via rotation, we must rotate faster than the critical velocity of $\Omega_c \approx 0.3 \omega_x$, where $\omega_x$ is the trapping frequency.
 In addition, if the rotation frequency is greater than the trapping frequency, the atoms will no longer be bound by the trap due to centripetal forces.
 As such, finding the appropriate rotation frequency for creating vortex lattices in BEC systems is a precarious balancing act.
-Even so, large scale vortex lattices have been generated both experimentally and theoretically, with the largest vortex lattices being generated with $\Omega \approx \omega_x$ \cite{o2016, o2016topo, abo2001, Schweikhard2004}.
+Even so, large scale vortex lattices have been generated both experimentally and theoretically, with the largest vortex lattices being generated with $\Omega \approx \omega_x$ \cite{o2016, o2016topo, abo2001, schweikhard2004}.
 
-In this work, we use rotation in a qualitatively similar way to Equation~\ref{eqn:GPErot}; however, we will later introduce artificial magnetic fields, which is a broader framework that encompass rotation and will be used in all our simulations moving forward.
+In this work, we use rotation in a qualitatively similar way to Equation~\eqref{eqn:GPErot}; however, we will later introduce artificial magnetic fields, which is a broader framework that encompass rotation and will be used in all our simulations moving forward.
 We will discuss this in more detail in Section~\ref{sec:implementation}.
 
 \subsection{Phase imprinting}
@@ -322,9 +323,9 @@ As such, it is not as useful for engineering stable vortex structures, but is in
 
 Magnetic fields are capable of generating rotational effects in charged systems through the Lorentz force, $F_l = q(\mathbf{E} + \mathbf{v} \times \mathbf{B})$, where $q$ is the charge of the system, $\mathbf{E}$ is the electric field, $\mathbf{B}$ is the magnetic field, and $\mathbf{v}$ is the velocity of the particle.
 This effect will allow for the creation of vortices in type II superconductors; however, it is not directly applicable to BEC systems because BECs are typically weakly interacting and composed of neutral atoms, which do not have charge.
-Even so, it is possible to generate artificial magnetic fields with similar effects, and these artificial magnetic fields have even been shown to create vortices experimentally~\cite{Lin2009}.
+Even so, it is possible to generate artificial magnetic fields with similar effects, and these artificial magnetic fields have even been shown to create vortices experimentally~\cite{lin2009}.
 In addition, artificial magnetic fields create a broader framework that encompasses rotational effects previously shown in Section~\ref{sec:rot}, and we will use this framework for the remainder of this work.
-As such, a detailed introduction, similar to that given by Dalibard in~\cite{Dalibard2015}, will be presented below.
+As such, a detailed introduction, similar to that given by Dalibard in~\cite{dalibard2015}, will be presented below.
 
 If written in the Hamiltonian formalism, the Lorentz force law becomes
 
@@ -342,7 +343,7 @@ In this case, the Coriolis force is defined as
 \mathbf{F}_{\text{Coriolis}} = 2m \mathbf{v} \times \mathbf{\Omega},
 \end{equation}
 which is formally similar to the Lorentz force law.
-By applying the transformation $\mathcal{\hat H} = \hat H_0 - \Omega \hat L_z$, where $\hat L_z = x\partial_y - y\partial_x$, we find~\cite{Bhat2008}
+By applying the transformation $\mathcal{\hat H} = \hat H_0 - \Omega \hat L_z$, where $\hat L_z = x\partial_y - y\partial_x$, we find~\cite{bhat2008}
 \begin{equation}
 \begin{split}
 \mathcal{\hat H} &= -\frac{\hbar^2}{2m}\nabla^2 + \frac 1 2 m \omega^2(x^2 + y^2) - \frac{\hbar \Omega}{i}(x\partial_y - y\partial_x) \\
@@ -352,7 +353,7 @@ By applying the transformation $\mathcal{\hat H} = \hat H_0 - \Omega \hat L_z$, 
 \end{equation}
 where $\omega$ is the trapping frequency for a symmetric two-dimensional harmonic trap, $\mathbf{A} \equiv \mathbf{\Omega} \times \mathbf{r}$, and $V_0 = m/2 \left( \omega^2 - \Omega^2 \right)r^2$.
 The final form is similar to that of the Lorentz force law and coincides with an effective magnetic field of $2 \mathbf \Omega \propto \mathbf B$.
-In this way, we may recreate the rotation expected from the Lorentz force law in a cold atomic system with an artificial magnetic field~\cite{Peshkin1989, Madison2000, Abo-Shaeer2001}.
+In this way, we may recreate the rotation expected from the Lorentz force law in a cold atomic system with an artificial magnetic field~\cite{peshkin1989, madison2000, abo2001}.
 
 Artificial magnetic fields provide a powerful tool to researchers who wish to generate and control complex vortex structures, and because of this, it is worth discussing them in further detail.
 Important implementation details for how to use artificial magnetic fields with the SSFM will be noted in Section~\ref{sec:implementation}.
@@ -410,7 +411,7 @@ where
 \end{equation}
 In this case $\Phi_{\text{Berry}}$ is called the Berry phase and it only depends on the motion path of $\lambda$. 
 It should be mentioned that both of the exponential terms in Equation~\eqref{eqn:c} are gauge invariant and thus remain unchanged when $\ket{\psi_n(\lambda)}$ is multiplied by a phase factor.
-This phase allows us to transfer angular momentum into our BEC and generate a vortex geometry like those formed in the 2009 experiment by Lin~\textit{et~al.}~\cite{Lin2009}.
+This phase allows us to transfer angular momentum into our BEC and generate a vortex geometry like those formed in the 2009 experiment by Lin~\textit{et~al.}~\cite{lin2009}.
 As a note, the vortex structures generated in this way follow the magnetic fields lines, thus providing the capability to generate complex vortex structures beyond vortex lines.
 Outside of rotation, another method to generate these gauge fields in an experimentally realizable way will be described in Chapter~\ref{ch:vortex_states}, but for now we should discuss how these fields can be implemented in the SSFM, with an emphasis on their effects for superfluid simulations.
 
