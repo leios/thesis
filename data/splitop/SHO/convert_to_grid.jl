@@ -14,5 +14,5 @@ function convert_to_grid(xDim, filebase, start, incr, final)
     writedlm("wfcgrid.dat", arr)
 end
 
-#convert_to_grid(256, "data/wfc_0_const", 0, 100, 10000)
-convert_to_grid(256, "data/wfc_ev", 0, 100, 10000)
+#convert_to_grid(512, "data/wfc_0_const", 0, 10, 5000)
+convert_to_grid(512, "data/wfc_ev", 0, 10, 5000)

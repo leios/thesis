@@ -1,0 +1,202 @@
+\begin{thebibliography}{10}
+
+\bibitem{werschnik2007}
+J~Werschnik and EKU Gross.
+\newblock Quantum optimal control theory.
+\newblock {\em Journal of Physics B: Atomic, Molecular and Optical Physics},
+  40(18):R175, 2007.
+
+\bibitem{guery2019}
+D~Gu{\'e}ry-Odelin, A~Ruschhaupt, A~Kiely, E~Torrontegui,
+  S~Mart{\'\i}nez-Garaot, and JG~Muga.
+\newblock Shortcuts to adiabaticity: concepts, methods, and applications.
+\newblock {\em arXiv preprint arXiv:1904.08448}, 2019.
+
+\bibitem{schloss2016}
+James Schloss, Albert Benseny, J{\'e}r{\'e}mie Gillet, Jacob Swain, and Thomas
+  Busch.
+\newblock Non-adiabatic generation of noon states in a tonks--girardeau gas.
+\newblock {\em New Journal of Physics}, 18(3):035012, 2016.
+
+\bibitem{lewis2012}
+Frank~L Lewis, Draguna Vrabie, and Vassilis~L Syrmos.
+\newblock {\em Optimal control}.
+\newblock John Wiley \& Sons, 2012.
+
+\bibitem{ruder2016}
+Sebastian Ruder.
+\newblock An overview of gradient descent optimization algorithms.
+\newblock {\em arXiv preprint arXiv:1609.04747}, 2016.
+
+\bibitem{nelder1965}
+J.~A. Nelder and R.~Mead.
+\newblock {A Simplex Method for Function Minimization}.
+\newblock {\em The Computer Journal}, 7(4):308--313, 01 1965.
+
+\bibitem{koza1997}
+John~R Koza.
+\newblock Genetic programming.
+\newblock 1997.
+
+\bibitem{kolda2003}
+Tamara~G Kolda, Robert~Michael Lewis, and Virginia Torczon.
+\newblock Optimization by direct search: New perspectives on some classical and
+  modern methods.
+\newblock {\em SIAM review}, 45(3):385--482, 2003.
+
+\bibitem{lewis2007}
+Robert~Michael Lewis, Anne Shepherd, and Virginia Torczon.
+\newblock Implementing generating set search methods for linearly constrained
+  minimization.
+\newblock {\em SIAM Journal on Scientific Computing}, 29(6):2507--2530, 2007.
+
+\bibitem{pohlheim2007}
+Hartmut Pohlheim.
+\newblock Examples of objective functions.
+\newblock {\em Retrieved}, 4(10):2012, 2007.
+
+\bibitem{torrontegui2013}
+Erik Torrontegui, Sara Ib{\'a}nez, Sofia Mart{\'\i}nez-Garaot, Michele Modugno,
+  Adolfo del Campo, David Gu{\'e}ry-Odelin, Andreas Ruschhaupt, Xi~Chen, and
+  Juan~Gonzalo Muga.
+\newblock Shortcuts to adiabaticity.
+\newblock In {\em Advances in atomic, molecular, and optical physics},
+  volume~62, pages 117--169. Elsevier, 2013.
+
+\bibitem{lewis1969}
+H~Ralph Lewis~Jr and WB~Riesenfeld.
+\newblock An exact quantum theory of the time-dependent harmonic oscillator and
+  of a charged particle in a time-dependent electromagnetic field.
+\newblock {\em Journal of Mathematical Physics}, 10(8):1458--1473, 1969.
+
+\bibitem{lewis1982}
+H~Ralph Lewis and PGL Leach.
+\newblock A direct approach to finding exact invariants for one-dimensional
+  time-dependent classical hamiltonians.
+\newblock {\em Journal of Mathematical Physics}, 23(12):2371--2374, 1982.
+
+\bibitem{isreal2012}
+Y.~Israel, I.~Afek, S.~Rosen, O.~Ambar, and Y.~Silberberg.
+\newblock Experimental tomography of noon states with large photon numbers.
+\newblock {\em Phys. Rev. A}, 85:022115, Feb 2012.
+
+\bibitem{afek2010}
+Itai Afek, Oron Ambar, and Yaron Silberberg.
+\newblock High-noon states by mixing quantum and classical light.
+\newblock {\em Science}, 328(5980):879--881, 2010.
+
+\bibitem{girardeau2001ground}
+M.~D. Girardeau, E.~M. Wright, and J.~M. Triscari.
+\newblock Ground-state properties of a one-dimensional system of hard-core
+  bosons in a harmonic trap.
+\newblock {\em Phys. Rev. A}, 63:033601, Feb 2001.
+
+\bibitem{girardeau2001measurement}
+M.~D. Girardeau and E.~M. Wright.
+\newblock Measurement of one-particle correlations and momentum distributions
+  for trapped 1d gases.
+\newblock {\em Phys. Rev. Lett.}, 87:050403, Jul 2001.
+
+\bibitem{slater1929}
+John~C Slater.
+\newblock The theory of complex spectra.
+\newblock {\em Physical Review}, 34(10):1293, 1929.
+
+\bibitem{das2002}
+Kunal~K. Das, M.~D. Girardeau, and E.~M. Wright.
+\newblock Interference of a thermal tonks gas on a ring.
+\newblock {\em Phys. Rev. Lett.}, 89:170404, Oct 2002.
+
+\bibitem{girardeau2009}
+M.~D. Girardeau and A.~Minguzzi.
+\newblock Motion of an impurity particle in an ultracold quasi-one-dimensional
+  gas of hard-core bosons.
+\newblock {\em Phys. Rev. A}, 79:033610, Mar 2009.
+
+\bibitem{hallwood2010}
+David~W. Hallwood, Thomas Ernst, and Joachim Brand.
+\newblock Robust mesoscopic superposition of strongly correlated ultracold
+  atoms.
+\newblock {\em Phys. Rev. A}, 82:063623, Dec 2010.
+
+\bibitem{schenke2012}
+C~Schenke, A~Minguzzi, and FWJ Hekking.
+\newblock Probing superfluidity of a mesoscopic tonks-girardeau gas.
+\newblock {\em Physical Review A}, 85(5):053627, 2012.
+
+\bibitem{nunnenkamp2008}
+Andreas Nunnenkamp, Ana~Maria Rey, and Keith Burnett.
+\newblock Generation of macroscopic superposition states in ring superlattices.
+\newblock {\em Phys. Rev. A}, 77:023622, Feb 2008.
+
+\bibitem{hallwood2007}
+David~W Hallwood, Keith Burnett, and Jacob Dunningham.
+\newblock The barriers to producing multiparticle superposition states in
+  rotating bose--einstein condensates.
+\newblock {\em Journal of Modern Optics}, 54(13-15):2129--2148, 2007.
+
+\bibitem{garaot2015}
+S.~Mart\'{\i}nez-Garaot, A.~Ruschhaupt, J.~Gillet, Th. Busch, and J.~G. Muga.
+\newblock Fast quasiadiabatic dynamics.
+\newblock {\em Phys. Rev. A}, 92:043406, Oct 2015.
+
+\bibitem{campo2011}
+A.~del Campo.
+\newblock Long-time behavior of many-particle quantum decay.
+\newblock {\em Phys. Rev. A}, 84:012113, Jul 2011.
+
+\bibitem{lelas2011}
+K.~Lelas, T.~\ifmmode~\check{S}\else \v{S}\fi{}eva, and H.~Buljan.
+\newblock Loschmidt echo in one-dimensional interacting bose gases.
+\newblock {\em Phys. Rev. A}, 84:063601, Dec 2011.
+
+\bibitem{girardeau1960}
+Marvin Girardeau.
+\newblock Relationship between systems of impenetrable bosons and fermions in
+  one dimension.
+\newblock {\em Journal of Mathematical Physics}, 1(6):516--523, 1960.
+
+\bibitem{chen2010}
+Xi~Chen and J.~G. Muga.
+\newblock Transient energy excitation in shortcuts to adiabaticity for the
+  time-dependent harmonic oscillator.
+\newblock {\em Phys. Rev. A}, 82:053403, Nov 2010.
+
+\bibitem{chen20102}
+Xi~Chen, A.~Ruschhaupt, S.~Schmidt, A.~del Campo, D.~Gu\'ery-Odelin, and J.~G.
+  Muga.
+\newblock Fast optimal frictionless atom cooling in harmonic traps: Shortcut to
+  adiabaticity.
+\newblock {\em Phys. Rev. Lett.}, 104:063002, Feb 2010.
+
+\bibitem{masuda2009}
+Shumpei Masuda and Katsuhiro Nakamura.
+\newblock Fast-forward of adiabatic dynamics in quantum mechanics.
+\newblock {\em Proceedings of the Royal Society A: Mathematical, Physical and
+  Engineering Sciences}, 466(2116):1135--1154, 2009.
+
+\bibitem{torrontegui2011}
+E.~Torrontegui, S.~Ib\'a\~nez, Xi~Chen, A.~Ruschhaupt, D.~Gu\'ery-Odelin, and
+  J.~G. Muga.
+\newblock Fast atomic transport without vibrational heating.
+\newblock {\em Phys. Rev. A}, 83:013415, Jan 2011.
+
+\bibitem{masuda2012}
+Shumpei Masuda.
+\newblock Acceleration of adiabatic transport of interacting particles and
+  rapid manipulations of a dilute bose gas in the ground state.
+\newblock {\em Phys. Rev. A}, 86:063624, Dec 2012.
+
+\bibitem{phelan2013}
+C.F. Phelan, T.~Hennessy, and Th. Busch.
+\newblock Shaping the evanescent field of optical nanofibers for cold atom
+  trapping.
+\newblock {\em Opt. Express}, 21(22):27093--27101, Nov 2013.
+
+\bibitem{masuda2014}
+Shumpei Masuda, Katsuhiro Nakamura, and Adolfo del Campo.
+\newblock High-fidelity rapid ground-state loading of an ultracold gas into an
+  optical lattice.
+\newblock {\em Phys. Rev. Lett.}, 113:063003, Aug 2014.
+
+\end{thebibliography}

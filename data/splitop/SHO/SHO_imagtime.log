@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.8.25)  28 SEP 2019 09:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.8.25)  13 OCT 2019 10:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**SHO_imagtime.tex
+**SHO_imagtime
 (./SHO_imagtime.tex
 LaTeX2e <2018-12-01>
 (/usr/share/texmf-dist/tex/latex/base/minimal.cls
@@ -202,47 +202,47 @@ e
 \gptboxwidth=\skip45
 \gptboxtext=\box28
 Package epstopdf Info: Source file: <SHO_imagtime-inc.eps>
-(epstopdf)                    date: 2019-09-28 09:42:35
-(epstopdf)                    size: 43034 bytes
+(epstopdf)                    date: 2019-10-13 10:12:41
+(epstopdf)                    size: 140891 bytes
 (epstopdf)             Output file: <SHO_imagtime-inc-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-09-28 09:24:54
-(epstopdf)                    size: 12305 bytes
+(epstopdf)                    date: 2019-10-13 10:10:37
+(epstopdf)                    size: 22291 bytes
 (epstopdf)             Command: <repstopdf --outfile=SHO_imagtime-inc-eps-conve
 rted-to.pdf SHO_imagtime-inc.eps>
-(epstopdf)             \includegraphics on input line 168.
+(epstopdf)             \includegraphics on input line 173.
 runsystem(repstopdf --outfile=SHO_imagtime-inc-eps-converted-to.pdf SHO_imagtim
 e-inc.eps)...executed safely (allowed).
 
 Package epstopdf Info: Result file: <SHO_imagtime-inc-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-09-28 09:42:42
-(epstopdf)                    size: 21107 bytes.
+(epstopdf)                    date: 2019-10-13 10:12:43
+(epstopdf)                    size: 23184 bytes.
 <SHO_imagtime-inc-eps-converted-to.pdf, id=1, 361.35pt x 252.945pt>
 File: SHO_imagtime-inc-eps-converted-to.pdf Graphic file (type pdf)
 <use SHO_imagtime-inc-eps-converted-to.pdf>
 Package pdftex.def Info: SHO_imagtime-inc-eps-converted-to.pdf  used on input l
-ine 168.
+ine 173.
 (pdftex.def)             Requested size: 361.34912pt x 252.94438pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 169.
+(Font)              <10.95> on input line 174.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 169.
+(Font)              <8> on input line 174.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 169.
+(Font)              <6> on input line 174.
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./SHO_imagtime-inc-eps-c
 onverted-to.pdf>] (./SHO_imagtime.aux) ) 
 Here is how much of TeX's memory you used:
  2124 strings out of 492623
  29554 string characters out of 6135669
- 96687 words of memory out of 5000000
+ 97687 words of memory out of 5000000
  6008 multiletter control sequences out of 15000+600000
  7148 words of font info for 24 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,6n,34p,279b,188s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,6n,34p,275b,188s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/
 cm-super/cm-super-t1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
 r/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on SHO_imagtime.pdf (1 page, 53406 bytes).
+Output written on SHO_imagtime.pdf (1 page, 55761 bytes).
 PDF statistics:
  26 PDF objects out of 1000 (max. 8388607)
  17 compressed objects within 1 object stream

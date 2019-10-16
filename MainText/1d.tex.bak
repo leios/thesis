@@ -1,0 +1,535 @@
+\chapter{Quantum engineering for one-dimensional quantum systems}
+\label{ch:1d}
+
+Until recently, methods involving dynamic control protocols to engineer specific quantum states have been difficult to perform on GPU devices without full control of the software, itself.
+This meant that researchers wishing to engineer specific quantum states by using GPU simulations would be required to have domain-specific knowledge in both software design and quantum mechanics, neither of which are trivial to understand.
+This chapter serves as motivation for several methods to be discussed in Chapter~\ref{ch:gpu} to allow for the simulation of quantum control methods on GPU devices, with a particular focus on quantum optimal control~\cite{werschnik2007} and Shortcuts to Adiabaticity (STA)~\cite{guery2019}.
+Both of these control protocols will be used in a physical example for the non-adiabatic generation of superposition states in a one-dimensional Tonks-Girardeau gas~\cite{schloss2016}.
+To start, I will discuss the field of optimization algorithms before moving to STA protocols and a physical system using both in practice.
+
+\section{Optimization methods}
+
+Optimization algorithms have become essential to many areas of modern computing and focus on either minimizing or maximizing a cost function by modifying several control parameters~\cite{lewis2012}.
+The number of control parameters create an $n$-dimensional space to traverse, and optimization algorithms are tasked at finding the global minimum or maximum of this domain.
+For certain domains, it is difficult to find a global optimization strategy and many methods instead get caught by local minima while attempting to find the appropriate solution.
+Because generalized optimization is such a fundamental problem, there are many known optimal control methods, such as gradient descent~\cite{ruder2016}, the Nelder-Mead or simplex method~\cite{nelder1965}, genetic algorithms~\cite{koza1997}, and many more.
+Of these, gradient descent is often considered to be one of the easiest to implement with favorable complexity and convergence guarantees, and because of this it has become ubiquitous in many areas such as machine learning, which is of particular interest for GPU engineering. 
+Even so, there are limitations to gradient descent, such as its dependence on calculating the gradient of the cost function's solution domain along with lengthy convergence times for high-precision solutions.
+
+For this work, I are primarily interested in the area of quantum optimal control, which is a method typically used to determine the optimal laser pulses necessary to transform an initial state to a final desired state~\cite{werschnik2007}.
+This means that one will often be maximizing the fidelity between states, defined as $\mathcal{F} = |\braket{\psi|\phi}|^2$, where $\psi$ is the engineered quantum state and $\phi$ is the state we attempting to replicate.
+This problem can be re-framed as an attempt to find the maximum of a fidelity \textit{landscape}, which is difficult to find the gradient of without resolving the Schr\"odinger equation.
+For this reason, we will be introducing a gradient-less (derivative-free) optimization algorithm, the Nelder Mead (simplex) method, which is often used as a heuristic approach to this problem and there are several known optimizationsfor this method~\cite{nelder1965,kolda2003,lewis2007}.
+This method is also the recommended optimization algorithm for the chosen quantum optimal control method of the physical example later shown in this chapter, Chopped RAndom Basis (CRAB) optimal control.
+This will be described in Section~\ref{sec:CRAB}.
+
+\subsection{Nelder--Mead}
+\label{sec:NM}
+
+The Nelder--Mead method is one of the most commonly implemented gradient-less optimization algorithms to-date and relies heavily on the concept of a simplex, which is a generalization of the three-dimensional polyhedron to $n$-dimensions.
+For example, a 0-simplex is a point, a 1-simplex is a line, a 2-simplex is a triangle, a 3-simplex is a tetrahedron, and so on.
+If the Nelder--Mead method is attempting to optimize a cost function with $n$ control parameters, an $n+1$ point simplex will be created, and the points of this simplex will be manipulated until they have converged to a minimum or maximum in the domain.
+For this section, we will focus on the method introduced in the original work by Nelder and Mead in 1965 while working at the National Vegetable Research Station in Warwick, England~\cite{nelder1965}.
+
+For $P_i \in i=\{0,...,n\}$ simplex points with heights of $y_i \in i=\{0,...,n\}$, the Nelder--Mead method is tasked at minimizing all points such that $\sqrt{\sum(y_i-\bar y)^2/n} < \eta$, where $\bar y$ denotes the height of the centroid location of the simplex, and $\eta$ is some pre-defined threshold value.
+This convergence criteria assumes that if all points have converged with this method, the final location must be the minimum of the optimization domain; however, as mentioned in the previous section, this method may become trapped in a local minima.
+At every step in the Nelder--Mead method, the point with the highest and lowest values are determined, denoted as $P_h$ and $P_l$ for \textit{highest} and \textit{lowest}, respectively.
+In addition, the centroid location is found as $\bar P$.
+This method then performs up to three basic operations on the simplex, itself:
+
+\begin{description}
+
+\item[Reflection] For this operation, $P_h$ is flipped across $\bar P$, such that the new location,
+\begin{equation}
+P^* = (1+\alpha)\bar P - \alpha P_h.
+\end{equation}
+\noindent Here, $\alpha > 0$ is a constant known as the reflection coefficient.
+After this operation, the new height is compared to $y_l$.
+If it is lower, the method proceeds to an expansion step.
+Otherwise, the method checks whether the new height is lower than some other $y_i \in \{0,...,n\},n\neq \{l,h\}$, and if it is, the point is kept and the method continues to find the new simplex ordering.
+If it is found that the reflected point is higher in value than all other points, the method then keeps whichever point corresponds to the lowest height between the reflected and previous highest point and proceeds to the contraction step.
+
+\item[Expansion] For this operation, an expansion is performed, such that the new location,
+\begin{equation}
+P^{**} = \gamma P^* + (1-\gamma)\bar P.
+\end{equation}
+\noindent Here, $\gamma > 1$ is a constant known as the expansion coefficient.
+If the new height is less than the previously lowest point, the expanded point is kept, otherwise the reflected point is kept.
+
+\item[Contraction] For this operation, a contraction is performed, such that the new location,
+\begin{equation}
+P^{**} = \beta P_h + (1-\beta)\bar P.
+\end{equation}
+\noindent Here, $0 < \beta < 1$ is a constant known as the contraction coefficient.
+If the contracted point is lower than the previous highest point, we keep the contracted point, otherwise, we contract the entire simplex closer to the lowest point with $P_i = (P_i + P_l)/2$.
+\end{description}
+
+Each step in the Nelder--Mead method begins with a proposed reflection of least optimal point about its centroid position.
+From there, the method follows the protocol described above.
+The choice of $\alpha$, $\beta$, and $\gamma$ are somewhat arbitrary and should be optimized by-hand.
+An example of the centroid locations for minimization using this method with the Rosenbrock banana function~\cite{pohlheim2007} can be seen in Figure~\ref{fig:minimize_NM}.
+
+\begin{figure}
+\center \includegraphics[width=0.75\textwidth]{data/1d/NM/NM.pdf}
+\caption{Plot of the centroid locations (green dots connected with white line) for the Nelder--Mead method while optimizing the Rosenbrock banana function, $f(x,y)=(a-x)^2+b(y-x^2)^2$, with $a=1$ and $b=100$. Here, we see the centroid locations starting at $(-0.851,-1.553)$ and end at the known minimum of $(1,1)$ in 19 iterations.}
+\label{fig:minimize_NM}
+\end{figure}
+
+It is clear that this method is not indended to be optimal, but is sufficient for this discussion.
+Ultimately, any gradient-less optimization algorithm can be used to traverse the fidelity landscape for quantum optimal control, and in the next section, I will discuss a common method used in the field: the Chopped RAndom Basis (CRAB) optimal control method.
+
+\subsection{Chopped random basis}
+\label{sec:CRAB}
+
+The CRAB technique works by modifying a control parameter for a given system, $\Gamma$, with a multiplicative term as
+
+\begin{equation}
+\Gamma^{\text{CRAB}}(t) = \Gamma^0(t)\gamma(t),
+\end{equation}
+
+\noindent where $\Gamma^0(t)$ is an initial guess, and the function $\gamma(t)$ is written as a sum of $2J$ sinusoidal functions,
+
+\begin{equation}
+\gamma(t)=1+\frac{1}{\lambda(t)}\sum_{j=1}^J(A_j \sin(\nu_jt) + B_j\cos(\nu_jt)).
+\end{equation}
+
+\noindent Here, $\lambda(t)$ is usually defined by the system, such that $\Gamma^{\text{CRAB}}$ and $\Gamma^0$ coincide at final times.
+This means that $\lim_{t\rightarrow 0} \lambda(t) = \lim_{t\rightarrow T}\lambda(t) = \infty$, where $T$ is the final time of evolution.
+As such, any smooth function may be chosen with these constraints.
+For example, we might use
+\begin{equation}
+\lambda(t) = \frac{T^2}{4t(t-T)},
+\end{equation}
+\noindent which satisfies the provided conditions.
+This then transforms the operation to an optimization of the a space spanning $\{A_j, B_j, \nu_j\}$, which can be done by using Nelder--Mead with a simplex of random initial points.
+As an example, if $J = 10$, a thirty-dimensional space would be created and a thirty-one simplex would be formed to traverse this space
+It is important to remember that each new simplex and simplex-operation might require re-solving the Schr\"odinger equation for those values, and as such, this is a computational costly technique.
+Even though higher $J$ values will produce a more accurate result, this is why lower values should be chosen, if possible.
+
+This method is a general-purpose computational tool for determining the optimal pulse to ensure the generated state is as close to the desired state as possible, and we will see an example of it being used later in this chapter.
+As such, it is sometimes worthwhile to attempt to devise analytical frameworks that serve a similar purpose, and for certain systems, this can be done with Shortcuts To Adiabaticity (STA).
+
+\section{Shortcuts to adiabaticity}
+
+STA protocols are semi-analytical methods that allow for quantum state generation while retaining the effects of adiabatic movement.
+Here, adiabatic processes are defined as actions by which slow changes in the control parameters leave particular properties invariant, such as the quantum number~\cite{guery2019}.
+The ultimate goal of STA protocols is to achieve adiabatic motion in sub-adiabatic time, and this can be done in a number of ways; however, in this section, we will introduce only the invariant-based inverse-engineering approach using Lewis-Riesenfeld invariants~\cite{torrontegui2013}.
+In particular, I will focus on the specific methods necessary for the example to be introduced later in this chapter and much of this section will follow traditional derivations from various sources~\cite{torrontegui2013,guery2019, schloss2016}.
+
+With the method of Lewis-Riesenfeld invariants, we find that the theory for relating different eigenstates of a time-dependent invariant to the solutions to the Schr\"odinger equation provided by Lewis and Riesenfeld~\cite{lewis1969} can be applied to systems with time-dependent Hermitian Hamiltonians, such that
+\begin{equation}
+\frac{d}{dt} = i\hbar \frac{\partial I(t)}{\partial t} - \frac{i}{\hbar}\left[\mathcal{\hat H},I(t)\right] = 0.
+\end{equation}
+\noindent Here, $I(t)$ is a time-dependent, Hermitian invariant.
+This ensures that the the expectation values for states driven by $\mathcal{\hat H}$ are constant in time.
+$I(t)$ can also be used to expand $\ket{\Psi(t)}$ into a superposition of dynamical modes $\ket{\psi_n(t)}$,
+\begin{align}
+\ket{\Psi(t)} &=\sum_n^\infty c_n \ket{\psi_n(t)} \\
+\ket{\psi_n(t)} &= e^{i\alpha_n(t)}\ket{\phi_n(t)},
+\end{align}
+\noindent where $c_n$ are time-independent amplitudes for each state, and $\ket{\phi_n(t)}$ are orthonormal eigenvectors of the invariant, such that
+\begin{equation}
+I(t) = \sum_n^\infty\ket{\phi_n(t)}\lambda_n\bra{\phi_n(t)}.
+\end{equation}
+\noindent Here, $\lambda_n$ are real constants, and the phase is defined as ~\cite{lewis1969}
+\begin{equation}
+\alpha_n(t) = \frac{1}{\hbar}\int_0^t\braket{\phi_n(t')\i\hbar\frac{\partial}{\partial t'} - \mathcal{\hat H}(t')|\phi_n(t')}dt'.
+\end{equation}
+
+From here, inverse engineering can be used to create the desired time-dependent Hamiltonian and the invariant can be redefined through eigenvectors and values.
+The phases, $\alpha_n(t)$ may also be chosen as arbitrary functions to create a time-dependent unitary operator,
+\begin{equation}
+U = \sum_n^\infty e^{i\alpha_n(t)}\ket{\phi_n(t)}\bra{\phi_n(0)},
+\end{equation}
+\noindent where $U$ obeys $i\hbar \dot U = \mathcal{\hat H}(t)U$ and the dot is a time-derivative.
+If one considers Hamiltonians of the Lewis and Leach variety~\cite{lewis1982},
+
+\begin{equation}
+\mathcal{\hat H} = \frac{p^2}{2m}  -F(t)q + \frac{m}{2}\omega^2(t)q^2 + \frac{1}{\rho(t)^2}U\left[\frac{q-q_c}{\rho(t)}\right] + f(t)
+\label{eqn:HSTA}
+\end{equation}
+
+there will be an invariant that is quadratic in momentum,
+\begin{equation}
+I = \frac{1}{2m}[\rho(p-m\dot q_c)-m\dot \rho(q-q_c)]2 + \frac{1}{2}m\omega_0^2\left( \frac{q-q_c}{\rho} \right)^2 + U\left( \frac{q-q_c}{\rho}\right).
+\end{equation}
+\noindent These equations are valid so long as $\rho$, $q_c$, $\omega$, and $F$ satisfy
+\begin{align}
+\ddot \rho + \omega^2(t)\rho &= \frac{\omega_0^2}{\rho^3} \label{eqn:rho}\\
+\ddot q_c + \omega^2(t)q_c &= F(t)/m \label{eqn:qc}
+\end{align}
+\noindent with $\omega_0$ as a defined constant whose physical interpretation depends on the system.
+As in the case of quantum optimal control, additional constraints must be considered to ensure the Hamiltonian and its invariant commute at initial and final times $t_0$ and $T$.
+
+The obvious drawbacks to STA methods are the strengths of quantum optimal control.
+Where shortcuts can only be used on a specific subset of problems we wish to evolve adiabatically and that are amenable to the analytical methods used, quantum optimal control is a more general tool for a wider variety of systems.
+On the flip-side, STA protocols are semi-analytical and if such protocols can be found, they greatly reduce the computational cost to engineering particular quantum states.
+Now that I have provided specific examples of methods used in quantum engineering, it is time to put them into practice with an example of creating largescale superposition states non-adiabatically in the highly-correlated Tonks--Girardeau (TG) gas regime.
+
+\section{Nonadiabatic generation of NOON states in a Tonks--Garadeau gas}
+
+For this example application of quantum optimal control and STA protocols, we are interested in generating the maximally entangled $\ket{N,0} + \ket{0,N}$ (NOON) state, which is composed of two modes where all particles can be found exclusively in one or the other.
+Such behavior has been created experimentally in photonic states generated by mixing classical states with down-converted photon pairs~\cite{isreal2012}
+In this system it is possible to create NOON states with around 5 photons~\cite{afek2010}.
+Recently, Hallwood \textit{et. al.} proposed an experimentally realistic method to generate NOON states in a gas of strongly interacting bosons on a one-dimensional ring.
+In this system, different rotational states can be coupled by breaking the rotational symmetry and it is possible to create superposition states with rotating and non-rotating components.
+Because the atoms are considered to be in the strongly correlated TG gas regime, this process results in a macroscopically-entangled state.
+It is worth discussing the TG gas in further detail before discussing the precise method of NOON state generation for this example.
+
+\subsection{TG gas}
+
+As discussed in Chapter~\ref{ch:splitop}, the TG gas consists of a number of bosons that have the properties of spinless, non-interacting fermions.
+This is a particular case of the one-dimensional Schr\"odinger equation where $g\rightarrow\infty$.
+In this case, the bosons cannot pass each other and cannot be at the same location, which acts formally similar to the Pauli-exclusion principle for fermionic systems.
+In this case, the Hamiltonian can be solved by the Bose--Fermi mapping theorem \cite{girardeau2001ground, girardeau2001measurement}, which replaces the interaction terms in the Hamiltonian with a boundary condition on the many-body bosonic wavefunction.
+\begin{equation}
+\Psi_B(x_1, x_2, \ldots, x_N) = 0,\qquad \mathrm{if}\qquad x_i - x_j = 0 \quad\textrm{with}\quad i \ne j.
+\end{equation}
+
+The Bose--Fermi mapping theorem allows us to replace strongly interacting bosons by spinless, non-interacting fermions, on which we can use the Slater determinant~\cite{slater1929},
+\begin{equation}
+\Psi_F (x_1, x_2, \ldots, x_N) = \frac{1}{\sqrt{N}} \det\Big[\psi_n(x_j)\Big]_{n,j=1}^N.
+\end{equation}
+\noindent where $\psi_n(x_j)$ are the single-particle eigenstates of the trapping potential $V_0$.
+Because the Fermionic many-body wavefunction is antisymmetric, this needs to be symmetrerized for bosonic states as, 
+\begin{equation}
+\Psi_B(x_1, x_2, \ldots, x_N) =
+\prod_{i < j}
+\mathrm{sgn}(x_i - x_j)\Psi_F(x_1, x_2, \ldots, x_N)
+\end{equation}
+\noindent which means that calculating the time evolution of a TG gas requires evolving single-particle states, governed by a much simpler Hamiltonian.
+
+\subsection{NOON states in TG gas}
+\label{sec:controltro}
+
+Similar to other ring systems introduced in the literature~\cite{das2002,girardeau2009}, the system suggested by Hallwood \textit{et. al.} considers a gas of $N$ interacting bosons of mass $m$ on a one-dimensional ring with circumference $L$~\cite{hallwood2010}.
+In addition, this system includes a potential barrier, modelled by a Dirac $\delta$ function that rotates with an angular frequency $\Omega$, as shown in Figure~\ref{fig:ring_scheme}..
+In the rotating frame,  the Hamiltonian of the system is given by \cite{hallwood2010}
+\begin{equation}H^{(N)} = \sum_{i=1} ^{N} \left[{\frac{1}{2}\bigg(-i\frac{\partial}{\partial x_i}-\Omega}\bigg)^2 + b\delta(x_i) +g \sum_{i<j} ^{N} \delta (x_i - x_j )\right],
+\end{equation}
+\noindent where $b$ is the height of the barrier (in units of $\hbar^2/mL^2$), $x_i \in \left[-1/2,1/2\right]$ is the position of the $i$--th particle (in units of $L$) and $g$ (in units of $\hbar^2/mL^2$) is the effective interaction strength between the atoms.
+As discussed in the previous section, the evolution of a TG gas required evolution of single-particle states, and in the case of this system, the Hamiltonian becomes,
+
+\begin{equation}
+H = -\frac{1}{2} \frac{\partial^2}{\partial x} + b\delta \left[ x-x_0(t) \right], 
+\end{equation}
+where $x_0$ is the position of the barrier at time $t$. 
+
+\begin{figure}
+\center \includegraphics[width = 0.5\textwidth]{data/1d/scheme.pdf}
+\caption{Schematic of the system described by Hallwood \textit{et. al.}~\cite{hallwood2010}.
+Here, the density profile for five atoms in a TG gas are shown being stirred by a highly localized potential, indicated by the vertical line.}
+\label{fig:ring_scheme}
+\end{figure}
+
+The energy spectrum of this system is shown in Figure~\ref{fig:avoid} as a function of the rotational frequency $\Omega \equiv \dot x_0 /L$ of the system.
+In Figure~\ref{fig:avoid}(a), it is shown that in the absence of a barrier, the eigenstates of $\mathcal{\hat H}$ are plane waves with quantized angular momentum in integer multiples of $2 \pi$; however when $b>0$ (Figure~\ref{fig:avoid}(b)), the symmetry is broken and avoided crossings appear in the energy spectrum.
+This indicates that transitions between different manifolds is possible with a barrier present~\cite{schenke2012}.
+
+\begin{figure}
+
+ \centering
+ \subfigure{
+ \centering
+ \includegraphics[width = 0.4\linewidth]{data/1d/cross.png}} 
+ \subfigure{
+ \centering
+ \includegraphics[width = 0.4\linewidth]{data/1d/nocross.png}}
+
+\caption{Single-particle energy spectrum as a function of $\Omega$ for a barrier height of (a) $b = 0$ and (b) $b=2$.
+When a barrier is present in the system, avoided crossings appear in the energy spectrum at intervals of $2 \pi$, and 
+these crossings grow as the barrier strenght increases.}
+\label{fig:avoid}
+\end{figure}
+
+By adiabatically accelerating the barrier's rotational frequency from 0 to $\pi$, a particle will enter a superposition between two rotational states, and in the case of the TG gas, this will create a macroscopic NOON superposition state between successive values of angular momentum~\cite{hallwood2010}.
+Any non-adiabatic behaviour around the rotational frequencies of the avoided crossing can lead to a transition to a higher energy state and destroy the NOON state.
+For this reason, the condition for adiabaticity must depend on the gap size, which is dictated by the barrier strength~\cite{nunnenkamp2008}; however, for a delta barrier, the gap size stays relatively constant to a first-order approximation~\cite{hallwood2007}.
+
+Because this system requires adiabatic movement to properly generate the NOON state, is is difficult to efficiently generate experimentally.
+For this reason, it is a perfect example of a system where quantum optimal control and STA protocols can be used to rapidly engineer the appropriate states.
+For quantum optimal control in this system, a non-adiabatic rotational frequency $\Omega(t)$ must be found, for which we will use the CRAB technique with an initial condition of $\Omega = 0$ and final condition of $\Omega = \pi$.
+For each simulation in the fidelity landscape, we will be modifying this pulse with procedurally generated sinusoidal functions, calculating the fidelity, and then using the Nelder--Mead method to optimize the result.
+This will allow us to determine an optimal pulse that maximizes the fidelity of our generated state when compared to the expected NOON state in a pre-set amount of time.
+For this system, we will show the optimal pulse for the rotational velocity, the barrier height, and both.
+
+For STA protocols, we will assume that the delta potential can be approximated as either harmonic or sinusoidal, and then use this to split the acceleration process into two, one that breaks the rotational symmetry and another that accelerates the atoms.
+At the end of the protocol, the potential is lowered to restore rotational symmetry.
+Here, it's worth mentioning that a FAst, QUasi-ADiabatic (FAQUAD) shortcut for the creation of superposition stated in a TG gas has been created with some similarities~\cite{garaot2015}.
+
+For both of these methods, instead of calulating the fidelity, itself, we calculate the \textit{infidelity}, which is simply $1-\mathcal{F} = 1-|\braket{\psi|\phi}|^2$.
+It is also worth mentioning that the fidelity between two many-particle states in a TG gas can be calculated by using the method of mode projections~\cite{campo2011,lelas2011},
+\begin{eqnarray}
+\braket{\Psi | \Phi} &=& \frac1{N!} \sum_{\eta, \mu \in P} \epsilon_\eta \epsilon_\mu \braket{\psi_{\eta_1}(x_1) | \phi_{\mu_1}(x_1) } \cdots \braket{ \psi_{\eta_N}(x_N) | \phi_{\mu_N}(x_N) } \nonumber \\
+\label{eq:fid}
+&=&
+\det \Big[ \braket{\psi_i | \phi_j }\Big]_{i,j=1}^N
+\end{eqnarray}
+which follows directly from the form of the TG state~\cite{girardeau1960}
+\begin{equation}
+\Psi(x_1,x_2,\ldots, x_N)= \frac1{\sqrt{N!}} \prod_{i<j}\textnormal{sign}(x_i-x_j) \sum_{\eta \in P} \epsilon_\eta \psi_{\eta_1}(x_1)\cdots\psi_{\eta_N}(x_N).
+\label{eq:TG}
+\end{equation}
+Here $P$ represents the set of all permutations of $N$ elements, $\epsilon_\eta$ represents the antisymmetric tensor of the permutation $\eta$, and $\psi_i$ represent the orbitals.
+Now I will discuss our findings with both optimal control and STA protocols.
+
+
+\subsection{Results with optimal control}
+
+\begin{figure}
+ \centering
+ \subfigure{
+ \centering
+ \includegraphics[width=0.45\textwidth]{data/1d/figR0.pdf}}
+ \subfigure{
+ \centering
+ \includegraphics[width=0.45\textwidth]{data/1d/figB0.pdf}}
+ \caption{Accelerating a single particle from the ground state with $J=15$.
+ (a) Optimal rotational velocity pulses for $T = 1$, 10, and 100 for fixed barrier height $b=1$.
+ (b) Optimal barrier hieght for a linearly increasing rotational velocity, $\Omega = \pi t/T$ for $T=1$, 10, and 100.}
+ \label{fig:pulses}
+\end{figure}
+
+First, I will focus on the acceleration of a single particle, initially in the ground-state of the trap.
+Figure~\ref{fig:pulses} shows the results of this simulation if the barrier height is kept constant and we assume an initial unmodified pulse that correponds to a linear ramp from $\Omega = 0$ to $\pi$ for a preset total time $T$.
+Here, we see that for longer evolution times, the initial linear pulse is a reaonable method to generate NOON states adiabatically because it is close to adiabaticity by definition.
+Because of this, any optimal control modifications for the $T=100$ pulse will not greatly affect the state generation.
+This creates a bumpy fidelity landscape and as such, longer evolution times effectively produce noisy signals, as the Nelder--Mead method converges on one of many local minima.
+For shorter evolution times, the pulse greatly affects the system and the shapes vary greatly from the initial linear ramp.
+The infidelities for the linear guess pulse and its corresponding optimized pulse can be found in Figure~\ref{fig:lfid}, and one can see an improvement of several orders of magnitude.
+
+For optimizations of the barrier strength, we chose a simple linear ramp for $\Omega$ and a constant initial pulse for the barrier at $b = 1$.
+The optimal pulses for the barrier height for $T=1$, 10, and 100 are shown in Figure~\ref{fig:pulses}(b) and shorter evolution times similarly produce larger deviations from the initial pulse.
+Again these pulses lead to significant improvements in the fidelity shown in Figure~\ref{fig:lfid}.
+
+\begin{figure} 
+\centering
+ \subfigure{
+ \centering
+ \includegraphics[width=0.45\textwidth]{data/1d/figR1.pdf}
+ }
+ \subfigure{
+ \centering
+ \includegraphics[width=0.45\textwidth]{data/1d/figB1.pdf}
+ }
+ \caption{
+ Optimal pulses to accelerate a single particle initially in the ground state of the trap
+ for $T = 1$, 10, and 100 for the (a) rotational velocity and (b) barrier height when optimising over both simultaneously. }
+ \label{fig:pulses_pair}
+\end{figure}
+
+With the CRAB method, it is possible to optimize over as many control parameters as one would like, and as such, it is possible to optimize over both the barrier strength and rotational frequency, and the results can be seen in Figure~\ref{fig:pulses_pair}.
+When comparing to the previous cases, similar trends emerge.
+In particular, shorter evolution times result in tamer modifications to the final pulse shapes and longer times are incredibly noisy.
+Even so, the shorter evolution times seem to have significant differences when compared to the previous simulations, as seen by comparing the red lines in Figures~\ref{fig:pulses} and \ref{fig:pulses_pair}.
+Because the final fidelity is not drastically different than when only modifying the rotational frequency, it is unlikely that modifications to the barrier height should be performed experimentally.
+
+\begin{figure}
+ \centering \includegraphics[width=0.5\textwidth]{data/1d/figlfid.pdf}
+\caption{ Infidelities as a function of the overall process time for optimally controlled rotational acceleration, barrier height, or both.
+Here, 'linear' refers to an unoptimised linear acceleration from $\Omega = 0$ to $\pi$ while keeping the barrier height fixed at $b=1$.
+}
+\label{fig:lfid}
+\end{figure}
+
+\begin{figure}[t]
+ \centering
+ \subfigure{
+ \centering
+ \includegraphics[width=0.45\textwidth]{data/1d/figTG3.pdf}
+ }
+ \subfigure{
+ \centering
+ \includegraphics[width=0.45\textwidth]{data/1d/figTG5.pdf}
+ }
+ \caption{
+Infidelities for the evolution of a TG gas with (a) $N=3$ and (b) $N=5$ particles using the CRAB optimal control technique.
+The optimal pulses were determined for the particle at the Fermi edge (blue crosses), and applied to the whole gas (green squares). 
+Here, the green squares show the fidelity of a linear pulse for the atom closest to the Fermi edge.
+A clear range where the CRAB algorithm is effective for generating NOON states with multiple particles can be clearly identified.}
+ \label{fig:TGOC}
+\end{figure} 
+
+
+Finally, it is worth discussing the dynamics of a TG gas with 3 and 5 particles.
+Because of the Bose--Fermi mapping theorem, the evolution of an $N$-particle TG gas can be calculated by evolving a gas of $N$ spinless fermions.
+In the zero-temperature limit, the fermions in the initial and target state create a Fermi sea by filling the lowest $N$ energy levels.
+In this case, only atoms near the Fermi edge can transition into empty states and it is thus crucial to optimize the dynamics of the overall gas with respect to the particle with highest energy~\cite{garaot2015}.
+In Figure~\ref{fig:TGOC}, we show the fidelity for the particle closest to the Fermi edge and the entire TG gas for $N=3$ and 5.
+It is clear that the CRAB method creates highly effective pulses; however, for very short and long evolution times, there is no fidelity increase from a linear pulse.
+
+\subsection{Results with STA protocols}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.8\textwidth]{data/1d/STAscheme.png} 
+\caption{Scheme for the acceleration of a single atom using STA.
+ In this example, the ground state of free space gets localised, accelerated and released at the angular velocity of $\Omega=\pi$ into the state
+ $\left( \exp(i 2\pi x) +1 \right) /\sqrt 2$}
+\label{fig:STA-scheme}
+\end{figure}
+
+
+In this section, we will describe an STA protocal to generate NOON states in this system non-adiabatically, and though this was mentioned briefly in Section~\ref{sec:controltro}, it will be described more rigorously here.
+For this method, the rotational symmetry must be broken by introducing a time-dependent external potential that is removed in the end.
+This requires a slight modification of the system proposed by Hallwood \textit{et. al.} to allow for a barrier that in not a $\delta$ function, but instead a sharp harmonic or sinusoidal potential, which is also more experimentally realistic.
+
+The protocol consists of five steps:
+\begin{enumerate}
+\item Adiabatic raising of a weak harmonic or sinusoidal potential around the ring.
+\item Quick tightening of this potential to localize the particles.
+\item Accelerating the particle by moving the center of the potential.
+\item Lowering the potential by reversing step 2.
+\item Adiabatic lowering of the harmonic or sinusoidal potential.
+\end{enumerate}
+A schematic of this process is shown in Figure~\ref{fig:STA-scheme}.
+For steps 2-4, other STA protocols will be used, and these will be discussed in this section.
+The full protocol for the TG ring example will follow the STA methods outlined above with Lewis-Riesenfeld invariants and in our case, we are constrained such that $\mathcal{\hat H}(t_0) = \mathcal{\hat H}(T)=p^2/2m$.
+To be clear, the NOON states are slightly different with the STA protocol than in the case of quantum optimal control, as the STA variant does not rely on a $\delta$ barrier.
+
+One of the two known shortcuts being used for this system involves raising and lowering a harmonic potential~\cite{chen2010,chen20102}.
+For this shortcut, we need a stationary harmonic potential and can set $F$, $q_c$, and $U$ from Equation~\eqref{eqn:HSTA} to zero, leading to
+\begin{equation}
+ \mathcal{\hat H}= -\frac{1}{2} \frac{\partial^2}{\partial x}+ \frac 1 2 \omega^2(t) q^2.
+\end{equation}
+\noindent To change the frequency while keeping the commutation relations and $\omega(t)$ continuous the following conditions must be imposed:
+\begin{equation}
+ \begin{array}{lcl}
+\rho(t_0)=1, && \rho(t_f)=\gamma=\sqrt{\omega_0 / \omega_f},\\
+\dot \rho(t_0)=0, && \dot \rho(t_f) =0, \\
+\ddot \rho(t_0)=0, && \ddot \rho(t_f)=0.
+\end{array} \label{eqn:squeeze}
+\end{equation}
+
+As long as the conditionals, Equations~\eqref{eqn:rho} and \eqref{eqn:squeeze} are obeyed, any form of $\rho$ can be chosen.
+For this method, we choose,
+\begin{equation}
+ \rho (s) = 6 \left(\gamma -1\right) s^5 -15 \left(\gamma-1\right) s^4 +10 \left(\gamma-1\right)s^3 + 1, \label{eq:rho_pol}
+\end{equation}
+\noindent where $s=(t-t_0)/(t_f-t_0)$ allows us to numerically find a solution for $\omega(t)$ that leads to the squeezing or expansion of the particle wavefunction with high fidelity in a short time.
+Even though this shortcut was not intended to be used on a ring with periodic boundary conditions, it can be used in the TG ring because the symmetry of the potential is not broken during time evolution.
+As an important note, $\omega_0$ can be chosen to be arbitrarily small, as long as it is non-zero, and for this reason, the first and final steps in the protocol for this system involves adiabatically raising and lowering a potential. 
+
+Once the potential has been raised, it is time to accelerate the particles to the chosen frequency, and a shortcut for this process with a harmonic trap exists~\cite{masuda2009,torrontegui2011,masuda2012}.
+In the rotational shortcut, the trapping frequency is held constant and the position of the potential is modified.
+This means that $U=0$, $F=\omega_0^2 x_0(t)$, and
+\begin{equation}
+ H= -\frac{1}{2} \frac{\partial^2}{\partial x}+ \frac 1 2 \omega^2_0 (q-x_0(t))^2.
+\end{equation}
+\noindent Here, Equation~\eqref{eqn:qc} becomes the only relevant auxiliary equation,
+\begin{equation}
+ \ddot{q}_c+\omega^2_0 (q_c-x_0)=0.
+\end{equation}
+Conditions are then imposed on $q_c$, such that
+\begin{equation}
+ \begin{array}{lcl}
+q_c(t_0)=x_0(t_0), && q_c(t_f)=d,\\
+\dot q_c(t_0)=0, && \dot q_c(t_f) =\Omega_f, \\
+\ddot q_c(t_0)=0, && \ddot q_c(t_f)=0,
+\end{array}
+\end{equation}
+\noindent where $d$ is the final position of the potential minimum and $\Omega_f$ is its final velocity. 
+For most applications of this shortcut, $d$ is important, and $\Omega$ is set to zero; however, our case is the opposite.
+
+Like the shortcut for raising the potential, $q_c$ can be chosen somewhat arbitrarily, and a convenient form is
+\begin{equation}
+ q_c(s)= (6 d -3 \Omega_f )s^5 - (15 d-7 \Omega_f )s^4+(10d-4 \Omega_f) s^3 + x_0(t_0),
+\end{equation}
+where, as above, $s$ is the normalized time.
+The value of $\Omega_f$ can then be chosen to be odd multiples of $\pi$ to generate the desired NOON states.
+
+Unlike the shortcut to raise the potential, this shortcut is only approximate and works best when $\omega$ is large so that the particles are highly localized and the rotational velocity, $\dot q_c$, is not.
+Both of these shortcuts rely on the presence of a harmonic potential of the form
+\begin{equation}
+ V_{H}(x,t)=\frac 1 2 \omega^2(t) \left( x-x_0(t)\right)^2, 
+\end{equation}
+where  $\omega$ is the frequency of the trap (in units of $\hbar/mL^2$) and $x_0$ the position of its minimum.
+In the case of the TG ring, the potential must be symmetric around $x_0$, such that it is continuous at $x=\pm 1/2$; therefore, the real form of $(x-x_0)$ must be $(x-x_0+1/2)(\mathrm{mod~} 1)-1/2$.
+The potential $V_H$ is then continuous everywhere on the ring, but its derivative is discontinuous at $x=x_0+1/2$ because the position diametrically opposite to $x_0$.
+Though $V_H$ is ideal theoretically, it is not necessarily experimentally realistic, so a sinusoidal potential is also considered~\cite{phelan2013,masuda2014},
+\begin{equation}
+ V_{S}(x,t)= \frac{\omega^2(t)}{2 \pi^2} \sin^2 \left(\pi \left( x-x_0(t)\right) \right) ,
+\end{equation}
+where the notation is the same as before. 
+Here, prefactors are chosen such that $V_{H}$ is an approximation of $V_S$ around $x_0$.
+
+\begin{figure}
+\centering
+\subfigure{
+\centering
+\includegraphics[width=0.48\linewidth]{data/1d/fig1.png}}
+\subfigure{
+\centering
+\includegraphics[width=0.48\linewidth]{data/1d/fig2.png}}
+
+\caption{ Energy eigenspectrum of the system with (a) a harmonic or (b) a sinusoidal potential as a function of $\omega$. 
+The eigenstates continuously change from angular momentum states of energy $E_k=2\pi^2 k^2$ (with $k=0,\pm1,\ldots$) at $\omega=0$, towards harmonic-oscillator states of energy $E_n=\omega(n+1/2)$ (with $n=0,1,\ldots$) for large $\omega$.
+For comparison, the horizontal lines on the right vertical axis give the energy levels in a harmonic potential with $\omega=200$.}
+\label{fig:spectrum}
+\end{figure}
+
+In Figure~\ref{fig:spectrum} we show the difference between the two potentials by computing the energy spectra of both Hamiltonians.
+Here, the eigenstates at $\omega=0$ are the angular momentum states $e^{i 2 \pi k x}$, with degenerate clockwise and counterclockwise momentum states of opposite quantum number $k$.
+As $\omega$ is increased, the degeneracy ceases and the spectrum asymptotically approaches that of a harmonic oscillator.
+For the sinusoidal case, the difference with the harmonic spectrum increases with the quantum number $n$.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.45\linewidth]{data/1d/fig5.png}
+\includegraphics[width= 0.45\linewidth]{data/1d/fig6.png}
+\caption{
+(a) Plot of the parameters $\omega(t)$ and the angular velocity $\Omega(t)$ for the entire protocol.
+The parameters are $\omega_0=2$, $\omega_f=100$, $d=100$, each step is executed in $t_f-t_0=10$, and $\Omega_f$ is picked depending on the desired output state (here, $\Omega_f=5 \times 2\pi$).
+(b) Final infidelities for $\Omega_f=1,2,\ldots,10 \times 2\pi$ for $V_H$ (dotted blue line) and $V_S$ (solid red line).
+The rest of parameters are as shown in (a).
+}
+\label{fig:final+param}
+\end{figure}
+
+Like the case of quantum optimal control, we will first show the single-particle results.
+In Figure~\ref{fig:final+param}(a), the values for $\omega(t)$ and $\Omega(t)$ are shown, and in
+in Figure~\ref{fig:final+param}(b), the infidelities for the state preparation of plane waves $e^{i \Omega_f x}$ with $\Omega_f=1\ldots10 \times 2 \pi$ are shown.
+Here, it is clear that even for a large amount of angular momentum, the fidelities remain high for both the harmonic and sinusoidal potentials.
+
+For a multi-particle case in the TG regime, the initial states for the particles will be eigenstates of free space, which are simply plane waves $e^{i 2 \pi k x}$ with integer $k$.
+Because the states with $\pm k$ are degenerate, it is equally valid to consider the initial eigenstates
+\begin{eqnarray}
+&&\phi^i_0(x)=1,\\
+&&\phi^i_{2l-1}(x)=\frac{1}{\sqrt 2} \left( e^{i 2 \pi l x}-e^{-i 2 \pi l x} \right)= i \sqrt{2} \sin(2 l \pi x), \\
+&&\phi^i_{2l}(x)= \frac{1}{\sqrt 2}\left( e^{i 2 \pi l x}+e^{-i 2 \pi l x} \right) = \sqrt{2} \cos(2 l \pi x),
+\end{eqnarray}
+for $l=1,2,\ldots$.
+These states have a total angular momentum of zero and are well-suited for the provided STA protocol because when an odd number of particles occupies the lower eigenstates, the $\sin$/$\cos$ pairs are guaranteed to be populated.
+
+For $\Omega_f=\pi$, the plane wave of quantum numbers $k+1$ and $-k$ are degenerate and we can construct the target states
+\begin{eqnarray}
+&&\phi^t_{2l}(x)=\frac{1}{\sqrt 2} \left( e^{i 2 \pi (l+1) x} + e^{-i 2 \pi l x} \right) = \sqrt{2} \cos[(2l+1) \pi x] e^{i \pi x} , \\
+&&\phi^t_{2l+1}(x)=\frac{1}{\sqrt 2} \left( e^{i 2 \pi (l+1) x}-e^{-i 2 \pi l x} \right) = i \sqrt{2} \sin[(2l+1) \pi x]e^{i \pi x} ,
+\end{eqnarray}
+for $l=0,1,2,\ldots$.
+The states with total angular momentum $\pi$ are similar to NOON states.
+
+\begin{figure}
+\centering
+\subfigure{
+\centering
+\includegraphics[width= 0.45\linewidth]{data/1d/fig7a.png} }
+\subfigure{
+\centering
+\includegraphics[width= 0.45\linewidth]{data/1d/fig7b.png}}
+\caption{ Final fidelities $F$ of TG states of increasing particle number for the protocol shown in Figure \ref{fig:final+param}(a) with $\Omega_f = \pi$ for $V_H$ (red circle) and $V_S$ (blue cross). Plot (a) shows the fidelity of the protocol with $\omega_f = 100$ and (b) with $\omega_f = 200$.}
+\label{fig:TG-STA}
+\end{figure}
+
+Any initial state $\ket{\phi^i_l}$ can be brought to the target state $\ket{\phi^t_l}$ with high fidelity with the proposed protocol, and the process also works for TG gases.
+In Figure~\ref{fig:TG-STA}(a), the harmonic potential fidelities are shown to remain high for $N \leq 11$ after which they decrease due to a finite maximum height of the potential enforced by periodic boundary conditions.
+The fidelities can be improved by increasing the maximum trapping frequency $\omega_f$ as we demonstrate in Figure \ref{fig:TG-STA}(b) where the value of $\omega_f$ is doubled and the fidelities remain high until $N \leq 21$.
+When using the sinusoidal potential, the fidelity drops for smaller particle numbers compared to the  harmonic potential (although it also increases with $\omega_f$), due to the lower height $V_S$ has compared to $V_H$.
+
+\section{Conclusions}
+
+In this chapter, a physical example was introduced to motivate the simulation of quantum engineering.
+In this example, NOON states have been generated in a TG gas nonadiabatically with both quantum optimal control and STA protocols, and both methods were shown to be highly effective.
+Such dynamical evolution techniques require time-dependent variables, such as rotation frequency or barrier height, and allowing for these dynamic operations has hitherto been a difficult task on GPU hardware.
+In the following chapter, we will discuss GPU hardware in-depth and also tackle this issue, along with several others noted in Chapter~\ref{ch:splitop}.
+

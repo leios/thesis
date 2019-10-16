@@ -3,7 +3,7 @@
 
 The Graphics Processing Unit (GPU) is a computing card that typically connects to the motherboard through a Peripheral Component Interconnect (PCI) slot.
 As the name implies, the GPU is designed to rapidly manipulate memory to create images or graphics that are sent to a display device, such as a monitor.
-Because individual pixels in images are independent of each other and modern computers require updating all pixels on the display device quickly, the GPU has been developed as a massively parallel computing device, capable of efficently performing simple tasks (such as pixel generation or manipulation) rapidly by distributing the computation among many computing cores.
+Because individual pixels in images are independent of each other and modern computers require updating all pixels on the display device quickly, the GPU has been developed as a massively parallel computing device, capable of efficiently performing simple tasks (such as pixel generation or manipulation) rapidly by distributing the computation among many computing cores.
 This design methodology starkly contrasts the few, powerful cores on the Central Processing Unit (CPU), which is the default computing device on modern desktop systems.
 Due to this difference in hardware design, there are also several optimizations to consider when programming for massively parallel GPU devices, and several of these techniques will be covered in this chapter.
 
@@ -12,7 +12,7 @@ Historically, HPC systems were often developed as large, distributed networks of
 As such, these systems facilitated the development of highly parallel and distributed numerical methods to perform scientific computation.
 
 With new, parallel algorithms being developed for HPC systems and GPU technology advancing rapidly to perform more computation in parallel to satiate the consumer demands for high-quality videos and graphics for video games and other media, it became possible to use the GPU as a scientific computing device with a new technique called General Purpose computing on Graphics Processing Units (GPGPU).
-Modern HPC design incorporates the GPU into each computing node, thereby increasing the throughput of the system, overall, and the fastest known supercomputer today (Summit, ORNL~\cite{kahle2019}), is almost entirely composed of GPU nodes with Nvidia Tesla V100 cards (32 GB of available RAM), connected with NVlink and IBM's power architecture.
+Modern HPC design incorporates the GPU into each computing node, thereby increasing the throughput of the system, overall, and the fastest known supercomputer today (Summit, ORNL~\cite{kahle2019}), is almost entirely composed of GPU nodes with NVIDIA Tesla V100 cards (32 GB of available RAM), connected with NVlink and IBM's power architecture.
 In addition to the utility of GPGPU for scientific computing, GPU technology has also been rapidly developed for AI and related fields.
 
 In this chapter, I will discuss the design methodology for the hardware and software related to GPGPU before proceeding to the development of GPUE, the GPU-based Gross-Pitaevskii Equation solver, which will be used for the remainder of this work.
@@ -26,29 +26,29 @@ Even now, most code is na\"ively written as if it is to be executed on SISD arch
 For capable devices, there are two separate methods to parallelize computation: \textit{Task parallelism} and \textit{data parallelism}.
 
 Task parallelism allows programmers to split their computation along as separate, non-interacting \textit{tasks} or instructions, where each core performs its designated computation before moving on.
-On the other hand, data parallelism allows programmers to perform the same, repetative task along a large data set by distributing threads across the data.
+On the other hand, data parallelism allows programmers to perform the same, repetitive task along a large data set by distributing threads across the data.
 Task parallelism is often better for dealing with a large number of specific actors, while data parallelism is often better for dealing with a large number of similar tasks on the same data, such as a large matrix.
 If a computing architecture allows for multiple instructions, but only a single data stream, it is considered to be MISD (Multiple Instruction, Single Data) by Flynn's taxonomy; meanwhile, if the architecture allows for multiple data streams with only a single instruction, it is considered to be SIMD (Single Instruction, Multiple Data).
 Most modern HPC systems are designed to be MIMD (Multiple Instruction, Multiple Data), and both task and data parallelism is exploited by developers; however, for GPU computation, data parallelism is often used more frequently.
 
 In the realm of data parallelism, there is an extreme case where the data is \textit{embarrassingly parallel}.
 Here, there could be a large matrix of data to manipulate, but no single element depends on any other.
-This means that when distributing computation along this matrix, we can simply assign tasks to each core without considering interations with the rest of the data set.
+This means that when distributing computation along this matrix, we can simply assign tasks to each core without considering interactions with the rest of the data set.
 In this way, it is embarrassingly easy to parallelize, and hence the term \textit{embarrassingly parallel}.
-As a note, matrix multiplications are embarrassingly parallel operations; however, FFTs are not.
+As a note, matrix multiplications are embarrassingly parallel operations; however, FFTs are not~\cite{czechowski2012}.
 As such, the SSFM is not overall embarrassingly parallel; however, because the FFTs are handled by the CuFFT library, programmers do not often need to consider task parallelism at all when developing SSFM code.
 Even so, understanding all the features of GPUE and its future directions requires a strong understanding of GPGPU, and this will be discussed in the following section.
 
 \section{General purpose computing with graphics processing units}
 
 GPGPU programming is a relatively new development to the computing world and is generally much faster than CPU-based computation for tasks that can be easily parallelized in a SIMD fashion.
-Though benchmarks vary greatly depending programming languages, code quality, and intent of the software being benchmarked, our GPUE codebase is often 5 to 10 times faster than well-optimized C/C++ code and 100-200 times faster than matlab code that is simulating the same system~\cite{wittek2016}.
+Though benchmarks vary greatly depending programming languages, code quality, and intent of the software being benchmarked, our GPUE codebase is often 5 to 10 times faster than well-optimized C/C++ code and 100-200 times faster than Matlab code that is simulating the same system~\cite{wittek2016}.
 This is shown in Figure~\ref{fig:bench}, where a comparison between GPUE, GPElab~\cite{antoine2014}, and Trotter-Suzuki~\cite{wittek2013} are shown.
 These benchmarks are consistent with other GPGPU programs~\cite{garland2008, lee2010, nickolls2010}.
 
 \begin{figure}
 \center \includegraphics[width=0.5\textwidth]{data/gpu/GPUEvsTS.png}
-\caption{Comparison between GPUE (CUDA), Trotter-Suzuki on both GPU (CUDA) and CPU (C++), and GPElab (matlab).
+\caption{Comparison between GPUE (CUDA), Trotter-Suzuki on both GPU (CUDA) and CPU (C++), and GPElab (Matlab).
 Here, we see that GPUE is marginally faster than Trotter-Suzuki, but both GPU implementations are faster than the CPU-based variants.
 Both software packages are much faster than GPElab.}
 \label{fig:bench}
@@ -61,11 +61,11 @@ For the remainder of this work, I will use the term \textit{host} interchangeabl
 
 GPGPU and massively parallel computation are best suited for embarrassingly parallel systems and there are several problems that are poorly suited to parallelization.
 For example, any task that is inherently iterative (such as summation) or recursive (such as tree traversal) is not suited for parallel computation.
-Even so, there are methods to reframe these problems such that they are better optimized for massively parallel devices, and these will be covered when relevant to the development of GPUE.
+Even so, there are methods to re-frame these problems such that they are better optimized for massively parallel devices, and these will be covered when relevant to the development of GPUE.
 
 In addition to these algorithmic limitations, GPU cards have several notable drawbacks in terms of memory available on individual cards, which is often much less than the amount available on the host.
 As such, when simulating a large system on the GPU, we often limit the resolution to what can fit onto the GPU memory.
-In addition the data transfer between GPU's and between the GPU and CPU through the PCI bandwidth is a slow process.
+In addition the data transfer between GPUs and between the GPU and CPU through the PCI bandwidth is a slow process.
 Until recently, these limited the size of our simulated wavefunction with GPUE to roughly $512^3$ on a single Tesla K80 card.
 Higher resolution simulations could be performed with more recent cards (such as the Tesla V100) or by using multiple cards; however, because it takes time to transfer data between GPUs, we preferred to use a single card where possible.
 At this point, it is worthwhile to fully discuss GPU hardware and software ideologies, with particular focus on areas relevant to the development of GPUE.
@@ -76,15 +76,15 @@ We will discuss important methods used in the development of GPUE to overcome th
 Even though several programming frameworks exist with the capability of running code on the GPU, most of these hide necessary optimizations from the user.
 As such, we have chosen to focus exclusively on programming frameworks that expose the hardware for software developers, such as CUDA, OpenCL, and Julia.
 Though the following discussion will primarily focus on CUDA, a brief discussion of OpenCL and Julia can be found in Section~\ref{sec:compare}, and example code for both languages can be found in the Appendix~\ref{app:GPU}.
-For the purposes of this discussion, we will cover only the GPU memory architecture of nvidia GPU devices as these are the most common computing devices for HPC systems.
+For the purposes of this discussion, we will cover only the GPU memory architecture of NVIDIA GPU devices as these are the most common computing devices for HPC systems.
 
 This topic is easiest to describe by dividing it into two parts: an introduction to the software interface as defined by the CUDA API, followed by a discussion of the memory and thread hierarchy of GPU devices.
-Throughout these sections, we will discuss performance tips to ensure maximum GPU utilization, memory throughput, and intruction throughput.
+Throughout these sections, we will discuss performance tips to ensure maximum GPU utilization, memory throughput, and instruction throughput.
 
 \subsubsection{Introduction to CUDA software interface}
 
 The CUDA parallel computing platform bares the hardware of the GPU to software developers.
-This means that important elements of this programming interface will appear in subsequent sections regarding hardward limitations and performance guidelines.
+This means that important elements of this programming interface will appear in subsequent sections regarding hardware limitations and performance guidelines.
 Much of this discussion can be found in the \textit{CUDA C Programming Guide}~\cite{CUDAPG}, while other sources will be cited as necessary.
 Full code for this discussion can be found in the Appendix~\ref{app:GPU}.
 
@@ -145,9 +145,9 @@ Even though threads are rarely acted on sequentially, the thread ID has importan
 \end{figure}
 
 As another note, CUDA will execute code on unallocated memory if you do not tell it to otherwise.
-As such, if we had failed to set the number of threads in our block to the number of elements in our array in Listing~\ref{lst:vecaddCUDA}, the kernel would exhibit undefined behaviour.
+As such, if we had failed to set the number of threads in our block to the number of elements in our array in Listing~\ref{lst:vecaddCUDA}, the kernel would exhibit undefined behavior.
 For this reason, we need to take into account potential out-of-bounds computation.
-If we take the above example of vector addition, assuming that the thread count is higher than can fit in one block and take into consideration potential out-of-bounds behaviour, the kernel would instead look like Listing~\ref{lst:vecaddCUDA2}.
+If we take the above example of vector addition, assuming that the thread count is higher than can fit in one block and take into consideration potential out-of-bounds behavior, the kernel would instead look like Listing~\ref{lst:vecaddCUDA2}.
 
 \begin{lstlisting}[float,label=lst:vecaddCUDA2, style=c++,caption={An example of a vector addition kernel in CUDA using blocks and threads, and ensuring no computation happens beyond the size of the array, $n$.}]
 __global__ void vecAdd(double *a, double *b, double *c, int n){
@@ -161,9 +161,9 @@ __global__ void vecAdd(double *a, double *b, double *c, int n){
 }
 \end{lstlisting}
 
-Finally, we need to discuss how software developers call these cuda kernels in host code.
+Finally, we need to discuss how software developers call these CUDA kernels in host code.
 This requires the developer to allocate space on the device for use in the CUDA kernel via a \texttt{cudaMalloc(...)} command.
-Often times, arrays on the host must also be establised and transferred to the device with \texttt{cudaMemcpy(...)} functions as well.
+Often times, arrays on the host must also be established and transferred to the device with \texttt{cudaMemcpy(...)} functions as well.
 In addition, the kernel must be configured before running with \lstinline{<<<grid, threads,...>>>}.
 When everything is considered, the host code might look like what is shown in Listing~\ref{lst:vecaddhost}
 
@@ -234,10 +234,10 @@ For now, we will continue this discussion by moving to GPU hardware, focusing on
 
 Every time host code invokes a CUDA kernel call (as shown in Listing~\ref{vecaddhost}), the data is mapped to a scalable array of multiprocessors on GPU hardware.
 Multiple blocks might be distributed to the same multiprocessor, but blocks are always distributed contiguously.
-Each multiprocessor is designed to execute hundreds of threads in parallel by using a unique SIMT (Single Instruction, Multiple Threads) architecture, which is similar to SIMD and can be used as such for most cases; however, there are performance benefits to optimizeing instruction-level parallelism at the thread level.
+Each multiprocessor is designed to execute hundreds of threads in parallel by using a unique SIMT (Single Instruction, Multiple Threads) architecture, which is similar to SIMD and can be used as such for most cases; however, there are performance benefits to optimizing instruction-level parallelism at the thread level.
 Each multiprocessor distributes its parallel processes into \textit{warps}, which are units of 32 threads that execute a single common operation at a time.
 Notably, the way a block is distributed into warps is always the same, so it is important to ensure that the input data is in powers of 32 to avoid wasting unnecessary computation.
-Outside of this, developers can often ignore SIMT behaviour as long as they do not allow threads in a warp to have separate operations.
+Outside of this, developers can often ignore SIMT behavior as long as they do not allow threads in a warp to have separate operations.
 
 Now we will turn our focus to memory within GPU devices.
 There are three forms of GPU memory that are useful for most applications of GPGPU for scientific computation: Global memory, Shared memory, and texture memory.
@@ -252,7 +252,7 @@ The amount of shared memory available is hardware-dependent and configurable on 
 In general, it is worthwhile to transfer data with a large number of accesses to shared memory for performance.
 Shared memory is split into several memory banks which can be accessed simultaneously.
 If two memory accesses are required of the same bank, there will be a conflict and the operation can no longer be performed in parallel.
-It is sometimes necessary to pad variables to prevent bank conflicts from occuring~\cite{harris2013}.
+It is sometimes necessary to pad variables to prevent bank conflicts from occurring~\cite{harris2013}.
 
 Of the three types of memory mentioned, texture memory is the least-often used and is primarily on the GPU for graphics computation and focuses on performance for two-dimensional structures.
 Texture memory has a relatively long write time, but is quick to read.
@@ -261,7 +261,7 @@ Unfortunately, it uses single-precision values and thus will not be used for the
 
 In addition to appropriate usage of memory on GPU architecture, it is also essential to minimize data transfers between the device and host and even between devices in multi-GPU setups.
 The data transfer between the host and device or between devices must send data through the PCI slot on the motherboard, which is a slow operation.
-For data transfer between devices, this transfer time can be slightly alleviated on Power architecture where NVLink technology can directly transfer data from device to device~\cite{foley2017}, but the data transfer between devices will still likely be the slowest part of the computation.
+For data transfer between devices, this transfer time can be slightly alleviated on Power architecture where NVlink technology can directly transfer data from device to device~\cite{foley2017}, but the data transfer between devices will still likely be the slowest part of the computation.
 In addition, CUDA-aware MPI for multi-GPU setups may add an huge burden on software development time~\cite{lonvcar2016, wang2013}.
 As such, developers often try to keep all of their computation on a single card, if possible, and several optimization strategies are used when multiple GPU cards are needed.
 These strategies will be covered on a case-by-case basis as they arise in this work.
@@ -276,27 +276,27 @@ Here, programmers need to be careful not to accidentally cause the operation exe
 \label{sec:compare}
 
 As one might expect, specialized programming languages are necessary to write code that compiles and runs on GPU architecture.
-There are several known libraries to extend modern programming languages such as matlab, python, and C++ to GPU devices; however, we will limit this discussion to common programming methods that allow fine-grained control of GPU memory and could be used for the development of GPUE.
+There are several known libraries to extend modern programming languages such as Matlab, python, and C++ to GPU devices; however, we will limit this discussion to common programming methods that allow fine-grained control of GPU memory and could be used for the development of GPUE.
 We will briefly discuss the advantages and disadvantages of three competing languages here: CUDA, OpenCL, and Julia, and as a simple example, vector addition in these languages is shown in  Appendix~\ref{app:GPU}.
 
 \subsubsection{CUDA}
-CUDA is a computing API provided by nvidia for interfacing with nvidia GPUs and is the industry standard for GPGPU programming.
-CUDA is primarily limited by the nvidia-specific hardware it runs on, and although nvidia currently produces the most common GPUs for GPGPU programming, AMD GPU devices are also available and often cheaper for a similar level of computational power.
-In addition, CUDA support has recently ceased for MacOS systems as nvidia cards are no longer bundled with current generation Mac computers, so CUDA code can only be used on Windows and Linux devices.
+CUDA is a computing API provided by NVIDIA for interfacing with NVIDIA GPUs and is the industry standard for GPGPU programming.
+CUDA is primarily limited by the NVIDIA-specific hardware it runs on, and although NVIDIA currently produces the most common GPUs for GPGPU programming, AMD GPU devices are also available and often cheaper for a similar level of computational power.
+In addition, CUDA support has recently ceased for Mac OS systems as NVIDIA cards are no longer bundled with current generation Mac computers, so CUDA code can only be used on Windows and Linux devices.
 
 GPUE was written entirely in CUDA; however, due to the aforementioned limitations, there has been some consideration to re-writing the software in OpenCL or Julia.
 
 \subsubsection{OpenCL}
 
-Though CUDA is the industry-standard for GPGPU programming, OpenCL (Open Compute Language) is competative in terms of performance and has the benefit of being compatable with nvidia and AMD GPU devices.
+Though CUDA is the industry-standard for GPGPU programming, OpenCL (Open Compute Language) is competitive in terms of performance and has the benefit of being compatible with NVIDIA and AMD GPU devices.
 OpenCL is also completely open-source and works as additional libraries to C or C++, which allows developers to compile OpenCL code with traditional compilers like \texttt{gcc} or \texttt{clang}.
 OpenCL has nearly identical structure to CUDA with slightly more verbose syntax, and thus provides all necessary functionality to develop and maintain scientific software.
-In addition, compute kernels are compiled at runtime, meaning that users can potentially modify kernels without recompiling the code.
+In addition, compute kernels are compiled at run-time, meaning that users can potentially modify kernels without recompiling the code.
 This could be a huge boon for developers writing software for users who may need to quickly simulate a slightly modified system.
 Unfortunately, OpenCL has a rather cumbersome interface and has less peripheral support than CUDA.
 As such, it is rarely used for scientific computing software.
 
-In the end, although OpenCL does provide the ability to more easily construct dynamic kernels, the increased engineering time necessary to write software in OpenCL is often not worth the cost; however, further advances in compiler design for heterogenious architecture has been made in the past few years \cite{besard2019}, which has provided the unique opportunity for computer scientists to write maintainable and fast code in new languages, like Julia.
+In the end, although OpenCL does provide the ability to more easily construct dynamic kernels, the increased engineering time necessary to write software in OpenCL is often not worth the cost; however, further advances in compiler design for heterogeneous architecture has been made in the past few years \cite{besard2019}, which has provided the unique opportunity for computer scientists to write maintainable and fast code in new languages, like Julia.
 
 \subsubsection{Julia}
 Julia is a new language to scientific computing, but boasts promising results and claims to be as usable as python, but as performant as C~\cite{bezanson2017}.
@@ -305,7 +305,7 @@ In addition, Julia's runtime is comparable to CUDA C for GPGPU computation and a
 This is an important point that will be discussed in more detail in Section~\ref{sec:expr_trees}.
 
 In addition, because Julia is much easier to write than C for new programmers, GPU-based Julia code could allow developers to provide fast, efficient code with a usable interface for scientists and engineers.
-The tradeoff between performance and readability in programming has been described as the ``two-language'' problem, as most scientific computing solutions to this point have required using two languages: a fast language for the back-end and a readable language for the user interface.
+The trade off between performance and readability in programming has been described as the ``two-language'' problem, as most scientific computing solutions to this point have required using two languages: a fast language for the back-end and a readable language for the user interface.
 Julia succeeds in bridging the gap between the languages, effectively solving the two-language problem and allowing scientists and engineers to write efficient code that is even compilable on the GPU.
 For these reasons, we have begun porting our CUDA code to Julia, as it will lead to simpler and more maintainable code in the future.
 This will be further discussed in the conclusion of this work, Chapter~\ref{ch:conclusion}.
@@ -322,6 +322,7 @@ For this section, I will first describe the FFT optimizations used in GPUE, foll
 
 As mentioned in Chapter~\ref{ch:splitop} and previously in this chapter, the SSFM is primarily limited by the complexity of the FFT operations.
 For a three dimensional simulation with gauge fields in the $\hat x$, $\hat y$, and $\hat z$ directions, one set of global FFTs and three sets of one-dimensional FFTs must be performed.
+This is equivalent to two three-dimensional FFT operations, which become much more complex when scaling to multiple GPU devices~\cite{czechowski2012}.
 The CuFFT API provides an option for computing FFT's on separate batches of an array in GPU memory with the \texttt{cufftPlanMany(...)} command; however, if this command is repurposed for one-dimensional FFT operations, it does not provide the necessary functionality for FFTs across the $\hat y$ or $\hat z$ dimensions.
 With the CuFFT library, all FFT operations performed with this plan must follow an indexing pattern, such that 
 
@@ -330,7 +331,7 @@ input[b*idist + x*istride]
 output[b*odist + x*ostride]
 \end{lstlisting}
 
-\noindent where \texttt{b} is the batch ID, \texttt{x} is the element ID, \texttt{idist} and \texttt{odist} are the distances between batches for the input and output array, respectively, and \texttt{istride} and \texttt{ostride} are the strides between consequtive elements for computation with the input and output array, respectively.
+\noindent where \texttt{b} is the batch ID, \texttt{x} is the element ID, \texttt{idist} and \texttt{odist} are the distances between batches for the input and output array, respectively, and \texttt{istride} and \texttt{ostride} are the strides between consecutive elements for computation with the input and output array, respectively.
 If data is transferred to the GPU, it must be re-indexed as a one-dimensional array, such that
 
 \begin{lstlisting}
@@ -338,8 +339,8 @@ array[i,j,k] = array[i + j*xDim + k*xDim*yDim]
 \end{lstlisting}
 
 \noindent where \texttt{i}, \texttt{j}, and \texttt{k} are iterable variables in the $\hat x$, $\hat y$, and $\hat z$ directions, and \texttt{xDim}, \texttt{yDim}, and \texttt{zDim} are the dimensions in $\hat x$, $\hat y$, and $\hat z$, respectively.
-As such, it is not possible to use the \texttt{cufftPlanMany} functionality to perform one-dimensional FFTs in $\hat y$ and $\hat z$; however, if we increase the number of batches to \texttt{xDim*yDim*zDim}, set the distance betwen each stride to 1, and assume the stride between each element is \texttt{xDim*yDim}, we can recreate the functionality of the FFT in the $\hat z$ direction.
-For the $\hat y$ FFT operations, we need an extrernal loop that iterates over each $xy$ slab, performing \texttt{xDim} operations on each slab, and this greatly hampers performance.
+As such, it is not possible to use the \texttt{cufftPlanMany} functionality to perform one-dimensional FFTs in $\hat y$ and $\hat z$; however, if we increase the number of batches to \texttt{xDim*yDim*zDim}, set the distance between each stride to 1, and assume the stride between each element is \texttt{xDim*yDim}, we can recreate the functionality of the FFT in the $\hat z$ direction.
+For the $\hat y$ FFT operations, we need an external loop that iterates over each $xy$ slab, performing \texttt{xDim} operations on each slab, and this greatly hampers performance.
 
 \jrs{Not sure if images will help here}
 
@@ -347,7 +348,7 @@ With this considered, only one-third of the necessary FFT operations are appropr
 Because FFTs are global operations that are best performed on contiguous chunks of memory, multi-GPU simulations with the SSFM are even less optimal.
 This has motivated the development of other packages to allow for memory coalescence with FFT operations, such as the distributed transpose, which will be described in Section~\ref{sec:DT}.
 Even though the three-dimensional FFT operations are the biggest bottleneck in the GPUE codebase, it is not easy to avoid usage of the \texttt{cufftPlanMany(...)} operation while still using CUDA.
-Next, we will focus on another feature that was inhibited by the VUDA framework, but is nevertheless possible: methods to enable dynamic quantum engineering with expression trees.
+Next, we will focus on another feature that was inhibited by the CUDA framework, but is nevertheless possible: methods to enable dynamic quantum engineering with expression trees.
 
 \subsection{Dynamic field input and output in GPUE with expression trees}
 
@@ -372,10 +373,10 @@ These are evaluated depth-first to follow the traditional order of operations.
 With this method, a user can type in a string, like \texttt{"V = m*omega*omega*x*x*t"}, and this will be parsed into a set of operations to be performed on-the-fly by the GPU.
 After parsing user-provided equations, we designate certain leaf nodes that are either spatially or temporally dynamic.
 In the case of spatially dynamic variables (\texttt{x}, \texttt{y}, and \texttt{z}), we pull values from constituent vectors based on their \texttt{threadIdx.xyz} values, and for any equation that is dependent on \texttt{t}, we pull upon a stored \texttt{time} variable.
-This operation necessitates the usage of a dictionary data structure to hold all variables in some fashion, which inhibits host performance; however, because the bulk of the computation is performed onthe GPU, this does not significantly impact GPUE performance, overall.
+This operation necessitates the usage of a dictionary data structure to hold all variables in some fashion, which inhibits host performance; however, because the bulk of the computation is performed on the GPU, this does not significantly impact GPUE performance, overall.
 On the GPU, each necessary variable can be stored in a shared memory buffer, and because we are replacing the embarrassingly parallel element-wise matrix multiplications with these expression trees, the performance is not severely impacted; however,
 because parsing expression trees is an inherently iterative process, the longer the expression, the less optimal using this method is.
-Ultimately, more work could be done in the future to maxize instruction throughput with our implementation of GPU-accelerated expression trees.
+Ultimately, more work could be done in the future to maximize instruction throughput with our implementation of GPU-accelerated expression trees.
 
 Not only do expression trees allow for STA and quantum optimal control methods to be used with GPUE, but they also eliminate the need to store any operators in GPU memory, effectively increasing the available memory by a factor of 5 for each three-dimensional simulation, as $V$, $K$, $A_x$, $A_y$, and $A_z$ no longer need to be stored.
 This allowed us to perform higher-resolution simulations and could allow for dynamical turbulence studies in the future; however, in order to scale beyond this limit, either multiple GPUs must be used or we must find some way to compress the wavefuntion.
@@ -390,12 +391,12 @@ Methods of vortex tracking and highlighting will be discussed in the following s
 \subsection{Vortex tracking and highlighting}
 \label{sec:tracking}
 
-In order to analyze the motion of vortices in a superfluid system, some form of vortex tracking must be implemented, and the current vortex tracking methods used in GPUE for two dimensions can be found in prior work~\cite{o2017} or the GPUE documentatation~\cite{docs}.
+In order to analyze the motion of vortices in a superfluid system, some form of vortex tracking must be implemented, and the current vortex tracking methods used in GPUE for two dimensions can be found in prior work~\cite{o2017} or the GPUE documentation~\cite{docs}.
 It is important to describe two dimensional vortex tracking first before continuing to three dimensional vortex analysis, which is a much more complicated process.
 
 At a first glance, one might assume that vortices are located at areas of low density in a superfluid system; however, this is not always the case.
 Because our condensate does not necessarily extend to the edges of the simulated domain, there will be large areas of zero density outside our condensate.
-In addition, sound waves and other perterbations with minimal density can occur.
+In addition, sound waves and other perturbations with minimal density can occur.
 As such, locations of low density should only be used as educated guesses as to where actual vortices are located, but should not be used as the final predictor.
 
 \begin{figure}
@@ -453,7 +454,7 @@ Essentially, in order to avoid unnecessary computation, many SSFM implementation
 Though we have this option available in GPUE, it is not a native feature for at least three important reasons:
 
 \begin{enumerate}
-\item Certain systems, such as large vortex lattices with high rotation, have a seemingly degenerate groundstate with different vortex configurations~\cite{o2017, o2016, o2016topo}.
+\item Certain systems, such as large vortex lattices with high rotation, have a seemingly degenerate ground state with different vortex configurations~\cite{o2017, o2016, o2016topo}.
 \item GPUE is often run on a computing cluster where the maximum simulation time is set before-hand.
 For this, the user must be able to estimate the duration of their simulation, and this is not straightforward if imaginary-time propagation finishes at an unknown time.
 \item The energy calculation is memory and operation-intensive and requires at least one additional object of the size of the wavefunction to be created and stored on GPU memory.
@@ -510,8 +511,35 @@ Because of this, we have already begun development on the tool that should allow
 
 At its heart, the two-dimensional transpose is a straightforward operation consisting of a simple swapping of all row and column elements.
 Unsurprisingly, this is a rather difficult task to ensure memory coalescence, and 
-the current recommended method for tranposes on massively parallel devices requires heavy use of shared memory tiles to speed up the process~\cite{harris2013}.
+the current recommended method for transposes on massively parallel devices requires heavy use of shared memory tiles to speed up the process~\cite{harris2013}.
 In this case, it is possible to perform a two-dimensional transpose at the same performance as a simple copy, so long as the operation is out-of-place in memory.
 The transpose becomes even more difficult to create when we wish to transpose large three-dimensional matrices, potentially spanning across multiple GPU devices, while also ensuring the operation is in-place in memory.
 
+In principle, there are three types of three-dimensional transposes:
 
+\begin{description}
+\item[Simple Copy]{A benchmark for other transpositions,
+    \begin{align}
+    A_{xyz} &\rightarrow A_{xyz}
+    \end{align}}
+\item[Involution]{A transpose where a two-dimensional transpose is operated on a three-dimensional data structure,
+    \begin{align}
+    A_{x\mathbf{yz}} &\rightarrow A_{x\mathbf{zy}} \\
+    A_{\mathbf{xy}z} &\rightarrow A_{\mathbf{xy}z} \\
+    A_{\mathbf{x}y\mathbf{z}} &\rightarrow A_{\mathbf{z}y\mathbf{x}}
+    \end{align}}
+\item[Rotation]{A fully three-dimensional transpose,
+    \begin{align}
+    A_{\mathbf{xyz}} &\rightarrow A_{\mathbf{yzx}} \\
+    A_{\mathbf{xyz}} &\rightarrow A_{\mathbf{zxy}}
+    \end{align}}
+\end{description}
+
+It has been shown that for out-of-place transpositions, it is possible to perform all of these operations as efficiently as a a simple copy; however, in-place rotational transposes can only attain 60\% of the performance based on currently known methods~\cite{jodra2015}.
+In addition, distributed transposes of this nature have not been discussed except for an out-of-place array~\cite{ruetsch2013}.
+
+At its current state, the DistributedTranspose.jl package is able to do out-of-place, distributed transposes; however, when feature-complete, it should allow for the implementation of new distributed methods for such computation.
+It should be mentioned that this package has potential to be used by many other software packages that require using spectral methods on multiple GPU devices.
+Often, HPC engineers prefer finite-element or difference methods when computing largescale fluid flow because these methods scale much better across distributed systems; however, with an appropriate distributed transpose methods, it might be more optimal to perform spectral simulations in certain regimes over other methods.
+
+\jrs{I will probably move this section and GPUE future dev to conclusions / future work... But the research for this area should be completed by the time of the thesis defense. I am not sure whether to leave it in or not.}

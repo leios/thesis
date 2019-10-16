@@ -4,14 +4,14 @@ set output "SHO_imagtime.tex"
 set view map
 set size square
 
-set yrange [0:256]
+set yrange [0:512]
 set key spacing 1.5
 
 set ylabel 'x ($\mu$m)'
-set ytics ("-100" 0, "-50" 64, "0" 128, "50" 192, "100" 256)
-set xtics ("0" 0, "5" 50, "10" 100, "15" 150, "20" 200)
+set ytics ("-100" 0, "-50" 128, "0" 256, "50" 384, "100" 512)
+set xtics ("0" 0, "0.1" 100, "0.2" 200, "0.3" 300, "0.4" 400, "0.5" 500)
 
-set xlabel 'imaginary time ($\mu$s)'
+set xlabel 'imaginary time (s)'
 set key center top
 set cblabel 'wavefunction density (arb. units)'
 #set key box opaque

@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Arch Linux)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Final_Thesis.aux
+The style file: unsrt.bst
+Database file #1: Preamble/Thesis_bibliography.bib
+Warning--can't use both volume and number fields in crank1947
+Warning--empty journal in koza1997
+Warning--there's a number but no volume in canny1986
+You've used 214 entries,
+            1791 wiz_defined-function locations,
+            1571 strings with 37059 characters,
+and the built_in function-call counts, 49494 in all, are:
+= -- 4198
+> -- 2458
+< -- 20
++ -- 907
+- -- 693
+* -- 3799
+:= -- 8080
+add.period$ -- 645
+call.type$ -- 214
+change.case$ -- 190
+chr.to.int$ -- 0
+cite$ -- 217
+duplicate$ -- 2046
+empty$ -- 4780
+format.name$ -- 693
+if$ -- 10770
+int.to.chr$ -- 0
+int.to.str$ -- 214
+missing$ -- 227
+newline$ -- 1067
+num.names$ -- 214
+pop$ -- 437
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 823
+stack$ -- 0
+substring$ -- 3439
+swap$ -- 330
+text.length$ -- 20
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 3
+while$ -- 467
+width$ -- 217
+write$ -- 2325
+(There were 3 warnings)
