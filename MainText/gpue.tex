@@ -1,4 +1,4 @@
-\chapter{Introduction General Purpose computing with Graphics Processing Units and the GPUE codebase}
+\chapter{General Purpose computing with Graphics Processing Units and the GPUE codebase}
 \label{ch:gpu}
 
 The Graphics Processing Unit (GPU) is a computing card that typically connects to the motherboard through a Peripheral Component Interconnect (PCI) slot.
@@ -45,6 +45,8 @@ GPGPU programming is a relatively new development to the computing world and is 
 Though benchmarks vary greatly depending programming languages, code quality, and intent of the software being benchmarked, our GPUE codebase is often 5 to 10 times faster than well-optimized C/C++ code and 100-200 times faster than Matlab code that is simulating the same system~\cite{wittek2016}.
 This is shown in Figure~\ref{fig:bench}, where a comparison between GPUE, GPElab~\cite{antoine2014}, and Trotter-Suzuki~\cite{wittek2013} are shown.
 These benchmarks are consistent with other GPGPU programs~\cite{garland2008, lee2010, nickolls2010}.
+
+\jrs{More explicit citations}
 
 \begin{figure}
 \center \includegraphics[width=0.5\textwidth]{data/gpu/GPUEvsTS.png}
@@ -144,7 +146,7 @@ Even though threads are rarely acted on sequentially, the thread ID has importan
 \label{fig:threadsnblocks}
 \end{figure}
 
-As another note, CUDA will execute code on unallocated memory if you do not tell it to otherwise.
+As another note, CUDA will execute code on unallocated memory if one does not tell it to otherwise.
 As such, if we had failed to set the number of threads in our block to the number of elements in our array in Listing~\ref{lst:vecaddCUDA}, the kernel would exhibit undefined behavior.
 For this reason, we need to take into account potential out-of-bounds computation.
 If we take the above example of vector addition, assuming that the thread count is higher than can fit in one block and take into consideration potential out-of-bounds behavior, the kernel would instead look like Listing~\ref{lst:vecaddCUDA2}.
@@ -384,7 +386,13 @@ This will be discussed further in Section~\ref{sec:multiGPU}.
 As a final note, this feature can be implemented easier in other GPU frameworks, such as OpenCL and Julia.
 
 The implementation of expression trees in GPUE effectively decreases the memory footprint of our simulations and allows for dynamical studies on the GPU; however, dynamical studies also require a large amount of fileIO.
-Though we had initially considered using the Compressed Split-Step Fourier Method (CSSFM)~\ref{bayindir2015} to compress the size of our wavefunction, we will ultimately found this method to be undesirable for $n$-dimensional vortex simulations and instead reworked GPUE fileIO with HDF5.
+Though we had initially considered using the Compressed Split-Step Fourier Method (CSSFM)~\ref{bayindir2015} to compress the size of our wavefunction.
+The CSSFM attempts to compress the wavefunction into a basis where it is sparse and then performs the SSFM on this compressed wavefunction with operators that have been transformed into the appropriate spaces.
+In the original work by Bayindir~\cite{bayindir2015}, one-dimensional simulations of soliton dynamis were performed on a downsampled grid and reconstructed to higher resolution with compressed sensing~\cite{davenport2012}.
+This provided a considerable improvement in both performance and memory usage for a wide range of potential resolutions.
+After attempting to use this method with GPUE, we ultimately found this method to be unsuitable for $n$-dimensional vortex simulations, because compressive sensing does not provide adequate compression for simulations of this nature.
+
+As such, we instead reworked GPUE fileIO with HDF5 to limit the file size.
 That said, for two-dimensional vortex simulations, we often do not need to output the entire condensate wavefunction, but can instead output only the vortex locations.
 Methods of vortex tracking and highlighting will be discussed in the following section.
 
@@ -395,7 +403,7 @@ In order to analyze the motion of vortices in a superfluid system, some form of 
 It is important to describe two dimensional vortex tracking first before continuing to three dimensional vortex analysis, which is a much more complicated process.
 
 At a first glance, one might assume that vortices are located at areas of low density in a superfluid system; however, this is not always the case.
-Because our condensate does not necessarily extend to the edges of the simulated domain, there will be large areas of zero density outside our condensate.
+Because our condensate is often inhomogeneously trapped and does not necessarily extend to the edges of the simulated domain, there will be large areas of zero density outside our condensate.
 In addition, sound waves and other perturbations with minimal density can occur.
 As such, locations of low density should only be used as educated guesses as to where actual vortices are located, but should not be used as the final predictor.
 
@@ -413,11 +421,9 @@ In this way, vortex tracking essentially becomes a straightforward task of locat
 This process also necessitates a mask for regions outside of the BEC domain, and 
 further discussion on how to refine this position can be found in previous work~\cite{o2017, docs}.
 
-\jrs{I don't think vortex position refinement is relevant to what I did, which was the vortex highlighting in 3D, but I can add it in...}.
-
 In three dimensions, vortices are no longer confined to a plane and can extend in any direction, so long as the vortex lines either end at the end of the superfluid or reconnect in the form of vortex rings or more complicated vortex structures.
 This is a much more difficult problem which does not have many solutions in superfluid simulations where the superfluid does not fill the simulation domain.
-The current state-of-the-art solution has been proposed by Villois \textit{et. al}~\cite{villois2016}, and requires finding density dips in the superfluid as initial guesses as to where a vortices might exist.
+The current state-of-the-art solution has been proposed by Villois \textit{et al}~\cite{villois2016}, and requires finding density dips in the superfluid as initial guesses as to where a vortices might exist.
 From there, a vorticity plane is determined and the entire vortex is discovered by moving perpendicularly to the vorticity plane at each gridpoint.
 This is a tedious and time-consuming process that does not lend itself well to GPGPU computation without communication between the host and device.
 As such, we are currently seeking a more computationally efficient method for tracking vortices in three dimensions.
@@ -506,6 +512,10 @@ Once GPUE.jl is at feature parity with GPUE, we will then focus on it as the pri
 Ultimately, the Julia language allows us to develop GPUE in a much more maintainable fashion, and also allows for us to access GPU hardware in a more convenient way.
 Because of this, we have already begun development on the tool that should allow for multiple GPU simulations with GPUE to be possible: the DistributedTranspose.jl package.
 
+\subsection{Similar software packages}
+
+\jrs{Discuss other software here, like XMDS}
+
 \section{DistributedTranspose.jl}
 \label{sec:DT}
 
@@ -543,3 +553,5 @@ It should be mentioned that this package has potential to be used by many other 
 Often, HPC engineers prefer finite-element or difference methods when computing largescale fluid flow because these methods scale much better across distributed systems; however, with an appropriate distributed transpose methods, it might be more optimal to perform spectral simulations in certain regimes over other methods.
 
 \jrs{I will probably move this section and GPUE future dev to conclusions / future work... But the research for this area should be completed by the time of the thesis defense. I am not sure whether to leave it in or not.}
+
+\jrs{OVERVIEW}

@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.8.25)  30 SEP 2019 08:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.8.25)  17 OCT 2019 05:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**density_L1
+**density_L1.tex
 (./density_L1.tex
 LaTeX2e <2018-12-01>
 (/usr/share/texmf-dist/tex/latex/base/minimal.cls
@@ -202,10 +202,10 @@ e
 \gptboxwidth=\skip45
 \gptboxtext=\box28
 Package epstopdf Info: Source file: <density_L1-inc.eps>
-(epstopdf)                    date: 2019-09-30 08:27:57
+(epstopdf)                    date: 2019-10-17 05:40:16
 (epstopdf)                    size: 62656 bytes
 (epstopdf)             Output file: <density_L1-inc-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-09-30 07:28:53
+(epstopdf)                    date: 2019-09-30 08:28:15
 (epstopdf)                    size: 24100 bytes
 (epstopdf)             Command: <repstopdf --outfile=density_L1-inc-eps-convert
 ed-to.pdf density_L1-inc.eps>
@@ -214,7 +214,7 @@ runsystem(repstopdf --outfile=density_L1-inc-eps-converted-to.pdf density_L1-in
 c.eps)...executed safely (allowed).
 
 Package epstopdf Info: Result file: <density_L1-inc-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-09-30 08:28:15
+(epstopdf)                    date: 2019-10-17 05:40:23
 (epstopdf)                    size: 24100 bytes.
 <density_L1-inc-eps-converted-to.pdf, id=1, 361.35pt x 252.945pt>
 File: density_L1-inc-eps-converted-to.pdf Graphic file (type pdf)
@@ -237,14 +237,14 @@ Here is how much of TeX's memory you used:
  6008 multiletter control sequences out of 15000+600000
  7148 words of font info for 24 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,6n,34p,273b,188s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,6n,34p,277b,188s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-s
 uper/cm-super-t1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
 10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sh
 are/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/pub
 lic/cm-super/sfrm1095.pfb>
-Output written on density_L1.pdf (1 page, 69804 bytes).
+Output written on density_L1.pdf (1 page, 68847 bytes).
 PDF statistics:
  34 PDF objects out of 1000 (max. 8388607)
  23 compressed objects within 1 object stream

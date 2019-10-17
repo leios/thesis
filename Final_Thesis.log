@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.8.25)  16 OCT 2019 09:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.8.25)  17 OCT 2019 09:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -808,7 +808,7 @@ LaTeX Info: Redefining \nameref on input line 67.
 
 ABD: EveryShipout initializing macros
 \c@lstlisting=\count164
-<./Images/symbol.jpg, id=280, 468.7914pt x 465.4188pt>
+<./Images/symbol.jpg, id=284, 468.7914pt x 465.4188pt>
 File: ./Images/symbol.jpg Graphic file (type jpg)
 <use ./Images/symbol.jpg>
 Package pdftex.def Info: ./Images/symbol.jpg  used on input line 94.
@@ -874,7 +874,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ] (./Final_Thesis.toc [17
 
 ]
-Overfull \hbox (12.0911pt too wide) in paragraph at lines 60--60
+Overfull \hbox (12.0911pt too wide) in paragraph at lines 61--61
  [][] [][]\T1/cmr/m/n/12 Controlled cre-ation of three-dimensional vor-tex stru
 c-tures in Bose--Einstein 
  []
@@ -903,7 +903,7 @@ Chapter 1.
 [5
 
 ] [6]
-<data/splitop/SHO/SHO_gimp.pdf, id=570, 315.91711pt x 615.56293pt>
+<data/splitop/SHO/SHO_gimp.pdf, id=575, 315.91711pt x 615.56293pt>
 File: data/splitop/SHO/SHO_gimp.pdf Graphic file (type pdf)
 <use data/splitop/SHO/SHO_gimp.pdf>
 Package pdftex.def Info: data/splitop/SHO/SHO_gimp.pdf  used on input line 105.
@@ -925,30 +925,27 @@ Overfull \hbox (8.41002pt too wide) in paragraph at lines 237--238
  []
 
 [11]
-<data/qs/SHO/SHO.pdf, id=682, 361.35pt x 252.945pt>
+<data/qs/SHO/SHO.pdf, id=687, 361.35pt x 252.945pt>
 File: data/qs/SHO/SHO.pdf Graphic file (type pdf)
 <use data/qs/SHO/SHO.pdf>
 Package pdftex.def Info: data/qs/SHO/SHO.pdf  used on input line 262.
 (pdftex.def)             Requested size: 441.01773pt x 308.71596pt.
  [12] [13 <./data/qs/SHO/SHO.pdf>]
-<data/splitop/rot/WIP.pdf, id=740, 531.8787pt x 455.69261pt>
+<data/splitop/rot/WIP.pdf, id=745, 531.8787pt x 455.69261pt>
 File: data/splitop/rot/WIP.pdf Graphic file (type pdf)
 <use data/splitop/rot/WIP.pdf>
 Package pdftex.def Info: data/splitop/rot/WIP.pdf  used on input line 328.
 (pdftex.def)             Requested size: 441.01773pt x 377.84233pt.
  [14] [15 <./data/splitop/rot/WIP.pdf>]
 [16] [17] [18] [19]
-<data/splitop/gauge/check.pdf, id=873, 361.35pt x 252.945pt>
+<data/splitop/gauge/check.pdf, id=882, 361.35pt x 252.945pt>
 File: data/splitop/gauge/check.pdf Graphic file (type pdf)
 <use data/splitop/gauge/check.pdf>
-Package pdftex.def Info: data/splitop/gauge/check.pdf  used on input line 527.
+Package pdftex.def Info: data/splitop/gauge/check.pdf  used on input line 531.
 (pdftex.def)             Requested size: 264.61333pt x 185.23111pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
  [20 <./data/splitop/gauge/check.pdf>]
 
-LaTeX Warning: Reference `fig:multicomp' on page 21 undefined on input line 562
+LaTeX Warning: Reference `fig:multicomp' on page 21 undefined on input line 566
 .
 
 ) (./MainText/1d.tex [21] [22
@@ -956,45 +953,45 @@ LaTeX Warning: Reference `fig:multicomp' on page 21 undefined on input line 562
 ]
 Chapter 2.
 [23] [24]
-<data/1d/NM/NM.pdf, id=955, 361.35pt x 252.945pt>
+<data/1d/NM/NM.pdf, id=965, 361.35pt x 252.945pt>
 File: data/1d/NM/NM.pdf Graphic file (type pdf)
 <use data/1d/NM/NM.pdf>
 Package pdftex.def Info: data/1d/NM/NM.pdf  used on input line 73.
 (pdftex.def)             Requested size: 330.76329pt x 231.53503pt.
  [25 <./data/1d/NM/NM.pdf>] [26] [27] [28]
-<data/1d/scheme.pdf, id=1026, 416.41394pt x 286.50488pt>
+<data/1d/scheme.pdf, id=1037, 416.41394pt x 286.50488pt>
 File: data/1d/scheme.pdf Graphic file (type pdf)
 <use data/1d/scheme.pdf>
 Package pdftex.def Info: data/1d/scheme.pdf  used on input line 220.
 (pdftex.def)             Requested size: 220.50887pt x 151.71571pt.
-<data/1d/cross.png, id=1033, 293.59688pt x 304.13625pt>
+<data/1d/cross.png, id=1044, 293.59688pt x 304.13625pt>
 File: data/1d/cross.png Graphic file (type png)
 <use data/1d/cross.png>
 Package pdftex.def Info: data/1d/cross.png  used on input line 235.
 (pdftex.def)             Requested size: 176.40439pt x 182.73375pt.
-<data/1d/nocross.png, id=1035, 293.59688pt x 304.13625pt>
+<data/1d/nocross.png, id=1046, 293.59688pt x 304.13625pt>
 File: data/1d/nocross.png Graphic file (type png)
 <use data/1d/nocross.png>
 Package pdftex.def Info: data/1d/nocross.png  used on input line 238.
 (pdftex.def)             Requested size: 176.40439pt x 182.73375pt.
  [29] [30 <./data/1d/scheme.pdf> <./data/1d/cross.png> <./data/1d/nocross.png>]
-<data/1d/figR0.pdf, id=1098, 227.55013pt x 227.55013pt>
+<data/1d/figR0.pdf, id=1108, 227.55013pt x 227.55013pt>
 File: data/1d/figR0.pdf Graphic file (type pdf)
 <use data/1d/figR0.pdf>
 Package pdftex.def Info: data/1d/figR0.pdf  used on input line 283.
 (pdftex.def)             Requested size: 198.45662pt x 198.45657pt.
-<data/1d/figB0.pdf, id=1099, 227.55013pt x 227.55013pt>
+<data/1d/figB0.pdf, id=1109, 227.55013pt x 227.55013pt>
 File: data/1d/figB0.pdf Graphic file (type pdf)
 <use data/1d/figB0.pdf>
 Package pdftex.def Info: data/1d/figB0.pdf  used on input line 286.
 (pdftex.def)             Requested size: 198.45662pt x 198.45657pt.
  [31]
-<data/1d/figR1.pdf, id=1116, 227.55013pt x 227.55013pt>
+<data/1d/figR1.pdf, id=1126, 227.55013pt x 227.55013pt>
 File: data/1d/figR1.pdf Graphic file (type pdf)
 <use data/1d/figR1.pdf>
 Package pdftex.def Info: data/1d/figR1.pdf  used on input line 311.
 (pdftex.def)             Requested size: 198.45662pt x 198.45657pt.
-<data/1d/figB1.pdf, id=1117, 227.55013pt x 227.55013pt>
+<data/1d/figB1.pdf, id=1127, 227.55013pt x 227.55013pt>
 File: data/1d/figB1.pdf Graphic file (type pdf)
 <use data/1d/figB1.pdf>
 Package pdftex.def Info: data/1d/figB1.pdf  used on input line 315.
@@ -1003,22 +1000,22 @@ Package pdftex.def Info: data/1d/figB1.pdf  used on input line 315.
 Underfull \vbox (badness 1286) has occurred while \output is active []
 
  [32 <./data/1d/figR0.pdf> <./data/1d/figB0.pdf>]
-<data/1d/figlfid.pdf, id=1154, 227.55013pt x 227.55013pt>
+<data/1d/figlfid.pdf, id=1165, 227.55013pt x 227.55013pt>
 File: data/1d/figlfid.pdf Graphic file (type pdf)
 <use data/1d/figlfid.pdf>
 Package pdftex.def Info: data/1d/figlfid.pdf  used on input line 330.
 (pdftex.def)             Requested size: 220.50887pt x 220.50807pt.
-<data/1d/figTG3.pdf, id=1155, 227.55013pt x 227.55013pt>
+<data/1d/figTG3.pdf, id=1166, 227.55013pt x 227.55013pt>
 File: data/1d/figTG3.pdf Graphic file (type pdf)
 <use data/1d/figTG3.pdf>
 Package pdftex.def Info: data/1d/figTG3.pdf  used on input line 342.
 (pdftex.def)             Requested size: 198.45662pt x 198.45657pt.
-<data/1d/figTG5.pdf, id=1156, 227.55013pt x 227.55013pt>
+<data/1d/figTG5.pdf, id=1167, 227.55013pt x 227.55013pt>
 File: data/1d/figTG5.pdf Graphic file (type pdf)
 <use data/1d/figTG5.pdf>
 Package pdftex.def Info: data/1d/figTG5.pdf  used on input line 346.
 (pdftex.def)             Requested size: 198.45662pt x 198.45657pt.
-<data/1d/STAscheme.png, id=1160, 598.6365pt x 375.0813pt>
+<data/1d/STAscheme.png, id=1171, 598.6365pt x 375.0813pt>
 File: data/1d/STAscheme.png Graphic file (type png)
 <use data/1d/STAscheme.png>
 Package pdftex.def Info: data/1d/STAscheme.png  used on input line 369.
@@ -1026,33 +1023,33 @@ Package pdftex.def Info: data/1d/STAscheme.png  used on input line 369.
  [33 <./data/1d/figR1.pdf> <./data/1d/figB1.pdf>] [34 <./data/1d/figlfid.pdf>] 
 [35 <./data/1d/figTG3.pdf> <./data/1d/figTG5.pdf>] [36 <./data/1d/STAscheme.png
 >]
-<data/1d/fig1.png, id=1328, 442.0515pt x 398.6895pt>
+<data/1d/fig1.png, id=1338, 442.0515pt x 398.6895pt>
 File: data/1d/fig1.png Graphic file (type png)
 <use data/1d/fig1.png>
 Package pdftex.def Info: data/1d/fig1.png  used on input line 464.
 (pdftex.def)             Requested size: 211.68661pt x 190.9186pt.
-<data/1d/fig2.png, id=1329, 442.0515pt x 398.6895pt>
+<data/1d/fig2.png, id=1339, 442.0515pt x 398.6895pt>
 File: data/1d/fig2.png Graphic file (type png)
 <use data/1d/fig2.png>
 Package pdftex.def Info: data/1d/fig2.png  used on input line 467.
 (pdftex.def)             Requested size: 211.68661pt x 190.9186pt.
-<data/1d/fig5.png, id=1331, 578.16pt x 364.2408pt>
+<data/1d/fig5.png, id=1341, 578.16pt x 364.2408pt>
 File: data/1d/fig5.png Graphic file (type png)
 <use data/1d/fig5.png>
 Package pdftex.def Info: data/1d/fig5.png  used on input line 482.
 (pdftex.def)             Requested size: 198.45662pt x 125.02405pt.
-<data/1d/fig6.png, id=1332, 528.5346pt x 339.669pt>
+<data/1d/fig6.png, id=1342, 528.5346pt x 339.669pt>
 File: data/1d/fig6.png Graphic file (type png)
 <use data/1d/fig6.png>
 Package pdftex.def Info: data/1d/fig6.png  used on input line 483.
 (pdftex.def)             Requested size: 198.45662pt x 127.53622pt.
  [37 <./data/1d/fig1.png> <./data/1d/fig2.png>]
-<data/1d/fig7a.png, id=1348, 522.5121pt x 339.9099pt>
+<data/1d/fig7a.png, id=1358, 522.5121pt x 339.9099pt>
 File: data/1d/fig7a.png Graphic file (type png)
 <use data/1d/fig7a.png>
 Package pdftex.def Info: data/1d/fig7a.png  used on input line 520.
 (pdftex.def)             Requested size: 198.45662pt x 129.09967pt.
-<data/1d/fig7b.png, id=1349, 524.1984pt x 342.8007pt>
+<data/1d/fig7b.png, id=1359, 524.1984pt x 342.8007pt>
 File: data/1d/fig7b.png Graphic file (type png)
 <use data/1d/fig7b.png>
 Package pdftex.def Info: data/1d/fig7b.png  used on input line 523.
@@ -1073,34 +1070,34 @@ We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
 [42]
-<data/gpu/GPUEvsTS.png, id=1399, 577.6782pt x 433.3791pt>
+<data/gpu/GPUEvsTS.png, id=1409, 577.6782pt x 433.3791pt>
 File: data/gpu/GPUEvsTS.png Graphic file (type png)
 <use data/gpu/GPUEvsTS.png>
-Package pdftex.def Info: data/gpu/GPUEvsTS.png  used on input line 50.
+Package pdftex.def Info: data/gpu/GPUEvsTS.png  used on input line 52.
 (pdftex.def)             Requested size: 220.50887pt x 165.4264pt.
  [43 <./data/gpu/GPUEvsTS.png (PNG copy)>]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 91.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 91.
+nput line 93.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 93.
 
 (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 92.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 94.
 
 
-LaTeX Warning: Reference `vecaddCUDA' on page 44 undefined on input line 103.
+LaTeX Warning: Reference `vecaddCUDA' on page 44 undefined on input line 105.
 
 [44] [45]
-<data/gpu/gputhreads.pdf, id=1456, 460.44421pt x 460.44421pt>
+<data/gpu/gputhreads.pdf, id=1466, 460.44421pt x 460.44421pt>
 File: data/gpu/gputhreads.pdf Graphic file (type pdf)
 <use data/gpu/gputhreads.pdf>
-Package pdftex.def Info: data/gpu/gputhreads.pdf  used on input line 142.
+Package pdftex.def Info: data/gpu/gputhreads.pdf  used on input line 144.
 (pdftex.def)             Requested size: 441.01773pt x 441.01672pt.
 
 
-LaTeX Warning: Float too large for page by 41.61247pt on input line 226.
+LaTeX Warning: Float too large for page by 41.61247pt on input line 228.
 
 
 Underfull \vbox (badness 1377) has occurred while \output is active []
@@ -1108,24 +1105,24 @@ Underfull \vbox (badness 1377) has occurred while \output is active []
  [46]
 [47 <./data/gpu/gputhreads.pdf>] [48]
 
-LaTeX Warning: Reference `vecaddhost' on page 49 undefined on input line 235.
+LaTeX Warning: Reference `vecaddhost' on page 49 undefined on input line 237.
 
 [49] [50]
-Overfull \hbox (33.12363pt too wide) in paragraph at lines 313--313
+Overfull \hbox (33.12363pt too wide) in paragraph at lines 315--315
 []\T1/cmr/bx/n/17.28 Introduction to the GPUE code-base for $\OML/cmm/m/it/17.2
 8 n$\T1/cmr/bx/n/17.28 -dimensional
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 313.
+(hyperref)                removing `math shift' on input line 315.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 313.
+(hyperref)                removing `math shift' on input line 315.
 
 
-Overfull \hbox (38.96373pt too wide) in paragraph at lines 316--320
+Overfull \hbox (38.96373pt too wide) in paragraph at lines 318--322
 \T1/cmr/m/n/12 spired the de-vel-op-ment of other com-pu-ta-tional li-braries s
 uch as the \T1/cmtt/m/n/12 DistributedTranspose.jl
  []
@@ -1145,32 +1142,43 @@ File: pgflibraryarrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
 )))
 [53]
 
-LaTeX Warning: Reference `bayindir2015' on page 54 undefined on input line 387.
+LaTeX Warning: Reference `bayindir2015' on page 54 undefined on input line 389.
 
 
-<data/gpu/vortex_tracking/phi_grid.png, id=1634, 312.2064pt x 578.16pt>
+
+Package natbib Warning: Citation `davenport2012' on page 54 undefined on input 
+line 391.
+
+[54]
+<data/gpu/vortex_tracking/phi_grid.png, id=1651, 312.2064pt x 578.16pt>
 File: data/gpu/vortex_tracking/phi_grid.png Graphic file (type png)
 <use data/gpu/vortex_tracking/phi_grid.png>
 Package pdftex.def Info: data/gpu/vortex_tracking/phi_grid.png  used on input l
-ine 403.
+ine 411.
 (pdftex.def)             Requested size: 220.50887pt x 408.35272pt.
-[54] [55 <./data/gpu/vortex_tracking/phi_grid.png>]
-<data/gpu/vortex_highlighting/all.png, id=1653, 443.256pt x 216.0873pt>
+
+Underfull \vbox (badness 7186) has occurred while \output is active []
+
+ [55 <./data/gpu/vortex_tracking/phi_grid.png>]
+<data/gpu/vortex_highlighting/all.png, id=1664, 443.256pt x 216.0873pt>
 File: data/gpu/vortex_highlighting/all.png Graphic file (type png)
 <use data/gpu/vortex_highlighting/all.png>
 Package pdftex.def Info: data/gpu/vortex_highlighting/all.png  used on input li
-ne 429.
+ne 435.
 (pdftex.def)             Requested size: 330.76329pt x 161.24734pt.
 
 Underfull \vbox (badness 1789) has occurred while \output is active []
 
  [56 <./data/gpu/vortex_highlighting/all.png>] [57]
 
-LaTeX Warning: Reference `bayindir2015' on page 58 undefined on input line 500.
+LaTeX Warning: Reference `bayindir2015' on page 58 undefined on input line 506.
 
 
 [58] [59]) (./MainText/2d.tex [60]
 Chapter 4.
+
+LaTeX Warning: Reference `zhang2019' on page 61 undefined on input line 17.
+
 
 Overfull \hbox (20.92856pt too wide) in paragraph at lines 19--19
 []\T1/cmr/bx/n/17.28 Chaotic few-body vor-tex dy-nam-ics in ro-tat-ing Bose--
@@ -1179,44 +1187,49 @@ Overfull \hbox (20.92856pt too wide) in paragraph at lines 19--19
 [61
 
 ]
-<data/2d/phase/phase.pdf, id=1749, 822.27202pt x 512.30597pt>
+<data/2d/phase/phase.pdf, id=1758, 822.27202pt x 512.30597pt>
 File: data/2d/phase/phase.pdf Graphic file (type pdf)
 <use data/2d/phase/phase.pdf>
-Package pdftex.def Info: data/2d/phase/phase.pdf  used on input line 45.
+Package pdftex.def Info: data/2d/phase/phase.pdf  used on input line 46.
 (pdftex.def)             Requested size: 330.76329pt x 206.07568pt.
  [62]
-<data/2d/histogram/histogram.png, id=1774, 1047.915pt x 482.0409pt>
+<data/2d/histogram/histogram.png, id=1784, 1047.915pt x 482.0409pt>
 File: data/2d/histogram/histogram.png Graphic file (type png)
 <use data/2d/histogram/histogram.png>
-Package pdftex.def Info: data/2d/histogram/histogram.png  used on input line 68
+Package pdftex.def Info: data/2d/histogram/histogram.png  used on input line 69
 .
 (pdftex.def)             Requested size: 441.01773pt x 202.86769pt.
-<data/2d/evolution/evolution.pdf, id=1780, 422.05681pt x 360.6273pt>
+<data/2d/evolution/evolution.pdf, id=1790, 422.05681pt x 360.6273pt>
 File: data/2d/evolution/evolution.pdf Graphic file (type pdf)
 <use data/2d/evolution/evolution.pdf>
-Package pdftex.def Info: data/2d/evolution/evolution.pdf  used on input line 86
+Package pdftex.def Info: data/2d/evolution/evolution.pdf  used on input line 87
 .
 (pdftex.def)             Requested size: 220.50887pt x 188.41321pt.
  [63 <./data/2d/phase/phase.pdf>]
-Overfull \hbox (13.85716pt too wide) in paragraph at lines 104--110
+Overfull \hbox (13.85716pt too wide) in paragraph at lines 105--111
 []\T1/cmr/m/n/12 After closely in-spect-ing the vor-tex dy-nam-ics (shown in th
 e sup-ple-men-tary movie [[]]),
  []
 
-<data/2d/snapshots/snapshots.pdf, id=1832, 964.33995pt x 1102.10083pt>
+[64 <./data/2d/histogram/histogram.png>] [65 <./data/2d/evolution/evolution.pdf
+>]
+<data/2d/snapshots/snapshots.pdf, id=1861, 964.33995pt x 1102.10083pt>
 File: data/2d/snapshots/snapshots.pdf Graphic file (type pdf)
 <use data/2d/snapshots/snapshots.pdf>
 Package pdftex.def Info: data/2d/snapshots/snapshots.pdf  used on input line 11
-2.
+3.
 (pdftex.def)             Requested size: 330.76329pt x 378.02222pt.
-<data/2d/lyap/lyap.pdf, id=1835, 444.26175pt x 392.93298pt>
+<data/2d/lyap/lyap.pdf, id=1864, 444.26175pt x 392.93298pt>
 File: data/2d/lyap/lyap.pdf Graphic file (type pdf)
 <use data/2d/lyap/lyap.pdf>
-Package pdftex.def Info: data/2d/lyap/lyap.pdf  used on input line 126.
+Package pdftex.def Info: data/2d/lyap/lyap.pdf  used on input line 127.
 (pdftex.def)             Requested size: 330.76329pt x 292.55257pt.
-[64 <./data/2d/histogram/histogram.png>] [65 <./data/2d/evolution/evolution.pdf
->] [66 <./data/2d/snapshots/snapshots.pdf>] [67 <./data/2d/lyap/lyap.pdf>]
-[68]) (./MainText/vortex_states.tex [69] [70
+
+Underfull \vbox (badness 1502) has occurred while \output is active []
+
+ [66]
+[67 <./data/2d/snapshots/snapshots.pdf>] [68 <./data/2d/lyap/lyap.pdf>])
+(./MainText/vortex_states.tex [69] [70
 
 ]
 Chapter 5.
@@ -1224,51 +1237,58 @@ Chapter 5.
 Underfull \vbox (badness 6188) has occurred while \output is active []
 
  [73]
-<data/3d/Schematic_TB.pdf, id=2212, 372.36516pt x 562.03494pt>
+<data/3d/Schematic_TB.pdf, id=2221, 372.36516pt x 562.03494pt>
 File: data/3d/Schematic_TB.pdf Graphic file (type pdf)
 <use data/3d/Schematic_TB.pdf>
 Package pdftex.def Info: data/3d/Schematic_TB.pdf  used on input line 99.
 (pdftex.def)             Requested size: 176.40439pt x 266.25757pt.
 
 [74] [75 <./data/3d/Schematic_TB.pdf>]
-<data/3d/all_fields.pdf, id=2310, 660.37543pt x 454.17384pt>
+<data/3d/fiber/mode_plot.jpg, id=2319, 378.213pt x 176.0979pt>
+File: data/3d/fiber/mode_plot.jpg Graphic file (type jpg)
+<use data/3d/fiber/mode_plot.jpg>
+Package pdftex.def Info: data/3d/fiber/mode_plot.jpg  used on input line 152.
+(pdftex.def)             Requested size: 441.01773pt x 205.35121pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [76 <./data/3d/fiber/mode_plot.jpg>]
+<data/3d/all_fields.pdf, id=2335, 660.37543pt x 454.17384pt>
 File: data/3d/all_fields.pdf Graphic file (type pdf)
 <use data/3d/all_fields.pdf>
-Package pdftex.def Info: data/3d/all_fields.pdf  used on input line 173.
+Package pdftex.def Info: data/3d/all_fields.pdf  used on input line 186.
 (pdftex.def)             Requested size: 441.01773pt x 303.31775pt.
- [76] [77 <./data/3d/all_fields.pdf>]
-<data/3d/vortex_transition.png, id=2342, 3539.2225pt x 788.9475pt>
+ [77] [78 <./data/3d/all_fields.pdf>]
+<data/3d/vortex_transition.png, id=2365, 3539.2225pt x 788.9475pt>
 File: data/3d/vortex_transition.png Graphic file (type png)
 <use data/3d/vortex_transition.png>
-Package pdftex.def Info: data/3d/vortex_transition.png  used on input line 214.
+Package pdftex.def Info: data/3d/vortex_transition.png  used on input line 227.
 
 (pdftex.def)             Requested size: 441.01773pt x 98.30519pt.
-
-[78]
-<data/3d/HE21_3d.png, id=2354, 948.54375pt x 717.68124pt>
+<data/3d/HE21_3d.png, id=2370, 948.54375pt x 717.68124pt>
 File: data/3d/HE21_3d.png Graphic file (type png)
 <use data/3d/HE21_3d.png>
-Package pdftex.def Info: data/3d/HE21_3d.png  used on input line 233.
+Package pdftex.def Info: data/3d/HE21_3d.png  used on input line 246.
 (pdftex.def)             Requested size: 220.50887pt x 166.83727pt.
- [79 <./data/3d/vortex_transition.png> <./data/3d/HE21_3d.png>]
-<data/3d/vortex_line_all.pdf, id=2369, 361.35pt x 548.52928pt>
+ [79 <./data/3d/vortex_transition.png>]
+<data/3d/vortex_line_all.pdf, id=2384, 361.35pt x 548.52928pt>
 File: data/3d/vortex_line_all.pdf Graphic file (type pdf)
 <use data/3d/vortex_line_all.pdf>
-Package pdftex.def Info: data/3d/vortex_line_all.pdf  used on input line 249.
+Package pdftex.def Info: data/3d/vortex_line_all.pdf  used on input line 262.
 (pdftex.def)             Requested size: 352.81552pt x 535.57974pt.
-<data/3d/V_change.pdf, id=2375, 361.35pt x 252.945pt>
+<data/3d/V_change.pdf, id=2390, 361.35pt x 252.945pt>
 File: data/3d/V_change.pdf Graphic file (type pdf)
 <use data/3d/V_change.pdf>
-Package pdftex.def Info: data/3d/V_change.pdf  used on input line 270.
+Package pdftex.def Info: data/3d/V_change.pdf  used on input line 283.
 (pdftex.def)             Requested size: 330.76329pt x 231.53503pt.
-<data/3d/scissors_plot.pdf, id=2378, 361.35pt x 320.1561pt>
+ [80 <./data/3d/HE21_3d.png>] [81 <./data/3d/vortex_line_all.pdf>]
+<data/3d/scissors_plot.pdf, id=2412, 361.35pt x 320.1561pt>
 File: data/3d/scissors_plot.pdf Graphic file (type pdf)
 <use data/3d/scissors_plot.pdf>
-Package pdftex.def Info: data/3d/scissors_plot.pdf  used on input line 279.
+Package pdftex.def Info: data/3d/scissors_plot.pdf  used on input line 292.
 (pdftex.def)             Requested size: 330.76329pt x 293.05719pt.
- [80]
-[81 <./data/3d/vortex_line_all.pdf>] [82 <./data/3d/V_change.pdf>] [83 <./data/
-3d/scissors_plot.pdf>]) [84] (./MainText/conclusion.tex [85
+ [82 <./data/3d/V_change.pdf>] [83 <./data/3d/scissors_plot.pdf>])
+[84] (./MainText/conclusion.tex [85
 
 
 ]
@@ -1342,14 +1362,18 @@ Underfull \hbox (badness 1019) in paragraph at lines 100--103
  []
 
 [94] [95] [96] [97] [98] [99] [100] [101] [102] [103] [104] [105] [106]
-[107]) [108]
+[107])
+
+Package natbib Warning: There were undefined citations.
+
+[108]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 165.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 165.
  (./Final_Thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 165.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 165.
 Package rerunfilecheck Info: File `Final_Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 462A7EE956D248994A662A24CA5C8C14;5456.
+(rerunfilecheck)             Checksum: A091ECADB2A808C656DD766E323CBA52;5518.
 
 
 LaTeX Warning: There were undefined references.
@@ -1360,10 +1384,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 165.
  ) 
 Here is how much of TeX's memory you used:
- 23953 strings out of 492623
- 423795 string characters out of 6135669
+ 23976 strings out of 492623
+ 424229 string characters out of 6135669
  844443 words of memory out of 5000000
- 26370 multiletter control sequences out of 15000+600000
+ 26386 multiletter control sequences out of 15000+600000
  28756 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,18n,74p,1097b,2116s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1400,10 +1424,10 @@ dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf-dist/fonts/type
 er/sftt1200.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></us
 r/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/f
 onts/type1/urw/palatino/uplri8a.pfb>
-Output written on Final_Thesis.pdf (130 pages, 9605337 bytes).
+Output written on Final_Thesis.pdf (130 pages, 9976037 bytes).
 PDF statistics:
- 3172 PDF objects out of 3580 (max. 8388607)
- 2785 compressed objects within 28 object streams
- 968 named destinations out of 1000 (max. 500000)
- 752 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3191 PDF objects out of 3580 (max. 8388607)
+ 2802 compressed objects within 29 object streams
+ 973 named destinations out of 1000 (max. 500000)
+ 765 words of extra memory for PDF output out of 10000 (max. 10000000)
 

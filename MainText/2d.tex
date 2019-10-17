@@ -1,7 +1,7 @@
 \chapter{Vortex analysis of two-dimensional superfluid systems}
 \label{ch:2d}
 
-Here, we show an application of the GPUE codebase in simulating a two-dimensional chaotic system with few vortices.
+Here, we show an application of the GPUE codebase by simulating a two-dimensional chaotic system with few vortices.
 In addition, this chapter intends to display the dependence of post-processing metrics such as the Lyapunov exponent to dynamical studies of superfluid systems.
 
 As a note, the physics simulated in this section is two-dimensional, so I would like to begin this chapter with a disclaimer about the dimensionality of the system we will be simulating.
@@ -13,30 +13,31 @@ By integrating over $\hat z$, we also find that the interaction strength is modi
 g_{2D} = g \sqrt{\frac{m\omega_z}{2\pi\hbar}}.
 \end{equation}
 
-\noindent With these changes, we can simulate two-dimensional quantum simulations with the GPUE codebase~\cite{zhang2019, o2017, o2016topo, o2016}.
-This chapter will apply several of the techniques mentioned in Chapters~\ref{ch:splitop} and \ref{ch:gpu} to a rotating two-dimensional BEC system for a small number of vortices and will follow the work of Zhang \textit{et.al.}~\cite{zhang2019}.
+\noindent With these changes, we can simulate two-dimensional settings with the GPUE codebase~\cite{zhang2019, o2017, o2016topo, o2016}.
+This chapter will apply several of the techniques mentioned in Chapters~\ref{ch:splitop} and \ref{ch:gpu} to a rotating two-dimensional BEC system for a small number of vortices and was published in \textit{Phys. Rev. Fluids} 4(5):054701, 2019~\ref{zhang2019}.
 
 \section{Chaotic few-body vortex dynamics in rotating Bose--Einstein condensates}
 
 Chaotic evolution is typically identified by a significant divergence in trajectory based on a small change in the initial conditions~\cite{strogatz2018}, and it is possible to find such an environment in turbulent flow~\cite{spiegel1987, biferale2005}.
 For classically turbulent flow, the degree of chaos depends on the Reynolds number~\cite{berera2018}; however, the nature of quantum turbulent effects is still an active area of research~\cite{white2014}.
-Because superfluid vortices are relatively simple compared to their classical counterparts, there has also been significant interest in the differences between classical and quantum turbulence~\cite{nemirovskii1995,kyriakopoulos2014,koukouloyannis2014,navarro2013}.
+Because superfluid vortices are have quantized winding numbers, they can be considered less complex when compared to their classical counterparts, there has also been significant interest in the differences between classical and quantum turbulence~\cite{nemirovskii1995,kyriakopoulos2014,koukouloyannis2014,navarro2013}.
 In spite of the differences between the fluid models, vortex dynamics in superfluid systems are remarkably similar to classical point-vortex models and key features of classical turbulence, such as the Kolmogorov spectrum have been shown to exist for large, turbulent, quantum systems~\cite{nore1997,stalp1999,araki2002,salort2010}.
 
-In this study, we would like to create a quantum system that is chaotic without relying on quantum turbulence, itself.
-As a note, it is known that it is not possible to excite quantum chaos in large vortex lattices, as these systems have been proven to be stable to external perturbations~\cite{o2017}.
+It is known that it is not possible to excite quantum chaos in large vortex lattices, as these systems have been proven to be stable to external perturbations~\cite{o2017}.
 For this reason, we wish to probe quantum chaos with a small number of vortices, such that quantum turbulent effects are not excited.
-These chaotic, few-vortex systems have been studied previously by Aref and Pomphrey~\cite{aref1982, aref1980, aref1983}, who showed that quantum chaos can be excited in systems with as few as four vortices in an infinite plane~\cite{aref1982}.
+Chaotic, few-vortex systems have been studied previously by Aref and Pomphrey~\cite{aref1982, aref1980, aref1983}, who showed that quantum chaos can be excited in systems with as few as four vortices in an infinite plane~\cite{aref1982}.
 Unlike classical chaos, the onset of quantum chaos seems to appear with fewer vortices present, and few-vortex systems have been explored experimentally for two, three, and four vortices in harmonically trapped BECs~\cite{navarro2013}.
 When analyzed with a reduced Hamiltonian approach, harmonically trapped BECs seem to exhibit chaotic effects with as few as three vortices, two co-rotating vortices and an anti-vortex rotating in the other direction~\cite{kyriakopoulos2014,koukouloyannis2014}.
 
-Experimentally, it is now possible to detect vortex circulation~\cite{seo2017}, image vortices in-situ~\cite{wilson2015}, and probe vortex dynamics at different times within a single experiment~\cite{freilich2010, serafini2017}.
+Experimentally, it is now possible to detect vortex circulation~\cite{seo2017} and image vortices in-situ~\cite{wilson2015}.
+It is also possible to probe vortex dynamics at different times within a single experiment~\cite{freilich2010, serafini2017}.
 Because quantum vortices are simple and BECs are highly controllable experimental systems in two-dimensions, there has been significant interest in two-dimensional quantum turbulent systems as well~\cite{neely2013,shin2004}.
-Additional effects, such as the K\'arm\'an vortex street~\cite{kwon2014} and Onsager vortex clusters~\cite{gauthier2018,johnstone2018} have also been shown to exist experimentally.
+Additional effects, such as the K\'arm\'an vortex street~\cite{kwon2014} and Onsager vortex clusters~\cite{gauthier2018,johnstone2018} have already been shown to exist experimentally.
 
-In order to engineer well-controlled initial conditions, we will create a small vortex lattice of four vortices, and then create a defect in this lattice with phase imprinting, as described in Chapter~\ref{ch:splitop}.
+Because chaotic events require very small changes in the initial conditions of the system, we require a system with well-controlled initial condistions.
+For this, we will start with a small vortex lattice of four vortices, and then create a defect in this lattice using phase imprinting, as described in Chapter~\ref{ch:splitop}.
 This process will controllably induce chaotic vortex dynamics in an experimentally feasible way.
-We also show that these chaotic dynamics are enhanced by the close approach of vortices in the simulated results.
+We also show that the chaotic dynamics are enhanced by the close approach of vortices when oscillating in the trap.
 By using phase imprinting in this way on a larger number of vortices in a vortex lattice, it might be possible to induce chaotic events there as well, which might enable studying a set of vortex trajectories that is chaotic at specific points, but stable overall.
 
 \section{Model}
@@ -45,7 +46,7 @@ By using phase imprinting in this way on a larger number of vortices in a vortex
 \center \includegraphics[width=0.75\textwidth]{data/2d/phase/phase}
 
 \caption{
-The initial four co-rotating vortex system is shown at the left.
+Phase distribution of the initial four co-rotating vortex system is shown at the left.
 In the center is the applied phase mask of $-2\pi$ for (a) and $-4\pi$ for (b), and the resulting phase distribution is shown on the right.
 Here we see that by applying a $-2\pi$ phase winding, we erase a vortex from the system, and by applying a $-4\pi$ phase winding, we flip the vortex, creating an anti-vortex.
 }
@@ -53,14 +54,14 @@ Here we see that by applying a $-2\pi$ phase winding, we erase a vortex from the
 \end{figure}
 
 
-For this study, we created a condensate with $N = 10^6$ $^{87}$Rb atoms with an s-wave scattering length of $a_s \approx 90a_0$ in a pancake geometry with typical trapping frequencies of $(\omega_\perp, \omega_z) = (2\pi, 32\pi)$Hz.
-Here, the s-wave scattering length is $a_s \approx 90a_0$ and the effective interaction strength is $g = 6.8\times 10^{-40}$ m$^4$kg/s$^2$.
+For this study, we use a condensate with $N = 10^6$ $^{87}$Rb atoms with an s-wave scattering length of $a_s=4.76\times 10^{-9}$ in a pancake geometry with typical trapping frequencies of $(\omega_\perp, \omega_z) = (2\pi, 32\pi)$Hz.
+Here, the effective two-dimensional interaction strength is $g = 6.8\times 10^{-40}$ m$^4$kg/s$^2$.
 These simulations were performed on a grid of $2^{10} \times 2^{10}$ points and covering an extent of $700\mu \text{m} \times 700 \mu \text{m}$
 
 First, ground-state evolution was performed with a low rotation frequency of $\Omega = 0.3 \times 2\pi$ Hz via GPUE~\cite{schloss2018}.
 Though large rotational frequencies will create a triangular lattice, for smaller frequencies, other configurations are known ~\cite{aftalion2001}, and we will focus on the regime where the ground state is composed of four vortices in a square configuration~\cite{zampetaki2013}.
 Once this configuration is achieved, we then manipulate a vortex via phase imprinting, such that three co-rotating vortices and one anti-vortex exist in the system.
-Examples of phase imprinting on this system can be seen in figure~\ref{fig:phase}, where the top row shows a simple vortex annihilation and the bottom row shows a vortex flip.
+Examples of phase imprinting on this system can be seen in Figure~\ref{fig:phase}, where the top row shows a simple vortex annihilation and the bottom row shows a vortex flip.
 
 \section{Regular and irregular vortex dynamics}
 
@@ -136,7 +137,7 @@ The negative Lyapunov exponents (orange) indicate that shifting the vortex about
 
 
 To characterize the degree of chaos for the shown vortex dynamics, we have chosen to use Lyapunov exponents, which give the rates of divergence for nearby orbits in phase space~\cite{wolf1985}.
-With this measure, we track two trajectories in phase space and assume that the divergence between the two trajectories will either exponentially converge or diverge, and we can model this behavior with
+With this measure, we track two trajectories in phase space and assume that the divergence between the two trajectories will either exponentially converge or diverge, which can be modelled with
 
 \begin{equation}
 |\delta\mathbf{Z}(t)| \approx e^{\lambda t} |\delta \mathbf{Z}_0|.
@@ -168,11 +169,10 @@ During the scattering event shown in Figures~\ref{fig:snapshots} and \ref{fig:ev
 It is worth noting that other global measurements could be used instead of the COM, such as the center of charge~\cite{kyriakopoulos2014}, but we found these to provide similar qualitative results to those shown here.
 
 
-\section{Conclusions}
+\section{Outlook}
 
 With this study, we have shown that it is possible to induce chaotic vortex dynamics in few-vortex systems by using phase imprinting to flip the rotational direction of a vortex in two dimensions.
 We also show that a scattering event seems to be correlated to a positive Lyapunov exponent and an acceleration of chaotic behavior.
-Though not shown here, we have also performed similar simulations for small lattices of five and six vortices, which seem to still exhibit chaotic dynamics with Lyapunov exponents of 0.24, 0.24, and 0.27 for the four, five, and six vortex cases, respectively after 20 seconds of evolution~\cite{zhang2017}.
 This behavior is radically different than the behavior of large scale vortex lattices, as similar techniques for these systems have been shown to only cause local disturbances~\cite{o2016topo}.
 Further exploration of the crossover from regular to turbulent dynamics, and the crossover from chaotic to stable dynamics for large-scale vortex lattices remains an interesting extension for future work.
 
@@ -181,6 +181,14 @@ Here, it is obvious that fast vortex tracking methods are essential to dynamical
 As such, most three-dimensional studies of quantum chaos rely on other methods, such as vortex filament methods which provide vortex skeletons during the simulation, itself.
 As mentioned in Chapter~\ref{ch:splitop}, these methods cannot simulate the underlying dynamics of the condensate, and are thus removed from experimental application.
 Further extensions of this work in three dimensions would also allow for studies on the movement of the vortex lines, themselves, which were projected onto two-dimensional point-vortices in this model.
+
+It is important to note the utility of the GPUE codebase in this study.
+Throughout the process, highly-resolved (up to $2048 \times 2048$) wavefunction densities were generated in the ground state via imaginary time propagation and dynamics were determined with real-time evolution.
+For a typical run of $1024 \times 1024$ with $1\times 10^6$ steps, with a time resolution of $1\times 10^{-5}$ and outputting every 1000 steps, the simulation can be completed within an hour.
+This metric includes vortex tracking on every output step, which is a computational intensive task, as discussed in Chapter~\ref{ch:gpu}.
+Because of the computational speed of GPUE, this study performed hundreds of individual runs with slightly varying initial conditions to provide a strong indication of chaotic behaviour.
+Because this study very heavily relied on post-processing metrics, such as vortex tracking and the calculation of the Lyapunov exponent, it is apparant that it is ideal to provide an interface to the GPUE codebase in a language that more easily provides the functionality expected by researchers for data manipulation.
+Such an interface is possible with GPUE.jl and further motivates this development.
 
 For the next study, we will transition into a discussion of three-dimensional vortex dynamics and show an experimentally realistic system to allow for the generation, control, and detection of vortex ring-like systems with artificial magnetic fields.
 

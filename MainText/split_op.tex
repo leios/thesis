@@ -107,7 +107,7 @@ For example, if we use a Gaussian wavefunction which is offset from the center o
 \caption{Evolution of a simple harmonic oscillator in (a) real, and (b) imaginary time after slightly shifting the trapping potential in the $\hat x$ direction.
 In (c), we see the energy as a function of time and show that the energy of the system when evolving in real time remains constant, but in imaginary time it will decay to the known ground-state energy of the simple harmonic oscillator.
 The simulated results are from evolution with the SSFM after 10,000 steps.
-Here, we use a Rubidium 87 atom with $\omega_x = 10$Hz on a 256-point grid of size 200 $\mu$m, where the trap has been shifted by 5 $\mu m$.
+Here, we use a $^87$ Rb atom with $\omega_x = 10$Hz on a 256-point grid of size 200 $\mu$m, where the trap has been shifted by 5 $\mu m$.
 The wavefunction has been normalized such that $\int_{-\infty}^\infty|\Psi|^2 dx = 1$.
 This simulation was performed with the GPUE codebase \cite{schloss2018}.
 \jrs{WIP}}
@@ -261,9 +261,9 @@ This approximation is valid for stationary condensate solutions in simple harmon
 \begin{figure}
 \center \includegraphics[width = \textwidth]{data/qs/SHO/SHO.pdf}
 
-\caption{Ground state of simple harmonic oscillator for the Schr\"odinger equation (purple, dashed) and the GPE (cyan).
+\caption{Ground state of simple harmonic oscillator for the Schr\"odinger equation (purple, dashed) and the GPE with varying interaction strengths (all other lines).
 Here, we see that the GPE solution follows a Thomas-Fermi distribution, while the Schr\"odinger equation is Gaussian.
-This simulation was performed with GPUE~\cite{schloss2018} for a two-dimensional grid of $256^2$ elements of size $250 \mu m$ with a trapping potential of $\omega_x = \omega_y = 1$, and $1\times 10^6$ particles.}
+This simulation was performed with GPUE~\cite{schloss2018} for a two-dimensional grid of $256^2$ elements of size $250 \mu m$ with a trapping potential of $\omega_x = \omega_y = 1$, and $5\times 10^4$ particles.}
 \label{fig:TF}
 \end{figure}
 
@@ -331,7 +331,7 @@ For repulsive interactions, the healing length is
 Simulation of rotation with a single vortex (a, b) and a vortex lattice (c, d).
 The wavefunction density is shown in a and c, while the corresponding phase is shown in b and d.
 A rotation of $\Omega = 0.35\omega_x$ was used for a and b, while a rotation of $\Omega = 0.99\omega_x$ was used for c and d.
-Here, we use a Rubidium 87 atom with $\omega_x = 2\pi$Hz on a 512-point grid of size 200 $\mu$m.
+Here, we use a $^87$ Rb atom with $\omega_x = 2\pi$Hz on a 512-point grid of size 200 $\mu$m.
 This simulation was performed with the GPUE codebase \cite{schloss2018}, and the phase plots are created by multiplying the phase by the wavefunction density to remove anomalous noise beyond the BEC boundary.
 \jrs{WIP}}
 \label{fig:rot}
@@ -378,7 +378,11 @@ In addition, if the rotation frequency is greater than the trapping frequency, t
 As such, finding the appropriate rotation frequency for creating vortex lattices in BEC systems is a precarious balancing act.
 Even so, large scale vortex lattices have been generated both experimentally and theoretically, with the largest vortex lattices being generated with $\Omega \approx \omega_\perp$ \cite{o2016, o2016topo, abo2001, schweikhard2004}.
 
-Experimentally, rotation is achieved by...
+Experimentally, rotation for a small number of vortices can be generated in a number of ways, such as a ``rotating bucket'' approach that has been extended to bosonic systems~\cite{chevy2006}.
+For this method, bosons are confined to a magnetic trap and an anisotropic potential is superimposed that rotate with the desired angular velocity~\cite{madison2000,abo2001,hodby2001,haljan2001}.
+For rotation velocities near the harmonic trapping frequency, additional methods must be used to ensure the atoms remain in-place.
+These methods include adding an extra confining potential~\cite{bretin2004}, or the evaporative spin-up technique, where atoms with less angular momentum are evaporated such that the remaining atoms have a higher rotation speed~\cite{schweikhard2004,engels2003}.
+
 
 In this work, we use rotation in a qualitatively similar way to Equation~\eqref{eqn:GPErot}; however, we will later introduce artificial magnetic fields, which is a broader framework that encompass rotation and will be used in all our simulations moving forward.
 We will discuss this in more detail in Section~\ref{sec:implementation}.

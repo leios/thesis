@@ -15,7 +15,7 @@ set xtics ("-100" 128, "-50" 192, "0" 256, "50" 320, "100" 384)
 
 set xlabel 'time ($\mu$s)'
 set key center top
-set cblabel 'wavefunction density (arb. units)'
+set cblabel 'normalized density'
 #set key box opaque
 #set border back
 set palette defined ( 0 "blue", 1 "white", 2 "red") 

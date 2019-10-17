@@ -321,6 +321,28 @@ V.~Schweikhard, I.~Coddington, P.~Engels, V.~P. Mogendorff, and E.~A. Cornell.
   lowest landau level.
 \newblock {\em Phys. Rev. Lett.}, 92:040404, Jan 2004.
 
+\bibitem{chevy2006}
+F~Chevy and J~Dalibard.
+\newblock Rotating bose-einstein condensates.
+\newblock {\em Europhysics News}, 37(1):12--16, 2006.
+
+\bibitem{hodby2001}
+E~Hodby, G~Hechenblaikner, SA~Hopkins, OM~Marago, and CJ~Foot.
+\newblock Vortex nucleation in bose-einstein condensates in an oblate, purely
+  magnetic potential.
+\newblock {\em Physical review letters}, 88(1):010405, 2001.
+
+\bibitem{haljan2001}
+PC~Haljan, I~Coddington, Peter Engels, and Eric~A Cornell.
+\newblock Driving bose-einstein-condensate vorticity with a rotating normal
+  cloud.
+\newblock {\em Physical review letters}, 87(21):210403, 2001.
+
+\bibitem{bretin2004}
+Vincent Bretin, Sabine Stock, Yannick Seurin, and Jean Dalibard.
+\newblock Fast rotation of a bose-einstein condensate.
+\newblock {\em Physical review letters}, 92(5):050403, 2004.
+
 \bibitem{kumar2018}
 Avinash Kumar, Romain Dubessy, Thomas Badr, Camilla De~Rossi, Mathieu
   de~Go{\"e}r de~Herve, Laurent Longchambon, and H{\'e}l{\`e}ne Perrin.
@@ -913,11 +935,6 @@ Tiantian Zhang, James Schloss, Andreas Thomasen, Lee~James O'Riordan, Thomas
 Alan Wolf, Jack~B Swift, Harry~L Swinney, and John~A Vastano.
 \newblock Determining lyapunov exponents from a time series.
 \newblock {\em Physica D: Nonlinear Phenomena}, 16(3):285--317, 1985.
-
-\bibitem{zhang2017}
-Tiantian Zhang.
-\newblock Chaotic vortex dynamics in bose-einstein condensates.
-\newblock Master's thesis, NTNU, 2017.
 
 \bibitem{wacks2014}
 Daniel~H Wacks, Andrew~W Baggaley, and Carlo~F Barenghi.

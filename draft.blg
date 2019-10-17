@@ -3,46 +3,44 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: draft.aux
 The style file: unsrt.bst
 Database file #1: Preamble/Thesis_bibliography.bib
-Warning--empty journal in koza1997
 You've used 35 entries,
             1791 wiz_defined-function locations,
-            674 strings with 9110 characters,
-and the built_in function-call counts, 8198 in all, are:
-= -- 708
-> -- 375
-< -- 2
-+ -- 139
-- -- 104
-* -- 657
-:= -- 1344
-add.period$ -- 106
+            663 strings with 10188 characters,
+and the built_in function-call counts, 8398 in all, are:
+= -- 651
+> -- 519
+< -- 0
++ -- 186
+- -- 151
+* -- 726
+:= -- 1434
+add.period$ -- 103
 call.type$ -- 35
-change.case$ -- 34
+change.case$ -- 32
 chr.to.int$ -- 0
-cite$ -- 36
-duplicate$ -- 326
-empty$ -- 793
-format.name$ -- 104
+cite$ -- 35
+duplicate$ -- 308
+empty$ -- 765
+format.name$ -- 151
 if$ -- 1767
 int.to.chr$ -- 0
 int.to.str$ -- 35
-missing$ -- 36
-newline$ -- 178
+missing$ -- 34
+newline$ -- 176
 num.names$ -- 35
-pop$ -- 53
+pop$ -- 49
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 123
+skip$ -- 116
 stack$ -- 0
-substring$ -- 662
-swap$ -- 44
-text.length$ -- 2
+substring$ -- 566
+swap$ -- 35
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 1
-while$ -- 77
+warning$ -- 0
+while$ -- 73
 width$ -- 37
-write$ -- 384
-(There was 1 warning)
+write$ -- 378
