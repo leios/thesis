@@ -19,10 +19,10 @@
 \BOOKMARK [0][-]{chapter.2}{Quantum engineering for one-dimensional quantum systems}{}% 19
 \BOOKMARK [1][-]{section.2.1}{Optimization methods}{chapter.2}% 20
 \BOOKMARK [2][-]{subsection.2.1.1}{Nelder\205Mead}{section.2.1}% 21
-\BOOKMARK [2][-]{subsection.2.1.2}{Chopped random basis}{section.2.1}% 22
+\BOOKMARK [2][-]{subsection.2.1.2}{Chopped random basis optimal control}{section.2.1}% 22
 \BOOKMARK [1][-]{section.2.2}{Shortcuts to adiabaticity}{chapter.2}% 23
 \BOOKMARK [1][-]{section.2.3}{Non-adiabatic generation of NOON states in a Tonks\205Girardeau gas}{chapter.2}% 24
-\BOOKMARK [2][-]{subsection.2.3.1}{TG gas}{section.2.3}% 25
+\BOOKMARK [2][-]{subsection.2.3.1}{Tonks\205Girardeau gas}{section.2.3}% 25
 \BOOKMARK [2][-]{subsection.2.3.2}{NOON states in TG gas}{section.2.3}% 26
 \BOOKMARK [2][-]{subsection.2.3.3}{Results with optimal control}{section.2.3}% 27
 \BOOKMARK [2][-]{subsection.2.3.4}{Results with STA protocols}{section.2.3}% 28
@@ -36,34 +36,36 @@
 \BOOKMARK [1][-]{section.3.3}{Introduction to the GPUE codebase for n-dimensional simulations of quantum systems on the GPU}{chapter.3}% 36
 \BOOKMARK [2][-]{subsection.3.3.1}{FFT optimization}{section.3.3}% 37
 \BOOKMARK [2][-]{subsection.3.3.2}{Dynamic field input and output in GPUE with expression trees}{section.3.3}% 38
-\BOOKMARK [2][-]{subsection.3.3.3}{Vortex tracking and highlighting}{section.3.3}% 39
-\BOOKMARK [2][-]{subsection.3.3.4}{Energy calculation for superfluid simulations}{section.3.3}% 40
-\BOOKMARK [2][-]{subsection.3.3.5}{Future direction and multi-GPU development}{section.3.3}% 41
+\BOOKMARK [2][-]{subsection.3.3.3}{GPUE memory footprint}{section.3.3}% 39
+\BOOKMARK [2][-]{subsection.3.3.4}{Vortex tracking and highlighting}{section.3.3}% 40
+\BOOKMARK [2][-]{subsection.3.3.5}{Energy calculation for superfluid simulations}{section.3.3}% 41
 \BOOKMARK [2][-]{subsection.3.3.6}{Similar software packages}{section.3.3}% 42
-\BOOKMARK [1][-]{section.3.4}{DistributedTranspose.jl}{chapter.3}% 43
-\BOOKMARK [0][-]{chapter.4}{Vortex analysis of two-dimensional superfluid systems}{}% 44
-\BOOKMARK [1][-]{section.4.1}{Chaotic few-body vortex dynamics in rotating Bose\205Einstein condensates}{chapter.4}% 45
-\BOOKMARK [1][-]{section.4.2}{Model}{chapter.4}% 46
-\BOOKMARK [1][-]{section.4.3}{Regular and irregular vortex dynamics}{chapter.4}% 47
-\BOOKMARK [1][-]{section.4.4}{Characterizing chaotic vortex dynamics}{chapter.4}% 48
-\BOOKMARK [1][-]{section.4.5}{Outlook}{chapter.4}% 49
-\BOOKMARK [0][-]{chapter.5}{Generation, control and detection of 3D vortex structures in superfluid systems}{}% 50
-\BOOKMARK [1][-]{section.5.1}{Vortex ring dynamics in BEC systems}{chapter.5}% 51
-\BOOKMARK [1][-]{section.5.2}{Controlled creation of three-dimensional vortex structures in Bose\205Einstein condensates using artificial magnetic fields}{chapter.5}% 52
-\BOOKMARK [2][-]{subsection.5.2.1}{Bose\205Einstein condensate dynamics in the presence of an optical nanofiber}{section.5.2}% 53
-\BOOKMARK [2][-]{subsection.5.2.2}{Ground state vortex configurations}{section.5.2}% 54
-\BOOKMARK [2][-]{subsection.5.2.3}{Dynamic vortex detection and scissor modes}{section.5.2}% 55
-\BOOKMARK [1][-]{section.5.3}{Conclusion}{chapter.5}% 56
-\BOOKMARK [0][-]{section*.67}{Conclusion}{}% 57
-\BOOKMARK [1][-]{section.5.4}{Overall conclusions}{section*.67}% 58
-\BOOKMARK [1][-]{section.5.5}{Further development of GPUE}{section*.67}% 59
-\BOOKMARK [2][-]{subsection.5.5.1}{Vortex tracking in n dimensions}{section.5.5}% 60
-\BOOKMARK [2][-]{subsection.5.5.2}{General purpose Hamiltonian solver}{section.5.5}% 61
-\BOOKMARK [1][-]{section.5.6}{Future simulations of quantum systems}{section*.67}% 62
-\BOOKMARK [0][-]{appendix.A}{Simple vector additions in CUDA, OpenCL, and JuliaGPU}{}% 63
-\BOOKMARK [1][-]{section.A.1}{Vector addition with C++}{appendix.A}% 64
-\BOOKMARK [1][-]{section.A.2}{Vector addition with CUDA}{appendix.A}% 65
-\BOOKMARK [1][-]{section.A.3}{Vector addition with OpenCL}{appendix.A}% 66
-\BOOKMARK [1][-]{section.A.4}{Julia}{appendix.A}% 67
-\BOOKMARK [0][-]{section*.70}{Bibliography}{}% 68
-\BOOKMARK [0][-]{section*.72}{Published articles}{}% 69
+\BOOKMARK [2][-]{subsection.3.3.7}{Future direction and multi-GPU development}{section.3.3}% 43
+\BOOKMARK [1][-]{section.3.4}{DistributedTranspose.jl}{chapter.3}% 44
+\BOOKMARK [1][-]{section.3.5}{Outlook}{chapter.3}% 45
+\BOOKMARK [0][-]{chapter.4}{Chaotic vortex analysis of two-dimensional superfluid systems for few-vortex systems}{}% 46
+\BOOKMARK [1][-]{section.4.1}{Model}{chapter.4}% 47
+\BOOKMARK [1][-]{section.4.2}{Regular and irregular vortex dynamics}{chapter.4}% 48
+\BOOKMARK [1][-]{section.4.3}{Characterizing chaotic vortex dynamics}{chapter.4}% 49
+\BOOKMARK [1][-]{section.4.4}{Outlook}{chapter.4}% 50
+\BOOKMARK [0][-]{chapter.5}{Generation, control and detection of 3D vortex structures in superfluid systems}{}% 51
+\BOOKMARK [1][-]{section.5.1}{Three-dimensional vortex structures}{chapter.5}% 52
+\BOOKMARK [1][-]{section.5.2}{Controlled creation of three-dimensional vortex structures in Bose\205Einstein condensates using artificial magnetic fields}{chapter.5}% 53
+\BOOKMARK [2][-]{subsection.5.2.1}{Bose\205Einstein condensate dynamics in the presence of an optical nanofiber}{section.5.2}% 54
+\BOOKMARK [2][-]{subsection.5.2.2}{Ground state vortex configurations}{section.5.2}% 55
+\BOOKMARK [2][-]{subsection.5.2.3}{Dynamic vortex detection and scissor modes}{section.5.2}% 56
+\BOOKMARK [1][-]{section.5.3}{Conclusion}{chapter.5}% 57
+\BOOKMARK [0][-]{section*.67}{Conclusion}{}% 58
+\BOOKMARK [1][-]{section.5.4}{Overall conclusions}{section*.67}% 59
+\BOOKMARK [1][-]{section.5.5}{Further development of GPUE}{section*.67}% 60
+\BOOKMARK [2][-]{subsection.5.5.1}{Vortex tracking in two and three dimensions}{section.5.5}% 61
+\BOOKMARK [2][-]{subsection.5.5.2}{General purpose Hamiltonian solver}{section.5.5}% 62
+\BOOKMARK [2][-]{subsection.5.5.3}{Octree grid}{section.5.5}% 63
+\BOOKMARK [1][-]{section.5.6}{Future simulations of quantum systems}{section*.67}% 64
+\BOOKMARK [0][-]{appendix.A}{Simple vector additions in CUDA, OpenCL, and JuliaGPU}{}% 65
+\BOOKMARK [1][-]{section.A.1}{Vector addition with C++}{appendix.A}% 66
+\BOOKMARK [1][-]{section.A.2}{Vector addition with CUDA}{appendix.A}% 67
+\BOOKMARK [1][-]{section.A.3}{Vector addition with OpenCL}{appendix.A}% 68
+\BOOKMARK [1][-]{section.A.4}{Julia}{appendix.A}% 69
+\BOOKMARK [0][-]{section*.70}{Bibliography}{}% 70
+\BOOKMARK [0][-]{section*.72}{Published articles}{}% 71

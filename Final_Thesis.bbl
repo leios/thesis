@@ -41,6 +41,17 @@ Matteo Frigo and Steven~G Johnson.
   Acoustics, Speech and Signal Processing, ICASSP'98 (Cat. No. 98CH36181)},
   volume~3, pages 1381--1384. IEEE, 1998.
 
+\bibitem{popovici2018}
+Doru~Thom Popovici, Tze~Meng Low, and Franz Franchetti.
+\newblock Large bandwidth-efficient ffts on multicore and multi-socket systems.
+\newblock In {\em 2018 IEEE International Parallel and Distributed Processing
+  Symposium (IPDPS)}, pages 379--388. IEEE, 2018.
+
+\bibitem{merz2016}
+HUGH Merz.
+\newblock Cufft 1.1/2.0 vs fftw 3.1. 2 (x86\_64) vs fftw 3.2 (cell) comparison,
+  2016.
+
 \bibitem{brehler2017}
 Marius Brehler, Malte Schirwon, Dominik G{\"o}ddeke, and Peter~M Krummrich.
 \newblock A gpu-accelerated fourth-order runge--kutta in the interaction
@@ -155,6 +166,17 @@ Roland~A Sweet.
 \newblock A cyclic reduction algorithm for solving block tridiagonal systems of
   arbitrary dimension.
 \newblock {\em SIAM Journal on Numerical Analysis}, 14(4):706--720, 1977.
+
+\bibitem{benzi1992}
+R~Benzi, M~Colella, M~Briscolini, and Paolo Santangelo.
+\newblock A simple point vortex model for two-dimensional decaying turbulence.
+\newblock {\em Physics of Fluids A: Fluid Dynamics}, 4(5):1036--1039, 1992.
+
+\bibitem{schwarz1988}
+KW~Schwarz.
+\newblock Three-dimensional vortex dynamics in superfluid he 4: Homogeneous
+  superfluid turbulence.
+\newblock {\em Physical Review B}, 38(4):2398, 1988.
 
 \bibitem{strang1968}
 Gilbert Strang.
@@ -343,6 +365,12 @@ Vincent Bretin, Sabine Stock, Yannick Seurin, and Jean Dalibard.
 \newblock Fast rotation of a bose-einstein condensate.
 \newblock {\em Physical review letters}, 92(5):050403, 2004.
 
+\bibitem{engels2003}
+Peter Engels, I~Coddington, PC~Haljan, Volker Schweikhard, and Eric~A Cornell.
+\newblock Observation of long-lived vortex aggregates in rapidly rotating
+  bose-einstein condensates.
+\newblock {\em Physical review letters}, 90(17):170405, 2003.
+
 \bibitem{kumar2018}
 Avinash Kumar, Romain Dubessy, Thomas Badr, Camilla De~Rossi, Mathieu
   de~Go{\"e}r de~Herve, Laurent Longchambon, and H{\'e}l{\`e}ne Perrin.
@@ -429,6 +457,24 @@ A.~Tonomura M.~Peshkin.
 \newblock {\em The Aharonov--Bohm Effect}, volume 340.
 \newblock Springer-Verlag, 1989.
 
+\bibitem{kasamatsu2005}
+Kenichi Kasamatsu, Makoto Tsubota, and Masahito Ueda.
+\newblock Vortices in multicomponent bose--einstein condensates.
+\newblock {\em International Journal of Modern Physics B}, 19(11):1835--1904,
+  2005.
+
+\bibitem{bao2004}
+Weizhu Bao.
+\newblock Ground states and dynamics of multicomponent bose--einstein
+  condensates.
+\newblock {\em Multiscale Modeling \& Simulation}, 2(2):210--236, 2004.
+
+\bibitem{mason2013}
+Peter Mason.
+\newblock Ground states of two-component condensates in a harmonic plus
+  gaussian trap.
+\newblock {\em The European Physical Journal B}, 86(11):453, 2013.
+
 \bibitem{werschnik2007}
 J~Werschnik and EKU Gross.
 \newblock Quantum optimal control theory.
@@ -497,16 +543,6 @@ H~Ralph Lewis and PGL Leach.
 \newblock A direct approach to finding exact invariants for one-dimensional
   time-dependent classical hamiltonians.
 \newblock {\em Journal of Mathematical Physics}, 23(12):2371--2374, 1982.
-
-\bibitem{isreal2012}
-Y.~Israel, I.~Afek, S.~Rosen, O.~Ambar, and Y.~Silberberg.
-\newblock Experimental tomography of noon states with large photon numbers.
-\newblock {\em Phys. Rev. A}, 85:022115, Feb 2012.
-
-\bibitem{afek2010}
-Itai Afek, Oron Ambar, and Yaron Silberberg.
-\newblock High-noon states by mixing quantum and classical light.
-\newblock {\em Science}, 328(5980):879--881, 2010.
 
 \bibitem{girardeau2001ground}
 M.~D. Girardeau, E.~M. Wright, and J.~M. Triscari.
@@ -736,6 +772,11 @@ Robert~F Cohen and Roberto Tamassia.
 Ruyman Reyes and Francisco de~Sande.
 \newblock Automatic code generation for gpus in llc.
 \newblock {\em The Journal of Supercomputing}, 58(3):349--356, 2011.
+
+\bibitem{davenport2012}
+Mark~A Davenport, Marco~F Duarte, Yonina~C Eldar, and Gitta Kutyniok.
+\newblock Introduction to compressed sensing.
+\newblock {\em Compressed sensing: theory and applications}, 105:106, 2012.
 
 \bibitem{docs}
 James Schloss and Lee O'riordan.
@@ -986,49 +1027,10 @@ L.~D. Landau and E.~M. Lifshitz.
 \newblock {\em Fluid Mechanics}.
 \newblock Butterworth-Heinemann, 1987.
 
-\bibitem{schwarz1985}
-K.~W. Schwarz.
-\newblock Three-dimensional vortex dynamics in superfluid $^{4}\mathrm{He}$:
-  Line-line and line-boundary interactions.
-\newblock {\em Phys. Rev. B}, 31:5782--5804, May 1985.
-
-\bibitem{zuccher2012}
-S.~Zuccher, M.~Caliari, A.~W. Baggaley, and C.~F. Barenghi.
-\newblock Quantum vortex reconnections.
-\newblock {\em Physics of Fluids}, 24(12), 2012.
-
 \bibitem{donnelly1991}
 R.~Donnelly.
 \newblock {\em Quantized Vortices in Helium II}.
 \newblock Cambridge University Press, 1991.
-
-\bibitem{barenghi2009}
-C~F Barenghi and R~J Donnelly.
-\newblock Vortex rings in classical and quantum systems.
-\newblock {\em Fluid Dynamics Research}, 41(5):051401, 2009.
-
-\bibitem{roberts1971}
-P.~H. Roberts and J.~Grant.
-\newblock Motions in a bose condensate. {I}: The structure of a large circular
-  vortex.
-\newblock {\em J. Phys.}, 4:55, 1971.
-
-\bibitem{roberts1970}
-P.~H. Roberts and R.~J. Donnelly.
-\newblock Dynamics of vortex rings.
-\newblock {\em Phys. Lett.}, 31A:137, 1970.
-
-\bibitem{fraenkel1970}
-L.~E. Fraenkel.
-\newblock On steady vortex rings of small cross-section in an ideal fluid.
-\newblock {\em Proceedings of the Royal Society of London A: Mathematical ,
-  Physical and Engineering Sciences}, 316(1524):29--62, 1970.
-
-\bibitem{fraenkel1972}
-L.~E. Fraenkel.
-\newblock Examples of steady vortex rings of small cross-section in an ideal
-  fluid.
-\newblock {\em Journal of Fluid Mechanics}, 51:119--135, 1 1972.
 
 \bibitem{sommerfield1950}
 A.~Sommerfield.
@@ -1067,18 +1069,6 @@ B.~Jackson, J.~F. McCann, and C.~S. Adams.
 \newblock Vortex line and ring dynamics in trapped {B}ose--{E}instein
   condensates.
 \newblock {\em Phys. Rev. A}, 61:013604, Dec 1999.
-
-\bibitem{jones1982}
-C~A Jones and P~H Roberts.
-\newblock Motions in a bose condensate. iv. axisymmetric solitary waves.
-\newblock {\em Journal of Physics A: Mathematical and General}, 15(8):2599,
-  1982.
-
-\bibitem{berloff2005}
-Natalia~G. Berloff.
-\newblock Solitary waves on vortex lines in ginzburg-landau models for the
-  example of bose-einstein condensates.
-\newblock {\em Phys. Rev. Lett.}, 94:010403, Jan 2005.
 
 \bibitem{ruostekoski2001}
 J.~Ruostekoski and J.~R. Anglin.
@@ -1247,5 +1237,11 @@ Vladimir~Georgievich Minogin and S{\'\i}le~Nic Chormaic.
 \newblock Manifestation of the van der waals surface interaction in the
   spontaneous emission of atoms into an optical nanofiber.
 \newblock {\em Laser Physics}, 20(1):32--37, 2010.
+
+\bibitem{revels2018}
+Jarrett Revels, Tim Besard, Valentin Churavy, Bjorn De~Sutter, and Juan~Pablo
+  Vielma.
+\newblock Dynamic automatic differentiation of gpu broadcast kernels.
+\newblock {\em arXiv preprint arXiv:1810.08297}, 2018.
 
 \end{thebibliography}

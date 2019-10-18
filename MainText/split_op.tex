@@ -2,18 +2,18 @@
 \label{ch:splitop}
 The Split-Step Fourier Method (SSFM) is an essential technique for simulating a variety of physical systems and is particularly useful for simulating the propagation of wave packets in single and multimode fibers~\cite{agrawal2000, sinkin2003, meirelles2005, min2003} and in various quantum systems~\cite{bayindir2015, weideman1986, wang2005}.
 Though other methods, such as explicit and implicit Euler~\cite{butcher2016}, Crank-Nicholson~\cite{crank1947}, and Runge-Kutta~\cite{butcher2016}, can solve similar differential equations, the SSFM has distinct advantages over these methods.
-For example, the SSFM is often much easier to parallelize than Runge-Kutta~\cite{brehler2017}, as it primarily relies on embarrassingly parallel element-wise matrix multiplications and Fast Fourier Transform (FFT) routines that have been optimized for parallel and distributed systems.
+For example, because the SSFM primarily relies on embarrassingly parallel element-wise matrix multiplications and Fast Fourier Transform (FFT) routines that have been optimized for parallel and distributed systems, is often much easier to parallelize than Runge-Kutta~\cite{brehler2017}.
 The SSFM also provides a lower error bound than either the Euler or Crank-Nicholson methods, and does not require an implicit or tridiagonal solver \cite{conte2017, thomas1949} which are also not easily parallelizable~\cite{goddeke2010, wang1981, sweet1977}.
-Though much of this work focuses on using the SSFM to simulate superfluid vortex states, I will not be discussing alternative methods, such as vortex-point or vortex-filament simulations in rigorous detail, as this work focuses primarily on engineering appropriate quantum states, while vortex-point and vortex filament methods focus primarily on vortex structures, themselves.
+Though much of this work focuses on using the SSFM to simulate superfluid vortex states, I will not be discussing alternative methods, such as point-vortex~\cite{benzi1992} or vortex-filament~\cite{schwarz1988} simulations in rigorous detail, as this work focuses primarily on engineering appropriate quantum states, while vortex-point and vortex filament methods focus primarily on vortex structures, themselves.
 
-In the work presented here, I will be focusing on the application of the SSFM to superfluid vortex simulations and will use primarily physical arguments to understand the details of the method itself.
+In the work presented in this chapter, I will be focusing on the application of the SSFM to superfluid vortex simulations and will use primarily physical arguments to understand the details of the method itself.
 I will also discuss several numerical techniques for optimally simulating quantum systems on massively parallel Graphics Processing Units (GPUs), along with software developed for this purpose: GPUE, the Graphics Processing Unit Gross-Pitaevskii Equation Solver.
 More details about General Purpose computing with Graphics Processing Units (GPGPU) and the GPUE simulation software can be found in Chapter~\ref{ch:gpu}.
 There, I will discuss several additional areas of interest for implementing similar solvers on GPUs, including distributed transposes and important considerations for traditional FFT routines for simulating quantum systems on multiple GPU devices.
 
-This chapter will assume familiarity with basic principles of quantum mechanics and focus on specific performance considerations for simulating quantum systems with the SSFM.
-As such, I will also introduce important physical insights for understanding ultracold atomic systems.
-In particular, I will focus on understanding superfluid systems created by Bose--Einstein condensation and methods by which we can generate and control vortex dynamics in a Bose--Einstein Condensate (BEC).
+This chapter will assume familiarity with basic principles of quantum mechanics and focus on considerations for simulating quantum systems with the SSFM.
+As such, I will also introduce important physical insights for understanding ultracold atomic systems that will be used throughout the rest of this work.
+In particular, I will focus on understanding superfluid systems created by Bose--Einstein condensation and methods by which vortex structures can be generated and controlled in a Bose--Einstein Condensate (BEC).
 
 
 \section{The SSFM}
@@ -25,7 +25,7 @@ i\hbar \frac{\partial \Psi(r, t)}{\partial t} = \left(\frac{p^2}{2m} + V_0(\math
 \end{equation}
 
 \noindent where $\hat p = -i\hbar\frac{\partial}{\partial x}$ is the canonical momentum operator, $m$ is the mass, $V_0(\mathbf{r})$ is the trapping potential, and $\Psi(r,t)$ is the single-particle wavefunction.
-In this case, we often replace most of the right-hand side of the equation with a Hamiltonian operator, which for this case would be $\mathcal{\hat H} = \frac{p^2}{2m} + V_0(\mathbf{r})$.
+In this case, one often replace most of the right-hand side of the equation with a Hamiltonian operator, which for this case would be $\mathcal{\hat H} = \frac{p^2}{2m} + V_0(\mathbf{r})$.
 This noticeably has two components, one acting in position-space, $\mathcal{\hat H}_v = V_0(\mathbf{r})$ and another in momentum-space, $\mathcal{\hat H}_p = \frac{\hat p^2}{2m}$.
 For consistency, I will denote all variables in momentum-space with a $p$, and real-space with a $v$.
 Additionally, the wavefunction can be expanded into a complete set of eigenkets of the Hamiltonian, with $\mathcal{\hat H}\ket{\Psi_n} = E_n\ket{\Psi_n}$.
@@ -37,8 +37,8 @@ One can then write
 
 \noindent where $N$ is the total number of states in the system, $c_n$ is a constant for each constituent eigenfunction $\psi_n(\mathbf{r})$.
 
-Simply stated, the SSFM splits the Hamiltonian into separate operators and uses a Fourier transform on the wavefunction to ensure that these operators are applied in the natural space.
-In order to apply the Hamiltonian to the system, we first use a formal solution to the Schr\"odinger equation,
+Simply stated, the SSFM splits the Hamiltonian into separate operators and uses a Fourier transform on the wavefunction to ensure that these operators are applied in the appropriate space.
+In order to apply the Hamiltonian to the system, one first assumes a formal solution to the Schr\"odinger equation,
 
 \begin{equation}
 \Psi(\mathbf{r},t + dt) = \left[e^{-\frac{i\mathcal{\hat{H}}dt}{\hbar}}\right]\Psi(\mathbf{r},t) = \left[e^{-\frac{i(\mathcal{\hat{H}}_v + \mathcal{\hat{H}}_p)dt}{\hbar}}\right]\Psi(\mathbf{r},t),
@@ -64,15 +64,16 @@ Strang splitting can be best understood by performing a Taylor series expansion 
 When expanded,
 \begin{equation}
 e^{h(A+B)} \approx \mathbf{I} + h(\mathbf{A} + \mathbf{B}) + \frac{1}{2}h^2(\mathbf{A} + \mathbf{B})^2.
+\label{eqn:tstrang}
 \end{equation}
 
 \noindent where $\mathbf{I}$ is the identity matrix.
-To the second order terms, the expansion is identical to the expansion of $e^{h\mathbf{A}}e^{h\mathbf{B}}$; however, when expanding the last term, we find,
+Here, the first-order terms for the expansion in Equation~\eqref{eqn:tstrang} is identical to the expansion of $e^{h\mathbf{A}}e^{h\mathbf{B}}$; however, when expanding the last term, we find,
 \begin{equation}
 \frac{1}{2}h^2(\mathbf{A} + \mathbf{B})^2 = \frac{1}{2}\left( \mathbf{A}^2 + \mathbf{AB} + \mathbf{BA} + \mathbf{B}^2\right).
 \end{equation}
 
-\noindent Here, the $\mathbf{BA}$ term with the expansion of $e^{h\mathbf{A}}e^{h\mathbf{B}}$ because $\mathbf{A}$ always comes before $\mathbf{B}$.
+\noindent Here, the $\mathbf{BA}$ term is missing in the expansion of $e^{h\mathbf{A}}e^{h\mathbf{B}}$ because $\mathbf{A}$ always comes before $\mathbf{B}$.
 If a symmetric splitting is used instead, it is clear that all the terms up to the second order are the same, such that $e^{h(\mathbf{A}+\mathbf{B})} \approx e^{h\mathbf{A}/2}e^{h\mathbf{B}}e^{h\mathbf{A}/2}$.
 
 Because position and momentum are conjugate domains, after Strang splitting we address each part of this solution in chunks, first in position space, then in momentum space, then in position space again by using Fourier transforms.
@@ -83,9 +84,9 @@ Which looks something like this:
 \end{equation}
 
 \noindent where $\hat{U}_r = e^{-\frac{i\mathcal{\hat{H}}_vdt}{2\hbar}}$, $\hat{U}_p = e^{-\frac{i\mathcal{\hat{H}}_pdt}{\hbar}}$, and $\mathcal{F}$ and $\mathcal{F}^{-1}$ indicate forward and inverse Fourier transforms.
-In practice, these Fourier transforms are performed with Fast Fourier Transforms (FFTs), which typically use a variation on the Cooley-Tukey method, which was first discovered by Gauss and later contemporized by Cooley and Tukey when they independently discovered it \cite{cooley1965}.
+In practice, these Fourier transforms are performed with Fast Fourier Transforms (FFTs), typically using a variation on the Cooley-Tukey method, which was first discovered by Gauss and later contemporized by Cooley and Tukey when they independently discovered it \cite{cooley1965}.
 This method is not straightforwardly parallelizable; however, FFTs have become so fundamental to signal processing, that they have been incredibly well-optimized with several libraries, including FFTW~\cite{frigo1998} and CuFFT~\cite{fatica2008} for distributed and GPU calculations, respectively.
-We will discuss optimal techniques for using FFTs with the SSFM method in Chapter~\ref{ch:gpu}.
+I will discuss optimal techniques for using FFTs with the SSFM method in Chapter~\ref{ch:gpu}.
 
 Each timestep of the SSFM is essentially composed of the following steps:
 
@@ -123,24 +124,24 @@ This changes the solution from the complex sinusoid shown in Equation~\eqref{eqn
 
 \noindent This has two notable effects:
 \begin{enumerate}
-\item There will be an exponential decay of all higher-energy states, leaving only the ground state.
+\item There will be an exponential decay of all energy states, with higher-energy states decaying faster than the ground-state.
 \item We see an exponential decay in the wavefunction density and therefore require renormalization regularly during the imaginary-time evolution.
 \end{enumerate}
 Let me start with a discussion on the first point, by showing a simulation of the same system as in Figure~\ref{fig:evolve}(a), but in imaginary time, shown in Figure~\ref{fig:evolve}(b).
 Here, we see that the wavefunction density is shifting to the center of the trap, and
 in Figure~\ref{fig:evolve}(c), we see the energy decaying to the known ground-state energy of a quantum harmonic oscillator of $\frac{1}{2}\hbar\omega = 3.31\times 10^{-33}$.
+This is because all eigenstates of the wavefunction are affected by the exponential decay, with the ground state decaying the slowest, and because renormalization occurs every timestep, only the ground state will survive imaginary time propagation.
+
 Here, the energy is computed as,
 \begin{equation}
 E = \braket{\Psi(\mathbf{r})|\hat H|\Psi(\mathbf{r})}
 \label{eqn:energy}
 \end{equation}
-This is because all eigenstates of the wavefunction are affected by the exponential decay, with the ground state decaying the slowest, and because renormalization occurs every timestep, only the ground state will survive imaginary time propagation.
-
 For many systems, we can assume the simulation is in the ground state when the energy converges to a fixed value.
 More quantitatively, this means that the simulation can be completed when the change in energy every step in imaginary time is below some provided threshold; however, this is not always the best course-of-action.
 Further discussion on energy calculations performed in this work will be shown in Chapter~\ref{ch:gpu}.
 
-Now to discuss the second point, which is more problematic from a software perspective.
+Now to discuss the second point, which is problematic from a software perspective.
 In practice, every step in imaginary time requires a relatively costly renormalization step with
 
 \begin{equation}
@@ -153,7 +154,18 @@ Computationally, this operation requires a summation, which is not well-optimize
 Even so, the normalization is still a slow operation and should be used sparingly.
 
 The implementation of the SSFM provided here assumes large-scale element-wise matrix multiplications in position and momentum-space; however, even though this implementation lends itself to parallelization, we will see other methods in Chapter~\ref{ch:gpu} when we discuss the implementation of the SSFM on graphics processing units.
-Now we will turn our focus to systems to be simulated via the SSFM throughout this work: ultracold atoms.
+
+It is important to note that the complexity of the SSFM is similar to the complexity of a convolution via the convolutional theorem,
+\begin{equation}
+f * g = \mathcal(F)^{-1}\left(\mathcal{F}(f)\cdot\mathcal{F}(g)\right).
+\end{equation}
+Here, $f$ and $g$ are arbitrarily chosen functions to be convolved.
+In fact, interpreting the method as a series of convolutions can lead to important insight as to how the method operates.
+For example, in imaginary time, the momentum-space operator becomes a Gaussian and the position-space operator becomes a more tightly-confining potential.
+In this way, every time-step in imaginary time corresponds to a blurring operation with the momentum-space step and strong confinement with the position-space steps.
+Real-time propagation can be interpreted in a similar way, as the momentum-space operator is similar to the Fourier transform of two Sobel filters, thereby performing two spatial derivatives.
+In Chapter~\ref{ch:gpu}, I will discuss this further in combination with how derivatives can be performed on GPU architecture, but for now
+I will turn the focus to systems to be simulated via the SSFM throughout this work: ultracold atoms.
 
 \section{Introduction to ultracold quantum systems}
 \label{sec:intro}
@@ -174,7 +186,7 @@ For now, we will focus on BEC systems, but will also discuss Tonks--Girardeau ga
 
 For this section, we will follow a straightforward derivation using the second quantization~\cite{aversa2008}.
 As mentioned in Section~\ref{sec:intro}, bosons in a BEC condense into a single ground state, meaning we must introduce a many-body Hamiltonian for the system and take inter-particle interactions into account.
-Because experimental syustems are dilute, we will only consider two-body interactions and assume any interactions between three or more atoms to be unlikely and negligible.
+Because experimental systems are dilute, we will only consider two-body interactions and assume any interactions between three or more atoms to be unlikely and negligible.
 We can write the Hamiltonian with two body interactions in the second quantized form as
 \begin{equation}
     \mathcal{\hat H} = \int \hat \Psi^\dagger(\mathbf{r})\left[-\frac{\hbar^2}{2m}\nabla^2 + V_0(\mathbf{r}) \right]\hat \Psi(\mathbf{r}) d\mathbf{r} + \frac{1}{2} \int  \hat \Psi^\dagger(\mathbf{r}) \hat \Psi^\dagger(\mathbf{r'}) V(\mathbf{r} - \mathbf{r'})\hat \Psi(\mathbf{r'}) \hat \Psi(\mathbf{r}) d\mathbf{r} d\mathbf{r'}
@@ -190,11 +202,11 @@ where $\mathbf{r}$ and $\mathbf{r'}$ are the positions of the two colliding part
 \noindent In the case of a BEC at $T\approx0$, we may perform a Bogoliubov expansion~\cite{bogoliubov1947, dalfovo1999}
 \begin{equation}
     \hat \Psi (\mathbf{r}, t) = \Phi(\mathbf{r},t) + \delta \hat \Phi(\mathbf{r},t),
-\label{eqn:bog}
+\label{eqn:bog1}
 \end{equation}
 where $\Phi(\mathbf{r},t) \equiv \langle \hat \Psi(\mathbf{r},t) \rangle$ is the wavefunction of the condensate known as the order parameter and $\delta \hat \Phi(\mathbf{r},t)$ represents fluctuations of the BEC system.
 For Equation~\eqref{eqn:bog1} I have used the Heisenberg representation for field operators~\cite{dalfovo1999}.
-In a BEC, the condensate density is defined as
+As a note, the condensate density is defined as
 \begin{equation}
     n(\mathbf{r},t) = |\Phi(\mathbf{r},t)|^2.
 \end{equation}
@@ -231,12 +243,12 @@ When written in the time-independent form it determines the chemical potential $
 
 \noindent This equation allows us to determine the full dynamics of a BEC system and the numerical solutions will be discussed in subsequent chapters.
 Similar derivations of the GPE can be found in many introductory texts on BEC physics~\cite{fetter2003, pethick2002, fetter2009}.
-The main difference between this equation and the Schr\"odinger equation is the non-linear interaction term of $g|\Psi|^2$, that accounts for the fact that BECs typically consist of $10^3$ to $10^6$ particles..
-When solving this system in a simple harmonic oscillator in the limit where interactions are significant, we will find a slightly different distribution for the wavefunction density, known as a Thomas--Fermi distribution, shown in Figure~\ref{fig:TF} for a single dimension.
+The main difference between this equation and the Schr\"odinger equation is the non-linear interaction term of $g|\Psi|^2$, that accounts for the fact that BECs typically consist of $10^3$ to $10^6$ particles.
+When solving this system in a simple harmonic oscillator in the limit where interactions are significant, we will find a slightly different distribution for the wavefunction density, known as a Thomas--Fermi distribution, shown in Figure~\ref{fig:TF} for a single dimension and varying interaction strengths.
 
-The Thomas--Fermi distribution in this case can be derived from the time-independent GPE in the limit where there are a large number of bosons in the condensate ($N \gg 1$) as~\cite{ueda2010}
+In this case, the Thomas--Fermi distribution can be derived from the time-independent GPE in the limit where there are a large number of bosons in the condensate ($N \gg 1$) as~\cite{ueda2010}
 \begin{equation}
-\Psi_\text{TF}(\mathbf{r}) = \sqrt{\frac{[\mu-V(\mathbf{r})\Theta(\mu-V(\mathbf{r})}{g}}
+\Psi_\text{TF}(\mathbf{r}) = \sqrt{\frac{[\mu-V(\mathbf{r})]\Theta(\mu-V(\mathbf{r}))}{g}}
 \end{equation}
 \noindent where $\Theta$ is the Heaviside step function that ensures the condensate stays positive and $\Psi(\mathbf{r})_\text{TF}$ is the wavefunction in the Thomas--Fermi limit.
 The shape of this function is similar to that of an inverted parabola for a harmonic trap, and the radius in any direction from the center can be found to be
@@ -251,7 +263,7 @@ By using this normalization condition, we find that the Thomas--Fermi chemical p
 \mu_\text{TF} = \frac{h\omega_i}{2}\left(\frac{15 N a_s}{a} \right)^{2/5},
 \label{eqn:mutf}
 \end{equation}
-\noindent where $a=\sqrt{\hbar/m\bar\omega}$ and $\bar omega$ is the average of all the harmonic trapping frequencies.
+\noindent where $a=\sqrt{\hbar/m\bar\omega}$ and $\bar \omega$ is the average of all the harmonic trapping frequencies.
 Using Equations~\eqref{eqn:mutf} and \eqref{eqn:rtf} we find that
 \begin{equation}
 R_\text{TF} = a\left(\frac{15 N a_s}{a} \right)^{1/5}\frac{\bar \omega}{\omega_i}
@@ -275,10 +287,10 @@ As stated, we will focus on BEC systems in this work, but it is important to not
 
 \section{Superfluid systems and vortex dynamics}
 
-Though there are many interesting differences between classical fluids and superfluids, such as sound wave propagation and turbulent dynamics, we will focus here on vortex dynamics before continuing to discuss three methods of vortex generation in superfluid systems: rotation, phase imprinting and artificial magnetic fields.
+Here, I will focus here on the differences between vortex dynamics in classical and superfluid systems before continuing to discuss three methods of vortex generation in superfluid systems: rotation, phase imprinting and artificial magnetic fields.
 By rotating a fluid, it is possible to create a vortex around the axis of rotation; however, because of the viscosity of a classical fluid, the vortex will eventually disappear without constant driving.
 In a superfluid, this is not necessarily the case.
-To properly describe the differences in fluid and superfluid dynamics, it is worthwhile to discuss the hydrodynamic description of a BEC, following the text of Pethick and Smith~\cite{pethick2002},
+For this discussion, it is worthwhile to discuss the hydrodynamic description of a BEC, following the text of Pethick and Smith~\cite{pethick2002},
 To start, I will treat the condensate wavefunction as
 \begin{equation}
 \Psi(\mathbf{r},t) = \sqrt{\rho(\mathbf{r},t)}e^{i\phi(\mathbf{r},t)},
@@ -314,14 +326,13 @@ Because the condensate is single-valued,
 \label{eqn:quantized}
 \end{equation}
 \noindent Here, $\ell$ is an integer charge of circulation, and Equation~\eqref{eqn:quantized} shows the quantized nature of circulation in a superfluid with each vortex hosting multiples of $2\pi$ charge.
-Every singly-charged vortex in a BEC will have a $2\pi$ phase winding, and an example simulation with one vortex and its corresponding phase can be seen in Figure~\ref{fig:rot} (a and c).
-Equation~\eqref{eqn:quantized} also indicates that the phase is not defined at the center of the vortes; however, at this point, the density has also dropped to zero.
-The density dip from the normal condensate density to zero happens over the scale of the healing length.
-For repulsive interactions, the healing length is
+Every singly-charged vortex in a BEC will have a $2\pi$ phase winding, and an example simulation with one vortex in a two-dimensional condensate and its corresponding phase can be seen in Figure~\ref{fig:rot} (a and c).
+Equation~\eqref{eqn:quantized} also indicates that the phase is not defined at the center of the vortex; however, at this point, the density has also dropped to zero.
+The density dip from the normal condensate density to zero happens over the scale of the healing length, which is
 \begin{equation}
 \xi=\frac{1}{\sqrt{8\pi\rho_ba_s}}
 \end{equation}
-\noindent where $\rho_b$ is the bulk density of the condensate.
+\noindent for repulsive interactions, where $\rho_b$ is the bulk density of the condensate.
 
 \begin{figure}
 
@@ -345,19 +356,21 @@ And when substituting this in to Equation~\eqref{eqn:energy} for the GPE, we fin
 \begin{equation}
 E = \int_{-\infty}^\infty \frac{\hbar^2}{2m}\left( |\nabla\Psi(\mathbf{r})|^2 + \frac{|\Psi(\mathbf{r})|^2\ell^2 m\mathbf{v}^2}{2}\right) + V_0(\mathbf{r})|\Psi(\mathbf{r})|^2 + \frac{g}{2}|\Psi(\mathbf{r})|^4.
 \end{equation}
-\noindent Because $E \propto \ell^2$\jrs{CN}, as a superfluid is spun faster beyond a critical angular velocity, a vortex will not grow or shrink in angular momentum, but multiple vortices will spawn instead~\cite{pethick2002}.
+\noindent Because $E \propto \ell^2$, as a superfluid is spun faster beyond a critical angular velocity, a vortex will not grow or shrink in angular momentum, but multiple vortices will spawn instead~\cite{pethick2002}.
 In other words, it is energetically favorable for two vortices of smaller angular momentum to form instead of a single vortex with a large amount of angular momentum.
 As angular momentum increases and more vortices are introduced into the system, they will eventually arrange themselves in a triangular lattice structure known as an Abrikosov lattice~\cite{abrikosov1957, fetter2001}.
 This behavior is identical to that of type II superconductors under the effects of a magnetic field, and the size of each vortex is described by a physical scale known as the healing length.
 An example of a vortex lattice and its phase can be seen in Figure~\ref{fig:rot} (b and d).
 
-The three-dimensional properties of vortices in superfluid systems are also peculiar when compared to their classical counterparts.
+Until now, I have focused primarily on vortex structures in two-dimensions; however, 
+the three-dimensional properties of vortices in superfluid systems are also peculiar when compared to their classical counterparts.
 Here, vortex lines are formed that must either end at the end of the condensate~\cite{madison2000} or reconnect in the form of vortex rings or other, more complicated vortex structures~\cite{reichl2013, barenghi2014}.
 Because the circulation around superfluid vortices is quantized, when two vortices approach each other with different velocity fields, they may reconnect into smaller, more energetically favorable vortex structures.
 During this reconnection, the abrupt change in energy will create a sound wave at the reconnection site~\cite{feynman1955}.
 
 Three dimensional vortex structures of non-trivial topology have been notoriously difficult to controllably generate experimentally, but we will discuss an experimentally viable method to generate, control, and detect vortex ring-like structures in superfluid BEC systems in Chapter~\ref{ch:vortex_states}.
 In that chapter, I will also further discuss three-dimensional vortex motion.
+In Chapter~\ref{ch:2d}, I will also discuss important aspects of simulating two-dimensional condensate systems.
  For now, we will begin discussing the three primary processes to generate vortex structures in superfluid systems: rotation, phase imprinting, and artificial magnetic fields.
 
 \subsection{Rotation}
@@ -373,13 +386,13 @@ i \hbar \frac{\partial \Psi(\mathbf{r},t)}{\partial t} = \left(\frac{p^2}{2m} + 
 
 \noindent where $\Omega$ is the rotation frequency. 
 
-In order to generate a vortex via rotation in a harmonic trap, we must rotate faster than the critical velocity of $\Omega_c \approx 0.3 \omega_\perp$, where $\omega_\perp$ is the trapping frequency~\jrs{CN}.
+In order to generate a vortex via rotation in a harmonic trap, we must rotate faster than the critical velocity of $\Omega_c \approx 0.7 \omega_\perp$, where $\omega_\perp$ is the trapping frequency perpendicular to the axis of rotation~\cite{fetter2009}.
 In addition, if the rotation frequency is greater than the trapping frequency, the atoms will no longer be bound by the trap due to centripetal forces.
 As such, finding the appropriate rotation frequency for creating vortex lattices in BEC systems is a precarious balancing act.
-Even so, large scale vortex lattices have been generated both experimentally and theoretically, with the largest vortex lattices being generated with $\Omega \approx \omega_\perp$ \cite{o2016, o2016topo, abo2001, schweikhard2004}.
+Even so, large scale vortex lattices have been generated both experimentally and theoretically \cite{o2016, o2016topo, abo2001, schweikhard2004}.
 
 Experimentally, rotation for a small number of vortices can be generated in a number of ways, such as a ``rotating bucket'' approach that has been extended to bosonic systems~\cite{chevy2006}.
-For this method, bosons are confined to a magnetic trap and an anisotropic potential is superimposed that rotate with the desired angular velocity~\cite{madison2000,abo2001,hodby2001,haljan2001}.
+For this method, bosons are confined to a magnetic trap and an anisotropic potential is superimposed that rotates with the desired angular velocity~\cite{madison2000,abo2001,hodby2001,haljan2001}.
 For rotation velocities near the harmonic trapping frequency, additional methods must be used to ensure the atoms remain in-place.
 These methods include adding an extra confining potential~\cite{bretin2004}, or the evaporative spin-up technique, where atoms with less angular momentum are evaporated such that the remaining atoms have a higher rotation speed~\cite{schweikhard2004,engels2003}.
 
@@ -393,7 +406,7 @@ Phase imprinting is a powerful tool to allow for the generation of various struc
 To generate vortices in a BEC, this technique relies on imprinting a $2\pi$ phase winding onto a ground state condensate wavefunction.
 Experimentally, phase imprinting can be done in a number of ways.
 As an example, the phase could be imprinted with a Raman two-photon process to transfer orbital angular momentum to atoms from a Laguerre--Gaussian beam \cite{moulder2012, ryu2007}.
-Another method is through pulsing a spatially dependent potential for a short time when compared to the trapping frequency, which will imprint the potential energy onto the phase of the system~\cite{kasevich1991} and can be used to generate solitons~\cite{denschlag2000}, vortex~\cite{gajda1999}, or other states with quantized circulation~\cite{kumar2018}.
+Another method is through pulsing a spatially dependent potential for a short time when compared to the trapping frequency, which will imprint the potential energy onto the phase of the system~\cite{kasevich1991} and can be used to generate solitons~\cite{denschlag2000}, vortices~\cite{gajda1999}, or other states with quantized circulation~\cite{kumar2018}.
 Phase imprinting has also been used in theoretical studies to create a defect in a large vortex lattice by flipping the phase (and therefore rotation direction) of a selected vortex by imprinting a $-4\pi$ phase at the vortex's location~\cite{o2016topo}.
 Note that if a phase greater than $|2\pi|$ is imprinted onto the system, the vortices are likely to decay into multiple vortices of $|2\pi|$ phase~\cite{shin2004}.
 
@@ -416,7 +429,7 @@ As such, it is not as useful for engineering stable vortex structures, but is in
 Magnetic fields are capable of generating rotational effects in charged systems through the Lorentz force, $F_l = q(\mathbf{E} + \mathbf{v} \times \mathbf{B})$, where $q$ is the charge of the system, $\mathbf{E}$ is the electric field, $\mathbf{B}$ is the magnetic field, and $\mathbf{v}$ is the velocity of the particle.
 This effect allows for the creation of vortices in type II superconductors; however, it is not directly applicable to BEC systems, because BECs are composed of neutral atoms.
 Even so, it is possible to generate artificial magnetic fields with similar effects, and these artificial magnetic fields have  been shown to create vortices experimentally~\cite{lin2009}.
-In addition, artificial magnetic fields create a broader framework that encompasses rotational effects previously shown in Section~\ref{sec:rot}, and we will use this framework instead of rotation for remainder of this work.
+In addition, artificial magnetic fields create a broader framework that encompasses rotational effects previously shown in Section~\ref{sec:rot}, and we will use this framework instead of rotation for simulations in this work.
 As such, a detailed introduction, similar to that given by Dalibard in~\cite{dalibard2015}, will be presented below.
 
 If written in the Hamiltonian formalism, the Lorentz force law becomes
@@ -435,7 +448,7 @@ In this case, the Coriolis force is defined as
 \mathbf{F}_{\text{Coriolis}} = 2m \mathbf{v} \times \mathbf{\Omega},
 \end{equation}
 which is formally similar to the Lorentz force law.
-By applying the transformation $\mathcal{\hat H} = \hat H_0 - \Omega \hat L_z$, where $\hat L_z = x\partial_y - y\partial_x$, we find~\cite{bhat2008}
+By applying the transformation $\mathcal{\hat H} = \mathcal{\hat H}_0 - \Omega \hat L_z$, where $\hat L_z = x\partial_y - y\partial_x$, we find~\cite{bhat2008}
 \begin{equation}
 \begin{split}
 \mathcal{\hat H} &= -\frac{\hbar^2}{2m}\nabla^2 + \frac 1 2 m \omega^2(x^2 + y^2) - \frac{\hbar \Omega}{i}(x\partial_y - y\partial_x) \\
@@ -446,14 +459,13 @@ By applying the transformation $\mathcal{\hat H} = \hat H_0 - \Omega \hat L_z$, 
 where $\omega$ is the trapping frequency for a symmetric two-dimensional harmonic trap, $\mathbf{A} \equiv \mathbf{\Omega} \times \mathbf{r}$, and $V_0 = m/2 \left( \omega^2 - \Omega^2 \right)r^2$.
 The final form is similar to that of the Lorentz force law and coincides with an effective magnetic field of $2 \mathbf \Omega \propto \mathbf B$.
 In this way, we may recreate the rotation expected from the Lorentz force law in a cold atomic system with an artificial magnetic field~\cite{peshkin1989, madison2000, abo2001}.
-
 Artificial magnetic fields provide a powerful tool to researchers who wish to generate and control complex vortex structures, and because of this, it is worth discussing them in further detail.
-Important implementation details for how to use artificial magnetic fields with the SSFM will be discussed in Section~\ref{sec:implementation}.
+Important implementation details for how to use artificial magnetic fields with the SSFM will be discussed in Section~\ref{sec:implementation} and further discussions of how these modifications can be applied on GPU architecture can be found in Chapter~\ref{ch:gpu}.
 
 \subsubsection{Geometric Gauge Fields}
 \label{sec:geom}
 
-As we have already described how rotation can act as an artificial Lorentz force, we now turn our attention towards methods that might allow us to generate more general rotational effects and vortex structures.
+As I have already described how rotation can act as an artificial Lorentz force, we now turn our attention towards methods that might allow us to generate more general rotational effects and vortex structures.
 In particular, we will discuss the adiabatic motion of free atoms undergoing geometric phase transformations through the Berry phase. 
 For this, we assume that our system has an external parameter $\lambda$ such that
 \begin{equation}
@@ -503,9 +515,9 @@ where
 \end{equation}
 In this case $\Phi_{\text{Berry}}$ is called the Berry phase and it only depends on the motion path of $\lambda$. 
 It should be mentioned that both of the exponential terms in Equation~\eqref{eqn:c} are gauge invariant and thus remain unchanged when $\ket{\psi_n(\lambda)}$ is multiplied by a phase factor.
-This phase allows us to transfer angular momentum into our BEC and generate a vortex geometry like those formed in the 2009 experiment by Lin~\textit{et~al.}~\cite{lin2009}.
+The Berry phase allows us to transfer angular momentum into our BEC and generate a vortex geometry like those formed in the 2009 experiment by Lin~\textit{et~al.}~\cite{lin2009}.
 As a note, the vortex structures generated in this way follow the magnetic fields lines, thus providing the capability to generate complex vortex structures beyond vortex lines.
-Outside of rotation, another method to generate these gauge fields in an experimentally realizable way with the evanesent field of a dielectric system undergoing total internal reflection will be described in Chapter~\ref{ch:vortex_states}, but for now we should discuss how these fields can be implemented in the SSFM, with an emphasis on their effects for superfluid simulations.
+A method to generate these gauge fields in an experimentally realizable way with the evanescent field of a dielectric system undergoing total internal reflection will be described in Chapter~\ref{ch:vortex_states}, but for now we should discuss how these fields can be implemented in the SSFM, with an emphasis on their effects for superfluid simulations.
 
 \section{Modifications to the SSFM for superfluid vortex simulations}
 \label{sec:implementation}
@@ -518,13 +530,13 @@ As shown above, in order to simulate the effects of artificial magnetic fields o
 
 \noindent where $\mathbf{A}$ is an artificial vector potential.
 As a note, some texts absorb the mass term into the artificial vector potential, but here we are stating it explicitly for clarity.
-When expanded, we note that the gauge field has a component in position space, $\frac{m\mathbf{A}^2}{2}$, which couples with the trapping potential, and another component that is partially in both position and momentum space, $p\mathbf{A}$.
+When expanded, we note that the gauge field has a component in position space, $\frac{m\mathbf{A}^2}{2}$, which couples with the trapping potential, and another component that is partially in both position and momentum space, $-\left(\frac{p\mathbf{A} + \mathbf{A}p}{2}\right)$.
 
 Firstly, let us discuss the component purely in position space.
 Here, we see that it is important to properly balance the trapping potential and the artificial vector potential when simulating BEC systems with artificial vector potentials, otherwise, the trapping geometry will become warped.
 In the case of rotation, this is effectively balanced by the centripetal force; however, 
 in the case of arbitrarily chosen vector potentials, this can create rather unusual potential geometries, as shown in Figure~\ref{fig:V_change} for a Gaussian $\mathbf{A_x}$ and $\mathbf{A_y}$.
-Though we might be able to balance this warping with a centripetal force tailored to the gauge fields we introduce, we did not consider this for the purposes of this work.
+Though we might be able to balance this warping with a centripetal force tailored to the gauge fields we introduce, we did not consider this for the simulations within this work.
 
 \begin{figure}
 
@@ -537,14 +549,21 @@ For this simulation, we have removed the $pA$ term to focus on the warped potent
 \end{figure}
 
 The components of the artificial vector potential that are partially in position and momentum space are somewhat difficult to consider numerically.
-As they reside in both spaces, it is required to perform a one-dimensional FFT across $n$-dimensional data.
-This means that if we have three operators, $p\mathbf{A}_x \hat x$, $p\mathbf{A}_y \hat y$, and $p\mathbf{A}_z \hat z$, we will need to perform an FFT on our wavefunction in the $\hat x$, $\hat y$, and $\hat z$ dimensions, respectively, before applying the operators through element-wise multiplication. 
+For many physical examples, such as rotation, $\frac{\partial \mathbf{A}_i}{\partial i} = 0$ for $i \in {x, y, z}$, which means the only relevant term is $-\frac{\mathbf{A}_i p_i}{2}$.
+This will effectively create a variable that resides in both position and momentum space, and multiplication with this operator can be performed with a one-dimensional FFT across $n$-dimensional data on the wavefunction first.
+This means that if we have three operators, $\mathbf{A}_x p_x\hat x$, $\mathbf{A}_y p_y\hat y$, and $\mathbf{A}_z p_z\hat z$, we will need to perform an FFT on our wavefunction in the $\hat x$, $\hat y$, and $\hat z$ dimensions, respectively, before performing an element-wise multiplication. 
 As I will discuss in Chapter~\ref{ch:gpu}, this has significant performance penalties if we do not consider the massively parallel GPU architecture.
 This also requires the usage of more intricate FFT plans for the FFTW or CuFFT libraries, which are non-trivial for three-dimensional simulations.
 
+If $\frac{\partial \mathbf{A}_i}{\partial i} \neq 0$, then the other operator, $-\frac{p_i\mathbf{A}_i}{2}$, must also be considered.
+To perform this operation, a derivative must be performed on $\mathbf{A}$ before application to the wavefunction. 
+This operation doubles the complexity of the application of artificial magnetic fields to the system and should be avoided unless necessary.
+
+At this point, I have discussed all the relevant physics to understand subsequent chapters; however, it is worth noting additional physics that will become relevant when motivating future work.
+
 \section{Multi-component simulations}
 
-Until now, the discussion has been oriented around single-component condensates; however, in recent years, there has been a significant amount of theoretical and experimental interest in multiple BEC components in the same system~\jrs{CN}.
+Until now, the discussion has been oriented around single-component condensates; however, in recent years, there has been a significant amount of theoretical and experimental interest in multiple BEC components in the same system~\cite{kasamatsu2005, bao2004, mason2013}.
 When simulating such systems, the GPE must be modified to take interactions between components into account and each wavefunction must be evolved separately, such that 
 
 \begin{equation}
@@ -563,10 +582,10 @@ The interaction matrix is symmetric, such that $g_{ji} = g_{ij}$, and there are 
 
 ADD FIGURE
 
-In Figure~\ref{fig:multicomp}, I show simulations for a three component condensate in each of these three regimes for a rotating system.
+In Figure~\ref{fig:multicomp}, I show simulations for a two-component condensate in each of these three regimes for a rotating system.
 These simulations are memory-intensive, but we will discuss several methods to minimize the memory footprint of single-component simulations in Chapter~\ref{ch:gpu}.
 These methods also apply to multicomponent simulations and allow for simulations with a higher component number.
 
-At this point, we have discussed the SSFM, itself, along with the primary system we will be simulating in this work; however, we have yet to discuss key techniques in quantum engineering that are necessary to motivate several design decisions.
+At this point, I have discussed the SSFM, itself, along with the primary system we will be simulating in this work; however, we have yet to discuss key techniques in quantum engineering that are necessary to motivate several design decisions.
 As such, we will consider two dynamic methods for quantum state engineering in the following chapter: shortcuts to adiabaticity and quantum optimal control.
 

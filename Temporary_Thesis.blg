@@ -4,49 +4,50 @@ The top-level auxiliary file: Temporary_Thesis.aux
 The style file: unsrt.bst
 Reallocated field_info (elt_size=8) to 10014 items from 5000.
 Database file #1: Preamble/Thesis_bibliography.bib
-Warning--I didn't find a database entry for "davenport2012"
+Warning--I didn't find a database entry for "el2008"
+Warning--I didn't find a database entry for "hill1997"
 Warning--can't use both volume and number fields in crank1947
 Warning--empty journal in koza1997
 Warning--there's a number but no volume in canny1986
-You've used 217 entries,
+You've used 216 entries,
             1791 wiz_defined-function locations,
-            1585 strings with 37554 characters,
-and the built_in function-call counts, 50342 in all, are:
-= -- 4265
-> -- 2507
-< -- 20
-+ -- 924
-- -- 707
-* -- 3882
-:= -- 8216
-add.period$ -- 654
-call.type$ -- 217
-change.case$ -- 193
+            1575 strings with 37767 characters,
+and the built_in function-call counts, 50305 in all, are:
+= -- 4257
+> -- 2517
+< -- 21
++ -- 927
+- -- 711
+* -- 3873
+:= -- 8197
+add.period$ -- 651
+call.type$ -- 216
+change.case$ -- 192
 chr.to.int$ -- 0
-cite$ -- 220
-duplicate$ -- 2076
-empty$ -- 4860
-format.name$ -- 707
-if$ -- 10951
+cite$ -- 219
+duplicate$ -- 2075
+empty$ -- 4855
+format.name$ -- 711
+if$ -- 10955
 int.to.chr$ -- 0
-int.to.str$ -- 217
-missing$ -- 231
-newline$ -- 1082
-num.names$ -- 217
-pop$ -- 439
+int.to.str$ -- 216
+missing$ -- 229
+newline$ -- 1076
+num.names$ -- 216
+pop$ -- 451
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 834
+skip$ -- 838
 stack$ -- 0
-substring$ -- 3512
-swap$ -- 334
-text.length$ -- 20
+substring$ -- 3498
+swap$ -- 343
+text.length$ -- 21
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 3
-while$ -- 475
-width$ -- 220
-write$ -- 2358
-(There were 4 warnings)
+while$ -- 473
+width$ -- 219
+write$ -- 2344
+(There were 5 warnings)

@@ -2,13 +2,33 @@
 \contentsline {chapter}{Contents}{ii}{section*.1}% 
 \vspace {2em}
 \contentsline {chapter}{Introduction}{1}{section*.3}% 
-\contentsline {chapter}{\numberline {1}Vortex analysis of two-dimensional superfluid systems}{1}{chapter.1}% 
-\contentsline {section}{\numberline {1.1}Chaotic few-body vortex dynamics in rotating Bose--Einstein condensates}{2}{section.1.1}% 
-\contentsline {section}{\numberline {1.2}Model}{3}{section.1.2}% 
-\contentsline {section}{\numberline {1.3}Regular and irregular vortex dynamics}{6}{section.1.3}% 
-\contentsline {section}{\numberline {1.4}Characterizing chaotic vortex dynamics}{10}{section.1.4}% 
-\contentsline {section}{\numberline {1.5}Outlook}{11}{section.1.5}% 
+\contentsline {chapter}{\numberline {1}General Purpose computing with Graphics Processing Units and the GPUE codebase}{1}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}Types of parallelism}{2}{section.1.1}% 
+\contentsline {section}{\numberline {1.2}General purpose computing with graphics processing units}{4}{section.1.2}% 
+\contentsline {subsection}{\numberline {1.2.1}Limitations of GPU computing}{5}{subsection.1.2.1}% 
+\contentsline {subsection}{\numberline {1.2.2}GPU hardware architecture}{5}{subsection.1.2.2}% 
+\contentsline {subsubsection}{Introduction to CUDA software interface}{6}{section*.5}% 
+\contentsline {subsubsection}{Discussion of GPU thread and memory hierarchy}{10}{section*.11}% 
+\contentsline {subsection}{\numberline {1.2.3}Comparison between various languages for GPGPU computation}{14}{subsection.1.2.3}% 
+\contentsline {subsubsection}{CUDA}{14}{section*.12}% 
+\contentsline {subsubsection}{OpenCL}{14}{section*.13}% 
+\contentsline {subsubsection}{Julia}{15}{section*.14}% 
+\contentsline {section}{\numberline {1.3}Introduction to the GPUE codebase for $n$-dimensional simulations of quantum systems on the GPU}{16}{section.1.3}% 
+\contentsline {subsection}{\numberline {1.3.1}FFT optimization}{17}{subsection.1.3.1}% 
+\contentsline {subsection}{\numberline {1.3.2}Dynamic field input and output in GPUE with expression trees}{18}{subsection.1.3.2}% 
+\contentsline {subsection}{\numberline {1.3.3}GPUE memory footprint}{20}{subsection.1.3.3}% 
+\contentsline {subsection}{\numberline {1.3.4}Vortex tracking and highlighting}{21}{subsection.1.3.4}% 
+\contentsline {subsection}{\numberline {1.3.5}Energy calculation for superfluid simulations}{25}{subsection.1.3.5}% 
+\contentsline {subsection}{\numberline {1.3.6}Similar software packages}{27}{subsection.1.3.6}% 
+\contentsline {subsection}{\numberline {1.3.7}Future direction and multi-GPU development}{27}{subsection.1.3.7}% 
+\contentsline {section}{\numberline {1.4}DistributedTranspose.jl}{28}{section.1.4}% 
+\contentsline {section}{\numberline {1.5}Outlook}{29}{section.1.5}% 
 \vspace {2em}
+\contentsline {chapter}{\numberline {A}Simple vector additions in CUDA, OpenCL, and JuliaGPU}{31}{appendix.A}% 
+\contentsline {section}{\numberline {A.1}Vector addition with C++}{31}{section.A.1}% 
+\contentsline {section}{\numberline {A.2}Vector addition with CUDA}{33}{section.A.2}% 
+\contentsline {section}{\numberline {A.3}Vector addition with OpenCL}{35}{section.A.3}% 
+\contentsline {section}{\numberline {A.4}Julia}{39}{section.A.4}% 
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{13}{section*.9}% 
+\contentsline {chapter}{Bibliography}{41}{section*.18}% 
 \vspace {2em}

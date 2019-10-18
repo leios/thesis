@@ -3,44 +3,47 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: draft.aux
 The style file: unsrt.bst
 Database file #1: Preamble/Thesis_bibliography.bib
-You've used 35 entries,
+Warning--I didn't find a database entry for "el2008"
+Warning--there's a number but no volume in canny1986
+You've used 36 entries,
             1791 wiz_defined-function locations,
-            663 strings with 10188 characters,
-and the built_in function-call counts, 8398 in all, are:
-= -- 651
-> -- 519
-< -- 0
-+ -- 186
-- -- 151
-* -- 726
-:= -- 1434
-add.period$ -- 103
-call.type$ -- 35
-change.case$ -- 32
+            659 strings with 9478 characters,
+and the built_in function-call counts, 8771 in all, are:
+= -- 774
+> -- 416
+< -- 6
++ -- 153
+- -- 117
+* -- 616
+:= -- 1377
+add.period$ -- 108
+call.type$ -- 36
+change.case$ -- 31
 chr.to.int$ -- 0
-cite$ -- 35
-duplicate$ -- 308
-empty$ -- 765
-format.name$ -- 151
-if$ -- 1767
+cite$ -- 37
+duplicate$ -- 377
+empty$ -- 854
+format.name$ -- 117
+if$ -- 1953
 int.to.chr$ -- 0
-int.to.str$ -- 35
-missing$ -- 34
-newline$ -- 176
-num.names$ -- 35
-pop$ -- 49
+int.to.str$ -- 36
+missing$ -- 35
+newline$ -- 179
+num.names$ -- 36
+pop$ -- 105
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 116
+skip$ -- 181
 stack$ -- 0
-substring$ -- 566
-swap$ -- 35
-text.length$ -- 0
+substring$ -- 617
+swap$ -- 90
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 0
-while$ -- 73
-width$ -- 37
-write$ -- 378
+warning$ -- 1
+while$ -- 89
+width$ -- 38
+write$ -- 385
+(There were 2 warnings)

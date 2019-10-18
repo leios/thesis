@@ -21,92 +21,138 @@
 \@writefile{toc}{\contentsline {chapter}{Contents}{ii}{section*.1}\protected@file@percent }
 \@writefile{toc}{\vspace  {2em}}
 \@writefile{toc}{\contentsline {chapter}{Introduction}{1}{section*.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {1}Vortex analysis of two-dimensional superfluid systems}{1}{chapter.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {1}General Purpose computing with Graphics Processing Units and the GPUE codebase}{1}{chapter.1}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ch:2d}{{1}{1}{Vortex analysis of two-dimensional superfluid systems}{chapter.1}{}}
-\citation{zhang2019,o2017,o2016topo,o2016}
-\citation{strogatz2018}
-\citation{spiegel1987,biferale2005}
-\citation{berera2018}
-\citation{white2014}
-\citation{nemirovskii1995,kyriakopoulos2014,koukouloyannis2014,navarro2013}
-\citation{nore1997,stalp1999,araki2002,salort2010}
-\citation{o2017}
-\citation{aref1982,aref1980,aref1983}
-\citation{aref1982}
-\citation{navarro2013}
-\citation{kyriakopoulos2014,koukouloyannis2014}
-\@writefile{toc}{\contentsline {section}{\numberline {1.1}Chaotic few-body vortex dynamics in rotating Bose--Einstein condensates}{2}{section.1.1}\protected@file@percent }
-\citation{seo2017}
-\citation{wilson2015}
-\citation{freilich2010,serafini2017}
-\citation{neely2013,shin2004}
-\citation{kwon2014}
-\citation{gauthier2018,johnstone2018}
-\@writefile{toc}{\contentsline {section}{\numberline {1.2}Model}{3}{section.1.2}\protected@file@percent }
-\citation{schloss2018}
-\citation{aftalion2001}
-\citation{zampetaki2013}
-\citation{abo2001}
-\citation{wilson2015,freilich2010}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces  Phase distribution of the initial four co-rotating vortex system is shown at the left. In the center is the applied phase mask of $-2\pi $ for (a) and $-4\pi $ for (b), and the resulting phase distribution is shown on the right. Here we see that by applying a $-2\pi $ phase winding, we erase a vortex from the system, and by applying a $-4\pi $ phase winding, we flip the vortex, creating an anti-vortex. \relax }}{4}{figure.caption.4}\protected@file@percent }
+\newlabel{ch:gpu}{{1}{1}{General Purpose computing with Graphics Processing Units and the GPUE codebase}{chapter.1}{}}
+\citation{kahle2019}
+\citation{gurd1988}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Types of parallelism}{2}{section.1.1}\protected@file@percent }
+\citation{czechowski2012}
+\citation{wittek2016}
+\citation{antoine2014}
+\citation{wittek2013}
+\citation{garland2008,lee2010,nickolls2010}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Comparison between GPUE (CUDA), Trotter-Suzuki on both GPU (CUDA) and CPU (C++), and GPElab (Matlab). Here, it is shown that GPUE is marginally faster than Trotter-Suzuki, but both GPU implementations are faster than the CPU-based variants. Both software packages are much faster than GPElab.\relax }}{4}{figure.caption.4}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:phase}{{1.1}{4}{Phase distribution of the initial four co-rotating vortex system is shown at the left. In the center is the applied phase mask of $-2\pi $ for (a) and $-4\pi $ for (b), and the resulting phase distribution is shown on the right. Here we see that by applying a $-2\pi $ phase winding, we erase a vortex from the system, and by applying a $-4\pi $ phase winding, we flip the vortex, creating an anti-vortex. \relax }{figure.caption.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces  Histograms of the positions of each vortex in the transversal plane for 20 seconds in the co-rotating frame. The lower left vortex has been annihilated and re-imprinted with (a) the same and (b) the opposite direction of rotation, exactly on the location of the previous vortex. The area of each plot is $400\mu \text  (m) \times 400 \mu \text  {m}$, and the white circles correspond to iso-lines at 40\% the maximum density to highlight the extent of the vortex motion. In (a), we see that if all four vortices are co-rotating, regular trajectories appear, but in (b), we see that flipping the rotation direction of a single vortex creates disordered trajectories. \relax }}{5}{figure.caption.5}\protected@file@percent }
-\newlabel{fig:histogram}{{1.2}{5}{Histograms of the positions of each vortex in the transversal plane for 20 seconds in the co-rotating frame. The lower left vortex has been annihilated and re-imprinted with (a) the same and (b) the opposite direction of rotation, exactly on the location of the previous vortex. The area of each plot is $400\mu \text (m) \times 400 \mu \text {m}$, and the white circles correspond to iso-lines at 40\% the maximum density to highlight the extent of the vortex motion. In (a), we see that if all four vortices are co-rotating, regular trajectories appear, but in (b), we see that flipping the rotation direction of a single vortex creates disordered trajectories. \relax }{figure.caption.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces  Evolution of the difference in trajectories $\triangle \textbf  {r}_i = \textbf  {r}_{i}-\textbf  {r}'_{i}$ with $\textbf  {r}$ corresponding to the position of the $i$th vortex from the center of the condensate and $i\in \{0,\ 1,\ 2,\ 3\}$ labelling each individual vortex for the four-vortex system as shown in Fig.~\ref  {fig:histogram}. A small change in the initial position of the anti-vortex arises from a phase-imprint at $(x_{0},y_{0})$ and $(x_{0}-\xi /3,y_{0})$ where $(x_{0},y_{0})$ denotes the pre-existing co-rotating vortex core position. The curves show that even though the onset of disorder is immediate, a strong divergence of trajectories is observed at about $t\approx 10 \text  {s}$ (see projections onto the $x$-$t$ and $y$-$t$ planes). The difference in trajectory of the anti-vortex, $\Delta \mathbf  {r}_0$, is shown in blue, while yellow, orange, and purple lines depict the three co-rotating vortices. \relax }}{6}{figure.caption.6}\protected@file@percent }
-\newlabel{fig:evolution}{{1.3}{6}{Evolution of the difference in trajectories $\triangle \textbf {r}_i = \textbf {r}_{i}-\textbf {r}'_{i}$ with $\textbf {r}$ corresponding to the position of the $i$th vortex from the center of the condensate and $i\in \{0,\ 1,\ 2,\ 3\}$ labelling each individual vortex for the four-vortex system as shown in Fig.~\ref {fig:histogram}. A small change in the initial position of the anti-vortex arises from a phase-imprint at $(x_{0},y_{0})$ and $(x_{0}-\xi /3,y_{0})$ where $(x_{0},y_{0})$ denotes the pre-existing co-rotating vortex core position. The curves show that even though the onset of disorder is immediate, a strong divergence of trajectories is observed at about $t\approx 10 \text {s}$ (see projections onto the $x$-$t$ and $y$-$t$ planes). The difference in trajectory of the anti-vortex, $\Delta \mathbf {r}_0$, is shown in blue, while yellow, orange, and purple lines depict the three co-rotating vortices. \relax }{figure.caption.6}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.3}Regular and irregular vortex dynamics}{6}{section.1.3}\protected@file@percent }
-\citation{movie}
-\citation{wolf1985}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces  Density plots of condensate for (a) $\Delta x = 0$ and (b)$\Delta x=\xi /3$ at times $t=\{6,10,15\}$ s. The densities before the scattering event differ only on small scales (see $t=6s$), whereas for times after the event large deviations are visible (see $t=15s$). At $t=10$ seconds the vortices make their closest approach. The area plotted is $500 \mu m\times 500 \mu m$. (c) Distances between the vortices at positions $\mathbf  {r}_i$ with $\mathbf  {r}$ corresponding to the position of the $i$th vortex from the center of the condensate and $i\in \{1,2,3\}$ corresponding to the vortex number as shown in Fig.~\ref  {fig:histogram} and anti-vortex at $\mathbf  {r}_0$ for $\Delta x = 0$. A minimum around $t=10$ seconds is clearly visible. \relax }}{8}{figure.caption.7}\protected@file@percent }
-\newlabel{fig:snapshots}{{1.4}{8}{Density plots of condensate for (a) $\Delta x = 0$ and (b)$\Delta x=\xi /3$ at times $t=\{6,10,15\}$ s. The densities before the scattering event differ only on small scales (see $t=6s$), whereas for times after the event large deviations are visible (see $t=15s$). At $t=10$ seconds the vortices make their closest approach. The area plotted is $500 \mu m\times 500 \mu m$. (c) Distances between the vortices at positions $\mathbf {r}_i$ with $\mathbf {r}$ corresponding to the position of the $i$th vortex from the center of the condensate and $i\in \{1,2,3\}$ corresponding to the vortex number as shown in Fig.~\ref {fig:histogram} and anti-vortex at $\mathbf {r}_0$ for $\Delta x = 0$. A minimum around $t=10$ seconds is clearly visible. \relax }{figure.caption.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.5}{\ignorespaces  The insets show the histograms of the COM trajectories calculated over 20 seconds of evolution for the system of four vortices when the position of a single vortex has been shifted by $\Delta x=0\xi $ and $\Delta x=\xi /3$. The upper two panels depict the corresponding trajectories after the direction of rotation of a single vortex has been reversed, whereas the lower row displays the trajectories for the case where all vortices co-rotate. The main curve plots the corresponding Lyapunov exponents, calculated from the shown COM trajectories. The negative Lyapunov exponents (orange) indicate that shifting the vortex about the initial position still ensures the stability of vortex trajectories. Reversing the direction of circulation of a single vortex (blue) however leads to fluctuations about zero, eventually leading to a fully positive exponent. \relax }}{9}{figure.caption.8}\protected@file@percent }
-\newlabel{fig:lyap}{{1.5}{9}{The insets show the histograms of the COM trajectories calculated over 20 seconds of evolution for the system of four vortices when the position of a single vortex has been shifted by $\Delta x=0\xi $ and $\Delta x=\xi /3$. The upper two panels depict the corresponding trajectories after the direction of rotation of a single vortex has been reversed, whereas the lower row displays the trajectories for the case where all vortices co-rotate. The main curve plots the corresponding Lyapunov exponents, calculated from the shown COM trajectories. The negative Lyapunov exponents (orange) indicate that shifting the vortex about the initial position still ensures the stability of vortex trajectories. Reversing the direction of circulation of a single vortex (blue) however leads to fluctuations about zero, eventually leading to a fully positive exponent. \relax }{figure.caption.8}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.4}Characterizing chaotic vortex dynamics}{10}{section.1.4}\protected@file@percent }
-\newlabel{eqn:lyap}{{1.3}{10}{Characterizing chaotic vortex dynamics}{equation.1.4.3}{}}
-\citation{kyriakopoulos2014}
-\citation{o2016topo}
-\@writefile{toc}{\contentsline {section}{\numberline {1.5}Outlook}{11}{section.1.5}\protected@file@percent }
+\newlabel{fig:bench}{{1.1}{4}{Comparison between GPUE (CUDA), Trotter-Suzuki on both GPU (CUDA) and CPU (C++), and GPElab (Matlab). Here, it is shown that GPUE is marginally faster than Trotter-Suzuki, but both GPU implementations are faster than the CPU-based variants. Both software packages are much faster than GPElab.\relax }{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}General purpose computing with graphics processing units}{4}{section.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.1}Limitations of GPU computing}{5}{subsection.1.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.2}GPU hardware architecture}{5}{subsection.1.2.2}\protected@file@percent }
+\citation{CUDAPG}
+\citation{wienke2012}
+\citation{chandra2001}
+\citation{reyes2012}
+\newlabel{lst:vecadd}{{1.1}{6}{An example of vector addition performed in C or C++ for $a$, $b$, and $c$, all of size $n$}{lstlisting.1.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1.1}An example of vector addition performed in C or C++ for $a$, $b$, and $c$, all of size $n$}{6}{lstlisting.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Introduction to CUDA software interface}{6}{section*.5}\protected@file@percent }
+\newlabel{lst:vecaddCUDA}{{1.2}{7}{An example of a vector addition kernel in CUDA}{lstlisting.1.2}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1.2}An example of a vector addition kernel in CUDA}{7}{lstlisting.1.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces Each grid is subdivided into multiple blocks, which is further subdivided into threads for computation. Each thread has a specified ID, which acts as a one-dimensional array, even in a two or three-dimensional system. Here, all areas outlined in red have access to global memory, and any area outlined in blue has access to shared memory. \leavevmode {\color  {magenta}[slight modification necessary to show 1D indexing!]}\relax }}{9}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:threadsnblocks}{{1.2}{9}{Each grid is subdivided into multiple blocks, which is further subdivided into threads for computation. Each thread has a specified ID, which acts as a one-dimensional array, even in a two or three-dimensional system. Here, all areas outlined in red have access to global memory, and any area outlined in blue has access to shared memory. \jrs {slight modification necessary to show 1D indexing!}\relax }{figure.caption.8}{}}
+\newlabel{lst:vecaddCUDA2}{{1.3}{10}{An example of a vector addition kernel in CUDA using blocks and threads, and ensuring no computation happens beyond the size of the array, $n$}{lstlisting.1.3}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1.3}An example of a vector addition kernel in CUDA using blocks and threads, and ensuring no computation happens beyond the size of the array, $n$.}{10}{lstlisting.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Discussion of GPU thread and memory hierarchy}{10}{section*.11}\protected@file@percent }
+\newlabel{lst:vecaddhost}{{1.4}{11}{An example of host code to run Listing~\ref {lst:vecaddCUDA2}}{lstlisting.1.4}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1.4}An example of host code to run Listing~\ref  {lst:vecaddCUDA2}.}{11}{lstlisting.1.4}\protected@file@percent }
+\citation{harris2013}
+\citation{foley2017}
+\citation{lonvcar2016,wang2013}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.3}Comparison between various languages for GPGPU computation}{14}{subsection.1.2.3}\protected@file@percent }
+\newlabel{sec:compare}{{1.2.3}{14}{Comparison between various languages for GPGPU computation}{subsection.1.2.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{CUDA}{14}{section*.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{OpenCL}{14}{section*.13}\protected@file@percent }
+\citation{besard2019}
+\citation{bezanson2017}
+\citation{besard2016,besard2018}
+\@writefile{toc}{\contentsline {subsubsection}{Julia}{15}{section*.14}\protected@file@percent }
+\citation{o2017}
+\citation{schloss2018}
+\citation{czechowski2012}
+\@writefile{toc}{\contentsline {section}{\numberline {1.3}Introduction to the GPUE codebase for $n$-dimensional simulations of quantum systems on the GPU}{16}{section.1.3}\protected@file@percent }
+\newlabel{sec:GPUE}{{1.3}{16}{Introduction to the GPUE codebase for $n$-dimensional simulations of quantum systems on the GPU}{section.1.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.1}FFT optimization}{17}{subsection.1.3.1}\protected@file@percent }
+\citation{cohen1991,reyes2011}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.2}Dynamic field input and output in GPUE with expression trees}{18}{subsection.1.3.2}\protected@file@percent }
+\newlabel{sec:expr_trees}{{1.3.2}{18}{Dynamic field input and output in GPUE with expression trees}{subsection.1.3.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces  Example of expression tree for $V=\frac  {1}{2}m \omega ^2 x^2 t$. Blue, filled nodes are operations, leaf nodes are variables, time has been highlighted in red, and spatially-dependent variables are in green. This visualization was modified from a form provided by Xadisten during a Twitch livestream. \relax }}{19}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:expr_tree}{{1.3}{19}{Example of expression tree for $V=\frac {1}{2}m \omega ^2 x^2 t$. Blue, filled nodes are operations, leaf nodes are variables, time has been highlighted in red, and spatially-dependent variables are in green. This visualization was modified from a form provided by Xadisten during a Twitch livestream. \relax }{figure.caption.15}{}}
+\citation{bayindir2015}
+\citation{davenport2012}
+\citation{bayindir2015}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.3}GPUE memory footprint}{20}{subsection.1.3.3}\protected@file@percent }
+\citation{o2017}
+\citation{docs}
+\citation{o2017,docs}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.4}Vortex tracking and highlighting}{21}{subsection.1.3.4}\protected@file@percent }
+\newlabel{sec:tracking}{{1.3.4}{21}{Vortex tracking and highlighting}{subsection.1.3.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces An example phase plot of a condensate with four vortices. The inset shows the values of the grid around each vortex location and highlights where the sum is $2\pi $ for vortex tracking. \relax }}{22}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:phase}{{1.4}{22}{An example phase plot of a condensate with four vortices. The inset shows the values of the grid around each vortex location and highlights where the sum is $2\pi $ for vortex tracking. \relax }{figure.caption.16}{}}
+\citation{villois2016}
+\citation{guo2018}
+\citation{canny1986}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.5}{\ignorespaces  An example of vortex highlighting with a Sobel filter. The upper left quadrant is the superfluid density with no modifications and the upper right quadrant is an isosurface of the density with an opacity of 0.6. Note here that if there is no opacity set, it is not possible to see the vortex because it is obscured by the outside boundary of the BEC. The lower right quadrant is the superfluid density after Sobel filtering and the bottom left quadrant is an isosuface on the Sobel filtered density. Here, we can easily create isosurfaces of vortices that would be occluded when using the density, alone. The scale varies depending on whether it is coloring the normalized wavefunction density or the filtered density. \relax }}{24}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:highlight}{{1.5}{24}{An example of vortex highlighting with a Sobel filter. The upper left quadrant is the superfluid density with no modifications and the upper right quadrant is an isosurface of the density with an opacity of 0.6. Note here that if there is no opacity set, it is not possible to see the vortex because it is obscured by the outside boundary of the BEC. The lower right quadrant is the superfluid density after Sobel filtering and the bottom left quadrant is an isosuface on the Sobel filtered density. Here, we can easily create isosurfaces of vortices that would be occluded when using the density, alone. The scale varies depending on whether it is coloring the normalized wavefunction density or the filtered density. \relax }{figure.caption.17}{}}
+\citation{o2017,o2016,o2016topo}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.5}Energy calculation for superfluid simulations}{25}{subsection.1.3.5}\protected@file@percent }
+\citation{bayindir2015}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.6}Similar software packages}{27}{subsection.1.3.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.7}Future direction and multi-GPU development}{27}{subsection.1.3.7}\protected@file@percent }
+\newlabel{sec:multiGPU}{{1.3.7}{27}{Future direction and multi-GPU development}{subsection.1.3.7}{}}
+\citation{harris2013}
+\@writefile{toc}{\contentsline {section}{\numberline {1.4}DistributedTranspose.jl}{28}{section.1.4}\protected@file@percent }
+\newlabel{sec:DT}{{1.4}{28}{DistributedTranspose.jl}{section.1.4}{}}
+\citation{jodra2015,el2008}
+\citation{ruetsch2013}
+\citation{merz2016}
+\@writefile{toc}{\contentsline {section}{\numberline {1.5}Outlook}{29}{section.1.5}\protected@file@percent }
+\@writefile{toc}{\vspace  {2em}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Simple vector additions in CUDA, OpenCL, and JuliaGPU}{31}{appendix.A}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{app:GPU}{{A}{31}{Simple vector additions in CUDA, OpenCL, and JuliaGPU}{appendix.A}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}Vector addition with C++}{31}{section.A.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A.2}Vector addition with CUDA}{33}{section.A.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A.3}Vector addition with OpenCL}{35}{section.A.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {A.4}Julia}{39}{section.A.4}\protected@file@percent }
 \@writefile{toc}{\vspace  {2em}}
 \bibdata{Preamble/Thesis_bibliography}
-\bibcite{zhang2019}{{1}{}{{}}{{}}}
-\bibcite{o2017}{{2}{}{{}}{{}}}
-\bibcite{o2016topo}{{3}{}{{}}{{}}}
-\bibcite{o2016}{{4}{}{{}}{{}}}
-\bibcite{strogatz2018}{{5}{}{{}}{{}}}
-\bibcite{spiegel1987}{{6}{}{{}}{{}}}
-\bibcite{biferale2005}{{7}{}{{}}{{}}}
-\bibcite{berera2018}{{8}{}{{}}{{}}}
-\bibcite{white2014}{{9}{}{{}}{{}}}
-\@writefile{toc}{\vspace  {2em}}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{13}{section*.9}\protected@file@percent }
-\bibcite{nemirovskii1995}{{10}{}{{}}{{}}}
-\bibcite{kyriakopoulos2014}{{11}{}{{}}{{}}}
-\bibcite{koukouloyannis2014}{{12}{}{{}}{{}}}
-\bibcite{navarro2013}{{13}{}{{}}{{}}}
-\bibcite{nore1997}{{14}{}{{}}{{}}}
-\bibcite{stalp1999}{{15}{}{{}}{{}}}
-\bibcite{araki2002}{{16}{}{{}}{{}}}
-\bibcite{salort2010}{{17}{}{{}}{{}}}
-\bibcite{aref1982}{{18}{}{{}}{{}}}
-\bibcite{aref1980}{{19}{}{{}}{{}}}
-\bibcite{aref1983}{{20}{}{{}}{{}}}
-\bibcite{seo2017}{{21}{}{{}}{{}}}
-\bibcite{wilson2015}{{22}{}{{}}{{}}}
-\bibcite{freilich2010}{{23}{}{{}}{{}}}
-\bibcite{serafini2017}{{24}{}{{}}{{}}}
-\bibcite{neely2013}{{25}{}{{}}{{}}}
-\bibcite{shin2004}{{26}{}{{}}{{}}}
-\bibcite{kwon2014}{{27}{}{{}}{{}}}
-\bibcite{gauthier2018}{{28}{}{{}}{{}}}
-\bibcite{johnstone2018}{{29}{}{{}}{{}}}
-\bibcite{schloss2018}{{30}{}{{}}{{}}}
-\bibcite{aftalion2001}{{31}{}{{}}{{}}}
-\bibcite{zampetaki2013}{{32}{}{{}}{{}}}
-\bibcite{abo2001}{{33}{}{{}}{{}}}
-\bibcite{movie}{{34}{}{{}}{{}}}
-\bibcite{wolf1985}{{35}{}{{}}{{}}}
+\bibcite{kahle2019}{{1}{}{{}}{{}}}
+\bibcite{gurd1988}{{2}{}{{}}{{}}}
+\bibcite{czechowski2012}{{3}{}{{}}{{}}}
+\bibcite{wittek2016}{{4}{}{{}}{{}}}
+\bibcite{antoine2014}{{5}{}{{}}{{}}}
+\bibcite{wittek2013}{{6}{}{{}}{{}}}
+\bibcite{garland2008}{{7}{}{{}}{{}}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{41}{section*.18}\protected@file@percent }
+\bibcite{lee2010}{{8}{}{{}}{{}}}
+\bibcite{nickolls2010}{{9}{}{{}}{{}}}
+\bibcite{CUDAPG}{{10}{}{{}}{{}}}
+\bibcite{wienke2012}{{11}{}{{}}{{}}}
+\bibcite{chandra2001}{{12}{}{{}}{{}}}
+\bibcite{reyes2012}{{13}{}{{}}{{}}}
+\bibcite{harris2013}{{14}{}{{}}{{}}}
+\bibcite{foley2017}{{15}{}{{}}{{}}}
+\bibcite{lonvcar2016}{{16}{}{{}}{{}}}
+\bibcite{wang2013}{{17}{}{{}}{{}}}
+\bibcite{besard2019}{{18}{}{{}}{{}}}
+\bibcite{bezanson2017}{{19}{}{{}}{{}}}
+\bibcite{besard2016}{{20}{}{{}}{{}}}
+\bibcite{besard2018}{{21}{}{{}}{{}}}
+\bibcite{o2017}{{22}{}{{}}{{}}}
+\bibcite{schloss2018}{{23}{}{{}}{{}}}
+\bibcite{cohen1991}{{24}{}{{}}{{}}}
+\bibcite{reyes2011}{{25}{}{{}}{{}}}
+\bibcite{bayindir2015}{{26}{}{{}}{{}}}
+\bibcite{davenport2012}{{27}{}{{}}{{}}}
+\bibcite{docs}{{28}{}{{}}{{}}}
+\bibcite{villois2016}{{29}{}{{}}{{}}}
+\bibcite{guo2018}{{30}{}{{}}{{}}}
+\bibcite{canny1986}{{31}{}{{}}{{}}}
+\bibcite{o2016}{{32}{}{{}}{{}}}
+\bibcite{o2016topo}{{33}{}{{}}{{}}}
+\bibcite{jodra2015}{{34}{}{{}}{{}}}
+\bibcite{ruetsch2013}{{35}{}{{}}{{}}}
+\bibcite{merz2016}{{36}{}{{}}{{}}}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
 \@writefile{toc}{\vspace  {2em}}

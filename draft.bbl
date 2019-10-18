@@ -1,11 +1,131 @@
 \begin{thebibliography}{10}
 
-\bibitem{zhang2019}
-Tiantian Zhang, James Schloss, Andreas Thomasen, Lee~James O'Riordan, Thomas
-  Busch, and Angela White.
-\newblock Chaotic few-body vortex dynamics in rotating bose-einstein
-  condensates.
-\newblock {\em Physical Review Fluids}, 4(5):054701, 2019.
+\bibitem{kahle2019}
+J.~A. {Kahle}, J.~{Moreno}, and D.~{Dreps}.
+\newblock 2.1 summit and sierra: Designing ai/hpc supercomputers.
+\newblock In {\em 2019 IEEE International Solid- State Circuits Conference -
+  (ISSCC)}, pages 42--43, Feb 2019.
+
+\bibitem{gurd1988}
+JR~Gurd.
+\newblock A taxonomy of parallel computer architectures.
+\newblock In {\em 1988 International Specialist Seminar on the Design and
+  Application of Parallel Digital Processors}, pages 57--61. IET, 1988.
+
+\bibitem{czechowski2012}
+Kenneth Czechowski, Casey Battaglino, Chris McClanahan, Kartik Iyer, P-K Yeung,
+  and Richard Vuduc.
+\newblock On the communication complexity of 3d ffts and its implications for
+  exascale.
+\newblock In {\em Proceedings of the 26th ACM international conference on
+  Supercomputing}, pages 205--214. ACM, 2012.
+
+\bibitem{wittek2016}
+P~Wittek.
+\newblock Comparing three numerical solvers of the gross-pitaevskii equation,
+  2016.
+
+\bibitem{antoine2014}
+Xavier Antoine and Romain Duboscq.
+\newblock Gpelab, a matlab toolbox to solve gross--pitaevskii equations i:
+  Computation of stationary solutions.
+\newblock {\em Computer Physics Communications}, 185(11):2969--2991, 2014.
+
+\bibitem{wittek2013}
+Peter Wittek and Fernando~M Cucchietti.
+\newblock A second-order distributed trotter--suzuki solver with a hybrid
+  cpu--gpu kernel.
+\newblock {\em Computer Physics Communications}, 184(4):1165--1171, 2013.
+
+\bibitem{garland2008}
+Michael Garland, Scott Le~Grand, John Nickolls, Joshua Anderson, Jim Hardwick,
+  Scott Morton, Everett Phillips, Yao Zhang, and Vasily Volkov.
+\newblock Parallel computing experiences with cuda.
+\newblock {\em IEEE micro}, 28(4):13--27, 2008.
+
+\bibitem{lee2010}
+Victor~W Lee, Changkyu Kim, Jatin Chhugani, Michael Deisher, Daehyun Kim,
+  Anthony~D Nguyen, Nadathur Satish, Mikhail Smelyanskiy, Srinivas Chennupaty,
+  Per Hammarlund, et~al.
+\newblock Debunking the 100x gpu vs. cpu myth: an evaluation of throughput
+  computing on cpu and gpu.
+\newblock {\em ACM SIGARCH computer architecture news}, 38(3):451--460, 2010.
+
+\bibitem{nickolls2010}
+John Nickolls and William~J Dally.
+\newblock The gpu computing era.
+\newblock {\em IEEE micro}, 30(2):56--69, 2010.
+
+\bibitem{CUDAPG}
+John Cheng, Max Grossman, and Ty~McKercher.
+\newblock {\em Professional Cuda C Programming}.
+\newblock John Wiley \& Sons, 2014.
+
+\bibitem{wienke2012}
+Sandra Wienke, Paul Springer, Christian Terboven, and Dieter an~Mey.
+\newblock Openacc—first experiences with real-world applications.
+\newblock In {\em European Conference on Parallel Processing}, pages 859--870.
+  Springer, 2012.
+
+\bibitem{chandra2001}
+Rohit Chandra, Leo Dagum, David Kohr, Ramesh Menon, Dror Maydan, and Jeff
+  McDonald.
+\newblock {\em Parallel programming in OpenMP}.
+\newblock Morgan kaufmann, 2001.
+
+\bibitem{reyes2012}
+Ruym{\'a}n Reyes, Iv{\'a}n L{\'o}pez-Rodr{\'\i}guez, Juan~J Fumero, and
+  Francisco De~Sande.
+\newblock accull: an openacc implementation with cuda and opencl support.
+\newblock In {\em European Conference on Parallel Processing}, pages 871--882.
+  Springer, 2012.
+
+\bibitem{harris2013}
+Mark Harris.
+\newblock An efficient matrix transpose in cuda c/c++.
+\newblock {\em Retrieved July}, 26:2018, 2013.
+
+\bibitem{foley2017}
+Denis Foley and John Danskin.
+\newblock Ultra-performance pascal gpu and nvlink interconnect.
+\newblock {\em IEEE Micro}, 37(2):7--17, 2017.
+
+\bibitem{lonvcar2016}
+Vladimir Lon{\v{c}}ar, Luis~E Young-S, Srdjan {\v{S}}krbi{\'c}, Paulsamy
+  Muruganandam, Sadhan~K Adhikari, and Antun Bala{\v{z}}.
+\newblock Openmp, openmp/mpi, and cuda/mpi c programs for solving the
+  time-dependent dipolar gross--pitaevskii equation.
+\newblock {\em Computer Physics Communications}, 209:190--196, 2016.
+
+\bibitem{wang2013}
+Hao Wang, Sreeram Potluri, Devendar Bureddy, Carlos Rosales, and Dhabaleswar~K
+  Panda.
+\newblock Gpu-aware mpi on rdma-enabled clusters: Design, implementation and
+  evaluation.
+\newblock {\em IEEE Transactions on Parallel and Distributed Systems},
+  25(10):2595--2605, 2013.
+
+\bibitem{besard2019}
+Tim Besard, Valentin Churavy, Alan Edelman, and Bjorn De~Sutter.
+\newblock Rapid software prototyping for heterogeneous and distributed
+  platforms.
+\newblock {\em Advances in Engineering Software}, 132:29--46, 2019.
+
+\bibitem{bezanson2017}
+Jeff Bezanson, Alan Edelman, Stefan Karpinski, and Viral~B Shah.
+\newblock Julia: A fresh approach to numerical computing.
+\newblock {\em SIAM review}, 59(1):65--98, 2017.
+
+\bibitem{besard2016}
+Tim Besard, Pieter Verstraete, and Bjorn De~Sutter.
+\newblock High-level gpu programming in julia.
+\newblock {\em arXiv preprint arXiv:1604.03410}, 2016.
+
+\bibitem{besard2018}
+Tim Besard, Christophe Foket, and Bjorn De~Sutter.
+\newblock Effective extensible programming: unleashing julia on gpus.
+\newblock {\em IEEE Transactions on Parallel and Distributed Systems},
+  30(4):827--841, 2018.
 
 \bibitem{o2017}
 Lee~James O'Riordan.
@@ -14,11 +134,52 @@ Lee~James O'Riordan.
 \newblock PhD thesis, Okinawa Institute of Science and Technology Graduate
   University, 2017.
 
-\bibitem{o2016topo}
-Lee~James O'Riordan and Thomas Busch.
-\newblock Topological defect dynamics of vortex lattices in bose-einstein
-  condensates.
-\newblock {\em Physical Review A}, 94(5):053603, 2016.
+\bibitem{schloss2018}
+James~R Schloss and Lee~J Riordan.
+\newblock Gpue: Graphics processing unit gross-pitaevskii equation solver.
+\newblock {\em J. Open Source Software}, 3(32):1037, 2018.
+
+\bibitem{cohen1991}
+Robert~F Cohen and Roberto Tamassia.
+\newblock Dynamic expression trees and their applications.
+\newblock In {\em SODA}, pages 52--61, 1991.
+
+\bibitem{reyes2011}
+Ruyman Reyes and Francisco de~Sande.
+\newblock Automatic code generation for gpus in llc.
+\newblock {\em The Journal of Supercomputing}, 58(3):349--356, 2011.
+
+\bibitem{bayindir2015}
+Cihan Bayindir.
+\newblock Compressive split-step fourier method.
+\newblock {\em arXiv preprint arXiv:1512.03932}, 2015.
+
+\bibitem{davenport2012}
+Mark~A Davenport, Marco~F Duarte, Yonina~C Eldar, and Gitta Kutyniok.
+\newblock Introduction to compressed sensing.
+\newblock {\em Compressed sensing: theory and applications}, 105:106, 2012.
+
+\bibitem{docs}
+James Schloss and Lee O'riordan.
+
+\bibitem{villois2016}
+Alberto Villois, Giorgio Krstulovic, Davide Proment, and Hayder Salman.
+\newblock A vortex filament tracking method for the gross--pitaevskii model of
+  a superfluid.
+\newblock {\em Journal of Physics A: Mathematical and Theoretical},
+  49(41):415502, 2016.
+
+\bibitem{guo2018}
+Yulong Guo, Xiaopei Liu, Chi Xiong, Xuemiao Xu, and Chi-Wing Fu.
+\newblock Towards high-quality visualization of superfluid vortices.
+\newblock {\em IEEE transactions on visualization and computer graphics},
+  24(8):2440--2455, 2018.
+
+\bibitem{canny1986}
+John Canny.
+\newblock A computational approach to edge detection.
+\newblock {\em IEEE Transactions on pattern analysis and machine intelligence},
+  (6):679--698, 1986.
 
 \bibitem{o2016}
 LJ~O'Riordan, AC~White, and Th~Busch.
@@ -26,192 +187,27 @@ LJ~O'Riordan, AC~White, and Th~Busch.
   condensates.
 \newblock {\em Physical Review A}, 93(2):023609, 2016.
 
-\bibitem{strogatz2018}
-Steven~H Strogatz.
-\newblock {\em Nonlinear dynamics and chaos: with applications to physics,
-  biology, chemistry, and engineering}.
-\newblock CRC Press, 2018.
-
-\bibitem{spiegel1987}
-EA~Spiegel.
-\newblock Chaos: a mixed metaphor for turbulence.
-\newblock {\em Proceedings of the Royal Society of London. A. Mathematical and
-  Physical Sciences}, 413(1844):87--95, 1987.
-
-\bibitem{biferale2005}
-Luca Biferale, Guido Boffetta, A~Celani, BJ~Devenish, A~Lanotte, and Federico
-  Toschi.
-\newblock Lagrangian statistics of particle pairs in homogeneous isotropic
-  turbulence.
-\newblock {\em Physics of Fluids}, 17(11):115101, 2005.
-
-\bibitem{berera2018}
-Arjun Berera and Richard~DJG Ho.
-\newblock Chaotic properties of a turbulent isotropic fluid.
-\newblock {\em Physical review letters}, 120(2):024101, 2018.
-
-\bibitem{white2014}
-Angela~C White, Brian~P Anderson, and Vanderlei~S Bagnato.
-\newblock Vortices and turbulence in trapped atomic condensates.
-\newblock {\em Proceedings of the National Academy of Sciences}, 111(Supplement
-  1):4719--4726, 2014.
-
-\bibitem{nemirovskii1995}
-SK~Nemirovskii and W~Fiszdon.
-\newblock Chaotic quantized vortices and hydrodynamic processes in superfluid
-  helium.
-\newblock {\em Reviews of Modern Physics}, 67(1):37, 1995.
-
-\bibitem{kyriakopoulos2014}
-Nikos Kyriakopoulos, Vassilis Koukouloyannis, Charalampos Skokos, and
-  Panayotis~G Kevrekidis.
-\newblock Chaotic behavior of three interacting vortices in a confined
-  bose-einstein condensate.
-\newblock {\em Chaos: An Interdisciplinary Journal of Nonlinear Science},
-  24(2):024410, 2014.
-
-\bibitem{koukouloyannis2014}
-Vassilis Koukouloyannis, George Voyatzis, and Panayotis~G Kevrekidis.
-\newblock Dynamics of three noncorotating vortices in bose-einstein
+\bibitem{o2016topo}
+Lee~James O'Riordan and Thomas Busch.
+\newblock Topological defect dynamics of vortex lattices in bose-einstein
   condensates.
-\newblock {\em Physical Review E}, 89(4):042905, 2014.
+\newblock {\em Physical Review A}, 94(5):053603, 2016.
 
-\bibitem{navarro2013}
-R~Navarro, R~Carretero-Gonz{\'a}lez, PJ~Torres, PG~Kevrekidis,
-  DJ~Frantzeskakis, MW~Ray, E~Altunta{\c{s}}, and DS~Hall.
-\newblock Dynamics of a few corotating vortices in bose-einstein condensates.
-\newblock {\em Physical review letters}, 110(22):225301, 2013.
+\bibitem{jodra2015}
+Jose~L Jodra, Ibai Gurrutxaga, and Javier Muguerza.
+\newblock Efficient 3d transpositions in graphics processing units.
+\newblock {\em International Journal of Parallel Programming}, 43(5):876--891,
+  2015.
 
-\bibitem{nore1997}
-Caroline Nore, Malek Abid, and ME~Brachet.
-\newblock Kolmogorov turbulence in low-temperature superflows.
-\newblock {\em Physical review letters}, 78(20):3896, 1997.
+\bibitem{ruetsch2013}
+Gregory Ruetsch and Massimiliano Fatica.
+\newblock {\em CUDA Fortran for scientists and engineers: best practices for
+  efficient CUDA Fortran programming}.
+\newblock Elsevier, 2013.
 
-\bibitem{stalp1999}
-Steven~R Stalp, L~Skrbek, and Russell~J Donnelly.
-\newblock Decay of grid turbulence in a finite channel.
-\newblock {\em Physical review letters}, 82(24):4831, 1999.
-
-\bibitem{araki2002}
-Tsunehiko Araki, Makoto Tsubota, and Sergey~K Nemirovskii.
-\newblock Energy spectrum of superfluid turbulence with no normal-fluid
-  component.
-\newblock {\em Physical review letters}, 89(14):145301, 2002.
-
-\bibitem{salort2010}
-Julien Salort, Christophe Baudet, Bernard Castaing, Beno{\^\i}t Chabaud,
-  Fran{\c{c}}ois Daviaud, Thomas Didelot, Pantxo Diribarne, B{\'e}reng{\`e}re
-  Dubrulle, Yves Gagne, Fr{\'e}d{\'e}ric Gauthier, et~al.
-\newblock Turbulent velocity spectra in superfluid flows.
-\newblock {\em Physics of Fluids}, 22(12):125102, 2010.
-
-\bibitem{aref1982}
-Hassan Aref and N~Pomphrey.
-\newblock Integrable and chaotic motions of four vortices. i. the case of
-  identical vortices.
-\newblock {\em Proceedings of the Royal Society of London. A. Mathematical and
-  Physical Sciences}, 380(1779):359--387, 1982.
-
-\bibitem{aref1980}
-Hassan Aref and Neil Pomphrey.
-\newblock Integrable and chaotic motions of four vortices.
-\newblock {\em Physics Letters A}, 78(4):297--300, 1980.
-
-\bibitem{aref1983}
-Hassan Aref.
-\newblock Integrable, chaotic, and turbulent vortex motion in two-dimensional
-  flows.
-\newblock {\em Annual Review of Fluid Mechanics}, 15(1):345--389, 1983.
-
-\bibitem{seo2017}
-Sang~Won Seo, Bumsuk Ko, Joon~Hyun Kim, and Yong-il Shin.
-\newblock Observation of vortex-antivortex pairing in decaying 2d turbulence of
-  a superfluid gas.
-\newblock {\em Scientific reports}, 7(1):4587, 2017.
-
-\bibitem{wilson2015}
-Kali~E Wilson, Zachary~L Newman, Joseph~D Lowney, and Brian~P Anderson.
-\newblock In situ imaging of vortices in bose-einstein condensates.
-\newblock {\em Physical Review A}, 91(2):023621, 2015.
-
-\bibitem{freilich2010}
-DV~Freilich, DM~Bianchi, AM~Kaufman, TK~Langin, and DS~Hall.
-\newblock Real-time dynamics of single vortex lines and vortex dipoles in a
-  bose-einstein condensate.
-\newblock {\em Science}, 329(5996):1182--1185, 2010.
-
-\bibitem{serafini2017}
-Simone Serafini, Luca Galantucci, Elena Iseni, Tom Bienaim{\'e}, Russell~N
-  Bisset, Carlo~F Barenghi, Franco Dalfovo, Giacomo Lamporesi, and Gabriele
-  Ferrari.
-\newblock Vortex reconnections and rebounds in trapped atomic bose-einstein
-  condensates.
-\newblock {\em Physical Review X}, 7(2):021031, 2017.
-
-\bibitem{neely2013}
-TW~Neely, AS~Bradley, EC~Samson, SJ~Rooney, Ewan~M Wright, KJH Law,
-  R~Carretero-Gonz{\'a}lez, PG~Kevrekidis, MJ~Davis, and Brian~P Anderson.
-\newblock Characteristics of two-dimensional quantum turbulence in a
-  compressible superfluid.
-\newblock {\em Physical review letters}, 111(23):235301, 2013.
-
-\bibitem{shin2004}
-Yong-il Shin, Michele Saba, Mukund Vengalattore, TA~Pasquini, Christian Sanner,
-  AE~Leanhardt, Mara Prentiss, DE~Pritchard, and Wolfgang Ketterle.
-\newblock Dynamical instability of a doubly quantized vortex in a bose-einstein
-  condensate.
-\newblock {\em Physical review letters}, 93(16):160406, 2004.
-
-\bibitem{kwon2014}
-Woo~Jin Kwon, Geol Moon, Jae-yoon Choi, Sang~Won Seo, and Yong-il Shin.
-\newblock Relaxation of superfluid turbulence in highly oblate bose-einstein
-  condensates.
-\newblock {\em Physical Review A}, 90(6):063627, 2014.
-
-\bibitem{gauthier2018}
-Guillaume Gauthier, Matthew~T Reeves, Xiaoquan Yu, Ashton~S Bradley, Mark
-  Baker, Thomas~A Bell, Halina Rubinsztein-Dunlop, Matthew~J Davis, and Tyler~W
-  Neely.
-\newblock Negative-temperature onsager vortex clusters in a quantum fluid.
-\newblock {\em arXiv preprint arXiv:1801.06951}, 2018.
-
-\bibitem{johnstone2018}
-Shaun~P Johnstone, Andrew~J Groszek, Philip~T Starkey, Christopher~J
-  Billington, Tapio~P Simula, and Kristian Helmerson.
-\newblock Order from chaos: Observation of large-scale flow from turbulence in
-  a two-dimensional superfluid.
-\newblock {\em arXiv preprint arXiv:1801.06952}, 2018.
-
-\bibitem{schloss2018}
-James~R Schloss and Lee~J Riordan.
-\newblock Gpue: Graphics processing unit gross-pitaevskii equation solver.
-\newblock {\em J. Open Source Software}, 3(32):1037, 2018.
-
-\bibitem{aftalion2001}
-Amandine Aftalion and Qiang Du.
-\newblock Vortices in a rotating bose-einstein condensate: Critical angular
-  velocities and energy diagrams in the thomas-fermi regime.
-\newblock {\em Physical Review A}, 64(6):063603, 2001.
-
-\bibitem{zampetaki2013}
-Alexandra~V Zampetaki, R~Carretero-Gonz{\'a}lez, PG~Kevrekidis, FK~Diakonos,
-  and DJ~Frantzeskakis.
-\newblock Exploring rigidly rotating vortex configurations and their
-  bifurcations in atomic bose-einstein condensates.
-\newblock {\em Physical Review E}, 88(4):042914, 2013.
-
-\bibitem{abo2001}
-JR~Abo-Shaeer, C~Raman, JM~Vogels, and Wolfgang Ketterle.
-\newblock Observation of vortex lattices in bose-einstein condensates.
-\newblock {\em Science}, 292(5516):476--479, 2001.
-
-\bibitem{movie}
-Tiantian Zhang, James Schloss, Andreas Thomasen, Lee~James O'Riordan, Thomas
-  Busch, and Angela White.
-
-\bibitem{wolf1985}
-Alan Wolf, Jack~B Swift, Harry~L Swinney, and John~A Vastano.
-\newblock Determining lyapunov exponents from a time series.
-\newblock {\em Physica D: Nonlinear Phenomena}, 16(3):285--317, 1985.
+\bibitem{merz2016}
+HUGH Merz.
+\newblock Cufft 1.1/2.0 vs fftw 3.1. 2 (x86\_64) vs fftw 3.2 (cell) comparison,
+  2016.
 
 \end{thebibliography}

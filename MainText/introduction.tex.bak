@@ -1,24 +1,26 @@
 \section*{Introduction}
-\jrs{CN for everything}
 
-Massively parallel methods have become commonplace in High-Performance Computing (HPC) environments, as they often rely on large networks of distributed computing nodes for performing simulations of various forms.
-In recent years, it has been found the the Graphics Processing Unit (GPU) can provide a higher bandwidth for highly parallelizable computation because all components are available in a single device that has been developed specifically for the computation of many small actions in parallel.
+Massively parallel methods have become commonplace in High-Performance Computing (HPC) environments that often rely on large networks of distributed computing nodes for performing simulations of various forms.
+In recent years, it has been found that the Graphics Processing Unit (GPU) can provide a higher bandwidth for highly parallelizable computation because all components are available in a single device that has been developed specifically for the computation of many small actions in parallel.
 As such, many supercomputers have been transitioning to GPU-based computation, including Summit, currently the fastest supercomputer in the world~\cite{kahle2019}.
-For these reasons, General-Purpose GPU (GPGPU) programming methods have become more relevant than ever and many frameworks are beginning to caiter to the demand~\cite{reyes2012, fatica2008, besard2016, opencl}, with the current state-of-the art platform being NVIDIA's CUDA (Compute Unified Device Architecture)~\cite{CUDAPG}.
+For these reasons, General-Purpose GPU (GPGPU) programming methods have become more relevant than ever and many frameworks are beginning to cater to the demand~\cite{reyes2012, fatica2008, besard2016, opencl}, with the current state-of-the art platform being NVIDIA's CUDA (Compute Unified Device Architecture)~\cite{CUDAPG}.
 
 Though GPU devices are often faster than their CPU counterparts for simple tasks, there are plenty of drawbacks to using the GPU.
 For example, each GPU card typically has less available memory than the CPU, and inter-GPU or GPU-CPU communication is an incredibly slow process, thereby encouraging developers to restrict communication between devices as much as possible.
 In comparison to CPU software, developers need to be more aware of how GPU memory is being used to write optimized code for their specific purpose.
 In addition, individual GPU computing cores are weaker than those found on the CPU, so iterative tasks are even less optimal and should be avoided when programming for GPUs.
 
-Spectral methods are an interesting subset of problems that are not often used for largescale, distributed computation on HPC environments due to their reliance on FFTs (Fast Fourier Transforms), which are global operations, often requiring memory manipulation on multiple nodes simultaneously and requiring communication between them.
-Thought there are robust FFT libraries, like FFTW~\cite{frigo1998} to perform distributed FFTs, spectral methods are still avoided at scale and replaced by either finite-element or finite-difference counterparts.
-There is an interesting and open question about whether spectral methods could be faster on distributed networks of GPU devices, as the bulk of the parallelization occurs in a single device and should be faster than a distributed CPU network.
-Though special care needs to be taken to ensure that GPU memory is properly aligned, several pseudo-spectral methods have been shown to be both easier to implement and faster than other force integration schemes like Runge-Kutta, and one such method is the Split-Step Fourier Method (SSFM)~\cite{brehler2017}.
+Spectral and pseudo-spectral methods are interesting subsets of problems that are used for large-scale, distributed computation on HPC environments that rely on FFTs (Fast Fourier Transforms) to solve partial differential equations of various forms.
+Though there are robust FFT libraries, like FFTW~\cite{frigo1998} to perform distributed FFTs~\cite{popovici2018}, FFTs are still global operations, often requiring memory manipulation on multiple nodes simultaneously and requiring communication between them.
+For this reason, the FFT is often the computational bottleneck for spectral and pseudo-spectral methods.
+It is difficult to directly benchmark GPU and CPU software, but it is generally accepted that one-dimensional GPU-based FFTs perform more optimally as the gridsize increases; however, for higher-dimensional FFT operations, this performance increase is not as drastic~\cite{merz2016}.
+This leads to an interesting question about whether spectral methods could be faster on distributed networks of GPU devices, as the bulk of the parallelization occurs in a single device and should be faster than a distributed CPU network.
+Though special care needs to be taken to ensure that GPU memory is properly aligned, a few pseudo-spectral methods have been shown to be both easier to implement and faster than other force integration schemes like Runge-Kutta, and one such method is the Split-Step Fourier Method (SSFM)~\cite{brehler2017}.
 
 The SSFM is known as the primary workhorse for computation of wavepackets in single and multi-mode fiber optic systems and is primarily intended to solve the Non-linear Schr\"odinger equation, which has obvious applications to many areas of quantum simulation.
 In particular, the SSFM can be used to solve the Gross-Pitaevskii equation, which is the governing formula for all dynamics of superfluid Bose--Einstein condensates in the mean-field limit.
-Superfluid systems behave fundamentally differently than classical fluids and there is significant interest in many areas of superfluid research, including methods of vortex generation and their interaction.
+Superfluid systems behave fundamentally differently than classical fluids and there is significant interest in many areas of superfluid research, including methods of vortex generation and their interaction; however, three-dimensional simulations can quickly become computational infeasible.
+For this reason, it is worth exploring and developing GPU-based libraries for the computation of superfluid dynamics.
 This work has developed a massively parallel, GPU-based library for the simulation of various quantum phenomenon with the SSFM, with a focus on solving the Gross-Pitaevskii equation for the simulation of superfluid vortex dynamics.
 I will also discuss and motivate several methods for simulation of quantum engineering on GPU devices.
 This work was carried out during my time as a PhD student in the Quantum Systems Unit at the Okinawa Institute of Science and Technology Graduate University (OIST).
@@ -31,19 +33,19 @@ This chapter lays the groundwork for all subsequent chapters.
 
 \subsection*{Quantum engineering for one-dimensional quantum systems}
 
-This chapter will motivate several methods that are difficult to simulate on GPU architecture, focusing on methods of quantum engineering for a one-dimensional example where macroscopic superposition states are generated in a Tonks--Girargeau gas.
-In addition, this chapter will highlight methods in quantum optimal control and shortcuts to adiabaticity that will serve as examples of quantum engineering methods physicists might wish to implement for various quantum phenomena.
+This chapter will motivate several methods that are difficult to simulate on GPU architecture, focusing on methods of quantum engineering for a one-dimensional example where macroscopic superposition states are generated in a Tonks--Girardeau gas.
+In addition, this chapter will highlight methods in quantum optimal control and shortcuts to adiabaticity that will serve as examples of quantum engineering methods physicists might wish to implement for various quantum phenomena that are difficult to perform on GPU architecture.
 This work has been published in the New Journal of Physics~\cite{schloss2016}.
 
 
 \subsection*{Introduction to GPGPU and the GPUE codebase}
 
-This chapter will introduce the concept of General-Purpose GPU computing and the GPUE codebase for superfluid vortex simulation.
-It will also cover GPU architecture in-depth and discuss several optimizations performed in GPUE to enable certain features which could not be done before on other GPU libraries with similar purposes.
-This chapter will conclude with a discussion on a notoriously difficult problem with GPU hardware that could make spectral and pseudo=spectral methods even more efficient on GPU hardware: an $n$-dimensional distributed transpose.
+This chapter will introduce the concept of General-Purpose GPU computing and the GPUE (GPU-based Gross-Piteavskii Equation solver) codebase for superfluid vortex simulation.
+It will also cover GPU architecture in-depth and discuss several optimizations performed in GPUE to enable certain features which could not be done before with other GPU libraries with similar purposes.
+This chapter will conclude with a discussion of a notoriously difficult problem with GPU hardware that could make spectral and pseudo-spectral methods even more efficient on GPU hardware: an $n$-dimensional distributed transpose.
 The GPUE codebase has been published in the Journal of Open Source Software~\cite{schloss2018}.
 
-\subsection*{Vortex analysis of two-dimensional superfuid systems}
+\subsection*{Vortex analysis of two-dimensional superfluid systems}
 
 This chapter will be related to an example of superfluid simulations with GPUE in two-dimensions, where vortices essentially follow the dynamics of point-vortex models.
 Here, the system is shown to exhibit chaotic dynamics with only a few vortices present.
@@ -54,9 +56,8 @@ This work has been published in Phys. Rev. Fluids~\cite{zhang2019}.
 
 This chapter is another example of superfluid simulations performed with GPUE, this time in three-dimensions.
 For this system, a novel device is proposed that can generate, control, and detect vortex ring-like structures by coupling the BEC to the light of an optical nanofiber.
-This system highlights the need for many of the features suggested during GPUE development for minimizing the memory footprint and ensuring faast, dynamic simulations.
+This system highlights the need for many of the features suggested during GPUE development for minimizing the memory footprint and ensuring fast, dynamic simulations.
 This work has been submitted to Phys. Rev. Fluids~\cite{schloss2019}.
 
 \subsection*{Outlook}
-Though there will be features developed for GPUE that are not used, specifically in physical examples used here, there is currently ongoing work to use these features at this time.
-In addition, it is worth discussing several features with GPUE that could use more development in the future.
+Throughout this text, I will try to motivate future directions at the end of each chapter; however, a global outlook, including new simulations possible with GPUE and other areas of development that could be focused on will be discussed in the end.
