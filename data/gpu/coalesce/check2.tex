@@ -1,0 +1,124 @@
+\documentclass[tikz,margin=5em]{standalone}
+\usepackage{intcalc,calc}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usetikzlibrary{arrows}
+
+
+\title{Memory Coalescing}
+\usetikzlibrary{shapes}
+
+\author{You}
+
+\begin{document}
+
+
+
+
+
+\tikzset{allocated/.style={line width=1mm,rounded corners,
+                           fill=gray,fill opacity=.4}}
+\tikzset{unallocated/.style={line width=1mm,rounded corners,
+                           fill=gray,fill opacity=.1}}
+
+
+
+\newcommand{\coalescingA}
+{
+
+  \node at (2,1) {Allocated};
+  \draw[allocated] (0,0) rectangle (4,2);
+  
+  \node at (6,1) {Allocated};
+  \draw[allocated] (4,0) rectangle (8,2);
+  
+  \node at (10,1) {Allocated};
+  \draw[allocated] (8,0) rectangle (12,2);
+  
+  \node at (14,1) {Allocated};
+  \draw[allocated] (12,0) rectangle (16,2);
+
+}
+
+
+\newcommand{\coalescingB}
+{
+
+  \node at (2,1) {Allocated};
+  \draw[allocated] (0,0) rectangle (4,2);
+  
+  \node at (6,1) {Unallocated};
+  \draw[unallocated] (4,0) rectangle (8,2);
+  
+  \node at (10,1) {Allocated};
+  \draw[allocated] (8,0) rectangle (12,2);
+  
+  \node at (14,1) {Allocated};
+  \draw[allocated] (12,0) rectangle (16,2);
+
+}
+
+\newcommand{\coalescingC}
+{
+
+  \node at (2,1) {Allocated};
+  \draw[allocated] (0,0) rectangle (4,2);
+  
+  \draw[unallocated] (4,0) rectangle (8,2);
+  \node at (6,1) {Unallocated};
+  
+  \draw[unallocated] (8,0) rectangle (12,2);
+  \node at (10,1) {Unallocated};
+  
+  \node at (14,1) {Allocated};
+  \draw[allocated] (12,0) rectangle (16,2);
+
+}
+
+\newcommand{\coalescingD}
+{
+
+  \node at (2,1) {Allocated};
+  \draw[allocated] (0,0) rectangle (4,2);
+  
+  \draw[unallocated] (4,0) rectangle (12,2);
+  \node at (8,1) {Unallocated};
+  
+  
+  \node at (14,1) {Allocated};
+  \draw[allocated] (12,0) rectangle (16,2);
+
+}
+
+
+
+
+
+
+\begin{tikzpicture}[]
+
+  \coalescingA;
+
+\end{tikzpicture}
+
+\begin{tikzpicture}[]
+
+  \coalescingB;
+
+\end{tikzpicture}
+
+\begin{tikzpicture}[]
+
+  \coalescingC;
+
+\end{tikzpicture}
+
+
+\begin{tikzpicture}[]
+
+  \coalescingD;
+
+\end{tikzpicture}
+
+\end{document}

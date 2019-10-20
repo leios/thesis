@@ -56,16 +56,16 @@
 \BOOKMARK [2][-]{subsection.5.2.2}{Ground state vortex configurations}{section.5.2}% 56
 \BOOKMARK [2][-]{subsection.5.2.3}{Dynamic vortex detection and scissor modes}{section.5.2}% 57
 \BOOKMARK [1][-]{section.5.3}{Conclusion}{chapter.5}% 58
-\BOOKMARK [0][-]{section*.69}{Conclusion}{}% 59
-\BOOKMARK [1][-]{section.5.4}{Overall conclusions}{section*.69}% 60
-\BOOKMARK [1][-]{section.5.5}{Further development of GPUE}{section*.69}% 61
+\BOOKMARK [0][-]{section*.70}{Conclusion}{}% 59
+\BOOKMARK [1][-]{section.5.4}{Overall conclusions}{section*.70}% 60
+\BOOKMARK [1][-]{section.5.5}{Further development of GPUE}{section*.70}% 61
 \BOOKMARK [2][-]{subsection.5.5.1}{Vortex tracking in two and three dimensions}{section.5.5}% 62
 \BOOKMARK [2][-]{subsection.5.5.2}{General purpose Hamiltonian solver}{section.5.5}% 63
 \BOOKMARK [2][-]{subsection.5.5.3}{Octree grid}{section.5.5}% 64
-\BOOKMARK [1][-]{section.5.6}{Future simulations of quantum systems}{section*.69}% 65
+\BOOKMARK [1][-]{section.5.6}{Future simulations of quantum systems}{section*.70}% 65
 \BOOKMARK [0][-]{appendix.A}{Simple vector additions in CUDA, OpenCL, and JuliaGPU}{}% 66
 \BOOKMARK [1][-]{section.A.1}{Vector addition with C++}{appendix.A}% 67
 \BOOKMARK [1][-]{section.A.2}{Vector addition with CUDA}{appendix.A}% 68
 \BOOKMARK [1][-]{section.A.3}{Vector addition with OpenCL}{appendix.A}% 69
 \BOOKMARK [1][-]{section.A.4}{Julia}{appendix.A}% 70
-\BOOKMARK [0][-]{section*.72}{Bibliography}{}% 71
+\BOOKMARK [0][-]{section*.73}{Bibliography}{}% 71

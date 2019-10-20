@@ -38,18 +38,18 @@
 \contentsline {subsection}{\numberline {3.2.2}GPU hardware architecture}{44}{subsection.3.2.2}% 
 \contentsline {subsubsection}{Introduction to CUDA software interface}{44}{section*.43}% 
 \contentsline {subsubsection}{Discussion of GPU thread and memory hierarchy}{49}{section*.49}% 
-\contentsline {subsection}{\numberline {3.2.3}Comparison between various languages for GPGPU computation}{50}{subsection.3.2.3}% 
-\contentsline {subsubsection}{CUDA}{50}{section*.50}% 
-\contentsline {subsubsection}{OpenCL}{51}{section*.51}% 
-\contentsline {subsubsection}{Julia}{51}{section*.52}% 
+\contentsline {subsection}{\numberline {3.2.3}Comparison between various languages for GPGPU computation}{51}{subsection.3.2.3}% 
+\contentsline {subsubsection}{CUDA}{51}{section*.51}% 
+\contentsline {subsubsection}{OpenCL}{51}{section*.52}% 
+\contentsline {subsubsection}{Julia}{52}{section*.53}% 
 \contentsline {section}{\numberline {3.3}Introduction to the GPUE codebase for $n$-dimensional simulations of quantum systems on the GPU}{52}{section.3.3}% 
-\contentsline {subsection}{\numberline {3.3.1}FFT optimization}{52}{subsection.3.3.1}% 
-\contentsline {subsection}{\numberline {3.3.2}Dynamic field input and output in GPUE with expression trees}{53}{subsection.3.3.2}% 
-\contentsline {subsection}{\numberline {3.3.3}GPUE memory footprint}{54}{subsection.3.3.3}% 
-\contentsline {subsection}{\numberline {3.3.4}Vortex tracking and highlighting}{55}{subsection.3.3.4}% 
+\contentsline {subsection}{\numberline {3.3.1}FFT optimization}{53}{subsection.3.3.1}% 
+\contentsline {subsection}{\numberline {3.3.2}Dynamic field input and output in GPUE with expression trees}{54}{subsection.3.3.2}% 
+\contentsline {subsection}{\numberline {3.3.3}GPUE memory footprint}{55}{subsection.3.3.3}% 
+\contentsline {subsection}{\numberline {3.3.4}Vortex tracking and highlighting}{56}{subsection.3.3.4}% 
 \contentsline {subsection}{\numberline {3.3.5}Energy calculation for superfluid simulations}{58}{subsection.3.3.5}% 
-\contentsline {subsection}{\numberline {3.3.6}Similar software packages}{59}{subsection.3.3.6}% 
-\contentsline {subsection}{\numberline {3.3.7}Future direction and multi-GPU development}{59}{subsection.3.3.7}% 
+\contentsline {subsection}{\numberline {3.3.6}Similar software packages}{60}{subsection.3.3.6}% 
+\contentsline {subsection}{\numberline {3.3.7}Future direction and multi-GPU development}{60}{subsection.3.3.7}% 
 \contentsline {section}{\numberline {3.4}DistributedTranspose.jl}{60}{section.3.4}% 
 \contentsline {section}{\numberline {3.5}Outlook}{61}{section.3.5}% 
 \contentsline {chapter}{\numberline {4}Chaotic vortex analysis of two-dimensional superfluid systems for few-vortex systems}{63}{chapter.4}% 
@@ -64,13 +64,13 @@
 \contentsline {subsection}{\numberline {5.2.2}Ground state vortex configurations}{80}{subsection.5.2.2}% 
 \contentsline {subsection}{\numberline {5.2.3}Dynamic vortex detection and scissor modes}{83}{subsection.5.2.3}% 
 \contentsline {section}{\numberline {5.3}Conclusion}{85}{section.5.3}% 
-\contentsline {chapter}{Conclusion}{87}{section*.69}% 
+\contentsline {chapter}{Conclusion}{87}{section*.70}% 
 \contentsline {section}{\numberline {5.4}Overall conclusions}{87}{section.5.4}% 
 \contentsline {section}{\numberline {5.5}Further development of GPUE}{87}{section.5.5}% 
 \contentsline {subsection}{\numberline {5.5.1}Vortex tracking in two and three dimensions}{88}{subsection.5.5.1}% 
 \contentsline {subsection}{\numberline {5.5.2}General purpose Hamiltonian solver}{88}{subsection.5.5.2}% 
 \contentsline {subsection}{\numberline {5.5.3}Octree grid}{88}{subsection.5.5.3}% 
-\contentsline {subsubsection}{GPUE.jl}{89}{section*.71}% 
+\contentsline {subsubsection}{GPUE.jl}{89}{section*.72}% 
 \contentsline {section}{\numberline {5.6}Future simulations of quantum systems}{89}{section.5.6}% 
 \vspace {2em}
 \contentsline {chapter}{\numberline {A}Simple vector additions in CUDA, OpenCL, and JuliaGPU}{91}{appendix.A}% 
@@ -79,4 +79,4 @@
 \contentsline {section}{\numberline {A.3}Vector addition with OpenCL}{93}{section.A.3}% 
 \contentsline {section}{\numberline {A.4}Julia}{96}{section.A.4}% 
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{97}{section*.72}% 
+\contentsline {chapter}{Bibliography}{97}{section*.73}% 

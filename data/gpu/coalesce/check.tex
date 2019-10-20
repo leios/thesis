@@ -1,0 +1,205 @@
+\documentclass[tikz,margin=2em]{standalone}
+\usepackage{intcalc,calc}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{intersections}
+
+
+\title{Memory Access Coalescing}
+\usetikzlibrary{shapes}
+
+\author{You}
+
+\begin{document}
+
+
+
+
+\tikzset{goodaccess/.style={minimum size=.8cm,
+                            line width=1mm,
+                            rounded corners,
+                            draw,fill=green}}
+\tikzset{thread/.style={-triangle 90, draw=blue,
+                            line width=1mm,decorate,
+                            decoration=snake}}
+\tikzset{snake it/.style={decorate,
+                          decoration=snake}}
+\tikzset{accessarrow/.style={triangle 90-triangle 90,
+                             color=red,
+                             line width=1.2mm}}
+
+
+\def\pagerect{(-1,3) rectangle (43,-10)}
+\def\memorywords{20}
+
+
+
+\newcommand{\acoalescingA}
+{
+  
+  \foreach \i
+    [evaluate=\i as \x using int(\i*2)]
+    in {1,...,\memorywords}
+  {
+    \draw[color=black, line width=2mm] (\x,0) rectangle (\x+2,2);
+  }
+
+}
+
+\newcommand{\groupmemaccess}[1]{
+  \def\xnode{#1}
+  
+  \def\groupsize{8}
+  
+  \foreach \i
+    [evaluate=\i as \x using int(\xnode * 2)]
+    [evaluate=\i as \xend using int((\xnode * 2)+\groupsize)]
+    in {0}
+  {
+    \draw[dashed,line width=1mm,color=gray,rounded corners]
+      (\x cm,-1 cm) rectangle (\xend cm,3 cm);
+  }
+}
+
+
+\newcommand{\acoalescingB}
+{
+  \acoalescingA;
+
+  
+  \node at (10,-5.7) (goodTA) {};
+  \node at (11,-5.7) (goodTB) {};
+  \node at (12,-5.7) (goodTC) {};
+  \node at (13,-5.7) (goodTD) {};
+  
+  \draw[thread] (goodTA) -- ++(0,-4) node (goodTAend) {};
+  \draw[thread] (goodTB) -- ++(0,-4) node (goodTBend) {};
+  \draw[thread] (goodTC) -- ++(0,-4) node (goodTCend) {};
+  \draw[thread] (goodTD) -- ++(0,-4) node (goodTDend) {};
+}
+
+\newcommand{\acoalescingC}
+{
+  \acoalescingB;
+
+
+  \node[goodaccess] at (11,1){};
+  \node[goodaccess] at (13,1){};
+  \node[goodaccess] at (15,1){};
+  \node[goodaccess] at (17,1){};
+  
+  
+  \path[name path=underline] (0,-.5) -- (43,-.5);
+  
+  
+  
+  \path[name path =linea] ([yshift=.3cm]goodTA.center) -- (11,1);
+  \path[name path =lineb] ([yshift=.3cm]goodTB.center) -- (13,1);
+  \path[name path =linec] ([yshift=.3cm]goodTC.center) -- (15,1);
+  \path[name path =lined] ([yshift=.3cm]goodTD.center) -- (17,1);
+  
+  \draw[accessarrow,
+        name intersections={of=linea and underline}]
+    ([yshift=.3cm]goodTA.center) -- (intersection-1);
+  \draw[accessarrow,
+        name intersections={of=lineb and underline}]
+    ([yshift=.3cm]goodTB.center) -- (intersection-1);
+  \draw[accessarrow,
+        name intersections={of=linec and underline}]
+    ([yshift=.3cm]goodTC.center) -- (intersection-1);
+  \draw[accessarrow,
+        name intersections={of=lined and underline}]
+    ([yshift=.3cm]goodTD.center) -- (intersection-1);
+}
+
+\newcommand{\acoalescingD}
+{
+  \acoalescingC;
+
+  \draw[line width=1mm]
+         ([yshift=-1 cm,xshift=-2cm]goodTAend.center)
+      -- ([yshift=-1 cm,xshift=2cm]goodTDend.center)
+    node[midway, color=black, below, font=\large, yshift=0em,scale=3]
+    {Coalesced};
+}
+
+
+\newcommand{\acoalescingE}
+{
+  \acoalescingD;
+  
+  \groupmemaccess{5};
+}
+
+\newcommand{\acoalescingF}
+{
+  \acoalescingE;
+
+  \node at(18,-5.7) (badTA) {};
+  \node at(19,-5.7) (badTB) {};
+  \node at(20,-5.7) (badTC) {};
+  \node at(21,-5.7) (badTD) {};
+  \draw[thread] (badTA) -- ++(0,-4) node (badTAend){};
+  \draw[thread] (badTB) -- ++(0,-4) node (badTBend){};
+  \draw[thread] (badTC) -- ++(0,-4) node (badTCend){};
+  \draw[thread] (badTD) -- ++(0,-4) node (badTDend){};
+}
+
+\newcommand{\acoalescingG}
+{
+  \acoalescingF;
+
+
+  
+  \node[goodaccess] at (19,1){};
+  \node[goodaccess] at (23,1){};
+  \node[goodaccess] at (27,1){};
+  \node[goodaccess] at (31,1){};
+
+  \path[name path =linea] ([yshift=.3cm]badTA.center) -- (19,1);
+  \path[name path =lineb] ([yshift=.3cm]badTB.center) -- (23,1);
+  \path[name path =linec] ([yshift=.3cm]badTC.center) -- (27,1);
+  \path[name path =lined] ([yshift=.3cm]badTD.center) -- (31,1);
+  
+  \draw[accessarrow,
+        name intersections={of=linea and underline}]
+    ([yshift=.3cm]badTA.center) -- (intersection-1);
+  \draw[accessarrow,
+        name intersections={of=lineb and underline}]
+    ([yshift=.3cm]badTB.center) -- (intersection-1);
+  \draw[accessarrow,
+        name intersections={of=linec and underline}]
+    ([yshift=.3cm]badTC.center) -- (intersection-1);
+  \draw[accessarrow,
+        name intersections={of=lined and underline}]
+    ([yshift=.3cm]badTD.center) -- (intersection-1);
+  
+  \draw[line width=1mm]
+         ([yshift=-1 cm,xshift=-2 cm]badTAend.center) 
+      -- ([yshift=-1 cm,xshift=2 cm]badTDend.center)
+    node[midway, color=black, below, font=\large, yshift=0em,scale=3]
+    {Strided}
+    ;
+}
+
+\newcommand{\acoalescingH}
+{
+  \acoalescingG;
+
+  \groupmemaccess{9};
+  \groupmemaccess{13};
+}
+
+
+\begin{tikzpicture}[]
+  \path[] \pagerect;
+  
+  \acoalescingH;
+
+\end{tikzpicture}
+
+
+\end{document}

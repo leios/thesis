@@ -1,7 +1,7 @@
 \chapter{General Purpose computing with Graphics Processing Units and the GPUE codebase}
 \label{ch:gpu}
 
-The Graphics Processing Unit (GPU) is a computing card that typically connects to the motherboard through a Peripheral Component Interconnect (PCI) slot.
+The Graphics Processing Unit (GPU) is a computing card that connects to the motherboard through a Peripheral Component Interconnect (PCI) slot.
 As the name implies, the GPU is designed to rapidly manipulate memory to create images or graphics that are sent to a display device, such as a monitor.
 Because individual pixels in images are independent of each other and modern computers require updating all pixels on the display device quickly, the GPU has been developed as a massively parallel computing device, capable of efficiently performing simple tasks (such as pixel generation or manipulation) rapidly by distributing the computation among many computing cores.
 This design methodology starkly contrasts the few, powerful cores on the Central Processing Unit (CPU), which is the default computing device on modern desktop systems.
@@ -12,7 +12,8 @@ Historically, HPC systems were often developed as large, distributed networks of
 As such, these systems facilitated the development of highly parallel and distributed numerical methods to perform scientific computation.
 
 With new, parallel algorithms being developed for HPC systems and GPU technology advancing rapidly to perform more computation in parallel to satiate the consumer demands for high-quality videos and graphics for video games and other media, it became possible to use the GPU as a scientific computing device as well with a new technique called General Purpose computing on Graphics Processing Units (GPGPU).
-Modern HPC design often incorporates the GPU into each computing node, thereby increasing the throughput of the system, overall, and the fastest known supercomputer today (Summit, ORNL~\cite{kahle2019}), is almost entirely composed of GPU nodes with NVIDIA Tesla V100 cards (32 GB of available RAM), connected with NVlink and IBM's power architecture.
+Modern HPC design often incorporates the GPU into each computing node, thereby increasing the throughput of the system, overall.
+The fastest known supercomputer today (Summit, ORNL~\cite{kahle2019}), is entirely composed of GPU nodes with NVIDIA Tesla V100 cards (32 GB of available RAM), connected with NVlink and IBM's power architecture.
 In addition to the utility of GPGPU for scientific computing, GPU technology has also been rapidly developed for AI and related fields.
 
 In this chapter, I will discuss the design methodology for the hardware and software related to GPGPU before proceeding to the development of GPUE, the GPU-based Gross-Pitaevskii Equation solver, which will be used for the remainder of this work.
@@ -42,7 +43,7 @@ Even so, understanding all the features of GPUE and its future directions requir
 \section{General purpose computing with graphics processing units}
 
 GPGPU programming is a relatively new development to the computing world and is generally much faster than CPU-based computation for tasks that can be easily parallelized in a SIMD-like fashion.
-Though benchmarks vary greatly depending programming languages, code quality, and intent of the software being benchmarked, our GPUE codebase is often 5 to 10 times faster than well-optimized C/C++ code and 100-200 times faster than Matlab code that is simulating the same system~\cite{wittek2016}.
+Though benchmarks vary greatly depending programming languages, code quality, and intent of the software being benchmarked, our GPUE codebase is often 5 to 10 times faster than well-optimized CPU C/C++ code and 100-200 times faster than Matlab code that is simulating the same system~\cite{wittek2016}.
 This is shown in Figure~\ref{fig:bench}, where a comparison between GPUE, GPElab~\cite{antoine2014}, and Trotter-Suzuki~\cite{wittek2013} are shown.
 These benchmarks are consistent with other GPGPU programs~\cite{garland2008, lee2010, nickolls2010}.
 
@@ -65,7 +66,7 @@ Even so, there are methods to re-frame these problems such that they are better 
 
 In addition to these algorithmic limitations, GPU cards have several notable drawbacks in terms of available memory on individual cards, which is often much less than the amount available on the host.
 As such, when simulating a large system on the GPU, one often limits the resolution to what can fit onto GPU memory.
-In addition the data transfer between GPUs and between the GPU and CPU through the PCI port is a slow process.
+In addition the data transfer between GPUs and between the GPU and CPU through the PCIE bus is a slow process.
 Until recently, these limited the size of the simulated wavefunction with GPUE to roughly $512^3$ on a single Tesla K80 card.
 Higher resolution simulations could be performed with more recent cards (such as the Tesla V100) or by using multiple cards; however, because it takes time to transfer data between GPUs, it is preferred to use a single card where possible.
 At this point, it is worthwhile to fully discuss GPU hardware and software ideologies, with particular focus on areas relevant to the development of GPUE.
@@ -74,9 +75,9 @@ We will discuss important methods used in the development of GPUE to overcome sh
 \subsection{GPU hardware architecture}
 
 Even though several programming frameworks exist with the capability of running code on the GPU, most of these hide necessary optimizations from the user.
-As such, I have chosen to focus exclusively on programming frameworks that expose the hardware for software developers, such as CUDA, OpenCL, and Julia.
+As such, I have chosen to focus exclusively on programming frameworks that expose the hardware for software developers, such as CUDA, OpenCL, and Julia-GPU.
 Though the following discussion will primarily focus on CUDA, a brief discussion of OpenCL and Julia can be found in Section~\ref{sec:compare}, and example code for both languages can be found in the Appendix~\ref{app:GPU}.
-For the purposes of this discussion, I will cover only the GPU memory architecture of NVIDIA GPU devices as these are the most common computing devices for HPC systems.
+For the purposes of this discussion, I will cover only the GPU memory architecture of NVIDIA GPU accelerators as these are the most common computing devices for HPC systems.
 
 This topic is easiest to describe by dividing it into two parts: an introduction to the software interface as defined by the CUDA API, followed by a discussion of the memory and thread hierarchy of GPU devices.
 Throughout these sections, I will discuss performance tips to ensure maximum GPU utilization, memory throughput, and instruction throughput.
@@ -97,8 +98,8 @@ for (int i = 0; i < n; ++i){
 I will show a simple example where we would like to add two vectors such that $\mathbf{a} + \mathbf{b} = \mathbf{c}$.
 This can be done with a simple loop in C, shown in Listing~\ref{lst:vecadd}.
 In this case, we take each element with a specified ID in $\mathbf{a}$ and $\mathbf{b}$ and add them to the appropriate ID $\mathbf{c}$.
-In some parallel programming models (OpenACC~\cite{wienke2012}, OpenMP~\cite{chandra2001}, GPUifyLoops.jl, and many others), parallelization of this method is possible by adding a macro to the start of the loop to specify that the operation is to be performed in parallel; however, this obscures GPU hardware for the user and does not always have the same performance guarantees~\cite{reyes2012}.
-As such, CUDA takes a slightly different approach by encouraging software developers to write \textit{kernels}, specific to the computation at hand.
+In some parallel programming models (OpenACC~\cite{wienke2012}, OpenMP~\cite{chandra2001}, GPUifyLoops.jl, and many others), parallelization of this method is possible by adding a pragma to the start of the loop to specify that the operation is to be performed in parallel; however, this obscures GPU hardware for the user and does not always have the same performance guarantees~\cite{reyes2012}.
+As such, CUDA takes a slightly different approach by requires software developers to write \textit{kernels}, specific to the computation at hand.
 An example CUDA kernel for vector addition is shown in Listing~\ref{lst:vecaddCUDA}, which has a number of notable differences to the loop in C in Listing~\ref{lst:vecaddCUDA}.
 This kernel is already remarkably different than an expected function on the CPU, and it is worth comparing Listings~\ref{lst:vecadd} and \ref{lst:vecaddCUDA} in detail for a better understanding of GPU hardware.
 
@@ -115,17 +116,18 @@ __global__ void vecAdd(double *a, double *b, double *c){
 The first peculiarity appears in line 1 with the \texttt{\_\_global\_\_} function specifier.
 This is a necessary element of all CUDA kernels that specifies where and when this kernel is capable of being called.
 A \texttt{\_\_global\_\_} kernel can be called by either host (with a standard CPU function) or the device (with a GPU kernel).
-A \texttt{\_\_host\_\_} kernel is exactly the same as a CPU function and can only be called by other CPU functions.
-Finally, a \texttt{\_\_device\_\_} kernel can only be called by other \texttt{\_\_device\_\_} or \texttt{\_\_global\_\_} kernels.
+A \texttt{\_\_host\_\_} function is exactly the same as a CPU function and can only be called by other CPU functions.
+Finally, a \texttt{\_\_device\_\_} function can only be called by other \texttt{\_\_device\_\_} functions or \texttt{\_\_global\_\_} kernels.
 As a note \texttt{\_\_global\_\_} kernels are incapable of returning vectors or other variables, and must instead mutate the variables, themselves.
 This is why the \texttt{\_\_global\_\_} \texttt{vecAdd(...)} kernel does not return $c$, but instead assumes it is a pre-allocated variable.
+All kernels are performed asynchronously, ans special care must be taken for iterative tasks.
 
 Another peculiarity appears on line 6, where the addition, itself, occurs.
 Though there was a necessity for a loop in Listing~\ref{lst:vecadd}, there does not seem to be one at all in Listing~\ref{lst:vecaddCUDA}.
 This is because the GPU is performing this task in parallel and handling the parallelism behind the scenes on line 4 with the \texttt{int id = threadIdx.x} command.
 In this line, we are identifying which element of the array we are operating on with the CUDA-specific \texttt{threadIdx.x} variable.
 
-Here, each \textit{thread} is an individual instructional element acted on in parallel with other threads in the same \textit{block}, which is further subdivided into \textit{grids}.
+Here, each \textit{thread} is an individual instructional element acted on in parallel with other threads in the same \textit{block}, multiple blocks are organized into \textit{grids}.
 All threads in the same block have a \textit{shared memory} resource, while all three structures have access to \textit{global memory}.
 In general, it is important to use shared memory when possible, as it has a lower latency than global memory, and this will be discussed further in subsequent sections.
 As a note, threads often work without feedback from other threads; moreover, it may be necessary to stop thread execution until all other threads have caught up.
@@ -133,7 +135,7 @@ This can be done with the \texttt{\_\_syncthreads()} function in CUDA.
 
 Threads, blocks, and grids are all \texttt{dim3} variables with $x$, $y$, and $z$ attributes.
 The way in which these threads and blocks are allocated are defined by the user before kernel execution.
-Often times, a thread number of 1024 is chosen, and the number of blocks is decided based on the size of the input array.
+Often times, a thread number of 256, 512, or 1024 is chosen based on register usage, and the number of blocks is decided based on the size of the input array.
 If there are more elements to compute than threads in a block, one then need to use the \texttt{blockDim.x} and \texttt{blockIdx.x} variables to access the appropriate threads for computation.
 All threads are indexed as one-dimensional vectors even in a multidimensional space, as shown in Figure~\ref{fig:threadsnblocks}.
 Even though threads are rarely acted on sequentially, the thread ID has important ramifications that will be discussed further with other performance tips.
@@ -144,7 +146,7 @@ Even though threads are rarely acted on sequentially, the thread ID has importan
 \label{fig:threadsnblocks}
 \end{figure}
 
-As another note, CUDA will execute code on unallocated memory if one does not tell it to otherwise.
+As another note, CUDA will execute code on unallocated memory if one does not tell it to otherwise and thus one needs to check the bounds of every computation.
 As such, if one had failed to set the number of threads in the block to the number of elements in the array in Listing~\ref{lst:vecaddCUDA}, the kernel would exhibit undefined behavior.
 For this reason, one needs to take into account potential out-of-bounds computation.
 If one takes the above example of vector addition, assuming that the thread count is higher than can fit in one block and take into consideration potential out-of-bounds behavior, the kernel would instead look like Listing~\ref{lst:vecaddCUDA2}.
@@ -241,10 +243,25 @@ Outside of this, developers can often ignore SIMT behavior as long as they do no
 
 Understanding GPU memory architecture is essential to properly using GPU hardware, and as such, it is worth discussing in-detail.
 There are three forms of GPU memory that are useful for most applications of GPGPU for scientific computation: global memory, shared memory, and texture memory.
-As described above, global memory is shared between all grids, blocks, and threads and is considered to be the slowest memory bank.
+As described above, global memory is shared between all grids, blocks, and threads and is considered to be the slowest memory.
 As such, whenever a warp accesses global memory, it tries to perform as few accessing operations as possible, which is made easier if the warp needs to access contiguous memory blocks.
-If the warp is required to access non-contiguous blocks, more accesses will be necessary and thus performance will take a relatively large hit.
-For this reason, it is important to make sure all data accesses are \textit{coalesced}, which ensures that the warp will access consecutive elements as depicted in Figure~\ref{fig:threadsnblocks}.
+Essentially, each time a warp needs to access global memory, it tries to read a word of 1, 2, 4, 8, or 16 bytes, and
+if the warp is required to access non-contiguous blocks, more accesses will be necessary and thus performance will take a relatively large hit.
+This is shown in Figure~\ref{fig:coalesce}, where the size of each word is depicted as a grey box on global memory.
+If each element is 1 byte, a single word is considered to be 4 bytes, and a transfer of 4 elements is required from global memory, a coalesced memory transfer corresponds to 4 consecutive elements in memory, while a strided memory transfer will not work on consecutive elements.
+In this example, if the stride is 2, an additional access to global memory must be used to transfer the memory, and thus the operation will be half as optimal.
+For this reason, it is important to make sure all data accesses are coalesced, which ensures that the warp will access consecutive elements as depicted in Figure~\ref{fig:threadsnblocks}.
+
+\begin{figure}
+\includegraphics[width=\textwidth]{data/gpu/coalesce/check.pdf}
+\caption{An example of a coalesced and strided memory transfer.
+In this figure, each element is 1 byte and a single word consists of 4 bytes (grey box).
+If 4 elements are required to be transferred (green boxes), a coalesced accessing patters will access 4 consecutive elements, while a strided one will not.
+In this case, the strided memory access pattern requires an additional transfer and will thus be less optimal.
+In this figure, worker threads are seen as blue arrows.
+This figure was modified from the tikz source from~\ref{stackoverflow}.}
+\label{fig:coalesce}
+\end{figure}
 
 For optimal memory throughput, shared memory is an essential tool to understand and use appropriately.
 As described, shared memory is on-chip memory that is shared between all threads in a block.
@@ -259,10 +276,10 @@ Texture memory has a relatively long write time, but is quick to read.
 It is also faster than global memory for non-coalesced access patterns and therefore can be useful for certain tasks with slowly varying operators.
 In principle, this is the case for the momentum-space operator in the SSFM; however, because texture memory uses single-precision, it will not be used further in this work.
 
-In addition to appropriate usage of memory on GPU architecture, it is also essential to minimize data transfers between the device and host and even between devices in multi-GPU setups.
-The data transfer between the host and device or between devices must send data through the PCI slot on the motherboard, which is a slow operation.
+In addition to appropriate usage of memory on GPU architecture, it is also essential to minimize data transfers between the device and host and even between devices in multi-GPU setups or perform these transfers asynchronously.
+The data transfer between the host and device or between devices must send data through the PCI-E slot on the motherboard, which is a slow operation.
 For data transfer between devices, this transfer time can be slightly alleviated on Power architecture where NVlink technology can directly transfer data from device to device~\cite{foley2017}, but the data transfer between devices will still likely be the slowest part of the computation.
-In addition, CUDA-aware MPI for multi-GPU setups may add an huge burden on software development time~\cite{lonvcar2016, wang2013}.
+In addition, CUDA-aware MPI for multi-GPU setups may greatly increase software development time~\cite{lonvcar2016, wang2013}.
 As such, developers often try to keep all of their computation on a single card, if possible, and several optimization strategies are used when multiple GPU cards are needed.
 These strategies will be covered on a case-by-case basis as they arise in this work.
 
@@ -276,7 +293,7 @@ Here, programmers need to be careful not to accidentally cause the operation exe
 \label{sec:compare}
 
 As one might expect, specialized programming languages are necessary to write code that compiles and runs on GPU architecture.
-There are several known libraries to extend modern programming languages such as Matlab, python, and C++ to GPU devices; however, we will limit this discussion to common programming methods that allow fine-grained control of GPU memory and could be used for the development of GPUE.
+There are several known libraries to extend modern programming languages such as Matlab, Python, and C++ to GPU devices; however, we will limit this discussion to common programming methods that allow fine-grained control of GPU memory and could be used for the development of GPUE.
 We will briefly discuss the advantages and disadvantages of three competing languages considered here: CUDA, OpenCL, and Julia, and as a simple example, vector addition in these languages is shown in  Appendix~\ref{app:GPU}.
 
 \subsubsection{CUDA}
