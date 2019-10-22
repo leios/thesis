@@ -1,14 +1,10 @@
 \babel@toc {english}{}
 \contentsline {chapter}{Declaration of Original and Sole Authorship}{ii}{section*.1}% 
 \contentsline {chapter}{Abstract}{iv}{section*.3}% 
-\contentsline {chapter}{Acknowledgment}{v}{section*.6}% 
-\contentsline {chapter}{Abbreviations}{vi}{section*.8}% 
-\contentsline {chapter}{Glossary}{vii}{section*.10}% 
-\contentsline {chapter}{Nomenclature}{viii}{section*.12}% 
-\contentsline {chapter}{Contents}{x}{section*.14}% 
+\contentsline {chapter}{Contents}{v}{section*.6}% 
 \vspace {2em}
-\contentsline {chapter}{Introduction}{1}{section*.16}% 
-\contentsline {chapter}{\numberline {1}Introduction to the SSFM for vortex simulations}{5}{chapter.1}% 
+\contentsline {chapter}{Introduction}{1}{section*.8}% 
+\contentsline {chapter}{\numberline {1}Introduction to the SSFM for simulating superfluid vortex systems}{5}{chapter.1}% 
 \contentsline {section}{\numberline {1.1}The SSFM}{6}{section.1.1}% 
 \contentsline {section}{\numberline {1.2}Introduction to ultracold quantum systems}{12}{section.1.2}% 
 \contentsline {subsection}{\numberline {1.2.1}Bose--Einstein condensation and the Gross--Pitaevskii Equation}{13}{subsection.1.2.1}% 
@@ -16,60 +12,58 @@
 \contentsline {subsection}{\numberline {1.3.1}Rotation}{21}{subsection.1.3.1}% 
 \contentsline {subsection}{\numberline {1.3.2}Phase imprinting}{22}{subsection.1.3.2}% 
 \contentsline {subsection}{\numberline {1.3.3}Artificial magnetic fields}{23}{subsection.1.3.3}% 
-\contentsline {subsubsection}{Geometric Gauge Fields}{25}{section*.27}% 
+\contentsline {subsubsection}{Geometric Gauge Fields}{25}{section*.19}% 
 \contentsline {section}{\numberline {1.4}Modifications to the SSFM for superfluid vortex simulations}{27}{section.1.4}% 
-\contentsline {section}{\numberline {1.5}Multi-component simulations}{29}{section.1.5}% 
-\contentsline {chapter}{\numberline {2}Quantum engineering for one-dimensional quantum systems}{31}{chapter.2}% 
-\contentsline {section}{\numberline {2.1}Optimization methods}{32}{section.2.1}% 
-\contentsline {subsection}{\numberline {2.1.1}Nelder--Mead}{33}{subsection.2.1.1}% 
-\contentsline {subsection}{\numberline {2.1.2}Chopped random basis optimal control}{36}{subsection.2.1.2}% 
-\contentsline {section}{\numberline {2.2}Shortcuts to adiabaticity}{37}{section.2.2}% 
-\contentsline {section}{\numberline {2.3}Non-adiabatic generation of NOON states in a Tonks--Girardeau gas}{39}{section.2.3}% 
-\contentsline {subsection}{\numberline {2.3.1}Tonks--Girardeau gas}{40}{subsection.2.3.1}% 
-\contentsline {subsection}{\numberline {2.3.2}NOON states in TG gas}{40}{subsection.2.3.2}% 
-\contentsline {subsection}{\numberline {2.3.3}Results with optimal control}{44}{subsection.2.3.3}% 
-\contentsline {subsection}{\numberline {2.3.4}Results with STA protocols}{47}{subsection.2.3.4}% 
-\contentsline {section}{\numberline {2.4}Outlook}{54}{section.2.4}% 
-\contentsline {chapter}{\numberline {3}General Purpose computing with Graphics Processing Units and the GPUE codebase}{55}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}Types of parallelism}{56}{section.3.1}% 
-\contentsline {section}{\numberline {3.2}General purpose computing with graphics processing units}{58}{section.3.2}% 
-\contentsline {subsection}{\numberline {3.2.1}Limitations of GPU computing}{59}{subsection.3.2.1}% 
-\contentsline {subsection}{\numberline {3.2.2}GPU hardware architecture}{59}{subsection.3.2.2}% 
-\contentsline {subsubsection}{Introduction to CUDA software interface}{60}{section*.41}% 
-\contentsline {subsubsection}{Discussion of GPU thread and memory hierarchy}{64}{section*.47}% 
-\contentsline {subsection}{\numberline {3.2.3}Comparison between various languages for GPGPU computation}{68}{subsection.3.2.3}% 
-\contentsline {subsubsection}{CUDA}{68}{section*.48}% 
-\contentsline {subsubsection}{OpenCL}{68}{section*.49}% 
-\contentsline {subsubsection}{Julia}{69}{section*.50}% 
-\contentsline {section}{\numberline {3.3}Introduction to the GPUE codebase for $n$-dimensional simulations of quantum systems on the GPU}{70}{section.3.3}% 
-\contentsline {subsection}{\numberline {3.3.1}FFT optimization}{71}{subsection.3.3.1}% 
-\contentsline {subsection}{\numberline {3.3.2}Dynamic field input and output in GPUE with expression trees}{72}{subsection.3.3.2}% 
+\contentsline {chapter}{\numberline {2}Engineering NOON states in for one-dimensional quantum gases}{29}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Optimization methods}{30}{section.2.1}% 
+\contentsline {subsection}{\numberline {2.1.1}Nelder--Mead}{31}{subsection.2.1.1}% 
+\contentsline {subsection}{\numberline {2.1.2}Chopped random basis optimal control}{34}{subsection.2.1.2}% 
+\contentsline {section}{\numberline {2.2}Shortcuts to adiabaticity}{35}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}Non-adiabatic generation of NOON states in a Tonks--Girardeau gas}{37}{section.2.3}% 
+\contentsline {subsection}{\numberline {2.3.1}Tonks--Girardeau gas}{38}{subsection.2.3.1}% 
+\contentsline {subsection}{\numberline {2.3.2}NOON states in a TG gas}{38}{subsection.2.3.2}% 
+\contentsline {subsection}{\numberline {2.3.3}Optimal control protocols}{42}{subsection.2.3.3}% 
+\contentsline {subsection}{\numberline {2.3.4}Results with STA protocols}{45}{subsection.2.3.4}% 
+\contentsline {section}{\numberline {2.4}Outlook}{52}{section.2.4}% 
+\contentsline {chapter}{\numberline {3}General Purpose computing with Graphics Processing Units and the GPUE codebase}{53}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Types of parallelism}{54}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}General purpose computing with graphics processing units}{56}{section.3.2}% 
+\contentsline {subsection}{\numberline {3.2.1}Limitations of GPU computing}{57}{subsection.3.2.1}% 
+\contentsline {subsection}{\numberline {3.2.2}GPU hardware architecture}{58}{subsection.3.2.2}% 
+\contentsline {subsubsection}{Introduction to CUDA software interface}{58}{section*.33}% 
+\contentsline {subsubsection}{Discussion of GPU thread and memory hierarchy}{64}{section*.39}% 
+\contentsline {subsection}{\numberline {3.2.3}Comparison between various languages for GPGPU computation}{67}{subsection.3.2.3}% 
+\contentsline {subsubsection}{CUDA}{67}{section*.41}% 
+\contentsline {subsubsection}{OpenCL}{68}{section*.42}% 
+\contentsline {subsubsection}{Julia-GPU}{68}{section*.43}% 
+\contentsline {section}{\numberline {3.3}Introduction to the GPUE codebase for $n$-dimensional simulations of quantum systems on the GPU}{69}{section.3.3}% 
+\contentsline {subsection}{\numberline {3.3.1}FFT optimization}{70}{subsection.3.3.1}% 
+\contentsline {subsection}{\numberline {3.3.2}Dynamic field input and output in GPUE with expression trees}{71}{subsection.3.3.2}% 
 \contentsline {subsection}{\numberline {3.3.3}GPUE memory footprint}{74}{subsection.3.3.3}% 
 \contentsline {subsection}{\numberline {3.3.4}Vortex tracking and highlighting}{75}{subsection.3.3.4}% 
 \contentsline {subsection}{\numberline {3.3.5}Energy calculation for superfluid simulations}{79}{subsection.3.3.5}% 
-\contentsline {subsection}{\numberline {3.3.6}Similar software packages}{81}{subsection.3.3.6}% 
-\contentsline {subsection}{\numberline {3.3.7}Future direction and multi-GPU development}{81}{subsection.3.3.7}% 
+\contentsline {subsection}{\numberline {3.3.6}Future direction and multi-GPU development}{81}{subsection.3.3.6}% 
 \contentsline {section}{\numberline {3.4}DistributedTranspose.jl}{82}{section.3.4}% 
 \contentsline {section}{\numberline {3.5}Outlook}{84}{section.3.5}% 
-\contentsline {chapter}{\numberline {4}Chaotic vortex analysis of two-dimensional superfluid systems for few-vortex systems}{85}{chapter.4}% 
-\contentsline {section}{\numberline {4.1}Model}{87}{section.4.1}% 
-\contentsline {section}{\numberline {4.2}Regular and irregular vortex dynamics}{88}{section.4.2}% 
-\contentsline {section}{\numberline {4.3}Characterizing chaotic vortex dynamics}{91}{section.4.3}% 
-\contentsline {section}{\numberline {4.4}Outlook}{95}{section.4.4}% 
-\contentsline {chapter}{\numberline {5}Generation, control and detection of 3D vortex structures in superfluid systems}{97}{chapter.5}% 
-\contentsline {section}{\numberline {5.1}Three-dimensional vortex structures}{98}{section.5.1}% 
-\contentsline {section}{\numberline {5.2}Controlled creation of three-dimensional vortex structures in Bose--Einstein condensates using artificial magnetic fields}{100}{section.5.2}% 
-\contentsline {subsection}{\numberline {5.2.1}Bose--Einstein condensate dynamics in the presence of an optical nanofiber}{101}{subsection.5.2.1}% 
-\contentsline {subsection}{\numberline {5.2.2}Ground state vortex configurations}{107}{subsection.5.2.2}% 
-\contentsline {subsection}{\numberline {5.2.3}Dynamic vortex detection and scissor modes}{111}{subsection.5.2.3}% 
+\contentsline {chapter}{\numberline {4}Vortex analysis of chaotic, two-dimensional superfluid systems for few-vortex systems}{86}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}Model}{88}{section.4.1}% 
+\contentsline {section}{\numberline {4.2}Regular and irregular vortex dynamics}{89}{section.4.2}% 
+\contentsline {section}{\numberline {4.3}Characterizing chaotic vortex dynamics}{92}{section.4.3}% 
+\contentsline {section}{\numberline {4.4}Outlook}{96}{section.4.4}% 
+\contentsline {chapter}{\numberline {5}Generation, control and detection of 3D vortex structures in superfluid systems}{98}{chapter.5}% 
+\contentsline {section}{\numberline {5.1}Three-dimensional vortex structures}{99}{section.5.1}% 
+\contentsline {section}{\numberline {5.2}Controlled creation of three-dimensional vortex structures in Bose--Einstein condensates using artificial magnetic fields}{101}{section.5.2}% 
+\contentsline {subsection}{\numberline {5.2.1}Bose--Einstein condensate dynamics in the presence of an optical nanofiber}{102}{subsection.5.2.1}% 
+\contentsline {subsection}{\numberline {5.2.2}Ground state vortex configurations}{108}{subsection.5.2.2}% 
+\contentsline {subsection}{\numberline {5.2.3}Dynamic vortex detection and scissor modes}{113}{subsection.5.2.3}% 
 \contentsline {section}{\numberline {5.3}Conclusion}{114}{section.5.3}% 
-\contentsline {chapter}{Conclusion}{116}{section*.67}% 
+\contentsline {chapter}{Conclusion}{116}{section*.60}% 
 \contentsline {section}{\numberline {5.4}Overall conclusions}{116}{section.5.4}% 
 \contentsline {section}{\numberline {5.5}Further development of GPUE}{117}{section.5.5}% 
 \contentsline {subsection}{\numberline {5.5.1}Vortex tracking in two and three dimensions}{117}{subsection.5.5.1}% 
 \contentsline {subsection}{\numberline {5.5.2}General purpose Hamiltonian solver}{118}{subsection.5.5.2}% 
 \contentsline {subsection}{\numberline {5.5.3}Octree grid}{118}{subsection.5.5.3}% 
-\contentsline {subsubsection}{GPUE.jl}{119}{section*.69}% 
+\contentsline {subsubsection}{GPUE.jl}{119}{section*.62}% 
 \contentsline {section}{\numberline {5.6}Future simulations of quantum systems}{120}{section.5.6}% 
 \vspace {2em}
 \contentsline {chapter}{\numberline {A}Simple vector additions in CUDA, OpenCL, and JuliaGPU}{121}{appendix.A}% 
@@ -78,6 +72,6 @@
 \contentsline {section}{\numberline {A.3}Vector addition with OpenCL}{125}{section.A.3}% 
 \contentsline {section}{\numberline {A.4}Julia}{129}{section.A.4}% 
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{131}{section*.70}% 
+\contentsline {chapter}{Bibliography}{131}{section*.63}% 
 \vspace {2em}
-\contentsline {chapter}{Published articles}{154}{section*.72}% 
+\contentsline {chapter}{Published articles}{157}{section*.65}% 

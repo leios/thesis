@@ -54,7 +54,7 @@ int main(){
 Now for vector addition with CUDA.
 Here, it is important to note that it is not practical to ask users to write CUDA kernels, as they are not skilled in GPGPU.
 In addition, direct kernel manipulation would require a recompilation every run, which is cumbersome for most users along with dedicated directories for differently built binaries if running multiple GPUE simulations simultaneously.
-As such additional techniques are used in GPUE to allow users to write their own functions without recompiling the GPUE codebase every run, and these methods are discussed in Chapter~\ref{ch:gpue}
+As such additional techniques are used in GPUE to allow users to write their own functions without recompiling the GPUE codebase every run, and these methods are discussed in Chapter~\ref{ch:gpu}
 
 \begin{lstlisting}
 #include <iostream>

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.8.25)  18 OCT 2019 16:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.8.25)  21 OCT 2019 18:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -843,7 +843,7 @@ LaTeX Info: Redefining \nameref on input line 69.
 
  ABD: EveryShipout initializing macros
 \c@lstlisting=\count168
-<./Images/symbol.jpg, id=103, 468.7914pt x 465.4188pt>
+<./Images/symbol.jpg, id=63, 468.7914pt x 465.4188pt>
 File: ./Images/symbol.jpg Graphic file (type jpg)
 <use ./Images/symbol.jpg>
 Package pdftex.def Info: ./Images/symbol.jpg  used on input line 96.
@@ -863,207 +863,156 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 6.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [2
-
-
-
-])
+))
 \tf@toc=\write5
 \openout5 = `draft.toc'.
 
- [3]
-(./MainText/gpue.tex
+ [2
+
+
+
+] (./MainText/1d.tex
 Chapter 1.
+
+LaTeX Warning: Reference `ch:gpu' on page 1 undefined on input line 6.
+
 [1
 
 
 
 
-]
+] [2] [3] [4]
+<data/1d/NM/NM.pdf, id=148, 361.35pt x 252.945pt>
+File: data/1d/NM/NM.pdf Graphic file (type pdf)
+<use data/1d/NM/NM.pdf>
+Package pdftex.def Info: data/1d/NM/NM.pdf  used on input line 77.
+(pdftex.def)             Requested size: 341.43307pt x 239.0034pt.
+ [5 <./data/1d/NM/NM.pdf>] [6] [7] [8]
+Overfull \hbox (18.4005pt too wide) in paragraph at lines 173--173
+[]\T1/cmr/bx/n/17.28 Non-adiabatic gen-er-a-tion of NOON states in a Tonks--
+ []
 
-Package Fancyhdr Warning: \headheight is too small (17.07182pt): 
-Make it at least 27.13135pt.
-We now make it that large for the rest of the document.
-This may cause the page layout to be inconsistent, however.
 
-[2] [3]
-<data/gpu/GPUEvsTS.png, id=179, 577.6782pt x 433.3791pt>
-File: data/gpu/GPUEvsTS.png Graphic file (type png)
-<use data/gpu/GPUEvsTS.png>
-Package pdftex.def Info: data/gpu/GPUEvsTS.png  used on input line 50.
-(pdftex.def)             Requested size: 227.62206pt x 170.76295pt.
- [4 <./data/gpu/GPUEvsTS.png (PNG copy)>] [5]
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 91.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 91.
+LaTeX Warning: Reference `ch:splitop' on page 9 undefined on input line 183.
+
+[9] [10]
+<data/1d/scheme.pdf, id=236, 416.41394pt x 286.50488pt>
+File: data/1d/scheme.pdf Graphic file (type pdf)
+<use data/1d/scheme.pdf>
+Package pdftex.def Info: data/1d/scheme.pdf  used on input line 221.
+(pdftex.def)             Requested size: 227.62206pt x 156.61201pt.
+ [11 <./data/1d/scheme.pdf>]
+<data/1d/cross.png, id=279, 293.59688pt x 304.13625pt>
+File: data/1d/cross.png Graphic file (type png)
+<use data/1d/cross.png>
+Package pdftex.def Info: data/1d/cross.png  used on input line 236.
+(pdftex.def)             Requested size: 182.09486pt x 188.63213pt.
+<data/1d/nocross.png, id=281, 293.59688pt x 304.13625pt>
+File: data/1d/nocross.png Graphic file (type png)
+<use data/1d/nocross.png>
+Package pdftex.def Info: data/1d/nocross.png  used on input line 239.
+(pdftex.def)             Requested size: 182.09486pt x 188.63213pt.
+ [12 <./data/1d/cross.png> <./data/1d/nocross.png>]
+<data/1d/figR0.pdf, id=300, 227.55013pt x 227.55013pt>
+File: data/1d/figR0.pdf Graphic file (type pdf)
+<use data/1d/figR0.pdf>
+Package pdftex.def Info: data/1d/figR0.pdf  used on input line 284.
+(pdftex.def)             Requested size: 204.85846pt x 204.85918pt.
+<data/1d/figB0.pdf, id=301, 227.55013pt x 227.55013pt>
+File: data/1d/figB0.pdf Graphic file (type pdf)
+<use data/1d/figB0.pdf>
+Package pdftex.def Info: data/1d/figB0.pdf  used on input line 287.
+(pdftex.def)             Requested size: 204.85846pt x 204.85918pt.
+ [13] [14 <./data/1d/figR0.pdf> <./data/1d/figB0.pdf>]
+<data/1d/figR1.pdf, id=354, 227.55013pt x 227.55013pt>
+File: data/1d/figR1.pdf Graphic file (type pdf)
+<use data/1d/figR1.pdf>
+Package pdftex.def Info: data/1d/figR1.pdf  used on input line 312.
+(pdftex.def)             Requested size: 204.85846pt x 204.85918pt.
+<data/1d/figB1.pdf, id=355, 227.55013pt x 227.55013pt>
+File: data/1d/figB1.pdf Graphic file (type pdf)
+<use data/1d/figB1.pdf>
+Package pdftex.def Info: data/1d/figB1.pdf  used on input line 316.
+(pdftex.def)             Requested size: 204.85846pt x 204.85918pt.
+ [15 <./data/1d/figR1.pdf> <./data/1d/figB1.pdf>]
+<data/1d/figlfid.pdf, id=396, 227.55013pt x 227.55013pt>
+File: data/1d/figlfid.pdf Graphic file (type pdf)
+<use data/1d/figlfid.pdf>
+Package pdftex.def Info: data/1d/figlfid.pdf  used on input line 332.
+(pdftex.def)             Requested size: 227.62206pt x 227.62247pt.
+<data/1d/figTG3.pdf, id=397, 227.55013pt x 227.55013pt>
+File: data/1d/figTG3.pdf Graphic file (type pdf)
+<use data/1d/figTG3.pdf>
+Package pdftex.def Info: data/1d/figTG3.pdf  used on input line 344.
+(pdftex.def)             Requested size: 204.85846pt x 204.85918pt.
+<data/1d/figTG5.pdf, id=398, 227.55013pt x 227.55013pt>
+File: data/1d/figTG5.pdf Graphic file (type pdf)
+<use data/1d/figTG5.pdf>
+Package pdftex.def Info: data/1d/figTG5.pdf  used on input line 348.
+(pdftex.def)             Requested size: 204.85846pt x 204.85918pt.
+ [16 <./data/1d/figlfid.pdf>]
+<data/1d/STAscheme.png, id=433, 598.6365pt x 375.0813pt>
+File: data/1d/STAscheme.png Graphic file (type png)
+<use data/1d/STAscheme.png>
+Package pdftex.def Info: data/1d/STAscheme.png  used on input line 371.
+(pdftex.def)             Requested size: 364.19667pt x 228.19258pt.
+ [17 <./data/1d/figTG3.pdf> <./data/1d/figTG5.pdf>] [18 <./data/1d/STAscheme.pn
+g>] [19] [20]
+<data/1d/fig1.png, id=546, 442.0515pt x 398.6895pt>
+File: data/1d/fig1.png Graphic file (type png)
+<use data/1d/fig1.png>
+Package pdftex.def Info: data/1d/fig1.png  used on input line 467.
+(pdftex.def)             Requested size: 218.51521pt x 197.08119pt.
+<data/1d/fig2.png, id=547, 442.0515pt x 398.6895pt>
+File: data/1d/fig2.png Graphic file (type png)
+<use data/1d/fig2.png>
+Package pdftex.def Info: data/1d/fig2.png  used on input line 470.
+(pdftex.def)             Requested size: 218.51521pt x 197.08119pt.
+<data/1d/fig5.png, id=549, 578.16pt x 364.2408pt>
+File: data/1d/fig5.png Graphic file (type png)
+<use data/1d/fig5.png>
+Package pdftex.def Info: data/1d/fig5.png  used on input line 485.
+(pdftex.def)             Requested size: 204.85846pt x 129.05907pt.
+<data/1d/fig6.png, id=550, 528.5346pt x 339.669pt>
+File: data/1d/fig6.png Graphic file (type png)
+<use data/1d/fig6.png>
+Package pdftex.def Info: data/1d/fig6.png  used on input line 486.
+(pdftex.def)             Requested size: 204.85846pt x 131.65147pt.
+
+[21 <./data/1d/fig1.png> <./data/1d/fig2.png>] [22 <./data/1d/fig5.png> <./data
+/1d/fig6.png>]
+<data/1d/fig7a.png, id=576, 522.5121pt x 339.9099pt>
+File: data/1d/fig7a.png Graphic file (type png)
+<use data/1d/fig7a.png>
+Package pdftex.def Info: data/1d/fig7a.png  used on input line 523.
+(pdftex.def)             Requested size: 204.85846pt x 133.26451pt.
+<data/1d/fig7b.png, id=577, 524.1984pt x 342.8007pt>
+File: data/1d/fig7b.png Graphic file (type png)
+<use data/1d/fig7b.png>
+Package pdftex.def Info: data/1d/fig7b.png  used on input line 526.
+(pdftex.def)             Requested size: 204.85846pt x 133.96895pt.
+
+
+LaTeX Warning: Reference `ch:splitop' on page 23 undefined on input line 541.
+
+[23 <./data/1d/fig7a.png> <./data/1d/fig7b.png>]) [24] (./draft.bbl
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 46.
 
 (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 92.
- [6] [7]
-<data/gpu/gputhreads.pdf, id=245, 460.44421pt x 460.44421pt>
-File: data/gpu/gputhreads.pdf Graphic file (type pdf)
-<use data/gpu/gputhreads.pdf>
-Package pdftex.def Info: data/gpu/gputhreads.pdf  used on input line 142.
-(pdftex.def)             Requested size: 455.24411pt x 455.24399pt.
- [8] [9 <./data/gpu/gputhreads.pdf>]
-
-LaTeX Warning: Float too large for page by 44.05858pt on input line 226.
-
-[10] [11] [12] [13] [14]
-
-LaTeX Warning: Reference `ch:conclusion' on page 15 undefined on input line 311
-.
+) [25
 
 
-LaTeX Warning: Reference `ch:2d' on page 15 undefined on input line 312.
 
-
-LaTeX Warning: Reference `ch:vortex_states' on page 15 undefined on input line 
-312.
-
-[15]
-Overfull \hbox (18.89725pt too wide) in paragraph at lines 314--314
-[]\T1/cmr/bx/n/17.28 Introduction to the GPUE code-base for $\OML/cmm/m/it/17.2
-8 n$\T1/cmr/bx/n/17.28 -dimensional
- []
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 314.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 314.
-
-
-LaTeX Warning: Reference `ch:splitop' on page 16 undefined on input line 327.
-
-[16] [17]
-
-LaTeX Warning: Reference `ch:1d' on page 18 undefined on input line 361.
-
-(./data/gpu/expression/expression.tex
-(/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
-arrows.code.tex
-File: tikzlibraryarrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
-
-(/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
-File: pgflibraryarrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
-\arrowsize=\dimen193
-)))
-[18] [19]
-
-LaTeX Warning: Reference `ch:2d' on page 20 undefined on input line 396.
-
-[20]
-
-LaTeX Warning: Reference `ch:conclusion' on page 21 undefined on input line 410
-.
-
-<data/gpu/vortex_tracking/phi_grid.png, id=455, 312.2064pt x 578.16pt>
-File: data/gpu/vortex_tracking/phi_grid.png Graphic file (type png)
-<use data/gpu/vortex_tracking/phi_grid.png>
-Package pdftex.def Info: data/gpu/vortex_tracking/phi_grid.png  used on input l
-ine 424.
-(pdftex.def)             Requested size: 227.62206pt x 421.52397pt.
-[21] [22 <./data/gpu/vortex_tracking/phi_grid.png>]
-
-LaTeX Warning: Reference `ch:splitop' on page 23 undefined on input line 443.
-
-
-LaTeX Warning: Reference `ch:conclusion' on page 23 undefined on input line 444
-.
-
-<data/gpu/vortex_highlighting/all.png, id=473, 443.256pt x 216.0873pt>
-File: data/gpu/vortex_highlighting/all.png Graphic file (type png)
-<use data/gpu/vortex_highlighting/all.png>
-Package pdftex.def Info: data/gpu/vortex_highlighting/all.png  used on input li
-ne 447.
-(pdftex.def)             Requested size: 341.43307pt x 166.45036pt.
-
-LaTeX Warning: Reference `ch:vortex_states' on page 23 undefined on input line 
-465.
-
-[23] [24 <./data/gpu/vortex_highlighting/all.png>]
-
-LaTeX Warning: Reference `ch:splitop' on page 25 undefined on input line 469.
-
-[25]
-
-LaTeX Warning: Reference `ch:splitop' on page 26 undefined on input line 492.
-
-[26] [27] [28]
-
-Package natbib Warning: Citation `el2008' on page 29 undefined on input line 55
-9.
-
-[29]
-
-LaTeX Warning: Reference `ch:2d' on page 30 undefined on input line 573.
-
-
-LaTeX Warning: Reference `ch:vortex_states' on page 30 undefined on input line 
-573.
-
-) [30] (./MainText/appendixGPU
-Appendix A.
-[31
-
-
-]
-
-LaTeX Warning: Reference `ch:gpue' on page 32 undefined on input line 57.
-
-[32] [33] [34] [35] [36]
-Overfull \hbox (48.63773pt too wide) in paragraph at lines 190--192
-[][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (48.63773pt too wide) in paragraph at lines 193--195
-[][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (4.54807pt too wide) in paragraph at lines 201--202
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (4.54807pt too wide) in paragraph at lines 202--204
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[37]
-Overfull \hbox (10.84659pt too wide) in paragraph at lines 234--235
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
-][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-[38] [39]) [40] (./draft.bbl [41
-
-
-] [42]
-Underfull \hbox (badness 3009) in paragraph at lines 153--156
-[]\T1/cmr/m/n/12 Cihan Bayindir.  Com-pres-sive split-step fourier method.  \T1
-/cmr/m/it/12 arXiv preprint
- []
-
-[43] [44])
-
-Package natbib Warning: There were undefined citations.
-
-[45]
+] [26] [27] [28]) [29]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 166.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 166.
- (./draft.aux)
+
+(./draft.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 166.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 166.
 Package rerunfilecheck Info: File `draft.out' has not changed.
-(rerunfilecheck)             Checksum: B78463DA16E6DEDDEC39B3F894AD3822;1938.
+(rerunfilecheck)             Checksum: 209482141D4EAA410EBDF400156CC949;1008.
 
 
 LaTeX Warning: There were undefined references.
@@ -1071,37 +1020,38 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 166.
  ) 
 Here is how much of TeX's memory you used:
- 23139 strings out of 492623
- 409589 string characters out of 6135669
- 855320 words of memory out of 5000000
- 26115 multiletter control sequences out of 15000+600000
- 21020 words of font info for 59 fonts, out of 8000000 for 9000
+ 21487 strings out of 492623
+ 380419 string characters out of 6135669
+ 656326 words of memory out of 5000000
+ 24799 multiletter control sequences out of 15000+600000
+ 17662 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,14n,74p,879b,2120s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,13n,49p,651b,519s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/font
-s/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
-share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/c
+exmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
+share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
-sr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-
-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type
-1/public/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-sup
-er/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb
-></usr/share/texmf-dist/fonts/type1/public/cm-super/sfit1000.pfb></usr/share/te
-xmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/
-type1/public/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm
--super/sfrm1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728
-.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/shar
-e/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/share/texmf-dist/fo
-nts/type1/public/cm-super/sftt1200.pfb>
-Output written on draft.pdf (48 pages, 1512491 bytes).
+sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-
+dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/font
+s/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/public/
+cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx17
+28.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texmf-dist/
+fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/cm-super/sfrm1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sf
+rm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></us
+r/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf-d
+ist/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf-dist/fonts/type1
+/public/cm-super/sftt1200.pfb>
+Output written on draft.pdf (31 pages, 2322754 bytes).
 PDF statistics:
- 1034 PDF objects out of 1200 (max. 8388607)
- 943 compressed objects within 10 object streams
- 476 named destinations out of 1000 (max. 500000)
- 230 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 750 PDF objects out of 1000 (max. 8388607)
+ 640 compressed objects within 7 object streams
+ 146 named destinations out of 1000 (max. 500000)
+ 220 words of extra memory for PDF output out of 10000 (max. 10000000)
 

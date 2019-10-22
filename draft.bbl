@@ -1,213 +1,247 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{33}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem{kahle2019}
-J.~A. {Kahle}, J.~{Moreno}, and D.~{Dreps}.
-\newblock 2.1 summit and sierra: Designing ai/hpc supercomputers.
-\newblock In {\em 2019 IEEE International Solid- State Circuits Conference -
-  (ISSCC)}, pages 42--43, Feb 2019.
+\bibitem[Werschnik and Gross(2007)]{werschnik2007}
+J.~Werschnik and E.~K.~U. Gross.
+\newblock Quantum optimal control theory.
+\newblock \emph{Journal of Physics B: Atomic, Molecular and Optical Physics},
+  40\penalty0 (18):\penalty0 R175, 2007.
 
-\bibitem{gurd1988}
-JR~Gurd.
-\newblock A taxonomy of parallel computer architectures.
-\newblock In {\em 1988 International Specialist Seminar on the Design and
-  Application of Parallel Digital Processors}, pages 57--61. IET, 1988.
+\bibitem[Gu{\'e}ry-Odelin et~al.(2019)Gu{\'e}ry-Odelin, Ruschhaupt, Kiely,
+  Torrontegui, Mart{\'\i}nez-Garaot, and Muga]{guery2019}
+D.~Gu{\'e}ry-Odelin, A.~Ruschhaupt, A.~Kiely, E.~Torrontegui,
+  S.~Mart{\'\i}nez-Garaot, and J.~G. Muga.
+\newblock Shortcuts to adiabaticity: concepts, methods, and applications.
+\newblock \emph{arXiv preprint arXiv:1904.08448}, 2019.
 
-\bibitem{czechowski2012}
-Kenneth Czechowski, Casey Battaglino, Chris McClanahan, Kartik Iyer, P-K Yeung,
-  and Richard Vuduc.
-\newblock On the communication complexity of 3d ffts and its implications for
-  exascale.
-\newblock In {\em Proceedings of the 26th ACM international conference on
-  Supercomputing}, pages 205--214. ACM, 2012.
-
-\bibitem{wittek2016}
-P~Wittek.
-\newblock Comparing three numerical solvers of the gross-pitaevskii equation,
+\bibitem[Schloss et~al.(2016)Schloss, Benseny, Gillet, Swain, and
+  Busch]{schloss2016}
+J.~Schloss, A.~Benseny, J.~Gillet, J.~Swain, and Th. Busch.
+\newblock Non-adiabatic generation of {NOON} states in a {T}onks--{G}irardeau
+  gas.
+\newblock \emph{New Journal of Physics}, 18\penalty0 (3):\penalty0 035012,
   2016.
 
-\bibitem{antoine2014}
-Xavier Antoine and Romain Duboscq.
-\newblock Gpelab, a matlab toolbox to solve gross--pitaevskii equations i:
-  Computation of stationary solutions.
-\newblock {\em Computer Physics Communications}, 185(11):2969--2991, 2014.
+\bibitem[Lewis et~al.(2012)Lewis, Vrabie, and Syrmos]{lewis2012}
+F.~L. Lewis, D.~Vrabie, and V.~L. Syrmos.
+\newblock \emph{Optimal control}.
+\newblock John Wiley \& Sons, 2012.
 
-\bibitem{wittek2013}
-Peter Wittek and Fernando~M Cucchietti.
-\newblock A second-order distributed trotter--suzuki solver with a hybrid
-  cpu--gpu kernel.
-\newblock {\em Computer Physics Communications}, 184(4):1165--1171, 2013.
+\bibitem[Ruder(2016)]{ruder2016}
+S.~Ruder.
+\newblock An overview of gradient descent optimization algorithms.
+\newblock \emph{arXiv preprint arXiv:1609.04747}, 2016.
 
-\bibitem{garland2008}
-Michael Garland, Scott Le~Grand, John Nickolls, Joshua Anderson, Jim Hardwick,
-  Scott Morton, Everett Phillips, Yao Zhang, and Vasily Volkov.
-\newblock Parallel computing experiences with cuda.
-\newblock {\em IEEE micro}, 28(4):13--27, 2008.
+\bibitem[Nelder and Mead(1965)]{nelder1965}
+J.~A. Nelder and R.~Mead.
+\newblock {A Simplex Method for Function Minimization}.
+\newblock \emph{The Computer Journal}, 7\penalty0 (4):\penalty0 308--313, 01
+  1965.
+\newblock ISSN 0010-4620.
+\newblock \doi{10.1093/comjnl/7.4.308}.
+\newblock URL \url{https://doi.org/10.1093/comjnl/7.4.308}.
 
-\bibitem{lee2010}
-Victor~W Lee, Changkyu Kim, Jatin Chhugani, Michael Deisher, Daehyun Kim,
-  Anthony~D Nguyen, Nadathur Satish, Mikhail Smelyanskiy, Srinivas Chennupaty,
-  Per Hammarlund, et~al.
-\newblock Debunking the 100x gpu vs. cpu myth: an evaluation of throughput
-  computing on cpu and gpu.
-\newblock {\em ACM SIGARCH computer architecture news}, 38(3):451--460, 2010.
+\bibitem[Koza(1997)]{koza1997}
+J.~R. Koza.
+\newblock Genetic programming.
+\newblock 1997.
 
-\bibitem{nickolls2010}
-John Nickolls and William~J Dally.
-\newblock The gpu computing era.
-\newblock {\em IEEE micro}, 30(2):56--69, 2010.
+\bibitem[Kolda et~al.(2003)Kolda, Lewis, and Torczon]{kolda2003}
+T.~G. Kolda, R.~M. Lewis, and V.~Torczon.
+\newblock Optimization by direct search: New perspectives on some classical and
+  modern methods.
+\newblock \emph{SIAM review}, 45\penalty0 (3):\penalty0 385--482, 2003.
 
-\bibitem{CUDAPG}
-John Cheng, Max Grossman, and Ty~McKercher.
-\newblock {\em Professional Cuda C Programming}.
-\newblock John Wiley \& Sons, 2014.
+\bibitem[Lewis et~al.(2007)Lewis, Shepherd, and Torczon]{lewis2007}
+R.~M. Lewis, A.~Shepherd, and V.~Torczon.
+\newblock Implementing generating set search methods for linearly constrained
+  minimization.
+\newblock \emph{SIAM Journal on Scientific Computing}, 29\penalty0
+  (6):\penalty0 2507--2530, 2007.
 
-\bibitem{wienke2012}
-Sandra Wienke, Paul Springer, Christian Terboven, and Dieter an~Mey.
-\newblock Openacc—first experiences with real-world applications.
-\newblock In {\em European Conference on Parallel Processing}, pages 859--870.
-  Springer, 2012.
+\bibitem[Pohlheim(2007)]{pohlheim2007}
+H.~Pohlheim.
+\newblock Examples of objective functions.
+\newblock \emph{Retrieved}, 4\penalty0 (10):\penalty0 2012, 2007.
 
-\bibitem{chandra2001}
-Rohit Chandra, Leo Dagum, David Kohr, Ramesh Menon, Dror Maydan, and Jeff
-  McDonald.
-\newblock {\em Parallel programming in OpenMP}.
-\newblock Morgan kaufmann, 2001.
+\bibitem[Torrontegui et~al.(2013)Torrontegui, Ib{\'a}nez, Mart{\'\i}nez-Garaot,
+  Modugno, del Campo, Gu{\'e}ry-Odelin, Ruschhaupt, Chen, and
+  Muga]{torrontegui2013}
+E.~Torrontegui, S.~Ib{\'a}nez, S.~Mart{\'\i}nez-Garaot, M.~Modugno, A.~del
+  Campo, D.~Gu{\'e}ry-Odelin, A.~Ruschhaupt, X.~Chen, and J.~G. Muga.
+\newblock Shortcuts to adiabaticity.
+\newblock In \emph{Advances in atomic, molecular, and optical physics},
+  volume~62, pages 117--169. Elsevier, 2013.
 
-\bibitem{reyes2012}
-Ruym{\'a}n Reyes, Iv{\'a}n L{\'o}pez-Rodr{\'\i}guez, Juan~J Fumero, and
-  Francisco De~Sande.
-\newblock accull: an openacc implementation with cuda and opencl support.
-\newblock In {\em European Conference on Parallel Processing}, pages 871--882.
-  Springer, 2012.
+\bibitem[Lewis~Jr and Riesenfeld(1969)]{lewis1969}
+H.~R. Lewis~Jr and W.~B. Riesenfeld.
+\newblock An exact quantum theory of the time-dependent harmonic oscillator and
+  of a charged particle in a time-dependent electromagnetic field.
+\newblock \emph{Journal of Mathematical Physics}, 10\penalty0 (8):\penalty0
+  1458--1473, 1969.
 
-\bibitem{harris2013}
-Mark Harris.
-\newblock An efficient matrix transpose in cuda c/c++.
-\newblock {\em Retrieved July}, 26:2018, 2013.
+\bibitem[Lewis and Leach(1982)]{lewis1982}
+H.~R. Lewis and P.~G.~L. Leach.
+\newblock A direct approach to finding exact invariants for one-dimensional
+  time-dependent classical hamiltonians.
+\newblock \emph{Journal of Mathematical Physics}, 23\penalty0 (12):\penalty0
+  2371--2374, 1982.
 
-\bibitem{foley2017}
-Denis Foley and John Danskin.
-\newblock Ultra-performance pascal gpu and nvlink interconnect.
-\newblock {\em IEEE Micro}, 37(2):7--17, 2017.
+\bibitem[Girardeau et~al.(2001)Girardeau, Wright, and
+  Triscari]{girardeau2001ground}
+M.~D. Girardeau, E.~M. Wright, and J.~M. Triscari.
+\newblock Ground-state properties of a one-dimensional system of hard-core
+  bosons in a harmonic trap.
+\newblock \emph{Phys. Rev. A}, 63:\penalty0 033601, Feb 2001.
+\newblock \doi{10.1103/PhysRevA.63.033601}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevA.63.033601}.
 
-\bibitem{lonvcar2016}
-Vladimir Lon{\v{c}}ar, Luis~E Young-S, Srdjan {\v{S}}krbi{\'c}, Paulsamy
-  Muruganandam, Sadhan~K Adhikari, and Antun Bala{\v{z}}.
-\newblock Openmp, openmp/mpi, and cuda/mpi c programs for solving the
-  time-dependent dipolar gross--pitaevskii equation.
-\newblock {\em Computer Physics Communications}, 209:190--196, 2016.
+\bibitem[Girardeau and Wright(2001)]{girardeau2001measurement}
+M.~D. Girardeau and E.~M. Wright.
+\newblock Measurement of one-particle correlations and momentum distributions
+  for trapped 1d gases.
+\newblock \emph{Phys. Rev. Lett.}, 87:\penalty0 050403, Jul 2001.
+\newblock \doi{10.1103/PhysRevLett.87.050403}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevLett.87.050403}.
 
-\bibitem{wang2013}
-Hao Wang, Sreeram Potluri, Devendar Bureddy, Carlos Rosales, and Dhabaleswar~K
-  Panda.
-\newblock Gpu-aware mpi on rdma-enabled clusters: Design, implementation and
-  evaluation.
-\newblock {\em IEEE Transactions on Parallel and Distributed Systems},
-  25(10):2595--2605, 2013.
+\bibitem[Slater(1929)]{slater1929}
+J.~C. Slater.
+\newblock The theory of complex spectra.
+\newblock \emph{Physical Review}, 34\penalty0 (10):\penalty0 1293, 1929.
 
-\bibitem{besard2019}
-Tim Besard, Valentin Churavy, Alan Edelman, and Bjorn De~Sutter.
-\newblock Rapid software prototyping for heterogeneous and distributed
-  platforms.
-\newblock {\em Advances in Engineering Software}, 132:29--46, 2019.
+\bibitem[Das et~al.(2002)Das, Girardeau, and Wright]{das2002}
+K.~K. Das, M.~D. Girardeau, and E.~M. Wright.
+\newblock Interference of a thermal {T}onks gas on a ring.
+\newblock \emph{Phys. Rev. Lett.}, 89:\penalty0 170404, Oct 2002.
+\newblock \doi{10.1103/PhysRevLett.89.170404}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevLett.89.170404}.
 
-\bibitem{bezanson2017}
-Jeff Bezanson, Alan Edelman, Stefan Karpinski, and Viral~B Shah.
-\newblock Julia: A fresh approach to numerical computing.
-\newblock {\em SIAM review}, 59(1):65--98, 2017.
+\bibitem[Girardeau and Minguzzi(2009)]{girardeau2009}
+M.~D. Girardeau and A.~Minguzzi.
+\newblock Motion of an impurity particle in an ultracold quasi-one-dimensional
+  gas of hard-core bosons.
+\newblock \emph{Phys. Rev. A}, 79:\penalty0 033610, Mar 2009.
+\newblock \doi{10.1103/PhysRevA.79.033610}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevA.79.033610}.
 
-\bibitem{besard2016}
-Tim Besard, Pieter Verstraete, and Bjorn De~Sutter.
-\newblock High-level gpu programming in julia.
-\newblock {\em arXiv preprint arXiv:1604.03410}, 2016.
+\bibitem[Hallwood et~al.(2010)Hallwood, Ernst, and Brand]{hallwood2010}
+D.~W. Hallwood, T.~Ernst, and J.~Brand.
+\newblock Robust mesoscopic superposition of strongly correlated ultracold
+  atoms.
+\newblock \emph{Phys. Rev. A}, 82:\penalty0 063623, Dec 2010.
+\newblock \doi{10.1103/PhysRevA.82.063623}.
+\newblock URL \url{http://link.aps.org/doi/10.1103/PhysRevA.82.063623}.
 
-\bibitem{besard2018}
-Tim Besard, Christophe Foket, and Bjorn De~Sutter.
-\newblock Effective extensible programming: unleashing julia on gpus.
-\newblock {\em IEEE Transactions on Parallel and Distributed Systems},
-  30(4):827--841, 2018.
+\bibitem[Schenke et~al.(2012)Schenke, Minguzzi, and Hekking]{schenke2012}
+C.~Schenke, A.~Minguzzi, and F.~W.~J. Hekking.
+\newblock Probing superfluidity of a mesoscopic {T}onks--{G}irardeau gas.
+\newblock \emph{Physical Review A}, 85\penalty0 (5):\penalty0 053627, 2012.
 
-\bibitem{o2017}
-Lee~James O'Riordan.
-\newblock {\em Non-equilibrium vortex dynamics in rapidly rotating
-  Bose-Einstein condensates}.
-\newblock PhD thesis, Okinawa Institute of Science and Technology Graduate
-  University, 2017.
+\bibitem[Nunnenkamp et~al.(2008)Nunnenkamp, Rey, and Burnett]{nunnenkamp2008}
+A.~Nunnenkamp, A.~M. Rey, and K.~Burnett.
+\newblock Generation of macroscopic superposition states in ring superlattices.
+\newblock \emph{Phys. Rev. A}, 77:\penalty0 023622, Feb 2008.
+\newblock \doi{10.1103/PhysRevA.77.023622}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevA.77.023622}.
 
-\bibitem{schloss2018}
-James~R Schloss and Lee~J Riordan.
-\newblock Gpue: Graphics processing unit gross-pitaevskii equation solver.
-\newblock {\em J. Open Source Software}, 3(32):1037, 2018.
+\bibitem[Hallwood et~al.(2007)Hallwood, Burnett, and Dunningham]{hallwood2007}
+D.~W. Hallwood, K.~Burnett, and J.~Dunningham.
+\newblock The barriers to producing multiparticle superposition states in
+  rotating {B}ose--{E}instein condensates.
+\newblock \emph{Journal of Modern Optics}, 54\penalty0 (13-15):\penalty0
+  2129--2148, 2007.
 
-\bibitem{cohen1991}
-Robert~F Cohen and Roberto Tamassia.
-\newblock Dynamic expression trees and their applications.
-\newblock In {\em SODA}, pages 52--61, 1991.
+\bibitem[Mart\'{\i}nez-Garaot et~al.(2015)Mart\'{\i}nez-Garaot, Ruschhaupt,
+  Gillet, Busch, and Muga]{garaot2015}
+S.~Mart\'{\i}nez-Garaot, A.~Ruschhaupt, J.~Gillet, Th. Busch, and J.~G. Muga.
+\newblock Fast quasiadiabatic dynamics.
+\newblock \emph{Phys. Rev. A}, 92:\penalty0 043406, Oct 2015.
+\newblock \doi{10.1103/PhysRevA.92.043406}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevA.92.043406}.
 
-\bibitem{reyes2011}
-Ruyman Reyes and Francisco de~Sande.
-\newblock Automatic code generation for gpus in llc.
-\newblock {\em The Journal of Supercomputing}, 58(3):349--356, 2011.
+\bibitem[del Campo(2011)]{campo2011}
+A.~del Campo.
+\newblock Long-time behavior of many-particle quantum decay.
+\newblock \emph{Phys. Rev. A}, 84:\penalty0 012113, Jul 2011.
+\newblock \doi{10.1103/PhysRevA.84.012113}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevA.84.012113}.
 
-\bibitem{bayindir2015}
-Cihan Bayindir.
-\newblock Compressive split-step fourier method.
-\newblock {\em arXiv preprint arXiv:1512.03932}, 2015.
+\bibitem[Lelas et~al.(2011)Lelas, \ifmmode~\check{S}\else \v{S}\fi{}eva, and
+  Buljan]{lelas2011}
+K.~Lelas, T.~\ifmmode~\check{S}\else \v{S}\fi{}eva, and H.~Buljan.
+\newblock Loschmidt echo in one-dimensional interacting {B}ose gases.
+\newblock \emph{Phys. Rev. A}, 84:\penalty0 063601, Dec 2011.
+\newblock \doi{10.1103/PhysRevA.84.063601}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevA.84.063601}.
 
-\bibitem{davenport2012}
-Mark~A Davenport, Marco~F Duarte, Yonina~C Eldar, and Gitta Kutyniok.
-\newblock Introduction to compressed sensing.
-\newblock {\em Compressed sensing: theory and applications}, 105:106, 2012.
+\bibitem[Girardeau(1960)]{girardeau1960}
+M.~Girardeau.
+\newblock Relationship between systems of impenetrable bosons and fermions in
+  one dimension.
+\newblock \emph{Journal of Mathematical Physics}, 1\penalty0 (6):\penalty0
+  516--523, 1960.
 
-\bibitem{docs}
-James Schloss and Lee O'riordan.
+\bibitem[Chen and Muga(2010)]{chen2010}
+Xi~Chen and J.~G. Muga.
+\newblock Transient energy excitation in shortcuts to adiabaticity for the
+  time-dependent harmonic oscillator.
+\newblock \emph{Phys. Rev. A}, 82:\penalty0 053403, Nov 2010.
+\newblock \doi{10.1103/PhysRevA.82.053403}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevA.82.053403}.
 
-\bibitem{villois2016}
-Alberto Villois, Giorgio Krstulovic, Davide Proment, and Hayder Salman.
-\newblock A vortex filament tracking method for the gross--pitaevskii model of
-  a superfluid.
-\newblock {\em Journal of Physics A: Mathematical and Theoretical},
-  49(41):415502, 2016.
+\bibitem[Chen et~al.(2010)Chen, Ruschhaupt, Schmidt, del Campo, Gu\'ery-Odelin,
+  and Muga]{chen20102}
+X.~Chen, A.~Ruschhaupt, S.~Schmidt, A.~del Campo, D.~Gu\'ery-Odelin, and J.~G.
+  Muga.
+\newblock Fast optimal frictionless atom cooling in harmonic traps: Shortcut to
+  adiabaticity.
+\newblock \emph{Phys. Rev. Lett.}, 104:\penalty0 063002, Feb 2010.
+\newblock \doi{10.1103/PhysRevLett.104.063002}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevLett.104.063002}.
 
-\bibitem{guo2018}
-Yulong Guo, Xiaopei Liu, Chi Xiong, Xuemiao Xu, and Chi-Wing Fu.
-\newblock Towards high-quality visualization of superfluid vortices.
-\newblock {\em IEEE transactions on visualization and computer graphics},
-  24(8):2440--2455, 2018.
+\bibitem[Masuda and Nakamura(2009)]{masuda2009}
+S.~Masuda and K.~Nakamura.
+\newblock Fast-forward of adiabatic dynamics in quantum mechanics.
+\newblock \emph{Proceedings of the Royal Society A: Mathematical, Physical and
+  Engineering Sciences}, 466\penalty0 (2116):\penalty0 1135--1154, 2009.
 
-\bibitem{canny1986}
-John Canny.
-\newblock A computational approach to edge detection.
-\newblock {\em IEEE Transactions on pattern analysis and machine intelligence},
-  (6):679--698, 1986.
+\bibitem[Torrontegui et~al.(2011)Torrontegui, Ib\'a\~nez, Chen, Ruschhaupt,
+  Gu\'ery-Odelin, and Muga]{torrontegui2011}
+E.~Torrontegui, S.~Ib\'a\~nez, Xi~Chen, A.~Ruschhaupt, D.~Gu\'ery-Odelin, and
+  J.~G. Muga.
+\newblock Fast atomic transport without vibrational heating.
+\newblock \emph{Phys. Rev. A}, 83:\penalty0 013415, Jan 2011.
+\newblock \doi{10.1103/PhysRevA.83.013415}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevA.83.013415}.
 
-\bibitem{o2016}
-LJ~O'Riordan, AC~White, and Th~Busch.
-\newblock Moir{\'e} superlattice structures in kicked bose-einstein
-  condensates.
-\newblock {\em Physical Review A}, 93(2):023609, 2016.
+\bibitem[Masuda(2012)]{masuda2012}
+S.~Masuda.
+\newblock Acceleration of adiabatic transport of interacting particles and
+  rapid manipulations of a dilute {B}ose gas in the ground state.
+\newblock \emph{Phys. Rev. A}, 86:\penalty0 063624, Dec 2012.
+\newblock \doi{10.1103/PhysRevA.86.063624}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevA.86.063624}.
 
-\bibitem{o2016topo}
-Lee~James O'Riordan and Thomas Busch.
-\newblock Topological defect dynamics of vortex lattices in bose-einstein
-  condensates.
-\newblock {\em Physical Review A}, 94(5):053603, 2016.
+\bibitem[Phelan et~al.(2013)Phelan, Hennessy, and Busch]{phelan2013}
+C.F. Phelan, T.~Hennessy, and Th. Busch.
+\newblock Shaping the evanescent field of optical nanofibers for cold atom
+  trapping.
+\newblock \emph{Opt. Express}, 21\penalty0 (22):\penalty0 27093--27101, Nov
+  2013.
+\newblock \doi{10.1364/OE.21.027093}.
+\newblock URL
+  \url{http://www.opticsexpress.org/abstract.cfm?URI=oe-21-22-27093}.
 
-\bibitem{jodra2015}
-Jose~L Jodra, Ibai Gurrutxaga, and Javier Muguerza.
-\newblock Efficient 3d transpositions in graphics processing units.
-\newblock {\em International Journal of Parallel Programming}, 43(5):876--891,
-  2015.
-
-\bibitem{ruetsch2013}
-Gregory Ruetsch and Massimiliano Fatica.
-\newblock {\em CUDA Fortran for scientists and engineers: best practices for
-  efficient CUDA Fortran programming}.
-\newblock Elsevier, 2013.
-
-\bibitem{merz2016}
-HUGH Merz.
-\newblock Cufft 1.1/2.0 vs fftw 3.1. 2 (x86\_64) vs fftw 3.2 (cell) comparison,
-  2016.
+\bibitem[Masuda et~al.(2014)Masuda, Nakamura, and del Campo]{masuda2014}
+S.~Masuda, K.~Nakamura, and A.~del Campo.
+\newblock High-fidelity rapid ground-state loading of an ultracold gas into an
+  optical lattice.
+\newblock \emph{Phys. Rev. Lett.}, 113:\penalty0 063003, Aug 2014.
+\newblock \doi{10.1103/PhysRevLett.113.063003}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevLett.113.063003}.
 
 \end{thebibliography}

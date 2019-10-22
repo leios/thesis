@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.8.25)  19 OCT 2019 13:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.8.25)  21 OCT 2019 17:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Final_Thesis.tex
+**Final_Thesis
 (./Final_Thesis.tex
 LaTeX2e <2018-12-01>
 (/usr/share/texmf-dist/tex/latex/base/book.cls
@@ -808,7 +808,7 @@ LaTeX Info: Redefining \nameref on input line 67.
 
 ABD: EveryShipout initializing macros
 \c@lstlisting=\count164
-<./Images/symbol.jpg, id=292, 468.7914pt x 465.4188pt>
+<./Images/symbol.jpg, id=272, 468.7914pt x 465.4188pt>
 File: ./Images/symbol.jpg Graphic file (type jpg)
 <use ./Images/symbol.jpg>
 Package pdftex.def Info: ./Images/symbol.jpg  used on input line 94.
@@ -833,170 +833,127 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 
 ] [4
 
-]) (./Preamble/acknowledgments.tex [5
+]) [5
 
 ] [6
 
-]) (./Preamble/abbreviations.tex [7
-
-] [8
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 4--5
-
- []
-
-) (./Preamble/glossary.tex [9
-
-] [10
-
-]) (./Preamble/nomenclature.tex [11
-
-] [12
-
-]
-LaTeX Font Info:    Try loading font information for U+msa on input line 6.
+] (./Final_Thesis.toc
+LaTeX Font Info:    Try loading font information for U+msa on input line 9.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 6.
+LaTeX Font Info:    Try loading font information for U+msb on input line 9.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)) (./Preamble/dedication.tex
-[13
-
-] [14
-
-]) [15] [16
-
-] (./Final_Thesis.toc [17
+) [7
 
 ]
-Overfull \hbox (12.0911pt too wide) in paragraph at lines 62--62
+Overfull \hbox (12.0911pt too wide) in paragraph at lines 57--57
  [][] [][]\T1/cmr/m/n/12 Controlled cre-ation of three-dimensional vor-tex stru
 c-tures in Bose--Einstein 
  []
 
-[18])
+[8])
 \tf@toc=\write5
 \openout5 = `Final_Thesis.toc'.
 
- [19] [20
+ [9] [10
 
 ] (./Final_Thesis.lot)
 \tf@lot=\write6
 \openout6 = `Final_Thesis.lot'.
 
- [21
+ [11
 
-] [22
+] [12
 
 ] (./MainText/introduction.tex
 [1
 
-]
-Underfull \vbox (badness 1616) has occurred while \output is active []
-
- [2])
-[3] [4
+] [2]) [3] [4
 
 ] (./MainText/split_op.tex
 Chapter 1.
 [5
 
 ] [6]
-<data/splitop/SHO/SHO_gimp.pdf, id=595, 315.91711pt x 615.56293pt>
+<data/splitop/SHO/SHO_gimp.pdf, id=521, 315.91711pt x 615.56293pt>
 File: data/splitop/SHO/SHO_gimp.pdf Graphic file (type pdf)
 <use data/splitop/SHO/SHO_gimp.pdf>
-Package pdftex.def Info: data/splitop/SHO/SHO_gimp.pdf  used on input line 106.
+Package pdftex.def Info: data/splitop/SHO/SHO_gimp.pdf  used on input line 103.
 
 (pdftex.def)             Requested size: 264.61333pt x 515.61346pt.
  [7] [8 <./data/splitop/SHO/SHO_gimp.pdf>] [9]
-Overfull \hbox (15.75533pt too wide) in paragraph at lines 185--185
+Overfull \hbox (15.75533pt too wide) in paragraph at lines 181--181
 []\T1/cmr/bx/n/14.4 Bose--Einstein con-den-sa-tion and the Gross--Pitaevskii Eq
 ua-
  []
 
 [10] [11]
-Overfull \hbox (8.9932pt too wide) in paragraph at lines 249--250
-[]\T1/cmr/m/n/12 In this case, the Thomas--Fermi dis-tri-bu-tion can be de-rive
-d from the time-independent
- []
-
-<data/qs/SHO/SHO.pdf, id=701, 361.35pt x 252.945pt>
+<data/qs/SHO/SHO.pdf, id=624, 361.35pt x 252.945pt>
 File: data/qs/SHO/SHO.pdf Graphic file (type pdf)
 <use data/qs/SHO/SHO.pdf>
-Package pdftex.def Info: data/qs/SHO/SHO.pdf  used on input line 274.
+Package pdftex.def Info: data/qs/SHO/SHO.pdf  used on input line 268.
 (pdftex.def)             Requested size: 441.01773pt x 308.71596pt.
-[12] [13 <./data/qs/SHO/SHO.pdf>] [14]
-<data/splitop/rot/WIP.pdf, id=779, 531.8787pt x 455.69261pt>
+ [12] [13 <./data/qs/SHO/SHO.pdf>] [14]
+<data/splitop/rot/WIP.pdf, id=703, 531.8787pt x 455.69261pt>
 File: data/splitop/rot/WIP.pdf Graphic file (type pdf)
 <use data/splitop/rot/WIP.pdf>
-Package pdftex.def Info: data/splitop/rot/WIP.pdf  used on input line 339.
+Package pdftex.def Info: data/splitop/rot/WIP.pdf  used on input line 334.
 (pdftex.def)             Requested size: 441.01773pt x 377.84233pt.
- [15] [16 <./data/splitop/rot/WIP.pdf>]
-[17]
-Underfull \vbox (badness 1838) has occurred while \output is active []
-
- [18]
-[19]
-<data/splitop/gauge/check.pdf, id=908, 361.35pt x 252.945pt>
+ [15] [16 <./data/splitop/rot/WIP.pdf>] [17] [18] [19]
+<data/splitop/gauge/check.pdf, id=833, 361.35pt x 252.945pt>
 File: data/splitop/gauge/check.pdf Graphic file (type pdf)
 <use data/splitop/gauge/check.pdf>
-Package pdftex.def Info: data/splitop/gauge/check.pdf  used on input line 543.
+Package pdftex.def Info: data/splitop/gauge/check.pdf  used on input line 539.
 (pdftex.def)             Requested size: 264.61333pt x 185.23111pt.
- [20] [21 <./data/splitop/gauge/check.pdf>]
+ [20]) (./MainText/1d.tex [21 <./data/splitop/gauge/check.pdf>] [22
 
-LaTeX Warning: Reference `fig:multicomp' on page 22 undefined on input line 585
-.
-
-) (./MainText/1d.tex [22]
+]
 Chapter 2.
-[23
-
-] [24]
-<data/1d/NM/NM.pdf, id=998, 361.35pt x 252.945pt>
+[23] [24]
+<data/1d/NM/NM.pdf, id=916, 361.35pt x 252.945pt>
 File: data/1d/NM/NM.pdf Graphic file (type pdf)
 <use data/1d/NM/NM.pdf>
 Package pdftex.def Info: data/1d/NM/NM.pdf  used on input line 77.
 (pdftex.def)             Requested size: 330.76329pt x 231.53503pt.
  [25] [26 <./data/1d/NM/NM.pdf>] [27] [28]
-<data/1d/scheme.pdf, id=1066, 416.41394pt x 286.50488pt>
+<data/1d/scheme.pdf, id=983, 416.41394pt x 286.50488pt>
 File: data/1d/scheme.pdf Graphic file (type pdf)
 <use data/1d/scheme.pdf>
 Package pdftex.def Info: data/1d/scheme.pdf  used on input line 221.
 (pdftex.def)             Requested size: 220.50887pt x 151.71571pt.
  [29]
-<data/1d/cross.png, id=1089, 293.59688pt x 304.13625pt>
+<data/1d/cross.png, id=1006, 293.59688pt x 304.13625pt>
 File: data/1d/cross.png Graphic file (type png)
 <use data/1d/cross.png>
 Package pdftex.def Info: data/1d/cross.png  used on input line 236.
 (pdftex.def)             Requested size: 176.40439pt x 182.73375pt.
-<data/1d/nocross.png, id=1091, 293.59688pt x 304.13625pt>
+<data/1d/nocross.png, id=1008, 293.59688pt x 304.13625pt>
 File: data/1d/nocross.png Graphic file (type png)
 <use data/1d/nocross.png>
 Package pdftex.def Info: data/1d/nocross.png  used on input line 239.
 (pdftex.def)             Requested size: 176.40439pt x 182.73375pt.
  [30 <./data/1d/scheme.pdf>]
-<data/1d/figR0.pdf, id=1135, 227.55013pt x 227.55013pt>
+<data/1d/figR0.pdf, id=1053, 227.55013pt x 227.55013pt>
 File: data/1d/figR0.pdf Graphic file (type pdf)
 <use data/1d/figR0.pdf>
 Package pdftex.def Info: data/1d/figR0.pdf  used on input line 284.
 (pdftex.def)             Requested size: 198.45662pt x 198.45657pt.
-<data/1d/figB0.pdf, id=1136, 227.55013pt x 227.55013pt>
+<data/1d/figB0.pdf, id=1054, 227.55013pt x 227.55013pt>
 File: data/1d/figB0.pdf Graphic file (type pdf)
 <use data/1d/figB0.pdf>
 Package pdftex.def Info: data/1d/figB0.pdf  used on input line 287.
 (pdftex.def)             Requested size: 198.45662pt x 198.45657pt.
  [31 <./data/1d/cross.png> <./data/1d/nocross.png>]
-<data/1d/figR1.pdf, id=1155, 227.55013pt x 227.55013pt>
+<data/1d/figR1.pdf, id=1074, 227.55013pt x 227.55013pt>
 File: data/1d/figR1.pdf Graphic file (type pdf)
 <use data/1d/figR1.pdf>
 Package pdftex.def Info: data/1d/figR1.pdf  used on input line 312.
 (pdftex.def)             Requested size: 198.45662pt x 198.45657pt.
-<data/1d/figB1.pdf, id=1156, 227.55013pt x 227.55013pt>
+<data/1d/figB1.pdf, id=1075, 227.55013pt x 227.55013pt>
 File: data/1d/figB1.pdf Graphic file (type pdf)
 <use data/1d/figB1.pdf>
 Package pdftex.def Info: data/1d/figB1.pdf  used on input line 316.
@@ -1005,22 +962,22 @@ Package pdftex.def Info: data/1d/figB1.pdf  used on input line 316.
 Underfull \vbox (badness 1286) has occurred while \output is active []
 
  [32 <./data/1d/figR0.pdf> <./data/1d/figB0.pdf>]
-<data/1d/figlfid.pdf, id=1194, 227.55013pt x 227.55013pt>
+<data/1d/figlfid.pdf, id=1112, 227.55013pt x 227.55013pt>
 File: data/1d/figlfid.pdf Graphic file (type pdf)
 <use data/1d/figlfid.pdf>
 Package pdftex.def Info: data/1d/figlfid.pdf  used on input line 331.
 (pdftex.def)             Requested size: 220.50887pt x 220.50807pt.
-<data/1d/figTG3.pdf, id=1195, 227.55013pt x 227.55013pt>
+<data/1d/figTG3.pdf, id=1113, 227.55013pt x 227.55013pt>
 File: data/1d/figTG3.pdf Graphic file (type pdf)
 <use data/1d/figTG3.pdf>
 Package pdftex.def Info: data/1d/figTG3.pdf  used on input line 343.
 (pdftex.def)             Requested size: 198.45662pt x 198.45657pt.
-<data/1d/figTG5.pdf, id=1196, 227.55013pt x 227.55013pt>
+<data/1d/figTG5.pdf, id=1114, 227.55013pt x 227.55013pt>
 File: data/1d/figTG5.pdf Graphic file (type pdf)
 <use data/1d/figTG5.pdf>
 Package pdftex.def Info: data/1d/figTG5.pdf  used on input line 347.
 (pdftex.def)             Requested size: 198.45662pt x 198.45657pt.
-<data/1d/STAscheme.png, id=1200, 598.6365pt x 375.0813pt>
+<data/1d/STAscheme.png, id=1118, 598.6365pt x 375.0813pt>
 File: data/1d/STAscheme.png Graphic file (type png)
 <use data/1d/STAscheme.png>
 Package pdftex.def Info: data/1d/STAscheme.png  used on input line 370.
@@ -1028,33 +985,33 @@ Package pdftex.def Info: data/1d/STAscheme.png  used on input line 370.
  [33 <./data/1d/figR1.pdf> <./data/1d/figB1.pdf>] [34 <./data/1d/figlfid.pdf>] 
 [35 <./data/1d/figTG3.pdf> <./data/1d/figTG5.pdf>] [36 <./data/1d/STAscheme.png
 >]
-<data/1d/fig1.png, id=1367, 442.0515pt x 398.6895pt>
+<data/1d/fig1.png, id=1285, 442.0515pt x 398.6895pt>
 File: data/1d/fig1.png Graphic file (type png)
 <use data/1d/fig1.png>
 Package pdftex.def Info: data/1d/fig1.png  used on input line 465.
 (pdftex.def)             Requested size: 211.68661pt x 190.9186pt.
-<data/1d/fig2.png, id=1368, 442.0515pt x 398.6895pt>
+<data/1d/fig2.png, id=1286, 442.0515pt x 398.6895pt>
 File: data/1d/fig2.png Graphic file (type png)
 <use data/1d/fig2.png>
 Package pdftex.def Info: data/1d/fig2.png  used on input line 468.
 (pdftex.def)             Requested size: 211.68661pt x 190.9186pt.
-<data/1d/fig5.png, id=1370, 578.16pt x 364.2408pt>
+<data/1d/fig5.png, id=1288, 578.16pt x 364.2408pt>
 File: data/1d/fig5.png Graphic file (type png)
 <use data/1d/fig5.png>
 Package pdftex.def Info: data/1d/fig5.png  used on input line 483.
 (pdftex.def)             Requested size: 198.45662pt x 125.02405pt.
-<data/1d/fig6.png, id=1371, 528.5346pt x 339.669pt>
+<data/1d/fig6.png, id=1289, 528.5346pt x 339.669pt>
 File: data/1d/fig6.png Graphic file (type png)
 <use data/1d/fig6.png>
 Package pdftex.def Info: data/1d/fig6.png  used on input line 484.
 (pdftex.def)             Requested size: 198.45662pt x 127.53622pt.
  [37 <./data/1d/fig1.png> <./data/1d/fig2.png>]
-<data/1d/fig7a.png, id=1387, 522.5121pt x 339.9099pt>
+<data/1d/fig7a.png, id=1306, 522.5121pt x 339.9099pt>
 File: data/1d/fig7a.png Graphic file (type png)
 <use data/1d/fig7a.png>
 Package pdftex.def Info: data/1d/fig7a.png  used on input line 521.
 (pdftex.def)             Requested size: 198.45662pt x 129.09967pt.
-<data/1d/fig7b.png, id=1388, 524.1984pt x 342.8007pt>
+<data/1d/fig7b.png, id=1307, 524.1984pt x 342.8007pt>
 File: data/1d/fig7b.png Graphic file (type png)
 <use data/1d/fig7b.png>
 Package pdftex.def Info: data/1d/fig7b.png  used on input line 524.
@@ -1075,7 +1032,7 @@ We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
 [42]
-<data/gpu/GPUEvsTS.png, id=1439, 577.6782pt x 433.3791pt>
+<data/gpu/GPUEvsTS.png, id=1356, 577.6782pt x 433.3791pt>
 File: data/gpu/GPUEvsTS.png Graphic file (type png)
 <use data/gpu/GPUEvsTS.png>
 Package pdftex.def Info: data/gpu/GPUEvsTS.png  used on input line 51.
@@ -1091,55 +1048,62 @@ File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 93.
  [44] [45]
-<data/gpu/gputhreads.pdf, id=1496, 460.44421pt x 460.44421pt>
+<data/gpu/gputhreads.pdf, id=1416, 460.44421pt x 460.44421pt>
 File: data/gpu/gputhreads.pdf Graphic file (type pdf)
 <use data/gpu/gputhreads.pdf>
 Package pdftex.def Info: data/gpu/gputhreads.pdf  used on input line 144.
 (pdftex.def)             Requested size: 441.01773pt x 441.01672pt.
 
 
-LaTeX Warning: Float too large for page by 41.61247pt on input line 228.
+LaTeX Warning: Float too large for page by 41.61247pt on input line 229.
 
 
 Underfull \vbox (badness 1377) has occurred while \output is active []
 
  [46]
 [47 <./data/gpu/gputhreads.pdf>] [48]
-<data/gpu/coalesce/check.pdf, id=1611, 1251.92119pt x 440.49068pt>
+<data/gpu/coalesce/check.pdf, id=1534, 1251.92119pt x 440.49068pt>
 File: data/gpu/coalesce/check.pdf Graphic file (type pdf)
 <use data/gpu/coalesce/check.pdf>
-Package pdftex.def Info: data/gpu/coalesce/check.pdf  used on input line 256.
+Package pdftex.def Info: data/gpu/coalesce/check.pdf  used on input line 258.
 (pdftex.def)             Requested size: 441.01773pt x 155.1688pt.
-
-
-LaTeX Warning: Reference `stackoverflow' on page 49 undefined on input line 262
-.
-
-
-LaTeX Warning: Reference `stackoverflow' on page 49 undefined on input line 262
-.
-
-[49] [50 <./data/gpu/coalesce/check.pdf>] [51]
-Overfull \hbox (33.12363pt too wide) in paragraph at lines 331--331
+ [49] [50 <./data/gpu/coalesce/check.pdf>] [51]
+Overfull \hbox (33.12363pt too wide) in paragraph at lines 333--333
 []\T1/cmr/bx/n/17.28 Introduction to the GPUE code-base for $\OML/cmm/m/it/17.2
 8 n$\T1/cmr/bx/n/17.28 -dimensional
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 331.
+(hyperref)                removing `math shift' on input line 333.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 331.
+(hyperref)                removing `math shift' on input line 333.
 
 
-Overfull \hbox (38.96373pt too wide) in paragraph at lines 334--341
+LaTeX Warning: Reference `o2017, o2016, o2016topo' on page 52 undefined on inpu
+t line 340.
+
+
+Overfull \hbox (38.96373pt too wide) in paragraph at lines 336--343
 \T1/cmr/m/n/12 spired the de-vel-op-ment of other com-pu-ta-tional li-braries s
 uch as the \T1/cmtt/m/n/12 DistributedTranspose.jl
  []
 
-[52] [53] (./data/gpu/expression/expression.tex
+[52]
+<data/gpu/fft/fft_fig.png, id=1596, 467.49657pt x 361.35pt>
+File: data/gpu/fft/fft_fig.png Graphic file (type png)
+<use data/gpu/fft/fft_fig.png>
+Package pdftex.def Info: data/gpu/fft/fft_fig.png  used on input line 370.
+(pdftex.def)             Requested size: 220.50887pt x 170.44104pt.
+<data/gpu/fft/fft_fig2.png, id=1597, 794.97pt x 614.295pt>
+File: data/gpu/fft/fft_fig2.png Graphic file (type png)
+<use data/gpu/fft/fft_fig2.png>
+Package pdftex.def Info: data/gpu/fft/fft_fig2.png  used on input line 372.
+(pdftex.def)             Requested size: 396.91325pt x 306.71556pt.
+ [53] [54 <./data/gpu/fft/fft_fig.png> <./data/gpu/fft/fft_fig2.png>]
+(./data/gpu/expression/expression.tex
 (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrary
 arrows.code.tex
 File: tikzlibraryarrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
@@ -1148,61 +1112,57 @@ File: tikzlibraryarrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
 File: pgflibraryarrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
 \arrowsize=\dimen189
 )))
-[54] [55]
-<data/gpu/vortex_tracking/phi_grid.png, id=1701, 312.2064pt x 578.16pt>
+[55] [56]
+<data/gpu/vortex_tracking/phi_grid.png, id=1644, 312.2064pt x 578.16pt>
 File: data/gpu/vortex_tracking/phi_grid.png Graphic file (type png)
 <use data/gpu/vortex_tracking/phi_grid.png>
 Package pdftex.def Info: data/gpu/vortex_tracking/phi_grid.png  used on input l
-ine 441.
+ine 459.
 (pdftex.def)             Requested size: 220.50887pt x 408.35272pt.
-<data/gpu/vortex_highlighting/all.png, id=1708, 443.256pt x 216.0873pt>
+ [57] [58 <./data/gpu/vortex_tracking/phi_grid.png>]
+<data/gpu/vortex_highlighting/all.png, id=1666, 443.256pt x 216.0873pt>
 File: data/gpu/vortex_highlighting/all.png Graphic file (type png)
 <use data/gpu/vortex_highlighting/all.png>
 Package pdftex.def Info: data/gpu/vortex_highlighting/all.png  used on input li
-ne 464.
+ne 483.
 (pdftex.def)             Requested size: 330.76329pt x 161.24734pt.
- [56] [57 <./data/gpu/vortex_tracking/phi_grid.png>] [58 <./data/gpu/vortex_hig
-hlighting/all.png>] [59] [60]
-
-Package natbib Warning: Citation `el2008' on page 61 undefined on input line 57
-6.
-
-) (./MainText/2d.tex [61] [62
+ [59 <./data/gpu/vortex_highlighting/all.png>] [60] [61] [62]) (./MainText/2d.t
+ex [63] [64
 
 ]
 Chapter 4.
-[63]
-<data/2d/phase/phase.pdf, id=1830, 822.27202pt x 512.30597pt>
+[65]
+<data/2d/phase/phase.pdf, id=1779, 822.27202pt x 512.30597pt>
 File: data/2d/phase/phase.pdf Graphic file (type pdf)
 <use data/2d/phase/phase.pdf>
 Package pdftex.def Info: data/2d/phase/phase.pdf  used on input line 44.
 (pdftex.def)             Requested size: 330.76329pt x 206.07568pt.
- [64]
-<data/2d/histogram/histogram.png, id=1848, 1047.915pt x 482.0409pt>
+ [66]
+<data/2d/histogram/histogram.png, id=1798, 1047.915pt x 482.0409pt>
 File: data/2d/histogram/histogram.png Graphic file (type png)
 <use data/2d/histogram/histogram.png>
 Package pdftex.def Info: data/2d/histogram/histogram.png  used on input line 66
 .
 (pdftex.def)             Requested size: 441.01773pt x 202.86769pt.
-<data/2d/evolution/evolution.pdf, id=1854, 422.05681pt x 360.6273pt>
+<data/2d/evolution/evolution.pdf, id=1804, 422.05681pt x 360.6273pt>
 File: data/2d/evolution/evolution.pdf Graphic file (type pdf)
 <use data/2d/evolution/evolution.pdf>
 Package pdftex.def Info: data/2d/evolution/evolution.pdf  used on input line 84
 .
 (pdftex.def)             Requested size: 220.50887pt x 188.41321pt.
- [65 <./data/2d/phase/phase.pdf>]
+ [67 <./data/2d/phase/phase.pdf>]
 Overfull \hbox (13.85716pt too wide) in paragraph at lines 102--108
 []\T1/cmr/m/n/12 After closely in-spect-ing the vor-tex dy-nam-ics (shown in th
 e sup-ple-men-tary movie [[]]),
  []
 
-<data/2d/snapshots/snapshots.pdf, id=1903, 964.33995pt x 1102.10083pt>
+<data/2d/snapshots/snapshots.pdf, id=1854, 964.33995pt x 1102.10083pt>
 File: data/2d/snapshots/snapshots.pdf Graphic file (type pdf)
 <use data/2d/snapshots/snapshots.pdf>
 Package pdftex.def Info: data/2d/snapshots/snapshots.pdf  used on input line 11
 0.
 (pdftex.def)             Requested size: 330.76329pt x 378.02222pt.
-<data/2d/lyap/lyap.pdf, id=1906, 444.26175pt x 392.93298pt>
+<data/2d/lyap/lyap.pdf, id=1857, 444.26175pt x 392.93298pt>
 File: data/2d/lyap/lyap.pdf Graphic file (type pdf)
 <use data/2d/lyap/lyap.pdf>
 Package pdftex.def Info: data/2d/lyap/lyap.pdf  used on input line 124.
@@ -1210,30 +1170,30 @@ Package pdftex.def Info: data/2d/lyap/lyap.pdf  used on input line 124.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [66 <./data/2d/histogram/histogram.png>] [67 <./data/2d/evolution/evolution.pd
+ [68 <./data/2d/histogram/histogram.png>] [69 <./data/2d/evolution/evolution.pd
 f>]
-[68 <./data/2d/snapshots/snapshots.pdf>] [69 <./data/2d/lyap/lyap.pdf>]
-[70]) (./MainText/vortex_states.tex [71] [72
+[70 <./data/2d/snapshots/snapshots.pdf>] [71 <./data/2d/lyap/lyap.pdf>]
+[72]) (./MainText/vortex_states.tex [73] [74
 
 ]
 Chapter 5.
 
-LaTeX Warning: Reference `schloss2019' on page 73 undefined on input line 8.
+LaTeX Warning: Reference `schloss2019' on page 75 undefined on input line 8.
 
 
-LaTeX Warning: Reference `fig' on page 73 undefined on input line 9.
+LaTeX Warning: Reference `fig' on page 75 undefined on input line 9.
 
 
-LaTeX Warning: Reference `fig' on page 73 undefined on input line 9.
+LaTeX Warning: Reference `fig' on page 75 undefined on input line 9.
 
-[73] [74]
-<data/3d/Schematic_TB.pdf, id=2249, 372.36516pt x 562.03494pt>
+[75] [76]
+<data/3d/Schematic_TB.pdf, id=2200, 372.36516pt x 562.03494pt>
 File: data/3d/Schematic_TB.pdf Graphic file (type pdf)
 <use data/3d/Schematic_TB.pdf>
 Package pdftex.def Info: data/3d/Schematic_TB.pdf  used on input line 70.
 (pdftex.def)             Requested size: 176.40439pt x 266.25757pt.
- [75] [76 <./data/3d/Schematic_TB.pdf>]
-<data/3d/fiber/mode_plot.jpg, id=2350, 378.213pt x 176.0979pt>
+ [77] [78 <./data/3d/Schematic_TB.pdf>]
+<data/3d/fiber/mode_plot.jpg, id=2300, 378.213pt x 176.0979pt>
 File: data/3d/fiber/mode_plot.jpg Graphic file (type jpg)
 <use data/3d/fiber/mode_plot.jpg>
 Package pdftex.def Info: data/3d/fiber/mode_plot.jpg  used on input line 123.
@@ -1241,60 +1201,53 @@ Package pdftex.def Info: data/3d/fiber/mode_plot.jpg  used on input line 123.
 
 Underfull \vbox (badness 2326) has occurred while \output is active []
 
- [77]
-<data/3d/all_fields.pdf, id=2369, 660.37543pt x 454.17384pt>
+ [79]
+<data/3d/all_fields.pdf, id=2320, 660.37543pt x 454.17384pt>
 File: data/3d/all_fields.pdf Graphic file (type pdf)
 <use data/3d/all_fields.pdf>
 Package pdftex.def Info: data/3d/all_fields.pdf  used on input line 157.
 (pdftex.def)             Requested size: 441.01773pt x 303.31775pt.
 
-[78 <./data/3d/fiber/mode_plot.jpg>] [79 <./data/3d/all_fields.pdf>]
-<data/3d/vortex_transition.png, id=2397, 3539.2225pt x 788.9475pt>
+[80 <./data/3d/fiber/mode_plot.jpg>] [81 <./data/3d/all_fields.pdf>]
+<data/3d/vortex_transition.png, id=2348, 3539.2225pt x 788.9475pt>
 File: data/3d/vortex_transition.png Graphic file (type png)
 <use data/3d/vortex_transition.png>
 Package pdftex.def Info: data/3d/vortex_transition.png  used on input line 198.
 
 (pdftex.def)             Requested size: 441.01773pt x 98.30519pt.
- [80 <./data/3d/vortex_transition.png>]
-<data/3d/HE21_3d.png, id=2408, 948.54375pt x 717.68124pt>
+ [82 <./data/3d/vortex_transition.png>]
+<data/3d/HE21_3d.png, id=2360, 948.54375pt x 717.68124pt>
 File: data/3d/HE21_3d.png Graphic file (type png)
 <use data/3d/HE21_3d.png>
 Package pdftex.def Info: data/3d/HE21_3d.png  used on input line 217.
 (pdftex.def)             Requested size: 220.50887pt x 166.83727pt.
-<data/3d/vortex_line_all.pdf, id=2415, 361.35pt x 548.52928pt>
+<data/3d/vortex_line_all.pdf, id=2367, 361.35pt x 548.52928pt>
 File: data/3d/vortex_line_all.pdf Graphic file (type pdf)
 <use data/3d/vortex_line_all.pdf>
 Package pdftex.def Info: data/3d/vortex_line_all.pdf  used on input line 233.
 (pdftex.def)             Requested size: 352.81552pt x 535.57974pt.
- [81 <./data/3d/HE21_3d.png>] [82 <./data/3d/vortex_line_all.pdf>]
-<data/3d/V_change.pdf, id=2441, 361.35pt x 252.945pt>
+ [83 <./data/3d/HE21_3d.png>] [84 <./data/3d/vortex_line_all.pdf>]
+<data/3d/V_change.pdf, id=2392, 361.35pt x 252.945pt>
 File: data/3d/V_change.pdf Graphic file (type pdf)
 <use data/3d/V_change.pdf>
 Package pdftex.def Info: data/3d/V_change.pdf  used on input line 254.
 (pdftex.def)             Requested size: 330.76329pt x 231.53503pt.
-<data/3d/scissors_plot.pdf, id=2444, 361.35pt x 320.1561pt>
+<data/3d/scissors_plot.pdf, id=2395, 361.35pt x 320.1561pt>
 File: data/3d/scissors_plot.pdf Graphic file (type pdf)
 <use data/3d/scissors_plot.pdf>
 Package pdftex.def Info: data/3d/scissors_plot.pdf  used on input line 263.
 (pdftex.def)             Requested size: 330.76329pt x 293.05719pt.
- [83 <./data/3d/V_change.pdf>] [84 <./data/3d/scissors_plot.pdf>] [85]
-
-Package natbib Warning: Citation `hill1997' on page 86 undefined on input line 
-309.
-
-) [86] (./MainText/conclusion.tex [87
+ [85 <./data/3d/V_change.pdf>] [86 <./data/3d/scissors_plot.pdf>] [87]) [88] (.
+/MainText/conclusion.tex [89
 
 
-] [88] [89]) [90] (./MainText/appendixGPU
+] [90] [91]) [92]
+(./MainText/appendixGPU
 Appendix A.
-[91
+[93
 
 
-]
-
-LaTeX Warning: Reference `ch:gpue' on page 92 undefined on input line 57.
-
-[92] [93]
+] [94] [95]
 Overfull \hbox (62.8641pt too wide) in paragraph at lines 190--192
 [][][][][][][][][][][][][][][][][][] 
  []
@@ -1312,7 +1265,7 @@ Overfull \hbox (6.1774pt too wide) in paragraph at lines 199--201
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [94]
+ [96]
 Overfull \hbox (18.77444pt too wide) in paragraph at lines 201--202
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1336,29 +1289,48 @@ Overfull \hbox (25.07297pt too wide) in paragraph at lines 234--235
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [95])
-[96] (./Final_Thesis.bbl [97
+ [97])
+[98] (./Final_Thesis.bbl [99
 
 
 ]
-Underfull \hbox (badness 1019) in paragraph at lines 111--114
-[]\T1/cmr/m/n/12 Cihan Bayindir.  Com-pres-sive split-step fourier method.  \T1
-/cmr/m/it/12 arXiv preprint
+Underfull \hbox (badness 2351) in paragraph at lines 133--136
+[]\T1/cmr/m/n/12 C. Bayindir.  Com-pres-sive split-step Fourier method.  \T1/cm
+r/m/it/12 arXiv preprint
  []
 
-[98] [99] [100] [101] [102] [103] [104] [105] [106] [107] [108] [109] [110]
-[111])
+[100] [101] [102] [103] [104] [105] [106] [107]
+Underfull \hbox (badness 10000) in paragraph at lines 874--877
+[]\T1/cmr/m/n/12 R. Slaw, 2013.  URL []$\T1/cmtt/m/n/12 https : / / gist . gith
+ub . com / realazthat /
+ []
 
-Package natbib Warning: There were undefined citations.
+[108] [109] [110] [111]
+Underfull \hbox (badness 1242) in paragraph at lines 1169--1172
+[]\T1/cmr/m/n/12 T. Zhang, J. Schloss, A. Thomasen, L. J. O'Riordan, Th. Busch,
+ and
+ []
 
 [112]
+Underfull \hbox (badness 1577) in paragraph at lines 1285--1291
+\T1/cmr/m/it/12 view of Con-densed Mat-ter Physics\T1/cmr/m/n/12 , 2(1):213--23
+4, 2011.  doi: $10 . 1146 /
+ []
+
+
+Underfull \hbox (badness 4181) in paragraph at lines 1285--1291
+\T1/cmr/m/n/12 annurev-[]conmatphys-[]062910-[]140533$.  URL []$\T1/cmtt/m/n/12
+ http : / / dx . doi . org / 10 . 1146 /
+ []
+
+[113] [114]) [115]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 165.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 165.
  (./Final_Thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 165.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 165.
 Package rerunfilecheck Info: File `Final_Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: F54C10540C698CC415BE5D7C8F80D8D2;5667.
+(rerunfilecheck)             Checksum: C1EA8A3188BCE249DF9AC3B1AEE080A0;5417.
 
 
 LaTeX Warning: There were undefined references.
@@ -1369,13 +1341,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 165.
  ) 
 Here is how much of TeX's memory you used:
- 23958 strings out of 492623
- 424084 string characters out of 6135669
- 845443 words of memory out of 5000000
- 26371 multiletter control sequences out of 15000+600000
+ 23946 strings out of 492623
+ 424097 string characters out of 6135669
+ 844449 words of memory out of 5000000
+ 26384 multiletter control sequences out of 15000+600000
  24107 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,18n,74p,1101b,2116s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,18n,74p,1097b,2116s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/font
 s/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public
@@ -1408,10 +1380,10 @@ st/fonts/type1/public/cm-super/sftt1000.pfb></usr/share/texmf-dist/fonts/type1/
 public/cm-super/sftt1200.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/up
 lb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share
 /texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on Final_Thesis.pdf (134 pages, 9991066 bytes).
+Output written on Final_Thesis.pdf (127 pages, 10103876 bytes).
 PDF statistics:
- 3242 PDF objects out of 3580 (max. 8388607)
- 2849 compressed objects within 29 object streams
- 976 named destinations out of 1000 (max. 500000)
- 786 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 3279 PDF objects out of 3580 (max. 8388607)
+ 2884 compressed objects within 29 object streams
+ 962 named destinations out of 1000 (max. 500000)
+ 756 words of extra memory for PDF output out of 10000 (max. 10000000)
 

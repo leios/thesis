@@ -1,24 +1,14 @@
 \BOOKMARK [0][-]{section*.1}{Contents}{}% 1
 \BOOKMARK [0][-]{section*.3}{Introduction}{}% 2
-\BOOKMARK [0][-]{chapter.1}{General Purpose computing with Graphics Processing Units and the GPUE codebase}{}% 3
-\BOOKMARK [1][-]{section.1.1}{Types of parallelism}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.2}{General purpose computing with graphics processing units}{chapter.1}% 5
-\BOOKMARK [2][-]{subsection.1.2.1}{Limitations of GPU computing}{section.1.2}% 6
-\BOOKMARK [2][-]{subsection.1.2.2}{GPU hardware architecture}{section.1.2}% 7
-\BOOKMARK [2][-]{subsection.1.2.3}{Comparison between various languages for GPGPU computation}{section.1.2}% 8
-\BOOKMARK [1][-]{section.1.3}{Introduction to the GPUE codebase for n-dimensional simulations of quantum systems on the GPU}{chapter.1}% 9
-\BOOKMARK [2][-]{subsection.1.3.1}{FFT optimization}{section.1.3}% 10
-\BOOKMARK [2][-]{subsection.1.3.2}{Dynamic field input and output in GPUE with expression trees}{section.1.3}% 11
-\BOOKMARK [2][-]{subsection.1.3.3}{GPUE memory footprint}{section.1.3}% 12
-\BOOKMARK [2][-]{subsection.1.3.4}{Vortex tracking and highlighting}{section.1.3}% 13
-\BOOKMARK [2][-]{subsection.1.3.5}{Energy calculation for superfluid simulations}{section.1.3}% 14
-\BOOKMARK [2][-]{subsection.1.3.6}{Similar software packages}{section.1.3}% 15
-\BOOKMARK [2][-]{subsection.1.3.7}{Future direction and multi-GPU development}{section.1.3}% 16
-\BOOKMARK [1][-]{section.1.4}{DistributedTranspose.jl}{chapter.1}% 17
-\BOOKMARK [1][-]{section.1.5}{Outlook}{chapter.1}% 18
-\BOOKMARK [0][-]{appendix.A}{Simple vector additions in CUDA, OpenCL, and JuliaGPU}{}% 19
-\BOOKMARK [1][-]{section.A.1}{Vector addition with C++}{appendix.A}% 20
-\BOOKMARK [1][-]{section.A.2}{Vector addition with CUDA}{appendix.A}% 21
-\BOOKMARK [1][-]{section.A.3}{Vector addition with OpenCL}{appendix.A}% 22
-\BOOKMARK [1][-]{section.A.4}{Julia}{appendix.A}% 23
-\BOOKMARK [0][-]{section*.18}{Bibliography}{}% 24
+\BOOKMARK [0][-]{chapter.1}{Engineering NOON states in for one-dimensional quantum gases}{}% 3
+\BOOKMARK [1][-]{section.1.1}{Optimization methods}{chapter.1}% 4
+\BOOKMARK [2][-]{subsection.1.1.1}{Nelder\205Mead}{section.1.1}% 5
+\BOOKMARK [2][-]{subsection.1.1.2}{Chopped random basis optimal control}{section.1.1}% 6
+\BOOKMARK [1][-]{section.1.2}{Shortcuts to adiabaticity}{chapter.1}% 7
+\BOOKMARK [1][-]{section.1.3}{Non-adiabatic generation of NOON states in a Tonks\205Girardeau gas}{chapter.1}% 8
+\BOOKMARK [2][-]{subsection.1.3.1}{Tonks\205Girardeau gas}{section.1.3}% 9
+\BOOKMARK [2][-]{subsection.1.3.2}{NOON states in a TG gas}{section.1.3}% 10
+\BOOKMARK [2][-]{subsection.1.3.3}{Optimal control protocols}{section.1.3}% 11
+\BOOKMARK [2][-]{subsection.1.3.4}{Results with STA protocols}{section.1.3}% 12
+\BOOKMARK [1][-]{section.1.4}{Outlook}{chapter.1}% 13
+\BOOKMARK [0][-]{section*.15}{Bibliography}{}% 14

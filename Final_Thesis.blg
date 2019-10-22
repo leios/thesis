@@ -1,53 +1,53 @@
 This is BibTeX, Version 0.99d (TeX Live 2019/Arch Linux)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Final_Thesis.aux
-The style file: unsrt.bst
-Reallocated field_info (elt_size=8) to 10014 items from 5000.
+The style file: unsrtnat.bst
+Reallocated field_info (elt_size=8) to 11188 items from 5000.
 Database file #1: Preamble/Thesis_bibliography.bib
-Warning--I didn't find a database entry for "el2008"
-Warning--I didn't find a database entry for "hill1997"
 Warning--can't use both volume and number fields in crank1947
 Warning--empty journal in koza1997
+Warning--empty year in docs
 Warning--there's a number but no volume in canny1986
-You've used 216 entries,
-            1791 wiz_defined-function locations,
-            1575 strings with 37759 characters,
-and the built_in function-call counts, 50305 in all, are:
-= -- 4257
-> -- 2517
-< -- 21
-+ -- 927
-- -- 711
-* -- 3873
-:= -- 8197
-add.period$ -- 651
-call.type$ -- 216
-change.case$ -- 192
-chr.to.int$ -- 0
-cite$ -- 219
-duplicate$ -- 2075
-empty$ -- 4855
-format.name$ -- 711
-if$ -- 10955
-int.to.chr$ -- 0
-int.to.str$ -- 216
-missing$ -- 229
-newline$ -- 1076
-num.names$ -- 216
-pop$ -- 451
+Warning--empty year in movie
+You've used 221 entries,
+            2481 wiz_defined-function locations,
+            1798 strings with 42134 characters,
+and the built_in function-call counts, 88703 in all, are:
+= -- 7265
+> -- 4933
+< -- 126
++ -- 1898
+- -- 1456
+* -- 7393
+:= -- 14408
+add.period$ -- 767
+call.type$ -- 221
+change.case$ -- 417
+chr.to.int$ -- 221
+cite$ -- 226
+duplicate$ -- 4321
+empty$ -- 7985
+format.name$ -- 1779
+if$ -- 18673
+int.to.chr$ -- 1
+int.to.str$ -- 222
+missing$ -- 233
+newline$ -- 1205
+num.names$ -- 663
+pop$ -- 1681
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 221
 quote$ -- 0
-skip$ -- 838
+skip$ -- 2486
 stack$ -- 0
-substring$ -- 3498
-swap$ -- 343
-text.length$ -- 21
+substring$ -- 4009
+swap$ -- 626
+text.length$ -- 25
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
-warning$ -- 3
-while$ -- 473
-width$ -- 219
-write$ -- 2344
+type$ -- 1484
+warning$ -- 5
+while$ -- 706
+width$ -- 0
+write$ -- 3046
 (There were 5 warnings)

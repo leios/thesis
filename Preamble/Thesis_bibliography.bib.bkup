@@ -1,0 +1,3290 @@
+%------------------------------------------------------------------------------%
+% INTRODUCTION
+%------------------------------------------------------------------------------%
+
+@book{fetter2003,
+ author={A. L. Fetter and J. D. Walecka},
+ title={Quantum Theory of Many-Particle Systems},
+ publisher={Dover Publications},
+ year={2003}
+}
+
+@Article{nozieres1985,
+author="P. Nozi{\`e}res
+and S. Schmitt-Rink",
+title="Bose condensation in an attractive fermion gas: From weak to strong coupling superconductivity",
+journal="Journal of Low Temperature Physics",
+volume="59",
+number="3",
+year={1985},
+pages="195--211",
+abstract="We consider a gas of fermions interacting via an attractive potential. We study the ground state of that system and calculate the critical temperature for the onset of superconductivity as a function of the coupling strength. We compare the behavior of continuum and lattice models and show that the evolution from weak to strong coupling superconductivity is smooth.",
+issn="1573-7357",
+doi="10.1007/BF00683774",
+url="http://dx.doi.org/10.1007/BF00683774"
+}
+
+@article{allen1938,
+ title = {Flow of Liquid {H}elium {II}},
+ author = {J. Allen and A. Misener},
+ journal = {Nature},
+ volume = {142},
+ pages = {643},
+ year = {1938},
+ doi={10.1038/141075a0},
+ url={http://www.nature.com/nature/journal/v141/n3558/abs/141075a0.html}
+}
+
+@article{migdal1960,
+ title = {A phenomenological approach to the theory of the nucleus},
+ author = {A. B. Migdal},
+ journal = {Soviet Physics JETP},
+ volume = {10},
+ pages = {176},
+ year = {1960},
+ doi={10.1016/0029-5582(64)90294-9},
+ url={http://www.sciencedirect.com/science/article/pii/0029558264902949}
+}
+
+@article{einstein1925,
+ title = {Quantum Theory of the Monatomic Ideal Gas, Part {II}},
+ author = {A. B. Migdal},
+ journal = {Physikalisch-mathematische Klasse},
+ volume = {1},
+ pages = {3},
+ year = {1925},
+}
+
+@book{pethick2002,
+  title = {{B}ose--{E}instein Condensation in Dilute Gases},
+  author = {C. J. Pethick and H. Smith},
+  year = {2002},
+  publisher = {Cambridge University Press},
+}
+
+@Article{lin2009,
+author={Y. J. Lin and
+R. L. Compton and
+K. Jimenez-Garcia and
+J. V. Porto and
+I. B. Spielman},
+title={Synthetic magnetic fields for ultracold neutral atoms},
+journal={Nature},
+year={2009},
+month={Dec},
+day={03},
+publisher={Macmillan Publishers Limited. All rights reserved},
+volume={462},
+number={7273},
+pages={628-632},
+issn={0028-0836},
+doi={10.1038/nature08609},
+url={http://dx.doi.org/10.1038/nature08609}
+}
+
+@Article{mochol2015,
+author={M. Mochol
+and K. Sacha},
+title={Artificial magnetic field induced by an evanescent wave},
+journal={Scientific Reports},
+year={2015},
+month={Jan},
+day={08},
+volume={5},
+note={Article},
+url={http://dx.doi.org/10.1038/srep07672}
+}
+
+@article{jackson1999,
+  title = {Vortex line and ring dynamics in trapped {B}ose--{E}instein condensates},
+  author = {B. Jackson and J. F. McCann and C. S. Adams},
+  journal = {Phys. Rev. A},
+  volume = {61},
+  issue = {1},
+  pages = {013604},
+  numpages = {7},
+  year = {1999},
+  month = {Dec},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.61.013604},
+  url = {http://link.aps.org/doi/10.1103/PhysRevA.61.013604}
+}
+
+@article{reichl2013,
+  title = {Vortex ring dynamics in trapped {B}ose--{E}instein condensates},
+  author = {M. D. Reichl and E. J. Mueller},
+  journal = {Phys. Rev. A},
+  volume = {88},
+  issue = {5},
+  pages = {053626},
+  numpages = {6},
+  year = {2013},
+  month = {Nov},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.88.053626},
+  url = {http://link.aps.org/doi/10.1103/PhysRevA.88.053626}
+}
+
+@article{fetter2001,
+  author={A. L. Fetter and A. A. Svidzinsky},
+  title={Vortices in a trapped dilute {B}ose-{E}instein condensate},
+  journal={Journal of Physics: Condensed Matter},
+  volume={13},
+  number={12},
+  pages={R135},
+  url={http://stacks.iop.org/0953-8984/13/i=12/a=201},
+  year={2001},
+  abstract={We review the theory of vortices in trapped dilute {B}ose--{E}instein 
+condensates and compare theoretical predictions with existing experiments. Me
+an-field theory based on the time-dependent Gross-Pitaevskii equation describ
+es the main features of the vortex states, and its predictions agree well wit
+h available experimental results. We discuss various properties of a single v
+ortex, including its structure, energy, dynamics, normal modes, and stability
+, as well as vortex arrays. When the nonuniform condensate contains a vortex,
+ the excitation spectrum includes unstable (`anomalous') mode(s) with negativ
+e frequency. Trap rotation shifts the normal-mode frequencies and can stabili
+ze the vortex. We consider the effect of thermal quasiparticles on vortex nor
+mal modes as well as possible mechanisms for vortex dissipation. Vortex state
+s in mixtures and spinor condensates are also discussed.}
+}
+
+
+%------------------------------------------------------------------------------%
+% GP EQUATION
+%------------------------------------------------------------------------------%
+
+@article{fetter2009,
+  title = {Rotating trapped {B}ose-{E}instein condensates},
+  author = {A. L. Fetter},
+  journal = {Rev. Mod. Phys.},
+  volume = {81},
+  issue = {2},
+  pages = {647--691},
+  numpages = {0},
+  year = {2009},
+  month = {May},
+  publisher = {American Physical Society},
+  doi = {10.1103/RevModPhys.81.647},
+  url = {http://link.aps.org/doi/10.1103/RevModPhys.81.647}
+}
+
+@article{dalfovo1999,
+  title = {Theory of {B}ose-{E}instein condensation in trapped gases},
+  author = {F. Dalfovo and S. Giorgini and L. P. Pitaevskii and S. Stringari},
+  journal = {Rev. Mod. Phys.},
+  volume = {71},
+  issue = {3},
+  pages = {463--512},
+  numpages = {0},
+  year = {1999},
+  month = {Apr},
+  publisher = {American Physical Society},
+  doi = {10.1103/RevModPhys.71.463},
+  url = {http://link.aps.org/doi/10.1103/RevModPhys.71.463}
+}
+
+
+@article{bogoliubov1947,
+      author         = "Bogoliubov, N. N.",
+      title          = "{On the theory of superfluidity}",
+      journal        = "J. Phys.(USSR)",
+      volume         = "11",
+      year           = "1947",
+      pages          = "23-32",
+}
+
+@Article{gross1961,
+author="Gross, E. P.",
+title="Structure of a quantized vortex in boson systems",
+journal="Il Nuovo Cimento (1955-1965)",
+year="1961",
+volume="20",
+number="3",
+pages="454--477",
+issn="1827-6121",
+doi="10.1007/BF02731494",
+url="http://dx.doi.org/10.1007/BF02731494"
+}
+
+@article{pitaevskii1961,
+ title={Vortex lines in an imperfect {B}ose gas},
+ author={L. Pitaevskii},
+ journal={Zh. Eksp. Teor. Fiz},
+ volume={40},
+ pages={646},
+ year={1961}
+}
+
+@article{fetter1972,
+title = "Nonuniform states of an imperfect bose gas",
+journal = "Annals of Physics",
+volume = "70",
+number = "1",
+pages = "67 - 101",
+year = "1972",
+note = "",
+issn = "0003-4916",
+doi = "http://dx.doi.org/10.1016/0003-4916(72)90330-2",
+url = "http://www.sciencedirect.com/science/article/pii/0003491672903302",
+author = "A. L. Fetter",
+abstract = "The low-lying states of an inhomogeneous weakly interacting Bose 
+gas are investigated with the Bogoliubov transformation. The particle density
+ n(r), the particle current j(r), and the pair density function n2(r, r′) are
+ evaluated at finite temperature T, including both condensate and noncondensa
+te contributions. For a uniformly moving condensate, j is proportional to the
+ Landau superfluid density ϱs(T). For a singly quantized vortex with core rad
+ius ξ, the asymptotic properties (r → ∞) are given by n(r) ∼ n[1 + O(ξ2r2)] a
+nd jθ(r) ∼ (nh̵mr)[1 + O(ξ2r2)], where n = n0 + n′ is the total density (conde
+nsate plus noncondensate) in a uniform system. Near the axis of the vortex, n
+(0) = n′(0) is estimated to be ≈ 1.4 n′, yet jθ(r) vanishes linearly, implyin
+g a finite kinetic energy density in the core. The N-body wave function in co
+nfiguration space is constructed for the lowest state of a vortex. It suggest
+s an improved form of the trial function used by Chester, Metz, and Reatto fo
+r a vortex in 4He."
+}
+
+
+%------------------------------------------------------------------------------%
+% GAUGE
+%------------------------------------------------------------------------------%
+
+@ARTICLE{dalibard2015,
+   author = {{Dalibard}, J.},
+    title = "{Introduction to the physics of artificial gauge fields}",
+  journal = {ArXiv e-prints},
+archivePrefix = "arXiv",
+   eprint = {1504.05520},
+ primaryClass = "cond-mat.quant-gas",
+ keywords = {Condensed Matter - Quantum Gases},
+     year = 2015,
+    month = apr,
+   adsurl = {http://adsabs.harvard.edu/abs/2015arXiv150405520D},
+  adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@article{aharonov1959,
+  title = {Significance of Electromagnetic Potentials in the Quantum Theory},
+  author = {Aharonov, Y. and Bohm, D.},
+  journal = {Phys. Rev.},
+  volume = {115},
+  issue = {3},
+  pages = {485--491},
+  numpages = {0},
+  year = {1959},
+  month = {Aug},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRev.115.485},
+  url = {http://link.aps.org/doi/10.1103/PhysRev.115.485}
+}
+
+
+@article{schweikhard2004,
+  title = {Rapidly Rotating {B}ose--{E}instein Condensates in and near the Lowest Landau Level},
+  author = {Schweikhard, V. and Coddington, I. and Engels, P. and Mogendorff, V. P. and Cornell, E. A.},
+  journal = {Phys. Rev. Lett.},
+  volume = {92},
+  issue = {4},
+  pages = {040404},
+  numpages = {4},
+  year = {2004},
+  month = {Jan},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevLett.92.040404},
+  url = {http://link.aps.org/doi/10.1103/PhysRevLett.92.040404}
+}
+
+@phdthesis{bhat2008,
+ author={R. Bhat},
+ year={2001},
+ school={Indian Institute of Technology Kanpur},
+ title={Bosons in rotating optical lattices}
+}
+
+@book{peshkin1989,
+ title={The Aharonov--Bohm Effect},
+ author={M. Peshkin, A. Tonomura},
+ publisher={Springer-Verlag},
+ volume={340},
+ year={1989}
+}
+
+%------------------------------------------------------------------------------%
+% VORTEX
+%------------------------------------------------------------------------------%
+
+@article{schwarz1968,
+  title = {Interaction of Quantized Vortex Rings with Quantized Vortex Lines in Rotating He {II}},
+  author = {Schwarz, K. W.},
+  journal = {Phys. Rev.},
+  volume = {165},
+  issue = {1},
+  pages = {323--334},
+  numpages = {0},
+  year = {1968},
+  month = {Jan},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRev.165.323},
+  url = {http://link.aps.org/doi/10.1103/PhysRev.165.323}
+}
+
+
+@book{kundu2012,
+title = "Fluid Mechanics",
+author = "D. R. Dowling, P. K. Kundu, I. M. Cohen ",
+booktitle = "Fluid Mechanics (Fifth Edition) ",
+publisher = "Academic Press",
+edition = "Fifth Edition",
+address = "Boston",
+year = "2012",
+pages = "ii - ",
+isbn = "978-0-12-382100-3",
+doi = "http://dx.doi.org/10.1016/B978-0-12-382100-3.10017-4",
+url = "http://www.sciencedirect.com/science/article/pii/B9780123821003100174",
+key = "tagkey2012ii"
+}
+
+@book{tritton1988,
+ author={D. J. Tritton},
+ title={Physical Fluid Dynamics},
+ publisher={Oxford University Press},
+ year={1988}
+}
+
+@book{landau1987,
+ author={L. D. Landau and E. M. Lifshitz},
+ title={Fluid Mechanics},
+ publisher={Butterworth-Heinemann},
+ year={1987}
+}
+
+@misc{wiki,
+ author={L. V. Barbosa},
+ title={https://en.wikipedia.org/wiki/Vortex_ring}
+}
+
+@book{faber1995,
+ author={T. E. Faber},
+ title={Fluid Dynamics for Physicists},
+ publisher={Cambridge University Press},
+ year={1995}
+}
+
+@article{schwarz1985,
+  title = {Three-dimensional vortex dynamics in superfluid $^{4}\mathrm{He}$: Line-line and line-boundary interactions},
+  author = {Schwarz, K. W.},
+  journal = {Phys. Rev. B},
+  volume = {31},
+  issue = {9},
+  pages = {5782--5804},
+  numpages = {0},
+  year = {1985},
+  month = {May},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevB.31.5782},
+  url = {http://link.aps.org/doi/10.1103/PhysRevB.31.5782}
+}
+
+@Article{fetter2010,
+author="Fetter, A. L.",
+title="Vortices and Dynamics in Trapped {B}ose--{E}instein Condensates",
+journal="Journal of Low Temperature Physics",
+year="2010",
+volume="161",
+number="5",
+pages="445--459",
+abstract="I review the basic physics of ultracold dilute trapped atomic gases, with emphasis on {B}ose--{E}instein condensation and quantized vortices. The hydrodynamic form of the Gross-Pitaevskii equation (a\302\240nonlinear Schr{
+\"o}dinger equation) illuminates the role of the density and the quantum-mechanical phase. One unique feature of these experimental systems is the opportunity to study the dynamics of vortices in real time, in contrast to typic
+al experiments on superfluid 4He. I\302\240discuss three specific examples (precession of single vortices, motion of vortex dipoles, and Tkachenko oscillations of a vortex array). Other unusual features include the study of qua
+ntum turbulence and the behavior for rapid rotation, when the vortices form dense regular arrays. Ultimately, the system is predicted to make a quantum phase transition to various highly correlated many-body states (analogous t
+o bosonic quantum Hall states) that are not superfluid and do not have condensate wave functions. At present, this transition remains elusive. Conceivably, laser-induced synthetic vector potentials can serve to reach this intri
+guing phase transition.",
+issn="1573-7357",
+doi="10.1007/s10909-010-0202-7",
+url="http://dx.doi.org/10.1007/s10909-010-0202-7"
+}
+
+
+@article{zuccher2012,
+   author = "Zuccher, S. and Caliari, M. and Baggaley, A. W. and Barenghi, C. F.",
+   title = "Quantum vortex reconnections",
+   journal = "Physics of Fluids",
+   year = "2012",
+   volume = "24",
+   number = "12", 
+   eid = 125108,
+   pages = "",
+   url = "http://scitation.aip.org/content/aip/journal/pof2/24/12/10.1063/1.4772
+198",
+   doi = "http://dx.doi.org/10.1063/1.4772198" 
+}
+
+@article{barenghi2009,
+  author={C. F. Barenghi and R. J. Donnelly},
+  title={Vortex rings in classical and quantum systems},
+  journal={Fluid Dynamics Research},
+  volume={41},
+  number={5},
+  pages={051401},
+  url={http://stacks.iop.org/1873-7005/41/i=5/a=051401},
+  year={2009},
+}
+
+@article{roberts1970,
+ author={P. H. Roberts and R. J. Donnelly},
+ title={Dynamics of vortex rings},
+ journal={Phys. Lett.},
+ volume={31A},
+ pages={137},
+ year={1970}
+}
+
+@book{lamb1945,
+ author={H. Lamb},
+ title={Hydrodynamics},
+ publisher={New York: Dover publications},
+ year={1945}
+}
+
+@article{fetter1966,
+   author = "Fetter, A. L. and Donnelly, R. J.",
+   title = "On the Equivalence of Vortices and Current Filaments",
+   journal = "Physics of Fluids",
+   year = "1966",
+   volume = "9",
+   number = "3", 
+   pages = "619-620",
+   url = "http://scitation.aip.org/content/aip/journal/pof1/9/3/10.1063/1.176171
+9",
+   doi = "http://dx.doi.org/10.1063/1.1761719" 
+}
+
+@book{sommerfield1950,
+ author={A. Sommerfield},
+ title={Mechanics of Deformable Bodies: Lectures of Theoretical Physics},
+ volume={2},
+ publisher={Academic Press},
+ year={1960}
+}
+
+@book{feynman1955,
+ author={R. P. Feynman},
+ title={Progress in Low Temperature Physics: Chapter II, Application of Quantum Mechanics to Liquid Helium},
+ volume={1},
+ publisher={Interscience Publishers Inc},
+ year={1955}
+}
+
+@article{paoletti2011,
+author = {M. S. Paoletti and D. P. Lathrop},
+title = {Quantum Turbulence},
+journal = {Annual Review of Condensed Matter Physics},
+volume = {2},
+number = {1},
+pages = {213-234},
+year = {2011},
+doi = {10.1146/annurev-conmatphys-062910-140533},
+
+URL = { 
+        http://dx.doi.org/10.1146/annurev-conmatphys-062910-140533
+    
+},
+eprint = { 
+        http://dx.doi.org/10.1146/annurev-conmatphys-062910-140533
+    
+}
+
+}
+
+@article{caplan2014,
+   author = "Caplan, R. M. and Talley, J. D. and Carretero-Gonz\'alez, R. a
+nd Kevrekidis, P. G.",
+   title = "Scattering and leapfrogging of vortex rings in a superfluid",
+   journal = "Physics of Fluids",
+   year = "2014",
+   volume = "26",
+   number = "9", 
+   eid = 097101,
+   pages = "",
+   url = "http://scitation.aip.org/content/aip/journal/pof2/26/9/10.1063/1.48947
+45",
+   doi = "http://dx.doi.org/10.1063/1.4894745" 
+}
+
+@article{shariff1992,
+author = {K. Shariff  and  A. Leonard},
+title = {Vortex Rings},
+journal = {Annual Review of Fluid Mechanics},
+volume = {24},
+number = {1},
+pages = {235-279},
+year = {1992},
+doi = {10.1146/annurev.fl.24.010192.001315},
+}
+}
+
+@book{lim1995,
+author={Lim, T. T.
+and Nickels, T. B.},
+chapter={Vortex Rings},
+title={Fluid Vortices},
+year={1995},
+publisher={Springer Netherlands},
+address={Dordrecht},
+pages={95--153},
+isbn={978-94-011-0249-0},
+doi={10.1007/978-94-011-0249-0_4},
+url={http://dx.doi.org/10.1007/978-94-011-0249-0_4}
+}
+
+@article{barenghi2014,
+ author={C. F. Barenghi and L. Skrbek and K. R. Sreenivasan},
+ title={Introduction to quantum turbulence},
+ journal={PNAS},
+ year={2014},
+ volume={111},
+ pages={4647}
+}
+
+@book{donnelly1991,
+ title={Quantized Vortices in Helium II},
+ author={R. Donnelly},
+ year={1991},
+ publisher={Cambridge University Press},
+}
+
+@article{anderson2001,
+  title = {Watching Dark Solitons Decay into Vortex Rings in a {B}ose-{E}instein Condensate},
+  author = {Anderson, B. P. and Haljan, P. C. and Regal, C. A. and Feder, D. L. and Collins, L. A. and Clark, C. W. and Cornell, E. A.},
+  journal = {Phys. Rev. Lett.},
+  volume = {86},
+  issue = {14},
+  pages = {2926--2929},
+  numpages = {0},
+  year = {2001},
+  month = {Apr},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevLett.86.2926},
+  url = {http://link.aps.org/doi/10.1103/PhysRevLett.86.2926}
+}
+
+@article {fraenkel1970,
+        author = {Fraenkel, L. E.},
+        title = {On Steady Vortex Rings of Small Cross-Section in an Ideal Fluid},
+        volume = {316},
+        number = {1524},
+        pages = {29--62},
+        year = {1970},
+        doi = {10.1098/rspa.1970.0065},
+        publisher = {The Royal Society},
+        abstract = {This paper is concerned with vortex rings, in an unbounde
+d inviscid fluid of uniform density, that move without change of form and wit
+h constant velocity when the fluid at infinity is at rest. The work is restri
+cted to rings whose cross-sectional area is small relative to the square of a
+ mean ring radius. An existence theorem is proved for distributions of vortic
+ity in the core that are arbitrary, apart from the condition imposed by the e
+quation of motion and certain smoothness requirements. The method of proof re
+lies on the nearly plane, or two-dimensional, nature of the flow in the neigh
+bourhood of a small cross-section, and leads to approximate but explicit form
+ulae for the propagation speed and shape of the vortex rings in question.},
+        issn = {0080-4630},
+        URL = {http://rspa.royalsocietypublishing.org/content/316/1524/29},
+        eprint = {http://rspa.royalsocietypublishing.org/content/316/1524/29.
+full.pdf},
+        journal = {Proceedings of the Royal Society of London A: Mathematical
+, Physical and Engineering Sciences}
+}
+
+@article{fraenkel1972,
+author = {Fraenkel, L. E.},
+title = {Examples of steady vortex rings of small cross-section in an ideal fluid},
+journal = {Journal of Fluid Mechanics},
+volume = {51},
+issue = {01},
+month = {1},
+year = {1972},
+issn = {1469-7645},
+pages = {119--135},
+numpages = {17},
+doi = {10.1017/S0022112072001107},
+URL = {http://journals.cambridge.org/article_S0022112072001107},
+}
+
+@article{roberts1971,
+ author={P. H. Roberts and J. Grant},
+ title={Motions in a {B}ose condensate. {I}: The structure of a large circular vortex},
+ journal={J. Phys.},
+ year={1971},
+ volume={4},
+ pages={55}
+}
+
+@article{jones1982,
+  author={C. A. Jones and P. H. Roberts},
+  title={Motions in a {B}ose condensate. IV. Axisymmetric solitary waves},
+  journal={Journal of Physics A: Mathematical and General},
+  volume={15},
+  number={8},
+  pages={2599},
+  url={http://stacks.iop.org/0305-4470/15/i=8/a=036},
+  year={1982},
+  abstract={For pt.III see ibid., vol.7, p.260 (1974). Axisymmetric disturban
+ces that preserve their form as they move through a Bose condensate are obtai
+ned numerically by the solution of the appropriate nonlinear Schrodinger equa
+tion. A continuous family is obtained that, in the momentum (p)-energy (E) pl
+ane, consists of two branches meeting at a cusp of minimum momentum around 0.
+140 rho kappa 3 /c 2 and minimum energy about 0.145 rho kappa 3/c , where rho
+ is density, c is the speed of sound and kappa is the quantum of circulation.
+ For all larger p, there are two possible energy states. One (the lower branc
+h) is (for large enough p) a vortex ring of circulation kappa ; as p to infin
+ity its radius omega approximately (p/ pi kappa ) 1/2 becomes infinite and it
+s forward velocity tends to zero. The other (the upper branch) lacks vorticit
+y and is a rarefaction sound pulse that becomes increasingly one dimensional 
+as p to infinity ; its velocity approaches c for large p. The velocity of any
+ member of the family is shown, both numerically and analytically, to be delt
+a E/ delta p, the derivative being taken along the family.}
+}
+
+@article{berloff2005,
+  title = {Solitary Waves on Vortex Lines in Ginzburg-Landau Models for the Example of {B}ose-{E}instein Condensates},
+  author = {Berloff, N. G.},
+  journal = {Phys. Rev. Lett.},
+  volume = {94},
+  issue = {1},
+  pages = {010403},
+  numpages = {4},
+  year = {2005},
+  month = {Jan},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevLett.94.010403},
+  url = {http://link.aps.org/doi/10.1103/PhysRevLett.94.010403}
+}
+
+
+%------------------------------------------------------------------------------%
+% NANOFIBERS
+%------------------------------------------------------------------------------%
+
+@article{wu2012, 
+author = {Q. Wu and Y. Ma and J. Yuan and Y. Semenova and P. Wang and C. Yu and G. Farrell}, 
+journal = {Opt. Express}, 
+keywords = {Buffers, couplers, routers, switches, and multiplexers; Fiber optics communications; Fiber optics components},
+number = {3}, 
+pages = {3098--3109}, 
+publisher = {OSA},
+title = {Evanescent field coupling between two parallel close contact SMS fiber structures}, 
+volume = {20}, 
+month = {Jan},
+year = {2012},
+url = {http://www.opticsexpress.org/abstract.cfm?URI=oe-20-3-3098},
+doi = {10.1364/OE.20.003098},
+abstract = {We proposed a novel optical coupling technique based on two parallel singlemode-multimode- singlemode (SMS) fiber structures. This technique utilizes one SMS structure to excite multiple cladding modes within an out
+put singlemode fiber. The excited multiple cladding modes will be coupled to the input SMF in the second SMS structure by placing the two SMS fiber structures in parallel and in close contact each other. The coupled cladding mo
+des will be re-coupled to a guided core mode by the second SMS fiber structure. Theoretical analysis for such technique was provided and experimentally we have achieved a pass band spectral response with an extinction ratio hig
+her than 20 dB and a maximum coupling efficiency of 5.9\%.},
+}
+
+@phdthesis{hennessy2015,
+           title = {Nanofiber Control of Ultracold Quantum Gases},
+          author = "T. Hennessy",
+          school = "National University of Ireland, Cork",
+           month = {November},
+            year = "2015",
+}
+
+@article{kao1966,
+ author={K. C. Kao and G. A. Hockham},
+ title={Dielectric-fiber surface waveguides for optical frequencies},
+ journal={Proc. Inst. Elect. Eng.},
+ volume={113},
+ pages={1151},
+ year={1966}
+}
+
+@article{kao1968,
+ author={C. K. Kao and T. W. Davies},
+ title={Spectroscopic studies of ultra low loss optical glasses},
+ journal={J. Sci. Instrum.},
+ volume={1},
+ pages={1063},
+ year={1968}
+}
+
+@article{kien2004,
+  title = {Atom trap and waveguide using a two-color evanescent light field around a subwavelength-diameter optical fiber},
+  author = {Le Kien, F. and Balykin, V. I. and Hakuta, K.},
+  journal = {Phys. Rev. A},
+  volume = {70},
+  issue = {6},
+  pages = {063403},
+  numpages = {9},
+  year = {2004},
+  month = {Dec},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.70.063403},
+  url = {http://link.aps.org/doi/10.1103/PhysRevA.70.063403}
+}
+
+@article{kien2004b,
+title = "Field intensity distributions and polarization orientations in a vacuum-clad subwavelength-diameter optical fiber ",
+journal = "Optics Communications ",
+volume = "242",
+pages = "445 - 455",
+year = "2004",
+issn = "0030-4018",
+doi = "http://dx.doi.org/10.1016/j.optcom.2004.08.044",
+url = "http://www.sciencedirect.com/science/article/pii/S0030401804008739",
+author = "F. Le Kien and J.Q. Liang and K. Hakuta and V.I. Balykin",
+}
+
+
+@article{lee2015,
+  author={J. Lee and J. A. Grover and J. E. Hoffman and L. A. Orozco and S. L. Rolston},
+  title={Inhomogeneous broadening of optical transitions of 87 {Rb} atoms in an optical nanofiber trap},
+  journal={Journal of Physics B: Atomic, Molecular and Optical Physics},
+  volume={48},
+  number={16},
+  pages={165004},
+  url={http://stacks.iop.org/0953-4075/48/i=16/a=165004},
+  year={2015},
+}
+
+@Article{schneeweiss2012,
+author="Schneeweiss, P.
+and Dawkins, S. T.
+and Mitsch, R.
+and Reitz, D.
+and Vetsch, E.
+and Rauschenbeutel, A.",
+title="A nanofiber-based optical conveyor belt for cold atoms",
+journal="Applied Physics B",
+year="2012",
+volume="110",
+number="3",
+pages="279--283",
+issn="1432-0649",
+doi="10.1007/s00340-012-5268-2",
+url="http://dx.doi.org/10.1007/s00340-012-5268-2"
+}
+
+@article{gloge1971, 
+author = {D. Gloge}, 
+journal = {Appl. Opt.}, 
+keywords = {},
+number = {10}, 
+pages = {2252--2258}, 
+publisher = {OSA},
+title = {Weakly Guiding Fibers}, 
+volume = {10}, 
+month = {Oct},
+year = {1971},
+url = {http://ao.osa.org/abstract.cfm?URI=ao-10-10-2252},
+doi = {10.1364/AO.10.002252},
+abstract = {Thin glass fibers imbedded into a glass cladding of slightly lower r
+efractive index represent a promising medium for optical communication. This art
+icle presents simple formulas and functions for the fiber parameters as a help f
+or practical design work. It considers the propagation constant, mode delay, the
+ cladding field depth, and the power distribution in the fiber cross section. Pl
+ots vs frequency of these parameters are given for 70 modes},
+}
+
+@book{yariv1985,
+ title={Optical Electronics},
+ author={A. Yariv},
+ publisher={Oxford University Press},
+ year={1990}
+}
+
+@article{phelan2013, 
+author = {C.F. Phelan and T. Hennessy and Th. Busch}, 
+journal = {Opt. Express}, 
+keywords = {Fiber optics and optical communications; Fiber characterization; Fiber design and fabrication; Fiber properties; Propagation},
+number = {22}, 
+pages = {27093--27101}, 
+publisher = {OSA},
+title = {Shaping the evanescent field of optical nanofibers for cold atom trapping}, 
+volume = {21}, 
+month = {Nov},
+year = {2013},
+url = {http://www.opticsexpress.org/abstract.cfm?URI=oe-21-22-27093},
+doi = {10.1364/OE.21.027093},
+abstract = {We investigate trapping geometries for cold, neutral atoms that can be created in the evanescent field of a tapered optical fibre by combining the fundamental mode with one of the next lowest possible modes, namely the HE21 mode. Counter propagating red-detuned HE21 modes are combined with a blue-detuned H
+E11 fundamental mode to form a potential in the shape of four intertwined spirals. By changing the polarization from circular to linear in each of the two counter-propagating HE21 modes simultaneously the 4-helix configuration can be transformed into a lattice configuration. The modification to the 4-helix configurati
+on due to unwanted excitation of the the TE01 and TM01 modes is also discussed.},
+}
+
+@article{denschlag2002,
+  author={J. Hecker Denschlag and J. E. Simsarian and H. H\"affner and C. McKenzie and 
+A. Browaeys and D. Cho and K. Helmerson and S. L. Rolston and W. D. Phillips},
+  title={A {B}ose--{E}instein condensate in an optical lattice},
+  journal={Journal of Physics B: Atomic, Molecular and Optical Physics},
+  volume={35},
+  number={14},
+  pages={3095},
+  url={http://stacks.iop.org/0953-4075/35/i=14/a=307},
+  year={2002},
+  abstract={We have performed a number of experiments with a {B}ose--{E}instein conde
+nsate (BEC) in a one-dimensional optical lattice. Making use of the small moment
+um spread of a BEC and standard atom optics techniques, a high level of coherent
+ control over an artificial solid-state system is demonstrated. We are able to l
+oad the BEC into the lattice ground state with a very high efficiency by adiabat
+ically turning on the optical lattice. We coherently transfer population between
+ lattice states and observe their evolution. Methods are developed and used to p
+erform band spectroscopy. We use these techniques to build a BEC accelerator and
+ a novel, coherent, large-momentum-transfer beam-splitter.}
+}
+
+@Article{greiner2002,
+author={Greiner, M.
+and Mandel, O.
+and Esslinger, T.
+and Hansch, T. W.
+and Bloch, I.},
+title={Quantum phase transition from a superfluid to a {M}ott insulator in a gas of ultracold atoms},
+journal={Nature},
+year={2002},
+month={Jan},
+day={03},
+volume={415},
+number={6867},
+pages={39-44},
+issn={0028-0836},
+doi={10.1038/415039a},
+url={http://dx.doi.org/10.1038/415039a}
+}
+
+@ARTICLE{love1991, 
+author={J. D. Love and W. Henry and W. Stewart and R. J. Black and S. Lacroix and F. Gonthier}, 
+journal={IEE Proceedings J - Optoelectronics}, 
+title={Tapered single-mode fibres and devices. {I}. Adiabaticity criteria}, 
+year={1991}, 
+volume={138}, 
+number={5}, 
+pages={343-354}, 
+keywords={fibre optics;optical couplers;optical filters;optical losses;W-fibres;abrupt taper filters;anomalous loss effects;beam expanders;delineation criteria;depressed-cladding;fibre couplers;low-loss devices;low-loss tapered fibres;single-mode fibres;tapered fibre devices;Optical couplers;Optical fiber lasers;Optical fiber transducers;Optical fibers;Optical filters;Optical losses}, 
+doi={10.1049/ip-j.1991.0060}, 
+ISSN={0267-3932}, 
+month={Oct},}
+
+@article{ho2015,
+  title = {Spinor Condensates on a Cylindrical Surface in Synthetic Gauge Fields},
+  author = {Ho, T. and Huang, B.},
+  journal = {Phys. Rev. Lett.},
+  volume = {115},
+  issue = {15},
+  pages = {155304},
+  numpages = {5},
+  year = {2015},
+  month = {Oct},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevLett.115.155304},
+  url = {http://link.aps.org/doi/10.1103/PhysRevLett.115.155304}
+}
+
+@Article{morrissey2013,
+author={Morrissey, M. J.
+and Deasy, K.
+and Frawley, M.
+and Kumar, R.
+and Prel, E.
+and Russell, L.
+and Truong, V. G.
+and Nic Chormaic, S.},
+title={Spectroscopy, Manipulation and Trapping of Neutral Atoms, Molecules, and Other Particles Using Optical Nanofibers: A Review},
+journal={Sensors (Basel)},
+year={2013},
+month={Aug},
+day={13},
+publisher={Molecular Diversity Preservation International (MDPI)},
+volume={13},
+number={8},
+pages={10449-10481},
+doi={10.3390/s130810449},
+url={http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3812613/}
+}
+
+@article{mcgloin1998, 
+author = {D. McGloin and N. B. Simpson and M. J. Padgett}, 
+journal = {Appl. Opt.}, 
+keywords = {Fiber optics and optical communications; Physical optics},
+number = {3}, 
+pages = {469--472}, 
+publisher = {OSA},
+title = {Transfer of orbital angular momentum from a stressed fiber-optic waveguide to a light beam}, 
+volume = {37}, 
+month = {Jan},
+year = {1998},
+url = {http://ao.osa.org/abstract.cfm?URI=ao-37-3-469},
+doi = {10.1364/AO.37.000469},
+abstract = {A stressed fiber-optic waveguide is used to impart orbital angularmo
+mentum to a Hermite--Gaussian (HG10) lasermode. The transmitted beam has an annu
+lar intensity profile and awell-defined azimuthal phase dependence. We confirm t
+he phasestructure of the beam by observing the interference pattern producedbetw
+een it and a plane wave. The transfer of the angular momentumto the light occurs
+ because of a difference in phase velocity withinthe fiber for two orthogonal mo
+des that comprise the inputbeam. This represents a mechanism for the transfer of
+ orbitalangular momentum to a light beam that has not hitherto beenidentified.},
+}
+
+%------------------------------------------------------------------------------%
+% CODE
+%------------------------------------------------------------------------------%
+
+@article{taha1984,
+title = "Analytical and numerical aspects of certain nonlinear evolution equatio
+ns. II. Numerical, nonlinear {S}chrödinger equation ",
+journal = "Journal of Computational Physics ",
+volume = "55",
+number = "2",
+pages = "203 - 230",
+year = "1984",
+note = "",
+issn = "0021-9991",
+doi = "http://dx.doi.org/10.1016/0021-9991(84)90003-2",
+url = "http://www.sciencedirect.com/science/article/pii/0021999184900032",
+author = "T. R. Taha and M. I. Ablowitz",
+abstract = "Various numerical methods are employed in order to approximate the n
+onlinear Schrödinger equation, namely: (i) The classical explicit method, (ii) h
+opscotch method, (iii) implicit-explicit method, (iv) Crank-Nicolson implicit sc
+heme, (v) the Ablowitz-Ladik scheme, (vi) the split step Fourier method (F. Tapp
+ert), and (vii) pseudospectral (Fourier) method (Fornberg and Whitham). Comparis
+ons between the Ablowitz-Ladik scheme, which was developed using notions of the 
+inverse scattering transform, and the other utilized schemes are obtained. "
+}
+
+@article{bao2003,
+title = "Numerical solution of the {G}ross–{P}itaevskii equation for {B}ose–{E}instein condensation ",
+journal = "Journal of Computational Physics ",
+volume = "187",
+number = "1",
+pages = "318 - 342",
+year = "2003",
+note = "",
+issn = "0021-9991",
+doi = "http://dx.doi.org/10.1016/S0021-9991(03)00102-5",
+url = "http://www.sciencedirect.com/science/article/pii/S0021999103001025",
+author = "W. Bao and D. Jaksch and P. A. Markowich",
+keywords = "Bose–Einstein condensation (BEC)",
+keywords = "Gross–Pitaevskii equation",
+keywords = "Time-splitting spectral method",
+keywords = "Approximate ground state solution",
+keywords = "Defocusing/focusing nonlinearity ",
+abstract = "We study the numerical solution of the time-dependent Gross–Pitaevskii equation (GPE) describing a Bose–Einstein condensate (BEC) at zero or very low temperature. In preparation for the numerics we scale the 3d Gross–Pitaevskii equation and obtain a four-parameter model. Identifying ‘extreme parameter regi
+mes’, the model is accessible to analytical perturbation theory, which justifies formal procedures well known in the physical literature: reduction to 2d and 1d GPEs, approximation of ground state solutions of the \{GPE\} and geometrical optics approximations. Then we use a time-splitting spectral method to discretize
+ the time-dependent GPE. Again, perturbation theory is used to understand the discretization scheme and to choose the spatial/temporal grid in dependence of the perturbation parameter. Extensive numerical examples in 1d, 2d and 3d for weak/strong interactions, defocusing/focusing nonlinearity, and zero/nonzero initial
+ phase data are presented to demonstrate the power of the numerical method and to discuss the physics of Bose–Einstein condensation. "
+}
+
+
+@article{bader2013,
+   author = "Bader, Ph. and Blanes, S. and Casas, F.",
+   title = "Solving the {S}chrödinger eigenvalue problem by the imaginary time pro
+pagation technique using splitting methods with complex coefficients",
+   journal = "The Journal of Chemical Physics",
+   year = "2013",
+   volume = "139",
+   number = "12", 
+   eid = 124117,
+   pages = "",
+   url = "http://scitation.aip.org/content/aip/journal/jcp/139/12/10.1063/1.4821
+126",
+   doi = "http://dx.doi.org/10.1063/1.4821126" 
+}
+
+@article{chiofalo2000,
+  title = {Ground state of trapped interacting {B}ose--{E}instein condensates by an explicit imaginary-time algorithm},
+  author = {Chiofalo, M. L. and Succi, S. and Tosi, M. P.},
+  journal = {Phys. Rev. E},
+  volume = {62},
+  issue = {5},
+  pages = {7438--7444},
+  numpages = {0},
+  year = {2000},
+  month = {Nov},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevE.62.7438},
+  url = {http://link.aps.org/doi/10.1103/PhysRevE.62.7438}
+}
+
+@article{frawley2012,
+title = "Higher order mode propagation in an optical nanofiber ",
+journal = "Optics Communications ",
+volume = "285",
+number = "23",
+pages = "4648 - 4654",
+year = "2012",
+note = "Special Issue: Optical micro/nanofibers: Challenges and Opportunities ",
+issn = "0030-4018",
+doi = "http://dx.doi.org/10.1016/j.optcom.2012.05.016",
+url = "http://www.sciencedirect.com/science/article/pii/S0030401812004294",
+author = "M. C. Frawley and A. Petcu-Colan and V. G. Truong and S. Nic Chormaic",
+keywords = "Tapered optical fibers",
+keywords = "Optical nanofibers",
+keywords = "Higher order modes",
+keywords = "Fiber modes ",
+abstract = "The propagation of higher modes, such as the \{LP11\} mode, in optical nanofibers using the exponentially tapered optical fiber as a basic model is investigated. In order to preserve the \{LP11\} mode in the downtap
+er as far as the nanofiber waist, the effect of varying the cladding-core radius ratio on the \{LP11\} adiabatic criterion is modeled. A Laguerre\342\200\223Gaussian beam is created in free space using a spatial light modulator
+ (SLM) and coupled to a few-mode fiber. This device allows convenient switching between the fundamental and \{LP11\} fiber modes. By selecting a few-mode fiber with a relatively low cladding-core ratio, the propagation of the \
+{LP11\} mode down to a submicron waist has been maintained. Furthermore, by observing the transmission profile during tapering, it is possible to decisively terminate the pulling process in order to eliminate the two degenerate
+ \{HE21\} modes of the \{LP11\} mode. As a result, a nanofiber can be fabricated through which only the \{TE01\} and \{TM01\} components of the \{LP11\} mode propagate. Such a nanofiber has promising applications in the area of
+ mode interference for controlled particle trapping sites. "
+}
+
+@book{press1992,
+ title={Numerical Recipes in FORTRAN 77: The Art of Scientific Computing},
+ author={W. H. Press and B. P. Flannery and S. A. Teukolsky and W. T. Vetterling},
+ year={1998},
+ volume={1},
+ publisher={Cambridge University Press}
+}
+
+@article{campbell1896,
+ title={On a law of combination of operators bearing on the theory of continuous transformation groups},
+ author={J. E. Campbell},
+ journal={Proc. London Math. Soc.},
+ year={1896}
+}
+
+%------------------------------------------------------------------------------%
+% OTHER
+%------------------------------------------------------------------------------%
+
+@article{hallwood2010,
+  title = {Robust mesoscopic superposition of strongly correlated ultracold atoms},
+  author = {Hallwood, D. W. and Ernst, T. and Brand, J.},
+  journal = {Phys. Rev. A},
+  volume = {82},
+  issue = {6},
+  pages = {063623},
+  numpages = {7},
+  year = {2010},
+  month = {Dec},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.82.063623},
+  url = {http://link.aps.org/doi/10.1103/PhysRevA.82.063623}
+}
+
+@article{caneva2011,
+  title = {Chopped random-basis quantum optimization},
+  author = {Caneva, T. and Calarco, T. and Montangero, S.},
+  journal = {Phys. Rev. A},
+  volume = {84},
+  issue = {2},
+  pages = {022326},
+  numpages = {9},
+  year = {2011},
+  month = {Aug},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.84.022326},
+  url = {http://link.aps.org/doi/10.1103/PhysRevA.84.022326}
+}
+
+
+@article{ruostekoski2001,
+  title = {Creating Vortex Rings and Three-Dimensional Skyrmions in {B}ose--{E}instein Condensates},
+  author = {Ruostekoski, J. and Anglin, J. R.},
+  journal = {Phys. Rev. Lett.},
+  volume = {86},
+  issue = {18},
+  pages = {3934--3937},
+  numpages = {0},
+  year = {2001},
+  month = {Apr},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevLett.86.3934},
+  url = {http://link.aps.org/doi/10.1103/PhysRevLett.86.3934}
+}
+
+@Article{abad2008,
+author="Abad, M.
+and Guilleumas, M.
+and Mayol, R.
+and Pi, M.",
+title="Vortex rings in toroidal {B}ose--{E}instein condensates",
+journal="Laser Physics",
+year="2008",
+volume="18",
+number="5",
+pages="648--652",
+abstract="We study vortex ring solutions of the Gross-Pitaevskii equation for Bo
+se-Einstein condensates confined in toroidal traps. Analogously to the Feynman-O
+nsager ansatz for a single vortex line, we assume a condensate wavefunction that
+ describes a quantized vortex ring. This leads to a modified Gross-Pitaevskii eq
+uation that incorporates vortex ring solutions. By numerically solving this equa
+tion, we have obtained the density profiles and the vortex core structure. We ha
+ve also calculated the nucleation energy of a vortex ring, and have analyzed its
+ dependence on the ring position. Finally, a qualitative description of the vort
+ex ring dynamics is presented.",
+issn="1555-6611",
+doi="10.1134/S1054660X08050162",
+url="http://dx.doi.org/10.1134/S1054660X08050162"
+}
+
+@article{girardeau1960,
+  title={Relationship between systems of impenetrable bosons and fermions in one dimension},
+  author={Girardeau, M.},
+  journal={Journal of Mathematical Physics},
+  volume={1},
+  number={6},
+  pages={516--523},
+  year={1960},
+  publisher={AIP}
+}
+
+@incollection{agrawal2000,
+  title={Nonlinear fiber optics},
+  author={Agrawal, G. P.},
+  booktitle={Nonlinear Science at the Dawn of the 21st Century},
+  pages={195--211},
+  year={2000},
+  publisher={Springer}
+}
+
+@article{besard2016,
+  title={High-level GPU programming in Julia},
+  author={Besard, T. and Verstraete, P. and De Sutter, B.},
+  journal={arXiv preprint arXiv:1604.03410},
+  year={2016}
+}
+
+@article{besard2018,
+  title={Effective extensible programming: unleashing Julia on GPUs},
+  author={Besard, T. and Foket, C. and De Sutter, B.},
+  journal={IEEE Transactions on Parallel and Distributed Systems},
+  volume={30},
+  number={4},
+  pages={827--841},
+  year={2018},
+  publisher={IEEE}
+}
+
+@book{opencl,
+  title={OpenCL programming guide},
+  author={Munshi, A. and Gaster, B. and Mattson, T. G. and Ginsburg, D.},
+  year={2011},
+  publisher={Pearson Education}
+}
+
+@article{besard2019,
+  title={Rapid software prototyping for heterogeneous and distributed platforms},
+  author={Besard, T. and Churavy, V. and Edelman, A. and De Sutter, B.},
+  journal={Advances in Engineering Software},
+  volume={132},
+  pages={29--46},
+  year={2019},
+  publisher={Elsevier}
+}
+
+@article{villois2016,
+  title={A vortex filament tracking method for the {G}ross--{P}itaevskii model of a superfluid},
+  author={Villois, A. and Krstulovic, G. and Proment, D. and Salman, H.},
+  journal={Journal of Physics A: Mathematical and Theoretical},
+  volume={49},
+  number={41},
+  pages={415502},
+  year={2016},
+  publisher={IOP Publishing}
+}
+
+@article{guo2018,
+  title={Towards high-quality visualization of superfluid vortices},
+  author={Guo, Y. and Liu, X. and Xiong, C. and Xu, X. and Fu, C.},
+  journal={IEEE transactions on visualization and computer graphics},
+  volume={24},
+  number={8},
+  pages={2440--2455},
+  year={2018},
+  publisher={IEEE}
+}
+
+@article{brehler2017,
+  title={A GPU-accelerated fourth-order Runge--Kutta in the interaction picture method for the simulation of nonlinear signal propagation in multimode fibers},
+  author={Brehler, M. and Schirwon, M. and G{\"o}ddeke, D. and Krummrich, P. M.},
+  journal={Journal of Lightwave Technology},
+  volume={35},
+  number={17},
+  pages={3622--3628},
+  year={2017},
+  publisher={IEEE}
+}
+
+@inproceedings{crank1947,
+  title={A practical method for numerical evaluation of solutions of partial differential equations of the heat-conduction type},
+  author={Crank, J. and Nicolson, P.},
+  booktitle={Mathematical Proceedings of the Cambridge Philosophical Society},
+  volume={43},
+  number={1},
+  pages={50--67},
+  year={1947},
+  organization={Cambridge University Press}
+}
+
+@book{butcher2016,
+  title={Numerical methods for ordinary differential equations},
+  author={Butcher, J. C.},
+  year={2016},
+  publisher={John Wiley \& Sons}
+}
+
+@ARTICLE{sinkin2003,
+author={O. V. {Sinkin} and R. {Holzlohner} and J. {Zweck} and C. R. {Menyuk}},
+journal={Journal of Lightwave Technology},
+title={Optimization of the split-step {F}ourier method in modeling optical-fiber communications systems},
+year={2003},
+volume={21},
+number={1},
+pages={61-68},
+keywords={telecommunication channels;optical fibre communication;Schrodinger equation;optimisation;optical solitons;optical fibre dispersion;telecommunication network management;multiwave mixing;optical-fiber communications system modelling;split-step Fourier method optimisation;nonlinear Schrodinger equation;step-size selection criteria;pulse formats;higher order solitons;soliton pulses;single-channel periodically stationary dispersion-managed soliton system;chirped return to zero systems;multiple channels;single channels;globally third-order accurate split-step scheme;local error;system-independent rule;step sizes;nonlinear phase rotation;optical-fiber transmission systems;logarithmic step-size distribution;second-order schemes;spurious four-wave mixing;single-channel dispersion-managed soliton system;multichannel simulations;inversely proportional;group velocity difference;Optimization methods;Nonlinear optics;Optical mixing;Optical solitons;Optical pulses;Differential equations;Nonlinear equations;Chirp;Robustness;Testing},
+doi={10.1109/JLT.2003.808628},
+ISSN={0733-8724},
+month={Jan},}
+
+@INPROCEEDINGS{meirelles2005,
+author={T. T. {Meirelles} and A. A. {Rieznik} and H. L. {Fragnito}},
+booktitle={SBMO/IEEE MTT-S International Conference on Microwave and Optoelectronics, 2005.},
+title={Study on a new split-step {F}ourier algorithm for optical fiber transmission systems simulations},
+year={2005},
+volume={},
+number={},
+pages={100-102},
+keywords={Fourier analysis;optical solitons;optical fibre communication;split-step Fourier algorithm;optical fiber transmission systems;first-order soliton collision;numerical errors;Optical fibers;Photonics},
+doi={10.1109/IMOC.2005.1580091},
+ISSN={},
+month={July},}
+
+@article{min2003,
+ doi = {10.1088/1009-1963/12/5/307},
+ url = {https://doi.org/10.1088%2F1009-1963%2F12%2F5%2F307},
+ year = 2003,
+ month = {apr},
+ publisher = {{IOP} Publishing},
+ volume = {12},
+ number = {5},
+ pages = {502--506},
+ author = {Rao M. and Sun X. and Zhang M.},
+ title = {A modified split-step {F}ourier method for optical pulse propagation with polarization mode dispersion},
+ journal = {Chinese Physics},
+
+ abstract = {A modified split-step Fourier method (SSFM) is presented to solve
+the coupled nonlinear SchrÃ¶dinger equation (CNLS) that can be used
+to model high-speed pulse propagation in optical fibres with
+polarization mode dispersion (PMD). We compare our
+approach with the SSFM and demonstrate that our approach is much
+faster with no loss of accuracy. We discuss the pulse distortion
+and system  Q-factor of non-return-to-zero (NRZ), return-to-zero (RZ)
+and pre-chirped RZ (CRZ) formats in the presence of high PMD through
+this approach. The simulation results show that CRZ pulses are the
+most tolerant to high PMD values and the extinct ratio has a great
+impact on the transmission performance.}
+}
+
+@article{bayindir2015,
+  title={Compressive split-step {F}ourier method},
+  author={Bayindir, C.},
+  journal={arXiv preprint arXiv:1512.03932},
+  year={2015}
+}
+
+@article{weideman1986,
+  title={Split-step methods for the solution of the nonlinear {S}chr{\"o}dinger equation},
+  author={Weideman, J. A. C. and Herbst, B. M.},
+  journal={SIAM Journal on Numerical Analysis},
+  volume={23},
+  number={3},
+  pages={485--507},
+  year={1986},
+  publisher={SIAM}
+}
+
+@article{wang2005,
+  title={Numerical studies on the split-step finite difference method for nonlinear {S}chr{\"o}dinger equations},
+  author={Wang, H.},
+  journal={Applied Mathematics and Computation},
+  volume={170},
+  number={1},
+  pages={17--35},
+  year={2005},
+  publisher={Elsevier}
+}
+
+@book{conte2017,
+  title={Elementary numerical analysis: an algorithmic approach},
+  author={Conte, S. D. and De Boor, C.},
+  volume={78},
+  year={2017},
+  publisher={SIAM}
+}
+
+@article{thomas1949,
+  title={Elliptic problems in linear differential equations over a network: Watson scientific computing laboratory},
+  author={Thomas, L.},
+  journal={Columbia Univ., NY},
+  year={1949}
+}
+
+@article{goddeke2010,
+  title={Cyclic reduction tridiagonal solvers on {GPU}s applied to mixed-precision multigrid},
+  author={Goddeke, D. and Strzodka, R.},
+  journal={IEEE Transactions on Parallel and Distributed Systems},
+  volume={22},
+  number={1},
+  pages={22--32},
+  year={2010},
+  publisher={IEEE}
+}
+
+@article{wang1981,
+  title={A parallel method for tridiagonal equations},
+  author={Wang, H. H.},
+  journal={ACM Transactions on Mathematical Software (TOMS)},
+  volume={7},
+  number={2},
+  pages={170--183},
+  year={1981},
+  publisher={ACM}
+}
+
+@article{sweet1977,
+  title={A cyclic reduction algorithm for solving block tridiagonal systems of arbitrary dimension},
+  author={Sweet, R. A.},
+  journal={SIAM Journal on Numerical Analysis},
+  volume={14},
+  number={4},
+  pages={706--720},
+  year={1977},
+  publisher={SIAM}
+}
+
+@article{guery2019,
+  title={Shortcuts to adiabaticity: concepts, methods, and applications},
+  author={Gu{\'e}ry-Odelin, D. and Ruschhaupt, A. and Kiely, A. and Torrontegui, E. and Mart{\'\i}nez-Garaot, S. and Muga, J. G.},
+  journal={arXiv preprint arXiv:1904.08448},
+  year={2019}
+}
+
+@article{menchon2016,
+  title={Spatial adiabatic passage: a review of recent progress},
+  author={Menchon-Enrich, R. and Benseny, A. and Ahufinger, V. and Greentree, A. D. and Busch, Th. and Mompart, J.},
+  journal={Reports on Progress in Physics},
+  volume={79},
+  number={7},
+  pages={074401},
+  year={2016},
+  publisher={IOP Publishing}
+}
+
+@article{werschnik2007,
+  title={Quantum optimal control theory},
+  author={Werschnik, J. and Gross, E. K. U.},
+  journal={Journal of Physics B: Atomic, Molecular and Optical Physics},
+  volume={40},
+  number={18},
+  pages={R175},
+  year={2007},
+  publisher={IOP Publishing}
+}
+
+@article{baraniuk2011,
+  title={An introduction to compressive sensing},
+  author={Baraniuk, R. and Davenport, M. A. and Duarte, Marco F. and Hegde, C. and others},
+  journal={Connexions e-textbook},
+  pages={24--76},
+  year={2011}
+}
+
+@inproceedings{frigo1998,
+  title={{FFTW}: An adaptive software architecture for the {FFT}},
+  author={Frigo, M. and Johnson, S. G.},
+  booktitle={Proceedings of the 1998 IEEE International Conference on Acoustics, Speech and Signal Processing, ICASSP'98 (Cat. No. 98CH36181)},
+  volume={3},
+  pages={1381--1384},
+  year={1998},
+  organization={IEEE}
+}
+
+@article{fatica2008,
+  title={High performance computing with {CUDA}},
+  author={Fatica, M. and LeGresley, P. and Buck, I. and Stone, J. and Phillips, J. and Morton, S. and Micikevicius, P.},
+  journal={SC08},
+  year={2008}
+}
+
+@article{cooley1965,
+  title={An algorithm for the machine calculation of complex {F}ourier series},
+  author={Cooley, J. W. and Tukey, J. W.},
+  journal={Mathematics of computation},
+  volume={19},
+  number={90},
+  pages={297--301},
+  year={1965},
+  publisher={JSTOR}
+}
+
+@article{girardeau2001ground,
+  title = {Ground-state properties of a one-dimensional system of hard-core bosons in a harmonic trap},
+  author = {Girardeau, M. D. and Wright, E. M. and Triscari, J. M.},
+  journal = {Phys. Rev. A},
+  volume = {63},
+  issue = {3},
+  pages = {033601},
+  numpages = {6},
+  year = {2001},
+  month = {Feb},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.63.033601},
+  url = {https://link.aps.org/doi/10.1103/PhysRevA.63.033601}
+}
+
+@article{girardeau2001measurement,
+  title = {Measurement of One-Particle Correlations and Momentum Distributions for Trapped 1D Gases},
+  author = {Girardeau, M. D. and Wright, E. M.},
+  journal = {Phys. Rev. Lett.},
+  volume = {87},
+  issue = {5},
+  pages = {050403},
+  numpages = {4},
+  year = {2001},
+  month = {Jul},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevLett.87.050403},
+  url = {https://link.aps.org/doi/10.1103/PhysRevLett.87.050403}
+}
+
+@article{schloss2018,
+  title={{GPUE}: Graphics Processing Unit {G}ross-{P}itaevskii Equation solver.},
+  author={Schloss, J. R and Riordan, L. J.},
+  journal={J. Open Source Software},
+  volume={3},
+  number={32},
+  pages={1037},
+  year={2018}
+}
+
+@INPROCEEDINGS{kahle2019,
+author={J. A. {Kahle} and J. {Moreno} and D. {Dreps}},
+booktitle={2019 IEEE International Solid- State Circuits Conference - (ISSCC)},
+title={2.1 Summit and Sierra: Designing {AI/HPC} Supercomputers},
+year={2019},
+volume={},
+number={},
+pages={42-43},
+keywords={mainframes;parallel machines;DOE CORAL program;National Laboratories;Oak Ridge;Lawrence Livermore;exascale computing;Department of Energy;AI/HPC supercomputers;Summit and Sierra supercomputer systems;computing capability;Supercomputers;Benchmark testing;Bandwidth;Clocks;Graphics processing units;Data centers},
+doi={10.1109/ISSCC.2019.8662426},
+ISSN={2376-8606},
+month={Feb},}
+
+@misc{wittek2016,
+author={Wittek, P.},
+title={Comparing three numerical solvers of the {G}ross-{P}itaevskii equation},
+url={https://web.archive.org/web/20171120181431/https://peterwittek.com/gpe-comparison.html},
+year={2016}
+}
+
+@book{CUDAPG,
+  title={Professional {CUDA} {C} Programming},
+  author={Cheng, J. and Grossman, M. and McKercher, T.},
+  year={2014},
+  publisher={John Wiley \& Sons}
+}
+
+@inproceedings{reyes2012,
+  title={accULL: an {OpenACC} implementation with {CUDA} and {OpenCL} support},
+  author={Reyes, R. and L{\'o}pez-Rodr{\'\i}guez, I. and Fumero, J. J. and De Sande, F.},
+  booktitle={European Conference on Parallel Processing},
+  pages={871--882},
+  year={2012},
+  organization={Springer}
+}
+
+@inproceedings{wienke2012,
+  title={{OpenACC}—first experiences with real-world applications},
+  author={Wienke, S. and Springer, P. and Terboven, C. and an Mey, D.},
+  booktitle={European Conference on Parallel Processing},
+  pages={859--870},
+  year={2012},
+  organization={Springer}
+}
+
+@book{chandra2001,
+  title={Parallel programming in {OpenMP}},
+  author={Chandra, R. and Dagum, L. and Kohr, D. and Menon, R. and Maydan, D. and McDonald, J.},
+  year={2001},
+  publisher={Morgan kaufmann}
+}
+
+@article{harris2013,
+  title={An efficient matrix transpose in {CUDA C/C++}},
+  author={Harris, M.},
+  journal={Retrieved July},
+  volume={26},
+  pages={2018},
+  year={2013}
+}
+
+@article{foley2017,
+  title={Ultra-performance Pascal {GPU} and {NVLink} interconnect},
+  author={Foley, D. and Danskin, J.},
+  journal={IEEE Micro},
+  volume={37},
+  number={2},
+  pages={7--17},
+  year={2017},
+  publisher={IEEE}
+}
+
+@article{lonvcar2016,
+  title={{OpenMP, OpenMP/MPI, and CUDA/MPI C} programs for solving the time-dependent dipolar {Gross--Pitaevskii} equation},
+  author={Lon{\v{c}}ar, V. and Young-S, L. E. and {\v{S}}krbi{\'c}, S. and Muruganandam, P. and Adhikari, S. K. and Bala{\v{z}}, A.},
+  journal={Computer Physics Communications},
+  volume={209},
+  pages={190--196},
+  year={2016},
+  publisher={Elsevier}
+}
+
+@article{wang2013,
+  title={{GPU-aware MPI on RDMA}-enabled clusters: Design, implementation and evaluation},
+  author={Wang, H. and Potluri, S. and Bureddy, D. and Rosales, C. and Panda, D. K.},
+  journal={IEEE Transactions on Parallel and Distributed Systems},
+  volume={25},
+  number={10},
+  pages={2595--2605},
+  year={2013},
+  publisher={IEEE}
+}
+
+@inproceedings{gurd1988,
+  title={A taxonomy of parallel computer architectures},
+  author={Gurd, J. R.},
+  booktitle={1988 International Specialist Seminar on the Design and Application of Parallel Digital Processors},
+  pages={57--61},
+  year={1988},
+  organization={IET}
+}
+
+@misc{AAA,
+ author={Schloss, J.},
+ title={https://www.algorithm-archive.org/}
+}
+
+@article{harris2007,
+  title={Optimizing parallel reduction in {CUDA}},
+  author={Harris, M. and others},
+  journal={Nvidia developer technology},
+  volume={2},
+  number={4},
+  pages={70},
+  year={2007},
+  publisher={NVIDIA Corp. California}
+}
+
+@misc{aversa2008,
+  title={The {Gross-Pitaevskii} equation: A non-Linear {S}chr{\"o}dinger equation},
+  author={Aversa, A.},
+  year={2008}
+}
+
+@article{o2016,
+  title={Moir{\'e} superlattice structures in kicked {B}ose--{E}instein condensates},
+  author={O'Riordan, L. J. and White, A. C. and Busch, Th.},
+  journal={Physical Review A},
+  volume={93},
+  number={2},
+  pages={023609},
+  year={2016},
+  publisher={APS}
+}
+
+@article{o2016topo,
+  title={Topological defect dynamics of vortex lattices in {B}ose--{E}instein condensates},
+  author={O'Riordan, L. J. and Busch, Th.},
+  journal={Physical Review A},
+  volume={94},
+  number={5},
+  pages={053603},
+  year={2016},
+  publisher={APS}
+}
+
+@article{kumar2018,
+  title={Producing superfluid circulation states using phase imprinting},
+  author={Kumar, A. and Dubessy, R. and Badr, T. and De Rossi, C. and de Herve, M.G. and Longchambon, L and Perrin, H.},
+  journal={Physical Review A},
+  volume={97},
+  number={4},
+  pages={043615},
+  year={2018},
+  publisher={APS}
+}
+
+@article{moulder2012,
+  title = {Quantized supercurrent decay in an annular {B}ose-{E}instein condensate},
+  author = {Moulder, S. and Beattie, S. and Smith, R. P. and Tammuz, N. and Hadzibabic, Z.},
+  journal = {Phys. Rev. A},
+  volume = {86},
+  issue = {1},
+  pages = {013629},
+  numpages = {7},
+  year = {2012},
+  month = {Jul},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.86.013629},
+  url = {https://link.aps.org/doi/10.1103/PhysRevA.86.013629}
+}
+
+@article{burger1999,
+  title = {Dark Solitons in {B}ose-{E}instein Condensates},
+  author = {Burger, S. and Bongs, K. and Dettmer, S. and Ertmer, W. and Sengstock, K. and Sanpera, A. and Shlyapnikov, G. V. and Lewenstein, M.},
+  journal = {Phys. Rev. Lett.},
+  volume = {83},
+  issue = {25},
+  pages = {5198--5201},
+  numpages = {0},
+  year = {1999},
+  month = {Dec},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevLett.83.5198},
+  url = {https://link.aps.org/doi/10.1103/PhysRevLett.83.5198}
+}
+
+@article{denschlag2000,
+  title={Generating solitons by phase engineering of a {B}ose-{E}instein condensate},
+  author={Denschlag, J. and Simsarian, Je. E. and Feder, Dl. L. and Clark, C. W. and Collins, La. A. and Cubizolles, J. and Deng, L. and Hagley, E. W. and Helmerson, K. and Reinhardt, W. P. and others},
+  journal={Science},
+  volume={287},
+  number={5450},
+  pages={97--101},
+  year={2000},
+  publisher={American Association for the Advancement of Science}
+}
+
+@article{kasevich1991,
+  title = {Atomic interferometry using stimulated {R}aman transitions},
+  author = {Kasevich, M. and Chu, S.},
+  journal = {Phys. Rev. Lett.},
+  volume = {67},
+  issue = {2},
+  pages = {181--184},
+  numpages = {0},
+  year = {1991},
+  month = {Jul},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevLett.67.181},
+  url = {https://link.aps.org/doi/10.1103/PhysRevLett.67.181}
+}
+
+@article{ryu2007,
+  title = {Observation of Persistent Flow of a {B}ose-{E}instein Condensate in a Toroidal Trap},
+  author = {Ryu, C. and Andersen, M. F. and Clad\'e, P. and Natarajan, Vasant and Helmerson, K. and Phillips, W. D.},
+  journal = {Phys. Rev. Lett.},
+  volume = {99},
+  issue = {26},
+  pages = {260401},
+  numpages = {4},
+  year = {2007},
+  month = {Dec},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevLett.99.260401},
+  url = {https://link.aps.org/doi/10.1103/PhysRevLett.99.260401}
+}
+
+@article{white2014,
+  title={Vortices and turbulence in trapped atomic condensates},
+  author={White, A. C. and Anderson, B. P. and Bagnato, V. S.},
+  journal={Proceedings of the National Academy of Sciences},
+  volume={111},
+  number={Supplement 1},
+  pages={4719--4726},
+  year={2014},
+  publisher={National Acad Sciences}
+}
+
+@article{abo2001,
+  title={Observation of vortex lattices in {B}ose-{E}instein condensates},
+  author={Abo-Shaeer, J. R.  and Raman, C.  and Vogels, J. M.  and Ketterle, W.},
+  journal={Science},
+  volume={292},
+  number={5516},
+  pages={476--479},
+  year={2001},
+  publisher={American Association for the Advancement of Science}
+}
+
+@phdthesis{o2017,
+  title={Non-equilibrium vortex dynamics in rapidly rotating {B}ose-{E}instein condensates},
+  author={O'Riordan, L. J.},
+  year={2017},
+  school={Okinawa Institute of Science and Technology Graduate University}
+}
+
+@inproceedings{cohen1991,
+  title={Dynamic expression trees and their applications},
+  author={Cohen, R. F. and Tamassia, R.},
+  booktitle={SODA},
+  pages={52--61},
+  year={1991}
+}
+
+@article{reyes2011,
+  title={Automatic code generation for {GPU}s in llc},
+  author={Reyes, R. and de Sande, F.},
+  journal={The Journal of Supercomputing},
+  volume={58},
+  number={3},
+  pages={349--356},
+  year={2011},
+  publisher={Springer}
+}
+
+@misc{docs,
+  author={Schloss, J. and O'riordan, L.},
+  url={https://gpue-group.github.io/}
+}
+
+@article{canny1986,
+  title={A computational approach to edge detection},
+  author={Canny, J.},
+  journal={IEEE Transactions on pattern analysis and machine intelligence},
+  number={6},
+  pages={679--698},
+  year={1986},
+  publisher={Ieee}
+}
+
+@article{zhang2019,
+  title={Chaotic few-body vortex dynamics in rotating {B}ose-{E}instein condensates},
+  author={Zhang, T. and Schloss, J. and Thomasen, A. and O'Riordan, L. J. and Busch, Th. and White, A.},
+  journal={Physical Review Fluids},
+  volume={4},
+  number={5},
+  pages={054701},
+  year={2019},
+  publisher={APS}
+}
+
+@book{strogatz2018,
+  title={Nonlinear dynamics and chaos: with applications to physics, biology, chemistry, and engineering},
+  author={Strogatz, S. H.},
+  year={2018},
+  publisher={CRC Press}
+}
+
+@article{spiegel1987,
+  title={Chaos: a mixed metaphor for turbulence},
+  author={Spiegel, E. A.},
+  journal={Proceedings of the Royal Society of London. A. Mathematical and Physical Sciences},
+  volume={413},
+  number={1844},
+  pages={87--95},
+  year={1987},
+  publisher={The Royal Society London}
+}
+
+@article{biferale2005,
+  title={Lagrangian statistics of particle pairs in homogeneous isotropic turbulence},
+  author={Biferale, L. and Boffetta, G. and Celani, A. and Devenish, B. J. and Lanotte, A. and Toschi, F.},
+  journal={Physics of Fluids},
+  volume={17},
+  number={11},
+  pages={115101},
+  year={2005},
+  publisher={AIP}
+}
+
+@article{berera2018,
+  title={Chaotic properties of a turbulent isotropic fluid},
+  author={Berera, A. and Ho, R. D. J. G. },
+  journal={Physical review letters},
+  volume={120},
+  number={2},
+  pages={024101},
+  year={2018},
+  publisher={APS}
+}
+
+@article{aref1982,
+  title={Integrable and chaotic motions of four vortices. I. The case of identical vortices},
+  author={Aref, H. and Pomphrey, N.},
+  journal={Proceedings of the Royal Society of London. A. Mathematical and Physical Sciences},
+  volume={380},
+  number={1779},
+  pages={359--387},
+  year={1982},
+  publisher={The Royal Society London}
+}
+
+@article{aref1980,
+  title={Integrable and chaotic motions of four vortices},
+  author={Aref, H. and Pomphrey, N.},
+  journal={Physics Letters A},
+  volume={78},
+  number={4},
+  pages={297--300},
+  year={1980},
+  publisher={Elsevier}
+}
+
+@article{eckhardt1988,
+  title={Integrable and chaotic motions of four vortices II. Collision dynamics of vortex pairs},
+  author={Eckhardt, B. and Aref, H.},
+  journal={Philosophical Transactions of the Royal Society of London. Series A, Mathematical and Physical Sciences},
+  volume={326},
+  number={1593},
+  pages={655--696},
+  year={1988},
+  publisher={The Royal Society London}
+}
+
+@article{aref1983,
+  title={Integrable, chaotic, and turbulent vortex motion in two-dimensional flows},
+  author={Aref, H.},
+  journal={Annual Review of Fluid Mechanics},
+  volume={15},
+  number={1},
+  pages={345--389},
+  year={1983},
+  publisher={Annual Reviews 4139 El Camino Way, PO Box 10139, Palo Alto, CA 94303-0139, USA}
+}
+
+@article{nemirovskii1995,
+  title={Chaotic quantized vortices and hydrodynamic processes in superfluid helium},
+  author={Nemirovskii, S. K.  and Fiszdon, W. },
+  journal={Reviews of Modern Physics},
+  volume={67},
+  number={1},
+  pages={37},
+  year={1995},
+  publisher={APS}
+}
+
+@article{kyriakopoulos2014,
+  title={Chaotic behavior of three interacting vortices in a confined {B}ose--{E}instein condensate},
+  author={Kyriakopoulos, N. and Koukouloyannis, V. and Skokos, C. and Kevrekidis, P. G.},
+  journal={Chaos: An Interdisciplinary Journal of Nonlinear Science},
+  volume={24},
+  number={2},
+  pages={024410},
+  year={2014},
+  publisher={AIP}
+}
+
+@article{koukouloyannis2014,
+  title={Dynamics of three noncorotating vortices in {B}ose--{E}instein condensates},
+  author={Koukouloyannis, V. and Voyatzis, G. and Kevrekidis, P. G.},
+  journal={Physical Review E},
+  volume={89},
+  number={4},
+  pages={042905},
+  year={2014},
+  publisher={APS}
+}
+
+@article{navarro2013,
+  title={Dynamics of a few corotating vortices in {B}ose--{E}instein condensates},
+  author={Navarro, R.  and Carretero-Gonz{\'a}lez, R.  and Torres, P. J.  and Kevrekidis, P. G.  and Frantzeskakis, D. J.  and Ray, M. W.  and Altunta{\c{s}}, E.  and Hall, D. S. },
+  journal={Physical review letters},
+  volume={110},
+  number={22},
+  pages={225301},
+  year={2013},
+  publisher={APS}
+}
+
+@article{nore1997,
+  title={Kolmogorov turbulence in low-temperature superflows},
+  author={Nore, C. and Abid, M. and Brachet, M. E.},
+  journal={Physical review letters},
+  volume={78},
+  number={20},
+  pages={3896},
+  year={1997},
+  publisher={APS}
+}
+
+@article{morgan1977,
+  title={Investigation of a mixing length and a two-equation turbulence model utilizing the finite element method},
+  author={Morgan, K. and Hughes, T. G. and Taylor, C.},
+  journal={Applied Mathematical Modelling},
+  volume={1},
+  number={7},
+  pages={395--400},
+  year={1977},
+  publisher={Elsevier}
+}
+
+@article{araki2002,
+  title={Energy spectrum of superfluid turbulence with no normal-fluid component},
+  author={Araki, T. and Tsubota, M. and Nemirovskii, S. K.},
+  journal={Physical review letters},
+  volume={89},
+  number={14},
+  pages={145301},
+  year={2002},
+  publisher={APS}
+}
+
+@article{salort2010,
+  title={Turbulent velocity spectra in superfluid flows},
+  author={Salort, J. and Baudet, C. and Castaing, B. and Chabaud, B. and Daviaud, F. and Didelot, T. and Diribarne, P. and Dubrulle, B. and Gagne, Y. and Gauthier, F. and others},
+  journal={Physics of Fluids},
+  volume={22},
+  number={12},
+  pages={125102},
+  year={2010},
+  publisher={AIP}
+}
+
+@article{seo2017,
+  title={Observation of vortex-antivortex pairing in decaying 2D turbulence of a superfluid gas},
+  author={Seo, S. W. and Ko, B. and Kim, J. H. and Shin, Y.},
+  journal={Scientific reports},
+  volume={7},
+  number={1},
+  pages={4587},
+  year={2017},
+  publisher={Nature Publishing Group}
+}
+
+@article{wilson2015,
+  title={In situ imaging of vortices in {B}ose--{E}instein condensates},
+  author={Wilson, K. E. and Newman, Z. L. and Lowney, J. D. and Anderson, B. P.},
+  journal={Physical Review A},
+  volume={91},
+  number={2},
+  pages={023621},
+  year={2015},
+  publisher={APS}
+}
+
+@article{freilich2010,
+  title={Real-time dynamics of single vortex lines and vortex dipoles in a {B}ose--{E}instein condensate},
+  author={Freilich, D. V.  and Bianchi, D. M.  and Kaufman, A. M.  and Langin, T. K.  and Hall, D. S. },
+  journal={Science},
+  volume={329},
+  number={5996},
+  pages={1182--1185},
+  year={2010},
+  publisher={American Association for the Advancement of Science}
+}
+
+@article{serafini2017,
+  title={Vortex reconnections and rebounds in trapped atomic {B}ose--{E}instein condensates},
+  author={Serafini, S. and Galantucci, L. and Iseni, E. and Bienaim{\'e}, T. and Bisset, R. N. and Barenghi, C. F. and Dalfovo, F. and Lamporesi, G. and Ferrari, G.},
+  journal={Physical Review X},
+  volume={7},
+  number={2},
+  pages={021031},
+  year={2017},
+  publisher={APS}
+}
+
+@article{kwon2016,
+  title={Observation of von {K}{\'a}rm{\'a}n vortex street in an atomic superfluid gas},
+  author={Kwon, W. J. and Kim, J. H. and Seo, S. W. and Shin, Y.},
+  journal={Physical review letters},
+  volume={117},
+  number={24},
+  pages={245301},
+  year={2016},
+  publisher={APS}
+}
+
+@article{neely2013,
+  title={Characteristics of two-dimensional quantum turbulence in a compressible superfluid},
+  author={Neely, T. W.  and Bradley, A. S.  and Samson, E. C.  and Rooney, S. J.  and Wright, E. M.  and Law, K. J. H.  and Carretero-Gonz{\'a}lez, R. and Kevrekidis, P. G.  and Davis, M. J.  and Anderson, B. P.},
+  journal={Physical review letters},
+  volume={111},
+  number={23},
+  pages={235301},
+  year={2013},
+  publisher={APS}
+}
+
+@article{kwon2014,
+  title={Relaxation of superfluid turbulence in highly oblate {B}ose--{E}instein condensates},
+  author={Kwon, W. J. and Moon, G. and Choi, J. and Seo, S. W. and Shin, Y.},
+  journal={Physical Review A},
+  volume={90},
+  number={6},
+  pages={063627},
+  year={2014},
+  publisher={APS}
+}
+
+@article{gauthier2018,
+  title={Negative-temperature {O}nsager vortex clusters in a quantum fluid},
+  author={Gauthier, G. and Reeves, M. T. and Yu, X. and Bradley, A. S. and Baker, M. and Bell, T. A. and Rubinsztein-Dunlop, H. and Davis, M. J. and Neely, T. W.},
+  journal={arXiv preprint arXiv:1801.06951},
+  year={2018}
+}
+
+@article{johnstone2018,
+  title={Order from chaos: Observation of large-scale flow from turbulence in a two-dimensional superfluid},
+  author={Johnstone, S. P. and Groszek, A. J. and Starkey, P. T. and Billington, C. J. and Simula, T. P. and Helmerson, K.},
+  journal={arXiv preprint arXiv:1801.06952},
+  year={2018}
+}
+
+@article{gajda1999,
+  title={Optical generation of vortices in trapped {B}ose--{E}instein condensates},
+  author={Gajda, M. and Lewenstein, M. and Sengstock, K. and Birkl, G. and Ertmer, W. and others},
+  journal={Physical Review A},
+  volume={60},
+  number={5},
+  pages={R3381},
+  year={1999},
+  publisher={APS}
+}
+
+@article{andersen2006,
+  title={Quantized rotation of atoms from photons with orbital angular momentum},
+  author={Andersen, M. F. and Ryu, C. and Clad{\'e}, P. and Natarajan, V. and Vaziri, A. and Helmerson, K. and Phillips, W. D.},
+  journal={Physical review letters},
+  volume={97},
+  number={17},
+  pages={170406},
+  year={2006},
+  publisher={APS}
+}
+
+@article{chevy2000,
+  title={Measurement of the angular momentum of a rotating {B}ose--{E}instein condensate},
+  author={Chevy, F.  and Madison, K. W.  and Dalibard, J.},
+  journal={Physical review letters},
+  volume={85},
+  number={11},
+  pages={2223},
+  year={2000},
+  publisher={APS}
+}
+
+@article{madison2000,
+  title={Vortex formation in a stirred {B}ose--{E}instein condensate},
+  author={Madison, K. W.  and Chevy, F.  and Wohlleben, W.  and Dalibard, Jl. },
+  journal={Physical review letters},
+  volume={84},
+  number={5},
+  pages={806},
+  year={2000},
+  publisher={APS}
+}
+
+@article{aftalion2001,
+  title={Vortices in a rotating {B}ose--{E}instein condensate: Critical angular velocities and energy diagrams in the {T}homas--{F}ermi regime},
+  author={Aftalion, A. and Du, Q.},
+  journal={Physical Review A},
+  volume={64},
+  number={6},
+  pages={063603},
+  year={2001},
+  publisher={APS}
+}
+
+@article{zampetaki2013,
+  title={Exploring rigidly rotating vortex configurations and their bifurcations in atomic {B}ose--{E}instein condensates},
+  author={Zampetaki, A.  V.  and Carretero-Gonz{\'a}lez, R.  and Kevrekidis, P. G.  and Diakonos, F. K.  and Frantzeskakis, D. J. },
+  journal={Physical Review E},
+  volume={88},
+  number={4},
+  pages={042914},
+  year={2013},
+  publisher={APS}
+}
+
+@article{wolf1985,
+  title={Determining {L}yapunov exponents from a time series},
+  author={Wolf, A. and Swift, J. B. and Swinney, H. L. and Vastano, J. A.},
+  journal={Physica D: Nonlinear Phenomena},
+  volume={16},
+  number={3},
+  pages={285--317},
+  year={1985},
+  publisher={Elsevier}
+}
+
+@article{shin2004,
+  title={Dynamical instability of a doubly quantized vortex in a {B}ose--{E}instein condensate},
+  author={Shin, Y.  and Saba, M.  and Vengalattore, M.  and Pasquini, T. A.  and Sanner, C.  and Leanhardt, A. E.  and Prentiss, M.  and Pritchard, D. E.  and Ketterle, W. },
+  journal={Physical review letters},
+  volume={93},
+  number={16},
+  pages={160406},
+  year={2004},
+  publisher={APS}
+}
+
+@mastersthesis{zhang2017,
+  title={Chaotic Vortex Dynamics in {B}ose--{E}instein Condensates},
+  author={Zhang, T.},
+  year={2017},
+  school={NTNU}
+}
+
+@article{stalp1999,
+  title={Decay of grid turbulence in a finite channel},
+  author={Stalp, S. R. and Skrbek, L. and Donnelly, R. J.},
+  journal={Physical review letters},
+  volume={82},
+  number={24},
+  pages={4831},
+  year={1999},
+  publisher={APS}
+}
+
+@misc{movie,
+  author={Zhang, T. and Schloss, J. and Thomasen, A. and O'Riordan, L. J. and Busch, Th. and White, A.},
+  url={https://journals.aps.org/prfluids/abstract/10.1103/PhysRevFluids.4.054701#supplemental}
+}
+
+@article{strang1968,
+  title={On the construction and comparison of difference schemes},
+  author={Strang, G.},
+  journal={SIAM journal on numerical analysis},
+  volume={5},
+  number={3},
+  pages={506--517},
+  year={1968},
+  publisher={SIAM}
+}
+
+@article{wick1954,
+  title={Properties of {B}ethe--{S}alpeter wave functions},
+  author={Wick, G. C.},
+  journal={Physical Review},
+  volume={96},
+  number={4},
+  pages={1124},
+  year={1954},
+  publisher={APS}
+}
+
+@article{schloss2016,
+  title={Non-adiabatic generation of {NOON} states in a {T}onks--{G}irardeau gas},
+  author={Schloss, J. and Benseny, A. and Gillet, J. and Swain, J. and Busch, Th.},
+  journal={New Journal of Physics},
+  volume={18},
+  number={3},
+  pages={035012},
+  year={2016},
+  publisher={IOP Publishing}
+}
+
+@article{wacks2014,
+  title={Large-scale superfluid vortex rings at nonzero temperatures},
+  author={Wacks, D. H. and Baggaley, A. W. and Barenghi, C. F.},
+  journal={Physical Review B},
+  volume={90},
+  number={22},
+  pages={224514},
+  year={2014},
+  publisher={APS}
+}
+
+@article{minogin2010,
+  title={Manifestation of the van der {W}aals surface interaction in the spontaneous emission of atoms into an optical nanofiber},
+  author={Minogin, V. G. and Chormaic, S. Nic},
+  journal={Laser Physics},
+  volume={20},
+  number={1},
+  pages={32--37},
+  year={2010},
+  publisher={Springer}
+}
+
+@article{stringari2001,
+  title={Superfluid gyroscope with cold atomic gases},
+  author={Stringari, S},
+  journal={Physical review letters},
+  volume={86},
+  number={21},
+  pages={4725},
+  year={2001},
+  publisher={APS}
+}
+
+@article{zambelli1998,
+  title={Quantized vortices and collective oscillations of a trapped {B}ose--{E}instein condensate},
+  author={Zambelli, F. and Stringari, S.},
+  journal={Physical review letters},
+  volume={81},
+  number={9},
+  pages={1754},
+  year={1998},
+  publisher={APS}
+}
+
+@article{smith2004,
+  title={Experimental observation of the tilting mode of an array of vortices in a dilute {B}ose--{E}instein condensate},
+  author={Smith, N. L.  and Heathcote, W. H.  and Krueger, J. M.  and Foot, C. J. },
+  journal={Physical review letters},
+  volume={93},
+  number={8},
+  pages={080406},
+  year={2004},
+  publisher={APS}
+}
+
+@article{marago2000,
+  title={Observation of the scissors mode and evidence for superfluidity of a trapped {B}ose--{E}instein condensed gas},
+  author={Marago, O. M.  and Hopkins, S. A.  and Arlt, J.  and Hodby, E.  and Hechenblaikner, G.  and Foot, C. J. },
+  journal={Physical review letters},
+  volume={84},
+  number={10},
+  pages={2056},
+  year={2000},
+  publisher={APS}
+}
+
+@article{guery1999,
+  title={Scissors mode and superfluidity of a trapped {B}ose--{E}instein condensed gas},
+  author={Gu{\'e}ry-Odelin, D. and Stringari, S.},
+  journal={Physical review letters},
+  volume={83},
+  number={22},
+  pages={4452},
+  year={1999},
+  publisher={APS}
+}
+
+@article{cozzini2003,
+  title={Scissors mode of a rotating {B}ose--{E}instein condensate},
+  author={Cozzini, M. and Stringari, S. and Bretin, V. and Rosenbusch, P. and Dalibard, J.},
+  journal={Physical Review A},
+  volume={67},
+  number={2},
+  pages={021602},
+  year={2003},
+  publisher={APS}
+}
+
+@article{sachdeva2017,
+  title={Creating superfluid vortex rings in artificial magnetic fields},
+  author={Sachdeva, R. and Busch, Th.},
+  journal={Physical Review A},
+  volume={95},
+  number={3},
+  pages={033615},
+  year={2017},
+  publisher={APS}
+}
+
+@article{kumar2015,
+  title={Interaction of laser-cooled 87Rb atoms with higher order modes of an optical nanofibre},
+  author={Kumar, R. and Gokhroo, V. and Deasy, K. and Maimaiti, A. and Frawley, M C. and Phelan, C and Chormaic, S. Nic},
+  journal={New Journal of Physics},
+  volume={17},
+  number={1},
+  pages={013026},
+  year={2015},
+  publisher={IOP Publishing}
+}
+
+@article{russell2011,
+  title={Sub-Doppler temperature measurements of laser-cooled atoms using optical nanofibres},
+  author={Russell, L. and Deasy, K. and Daly, M. J. and Morrissey, M. J. and Chormaic, S. Nic},
+  journal={Measurement Science and Technology},
+  volume={23},
+  number={1},
+  pages={015201},
+  year={2011},
+  publisher={IOP Publishing}
+}
+
+@article{sague2007,
+  title={Cold-atom physics using ultrathin optical fibers: Light-induced dipole forces and surface interactions},
+  author={Sagu{\'e}, G. and Vetsch, E. and Alt, W. and Meschede, D. and Rauschenbeutel, A.},
+  journal={Physical review letters},
+  volume={99},
+  number={16},
+  pages={163602},
+  year={2007},
+  publisher={APS}
+}
+
+@article{nieddu2016,
+  title={Optical nanofibres and neutral atoms},
+  author={Nieddu, T. and Gokhroo, V. and Chormaic, S. Nic},
+  journal={Journal of Optics},
+  volume={18},
+  number={5},
+  pages={053001},
+  year={2016},
+  publisher={IOP Publishing}
+}
+
+@article{lacroute2012,
+  title={A state-insensitive, compensated nanofiber trap},
+  author={Lacro{\^u}te, C.  and Choi, K. S.  and Goban, A.  and Alton, D. J.  and Ding, D.  and Stern, N. P.  and Kimble, H. J. },
+  journal={New Journal of Physics},
+  volume={14},
+  number={2},
+  pages={023056},
+  year={2012},
+  publisher={IOP Publishing}
+}
+
+@article{vetsch2010,
+  title={Optical interface created by laser-cooled atoms trapped in the evanescent field surrounding an optical nanofiber},
+  author={Vetsch, E.  and Reitz, D.  and Sagu{\'e}, G.  and Schmidt, R.  and Dawkins, S. T.  and Rauschenbeutel, A. },
+  journal={Physical review letters},
+  volume={104},
+  number={20},
+  pages={203603},
+  year={2010},
+  publisher={APS}
+}
+
+@book{yariv1997,
+  title={Optical electronics in modern communications},
+  author={Yariv, A. and others},
+  volume={1},
+  year={1997},
+  publisher={Oxford University Press, USA}
+}
+
+@article{tong2003,
+  title={Subwavelength-diameter silica wires for low-loss optical wave guiding},
+  author={Tong, L. and Gattass, R. R. and Ashcom, J. B. and He, S. and Lou, J. and Shen, M. and Maxwell, I. and Mazur, E.},
+  journal={Nature},
+  volume={426},
+  number={6968},
+  pages={816},
+  year={2003},
+  publisher={Nature Publishing Group}
+}
+
+@article{ward2006,
+  title={Heat-and-pull rig for fiber taper fabrication},
+  author={Ward, J. M. and O’Shea, D. G. and Shortt, B. J. and Morrissey, M. J. and Deasy, K. and Nic Chormaic, S.},
+  journal={Review of scientific instruments},
+  volume={77},
+  number={8},
+  pages={083105},
+  year={2006},
+  publisher={AIP}
+}
+
+@article{dalibard2011,
+  title={Colloquium: Artificial gauge potentials for neutral atoms},
+  author={Dalibard, J. and Gerbier, F. and Juzeli{\=u}nas, G. and {\"O}hberg, P.},
+  journal={Reviews of Modern Physics},
+  volume={83},
+  number={4},
+  pages={1523},
+  year={2011},
+  publisher={APS}
+}
+
+
+@article{pinsker2013,
+  title={Nonlinear quantum piston for the controlled generation of vortex rings and soliton trains},
+  author={Pinsker, F. and Berloff, N. G. and P{\'e}rez-Garc{\'\i}a, V. M.},
+  journal={Physical Review A},
+  volume={87},
+  number={5},
+  pages={053624},
+  year={2013},
+  publisher={APS}
+}
+
+@article{ginsberg2005,
+  title={Observation of hybrid soliton vortex-ring structures in {B}ose--{E}instein condensates},
+  author={Ginsberg, N. S. and Brand, J. and Hau, L. V.},
+  journal={Physical review letters},
+  volume={94},
+  number={4},
+  pages={040403},
+  year={2005},
+  publisher={APS}
+}
+
+@article{ruostekoski2005,
+  title={Engineering vortex rings and systems for controlled studies of vortex interactions in {B}ose--{E}instein condensates},
+  author={Ruostekoski, J. and Dutton, Z.},
+  journal={Physical Review A},
+  volume={72},
+  number={6},
+  pages={063626},
+  year={2005},
+  publisher={APS}
+}
+
+@article{shomroni2009,
+  title={Evidence for an oscillating soliton/vortex ring by density engineering of a {B}ose--{E}instein condensate},
+  author={Shomroni, I. and Lahoud, E. and Levy, S. and Steinhauer, J.},
+  journal={Nature Physics},
+  volume={5},
+  number={3},
+  pages={193},
+  year={2009},
+  publisher={Nature Publishing Group}
+}
+
+@article{navon2016,
+  title={Emergence of a turbulent cascade in a quantum gas},
+  author={Navon, N. and Gaunt, A. L. and Smith, R. P. and Hadzibabic, Z.},
+  journal={Nature},
+  volume={539},
+  number={7627},
+  pages={72},
+  year={2016},
+  publisher={Nature Publishing Group}
+}
+
+@article{tsubota2014,
+  title={Turbulence in quantum fluids},
+  author={Tsubota, M.},
+  journal={Journal of Statistical Mechanics: Theory and Experiment},
+  volume={2014},
+  number={2},
+  pages={P02013},
+  year={2014},
+  publisher={IOP Publishing}
+}
+
+@article{abrikosov1957,
+  title={The magnetic properties of superconducting alloys},
+  author={Abrikosov, A. A. },
+  journal={Journal of Physics and Chemistry of Solids},
+  volume={2},
+  number={3},
+  pages={199--208},
+  year={1957},
+  publisher={Elsevier}
+}
+
+
+@article{yefsah2013,
+  title={Heavy solitons in a fermionic superfluid},
+  author={Yefsah, T. and Sommer, A. T. and Ku, M. J. H. and Cheuk, L. W. and Ji, W. and Bakr, W. S. and Zwierlein, M. W.},
+  journal={Nature},
+  volume={499},
+  number={7459},
+  pages={426},
+  year={2013},
+  publisher={Nature Publishing Group}
+}
+
+@article{matthews1999,
+  title={Vortices in a {B}ose--{E}instein condensate},
+  author={Matthews, M. Robin and Anderson, B. P. and Haljan, P. C. and Hall, D. S. and Wieman, C. E. and Cornell, E. A.},
+  journal={Physical Review Letters},
+  volume={83},
+  number={13},
+  pages={2498},
+  year={1999},
+  publisher={APS}
+}
+
+@article{ku2016,
+  title={Cascade of solitonic excitations in a superfluid fermi gas: From planar solitons to vortex rings and lines},
+  author={Ku, M. J. H.  and Mukherjee, B.  and Yefsah, T.  and Zwierlein, Martin W. },
+  journal={Physical review letters},
+  volume={116},
+  number={4},
+  pages={045304},
+  year={2016},
+  publisher={APS}
+}
+
+@article{bulgac2014,
+  title={Quantized superfluid vortex rings in the unitary {F}ermi gas},
+  author={Bulgac, A. and Forbes, M. M. and Kelley, M. M. and Roche, K. J. and Wlaz{\l}owski, G.},
+  journal={Physical review letters},
+  volume={112},
+  number={2},
+  pages={025301},
+  year={2014},
+  publisher={APS}
+}
+
+@article{maucher2016,
+  title={Excitation of knotted vortex lines in matter waves},
+  author={Maucher, .F and Gardiner, S. A.  and Hughes, I. G. },
+  journal={New Journal of Physics},
+  volume={18},
+  number={6},
+  pages={063016},
+  year={2016},
+  publisher={IOP Publishing}
+}
+
+@article {anderson1995,
+ author = {Anderson, M. H. and Ensher, J. R. and Matthews, M. R. and Wieman, C. E. and Cornell, E. A.},
+ title = {Observation of {B}ose--{E}instein Condensation in a Dilute Atomic Vapor},
+ volume = {269},
+ number = {5221},
+ pages = {198--201},
+ year = {1995},
+ doi = {10.1126/science.269.5221.198},
+ publisher = {American Association for the Advancement of Science},
+ abstract = {A {B}ose--{E}instein condensate was produced in a vapor of rubidium-87 atoms that was confined by magnetic fields and evaporatively cooled. The condensate fraction first appeared near a temperature of 170 nanokel
+vin and a number density of 2.5 x 1012 per cubic centimeter and could be preserved for more than 15 seconds. Three primary signatures of {B}ose--{E}instein condensation were seen. (i) On top of a broad thermal velocity distribution,
+ a narrow peak appeared that was centered at zero velocity. (ii) The fraction of the atoms that were in this low-velocity peak increased abruptly as the sample temperature was lowered. (iii) The peak exhibited a nonthermal, ani
+sotropic velocity distribution expected of the minimum-energy quantum state of the magnetic trap in contrast to the isotropic, thermal velocity distribution observed in the broad uncondensed fraction.},
+ issn = {0036-8075},
+ URL = {http://science.sciencemag.org/content/269/5221/198},
+ eprint = {http://science.sciencemag.org/content/269/5221/198.full.pdf},
+ journal = {Science}
+}
+
+@article{kleckner2016,
+  title={How superfluid vortex knots untie},
+  author={Kleckner, D. and Kauffman, L. H. and Irvine, W. T. M.},
+  journal={Nature Physics},
+  volume={12},
+  number={7},
+  pages={650},
+  year={2016},
+  publisher={Nature Publishing Group}
+}
+
+@article{ricca1999,
+  title={Evolution of vortex knots},
+  author={Ricca, R. L. and Samuels, D. C. and Barenghi, C. F.},
+  journal={Journal of Fluid Mechanics},
+  volume={391},
+  pages={29--44},
+  year={1999},
+  publisher={Cambridge University Press}
+}
+
+@article{duncan2019,
+  title={Linked and knotted synthetic magnetic fields},
+  author={Duncan, C. W. and Ross, C. and Westerberg, N. and Valiente, M. and Schroers, B. J. and {\"O}hberg, P.},
+  journal={Physical Review A},
+  volume={99},
+  number={6},
+  pages={063613},
+  year={2019},
+  publisher={APS}
+}
+
+@article{antoine2014,
+  title={{GPELab}, a Matlab toolbox to solve {G}ross--{P}itaevskii equations I: Computation of stationary solutions},
+  author={Antoine, X. and Duboscq, R.},
+  journal={Computer Physics Communications},
+  volume={185},
+  number={11},
+  pages={2969--2991},
+  year={2014},
+  publisher={Elsevier}
+}
+
+@article{wittek2013,
+  title={A second-order distributed {T}rotter--{S}uzuki solver with a hybrid CPU--GPU kernel},
+  author={Wittek, P. and Cucchietti, F. M.},
+  journal={Computer Physics Communications},
+  volume={184},
+  number={4},
+  pages={1165--1171},
+  year={2013},
+  publisher={Elsevier}
+}
+
+@article{garland2008,
+  title={Parallel computing experiences with {CUDA}},
+  author={Garland, M. and Le Grand, S. and Nickolls, J. and Anderson, J. and Hardwick, J. and Morton, S. and Phillips, E. and Zhang, Y. and Volkov, V.},
+  journal={IEEE micro},
+  volume={28},
+  number={4},
+  pages={13--27},
+  year={2008},
+  publisher={IEEE}
+}
+
+@article{lee2010,
+  title={Debunking the 100X {GPU} vs. {CPU} myth: an evaluation of throughput computing on {CPU} and {GPU}},
+  author={Lee, V. W. and Kim, C. and Chhugani, J. and Deisher, M. and Kim, D. and Nguyen, A. D. and Satish, N. and Smelyanskiy, M. and Chennupaty, S. and Hammarlund, P. and others},
+  journal={ACM SIGARCH computer architecture news},
+  volume={38},
+  number={3},
+  pages={451--460},
+  year={2010},
+  publisher={ACM}
+}
+
+@article{nickolls2010,
+  title={The {GPU} computing era},
+  author={Nickolls, J. and Dally, W. J.},
+  journal={IEEE micro},
+  volume={30},
+  number={2},
+  pages={56--69},
+  year={2010},
+  publisher={IEEE}
+}
+
+@article{bezanson2017,
+  title={Julia: A fresh approach to numerical computing},
+  author={Bezanson, J. and Edelman, A. and Karpinski, S. and Shah, V. B.},
+  journal={SIAM review},
+  volume={59},
+  number={1},
+  pages={65--98},
+  year={2017},
+  publisher={SIAM}
+}
+
+@inproceedings{czechowski2012,
+  title={On the communication complexity of 3D {FFT}s and its implications for exascale},
+  author={Czechowski, K. and Battaglino, C. and McClanahan, C. and Iyer, K. and Yeung, P. and Vuduc, R.},
+  booktitle={Proceedings of the 26th ACM international conference on Supercomputing},
+  pages={205--214},
+  year={2012},
+  organization={ACM}
+}
+
+@article{jodra2015,
+  title={Efficient 3D transpositions in graphics processing units},
+  author={Jodra, J. L. and Gurrutxaga, I. and Muguerza, J.},
+  journal={International Journal of Parallel Programming},
+  volume={43},
+  number={5},
+  pages={876--891},
+  year={2015},
+  publisher={Springer}
+}
+
+@book{ruetsch2013,
+  title={{CUDA} Fortran for scientists and engineers: best practices for efficient {CUDA{ Fortran programming},
+  author={Ruetsch, G. and Fatica, M.},
+  year={2013},
+  publisher={Elsevier}
+}
+
+@book{lewis2012,
+  title={Optimal control},
+  author={Lewis, F. L. and Vrabie, D. and Syrmos, V. L.},
+  year={2012},
+  publisher={John Wiley \& Sons}
+}
+
+@article{baye1986,
+ doi = {10.1088/0305-4470/19/11/013},
+ url = {https://doi.org/10.1088%2F0305-4470%2F19%2F11%2F013},
+ year = 1986,
+ month = {aug},
+ publisher = {{IOP} Publishing},
+ volume = {19},
+ number = {11},
+ pages = {2041--2059},
+ author = {D. Baye and P. H. Heenen},
+ title = {Generalised meshes for quantum mechanical problems},
+ journal = {Journal of Physics A: Mathematical and General},
+
+ abstract = {A new method to discretise Schrodinger equations on a mesh is described. This method is based on an accurate approximation of a variational calculation. The regularly spaced mesh and meshes based on the zeros of orthogonal polynomials are studied in detail. It is shown that with each type of mesh is associated a particular kinetic energy operator and an optimal formula for its discretized form. The applications to some simple potential problems show that the method is very accurate as well as very simple. Applications to many-body problems indicate that the accuracy of the results is improved by an order of magnitude with respect to conventional mesh calculations.}
+
+}
+
+@article{masuda2014,
+  title = {High-Fidelity Rapid Ground-State Loading of an Ultracold Gas into an Optical Lattice},
+  author = {Masuda, S. and Nakamura, K. and del Campo, A.},
+  journal = {Phys. Rev. Lett.},
+  volume = {113},
+  issue = {6},
+  pages = {063003},
+  numpages = {5},
+  year = {2014},
+  month = {Aug},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevLett.113.063003},
+  url = {https://link.aps.org/doi/10.1103/PhysRevLett.113.063003}
+}
+
+@article{masuda2012,
+  title = {Acceleration of adiabatic transport of interacting particles and rapid manipulations of a dilute {B}ose gas in the ground state},
+  author = {Masuda, S.},
+  journal = {Phys. Rev. A},
+  volume = {86},
+  issue = {6},
+  pages = {063624},
+  numpages = {7},
+  year = {2012},
+  month = {Dec},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.86.063624},
+  url = {https://link.aps.org/doi/10.1103/PhysRevA.86.063624}
+}
+
+@article{torrontegui2011,
+  title = {Fast atomic transport without vibrational heating},
+  author = {Torrontegui, E. and Ib\'a\~nez, S. and Chen, Xi and Ruschhaupt, A. and Gu\'ery-Odelin, D. and Muga, J. G.},
+  journal = {Phys. Rev. A},
+  volume = {83},
+  issue = {1},
+  pages = {013415},
+  numpages = {9},
+  year = {2011},
+  month = {Jan},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.83.013415},
+  url = {https://link.aps.org/doi/10.1103/PhysRevA.83.013415}
+}
+
+@article{masuda2009,
+  title={Fast-forward of adiabatic dynamics in quantum mechanics},
+  author={Masuda, S. and Nakamura, K.},
+  journal={Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences},
+  volume={466},
+  number={2116},
+  pages={1135--1154},
+  year={2009},
+  publisher={The Royal Society Publishing}
+}
+
+@article{chen2010,
+  title = {Transient energy excitation in shortcuts to adiabaticity for the time-dependent harmonic oscillator},
+  author = {Chen, Xi and Muga, J. G.},
+  journal = {Phys. Rev. A},
+  volume = {82},
+  issue = {5},
+  pages = {053403},
+  numpages = {7},
+  year = {2010},
+  month = {Nov},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.82.053403},
+  url = {https://link.aps.org/doi/10.1103/PhysRevA.82.053403}
+}
+
+@article{campo2012,
+  title={Shortcuts to adiabaticity in a time-dependent box},
+  author={Del Campo, A. and Boshier, M. G. },
+  journal={Scientific reports},
+  volume={2},
+  pages={648},
+  year={2012},
+  publisher={Nature Publishing Group}
+}
+
+@article{chen20102,
+  title = {Fast Optimal Frictionless Atom Cooling in Harmonic Traps: Shortcut to Adiabaticity},
+  author = {Chen, X. and Ruschhaupt, A. and Schmidt, S. and del Campo, A. and Gu\'ery-Odelin, D. and Muga, J. G.},
+  journal = {Phys. Rev. Lett.},
+  volume = {104},
+  issue = {6},
+  pages = {063002},
+  numpages = {4},
+  year = {2010},
+  month = {Feb},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevLett.104.063002},
+  url = {https://link.aps.org/doi/10.1103/PhysRevLett.104.063002}
+}
+
+@article{lewis1969,
+  title={An exact quantum theory of the time-dependent harmonic oscillator and of a charged particle in a time-dependent electromagnetic field},
+  author={Lewis Jr, H. R. and Riesenfeld, W. B. },
+  journal={Journal of Mathematical Physics},
+  volume={10},
+  number={8},
+  pages={1458--1473},
+  year={1969},
+  publisher={AIP}
+}
+
+@article{lelas2011,
+  title = {Loschmidt echo in one-dimensional interacting {B}ose gases},
+  author = {Lelas, K. and \ifmmode \check{S}\else \v{S}\fi{}eva, T. and Buljan, H.},
+  journal = {Phys. Rev. A},
+  volume = {84},
+  issue = {6},
+  pages = {063601},
+  numpages = {9},
+  year = {2011},
+  month = {Dec},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.84.063601},
+  url = {https://link.aps.org/doi/10.1103/PhysRevA.84.063601}
+}
+
+@article{campo2011,
+  title = {Long-time behavior of many-particle quantum decay},
+  author = {del Campo, A.},
+  journal = {Phys. Rev. A},
+  volume = {84},
+  issue = {1},
+  pages = {012113},
+  numpages = {6},
+  year = {2011},
+  month = {Jul},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.84.012113},
+  url = {https://link.aps.org/doi/10.1103/PhysRevA.84.012113}
+}
+
+@article{garaot2015,
+  title = {Fast quasiadiabatic dynamics},
+  author = {Mart\'{\i}nez-Garaot, S. and Ruschhaupt, A. and Gillet, J. and Busch, Th. and Muga, J. G.},
+  journal = {Phys. Rev. A},
+  volume = {92},
+  issue = {4},
+  pages = {043406},
+  numpages = {6},
+  year = {2015},
+  month = {Oct},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.92.043406},
+  url = {https://link.aps.org/doi/10.1103/PhysRevA.92.043406}
+}
+
+@article{nelder1965,
+    author = {Nelder, J. A. and Mead, R.},
+    title = "{A Simplex Method for Function Minimization}",
+    journal = {The Computer Journal},
+    volume = {7},
+    number = {4},
+    pages = {308-313},
+    year = {1965},
+    month = {01},
+    abstract = "{A method is described for the minimization of a function of n variables, which depends on the comparison of function values at the (n + 1) vertices of a general simplex, followed by the replacement of the vertex with the highest value by another point. The simplex adapts itself to the local landscape, and contracts on to the final minimum. The method is shown to be effective and computationally compact. A procedure is given for the estimation of the Hessian matrix in the neighbourhood of the minimum, needed in statistical estimation problems.}",
+    issn = {0010-4620},
+    doi = {10.1093/comjnl/7.4.308},
+    url = {https://doi.org/10.1093/comjnl/7.4.308},
+    eprint = {http://oup.prod.sis.lan/comjnl/article-pdf/7/4/308/1013182/7-4-308.pdf},
+}
+
+@article{nunnenkamp2008,
+  title = {Generation of macroscopic superposition states in ring superlattices},
+  author = {Nunnenkamp, A. and Rey, A. M. and Burnett, K.},
+  journal = {Phys. Rev. A},
+  volume = {77},
+  issue = {2},
+  pages = {023622},
+  numpages = {9},
+  year = {2008},
+  month = {Feb},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.77.023622},
+  url = {https://link.aps.org/doi/10.1103/PhysRevA.77.023622}
+}
+
+@article{girardeau2001,
+  title = {Measurement of One-Particle Correlations and Momentum Distributions for Trapped 1D Gases},
+  author = {Girardeau, M. D. and Wright, E. M.},
+  journal = {Phys. Rev. Lett.},
+  volume = {87},
+  issue = {5},
+  pages = {050403},
+  numpages = {4},
+  year = {2001},
+  month = {Jul},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevLett.87.050403},
+  url = {https://link.aps.org/doi/10.1103/PhysRevLett.87.050403}
+}
+
+@article{girardeau2009,
+  title = {Motion of an impurity particle in an ultracold quasi-one-dimensional gas of hard-core bosons},
+  author = {Girardeau, M. D. and Minguzzi, A.},
+  journal = {Phys. Rev. A},
+  volume = {79},
+  issue = {3},
+  pages = {033610},
+  numpages = {5},
+  year = {2009},
+  month = {Mar},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.79.033610},
+  url = {https://link.aps.org/doi/10.1103/PhysRevA.79.033610}
+}
+
+@article{girardeau20012,
+  title = {Ground-state properties of a one-dimensional system of hard-core bosons in a harmonic trap},
+  author = {Girardeau, M. D. and Wright, E. M. and Triscari, J. M.},
+  journal = {Phys. Rev. A},
+  volume = {63},
+  issue = {3},
+  pages = {033601},
+  numpages = {6},
+  year = {2001},
+  month = {Feb},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.63.033601},
+  url = {https://link.aps.org/doi/10.1103/PhysRevA.63.033601}
+}
+
+@article{girardeau2002,
+  title = {Interference of a Thermal {T}onks Gas on a Ring},
+  author = {Das, Kunal K. and Girardeau, M. D. and Wright, E. M.},
+  journal = {Phys. Rev. Lett.},
+  volume = {89},
+  issue = {17},
+  pages = {170404},
+  numpages = {4},
+  year = {2002},
+  month = {Oct},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevLett.89.170404},
+  url = {https://link.aps.org/doi/10.1103/PhysRevLett.89.170404}
+}
+
+@incollection{torrontegui2013,
+  title={Shortcuts to adiabaticity},
+  author={Torrontegui, E. and Ib{\'a}nez, S. and Mart{\'\i}nez-Garaot, S. and Modugno, M. and del Campo, A. and Gu{\'e}ry-Odelin, D. and Ruschhaupt, A. and Chen, X. and Muga, J. G.},
+  booktitle={Advances in atomic, molecular, and optical physics},
+  volume={62},
+  pages={117--169},
+  year={2013},
+  publisher={Elsevier}
+}
+
+@article{caneva2011,
+  title = {Chopped random-basis quantum optimization},
+  author = {Caneva, T. and Calarco, T. and Montangero, S.},
+  journal = {Phys. Rev. A},
+  volume = {84},
+  issue = {2},
+  pages = {022326},
+  numpages = {9},
+  year = {2011},
+  month = {Aug},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.84.022326},
+  url = {https://link.aps.org/doi/10.1103/PhysRevA.84.022326}
+}
+
+@article{hallwood2007,
+  title={The barriers to producing multiparticle superposition states in rotating {B}ose--{E}instein condensates},
+  author={Hallwood, D. W. and Burnett, K. and Dunningham, J.},
+  journal={Journal of Modern Optics},
+  volume={54},
+  number={13-15},
+  pages={2129--2148},
+  year={2007},
+  publisher={Taylor \& Francis}
+}
+
+@article{afek2010,
+  title={High-{NOON} states by mixing quantum and classical light},
+  author={Afek, I. and Ambar, O. and Silberberg, Y.},
+  journal={Science},
+  volume={328},
+  number={5980},
+  pages={879--881},
+  year={2010},
+  publisher={American Association for the Advancement of Science}
+}
+
+@article{isreal2012,
+  title = {Experimental tomography of {NOON} states with large photon numbers},
+  author = {Israel, Y. and Afek, I. and Rosen, S. and Ambar, O. and Silberberg, Y.},
+  journal = {Phys. Rev. A},
+  volume = {85},
+  issue = {2},
+  pages = {022115},
+  numpages = {5},
+  year = {2012},
+  month = {Feb},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.85.022115},
+  url = {https://link.aps.org/doi/10.1103/PhysRevA.85.022115}
+}
+
+@article{ruder2016,
+  title={An overview of gradient descent optimization algorithms},
+  author={Ruder, S.},
+  journal={arXiv preprint arXiv:1609.04747},
+  year={2016}
+}
+
+@article{koza1997,
+  title={Genetic programming},
+  author={Koza, J. R.},
+  year={1997},
+  publisher={Citeseer}
+}
+
+@article{kolda2003,
+  title={Optimization by direct search: New perspectives on some classical and modern methods},
+  author={Kolda, T. G. and Lewis, R. M. and Torczon, V.},
+  journal={SIAM review},
+  volume={45},
+  number={3},
+  pages={385--482},
+  year={2003},
+  publisher={SIAM}
+}
+
+@article{lewis2007,
+  title={Implementing generating set search methods for linearly constrained minimization},
+  author={Lewis, R. M. and Shepherd, A. and Torczon, V.},
+  journal={SIAM Journal on Scientific Computing},
+  volume={29},
+  number={6},
+  pages={2507--2530},
+  year={2007},
+  publisher={SIAM}
+}
+
+@article{pohlheim2007,
+  title={Examples of objective functions},
+  author={Pohlheim, H.},
+  journal={Retrieved},
+  volume={4},
+  number={10},
+  pages={2012},
+  year={2007}
+}
+
+@article{lewis1982,
+  title={A direct approach to finding exact invariants for one-dimensional time-dependent classical Hamiltonians},
+  author={Lewis, H.  R.  and Leach, P. G. L. },
+  journal={Journal of Mathematical Physics},
+  volume={23},
+  number={12},
+  pages={2371--2374},
+  year={1982},
+  publisher={AIP}
+}
+
+@article{das2002,
+  title = {Interference of a Thermal {T}onks Gas on a Ring},
+  author = {Das, K. K. and Girardeau, M. D. and Wright, E. M.},
+  journal = {Phys. Rev. Lett.},
+  volume = {89},
+  issue = {17},
+  pages = {170404},
+  numpages = {4},
+  year = {2002},
+  month = {Oct},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevLett.89.170404},
+  url = {https://link.aps.org/doi/10.1103/PhysRevLett.89.170404}
+}
+
+@article{schenke2012,
+  title={Probing superfluidity of a mesoscopic {T}onks--{G}irardeau gas},
+  author={Schenke, C.  and Minguzzi, A.  and Hekking, F. W. J. },
+  journal={Physical Review A},
+  volume={85},
+  number={5},
+  pages={053627},
+  year={2012},
+  publisher={APS}
+}
+
+@article{slater1929,
+  title={The theory of complex spectra},
+  author={Slater, J. C.},
+  journal={Physical Review},
+  volume={34},
+  number={10},
+  pages={1293},
+  year={1929},
+  publisher={APS}
+}
+
+@misc{schloss2019,
+Author = {J. Schloss and P. Barnett and R. Sachdeva and Th. Busch},
+Title = {Controlled creation of three-dimensional vortex structures in {B}ose--{E}instein condensates using artificial magnetic fields},
+Year = {2019},
+Eprint = {arXiv:1910.02364},
+}
+
+@incollection{macnamara2016,
+  title={Operator splitting},
+  author={MacNamara, S. and Strang, G.},
+  booktitle={Splitting Methods in Communication, Imaging, Science, and Engineering},
+  pages={95--114},
+  year={2016},
+  publisher={Springer}
+}
+
+@article{wu2002,
+  title={Controlled generation of dark solitons with phase imprinting},
+  author={Wu, B. and Liu, J. and Niu, Q.},
+  journal={Physical review letters},
+  volume={88},
+  number={3},
+  pages={034101},
+  year={2002},
+  publisher={APS}
+}
+
+@article{wu2005,
+  title={Geometric phase for adiabatic evolutions of general quantum states},
+  author={Wu, B. and Liu, J. and Niu, Q.},
+  journal={Physical review letters},
+  volume={94},
+  number={14},
+  pages={140402},
+  year={2005},
+  publisher={APS}
+}
+
+@book{ueda2010,
+  title={Fundamentals and new frontiers of {B}ose--{E}instein condensation},
+  author={Ueda, M.},
+  year={2010},
+  publisher={World Scientific}
+}
+
+@article{chevy2006,
+  title={Rotating {B}ose--{E}instein condensates},
+  author={Chevy, F. and Dalibard, J.},
+  journal={Europhysics News},
+  volume={37},
+  number={1},
+  pages={12--16},
+  year={2006},
+  publisher={EDP Sciences}
+}
+
+@article{hodby2001,
+  title={Vortex nucleation in {B}ose--{E}instein condensates in an oblate, purely magnetic potential},
+  author={Hodby, E. and Hechenblaikner, G. and Hopkins, S. A. and Marago, O. M.  and Foot, C. J. },
+  journal={Physical review letters},
+  volume={88},
+  number={1},
+  pages={010405},
+  year={2001},
+  publisher={APS}
+}
+
+@article{haljan2001,
+  title={Driving {B}ose--{E}instein-condensate vorticity with a rotating normal cloud},
+  author={Haljan, P. C.  and Coddington, I.  and Engels, P. and Cornell, E. A.},
+  journal={Physical review letters},
+  volume={87},
+  number={21},
+  pages={210403},
+  year={2001},
+  publisher={APS}
+}
+
+@article{bretin2004,
+  title={Fast rotation of a {B}ose--{E}instein condensate},
+  author={Bretin, V. and Stock, S. and Seurin, Y. and Dalibard, J.},
+  journal={Physical review letters},
+  volume={92},
+  number={5},
+  pages={050403},
+  year={2004},
+  publisher={APS}
+}
+
+@article{davenport2012,
+  title={Introduction to compressed sensing},
+  author={Davenport, M. A. and Duarte, M. F. and Eldar, Y. C. and Kutyniok, G.},
+  journal={Compressed sensing: theory and applications},
+  volume={105},
+  pages={106},
+  year={2012},
+  publisher={Cambridge University Press Cambridge}
+}
+
+@article{engels2003,
+  title={Observation of long-lived vortex aggregates in rapidly rotating {B}ose--{E}instein condensates},
+  author={Engels, P.  and Coddington, I and Haljan, P. C.  and Schweikhard, V. and Cornell, E. A.},
+  journal={Physical review letters},
+  volume={90},
+  number={17},
+  pages={170405},
+  year={2003},
+  publisher={APS}
+}
+
+@misc{merz2016,
+  title={{CUFFT} 1.1/2.0 vs {FFTW} 3.1. 2 (x86\_64) vs {FFTW} 3.2 (cell) comparison},
+  author={Merz, H.},
+  year={2016},
+  publisher={L{\'\i}nea] Desktop Engineering}
+}
+
+@inproceedings{popovici2018,
+  title={Large bandwidth-efficient {FFT}s on multicore and multi-socket systems},
+  author={Popovici, D. T. and Low, T. M. and Franchetti, F.},
+  booktitle={2018 IEEE International Parallel and Distributed Processing Symposium (IPDPS)},
+  pages={379--388},
+  year={2018},
+  organization={IEEE}
+}
+
+@article{benzi1992,
+  title={A simple point vortex model for two-dimensional decaying turbulence},
+  author={Benzi, R. and Colella, M. and Briscolini, M. and Santangelo, P.},
+  journal={Physics of Fluids A: Fluid Dynamics},
+  volume={4},
+  number={5},
+  pages={1036--1039},
+  year={1992},
+  publisher={AIP}
+}
+
+@article{schwarz1988,
+  title={Three-dimensional vortex dynamics in superfluid He 4: Homogeneous superfluid turbulence},
+  author={Schwarz, K. W. },
+  journal={Physical Review B},
+  volume={38},
+  number={4},
+  pages={2398},
+  year={1988},
+  publisher={APS}
+}
+
+@article{kasamatsu2005,
+  title={Vortices in multicomponent Bose--Einstein condensates},
+  author={Kasamatsu, K. and Tsubota, M. and Ueda, M.},
+  journal={International Journal of Modern Physics B},
+  volume={19},
+  number={11},
+  pages={1835--1904},
+  year={2005},
+  publisher={World Scientific}
+}
+
+@article{bao2004,
+  title={Ground states and dynamics of multicomponent Bose--Einstein condensates},
+  author={Bao, W.},
+  journal={Multiscale Modeling \& Simulation},
+  volume={2},
+  number={2},
+  pages={210--236},
+  year={2004},
+  publisher={SIAM}
+}
+
+@article{mason2013,
+  title={Ground states of two-component condensates in a harmonic plus Gaussian trap},
+  author={Mason, P.},
+  journal={The European Physical Journal B},
+  volume={86},
+  number={11},
+  pages={453},
+  year={2013},
+  publisher={Springer}
+}
+
+@article{revels2018,
+  title={Dynamic Automatic Differentiation of {GPU} Broadcast Kernels},
+  author={Revels, J and Besard, T. and Churavy, V. and De Sutter, B. and Vielma, J. P.},
+  journal={arXiv preprint arXiv:1810.08297},
+  year={2018}
+}
+
+@inproceedings{el2008,
+  title={An efficient in-place 3D transpose for multicore processors with software managed memory hierarchy},
+  author={El-Moursy, A. and El-Mahdy, A. and El-Shishiny, H.},
+  booktitle={Proceedings of the 1st international forum on Next-generation multicore/manycore technologies},
+  pages={10},
+  year={2008},
+  organization={ACM}
+}
+
+@article{hill1997,
+  title={Fiber {B}ragg grating technology fundamentals and overview},
+  author={Hill, K. O. and Meltz, G.},
+  journal={Journal of lightwave technology},
+  volume={15},
+  number={8},
+  pages={1263--1276},
+  year={1997},
+  publisher={IEEE}
+}
+
+@misc{stackoverflow,
+  author={Slaw, R.},
+  url={https://gist.github.com/realazthat/1eba733ab5cf3ae5fe2a#file-memory-access-coalescing-tex},
+  year=2013}
+}
