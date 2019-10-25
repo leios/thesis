@@ -1,9 +1,41 @@
-\begin{thebibliography}{220}
+\begin{thebibliography}{232}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Schloss et~al.(2016)Schloss, Benseny, Gillet, Swain, and
+  Busch]{schloss2016}
+J.~Schloss, A.~Benseny, J.~Gillet, J.~Swain, and Th. Busch.
+\newblock Non-adiabatic generation of {NOON} states in a {T}onks--{G}irardeau
+  gas.
+\newblock \emph{New Journal of Physics}, 18\penalty0 (3):\penalty0 035012,
+  2016.
+
+\bibitem[Zhang et~al.(2019{\natexlab{a}})Zhang, Schloss, Thomasen, O'Riordan,
+  Busch, and White]{zhang2019}
+T.~Zhang, J.~Schloss, A.~Thomasen, L.~J. O'Riordan, Th. Busch, and A.~White.
+\newblock Chaotic few-body vortex dynamics in rotating {B}ose-{E}instein
+  condensates.
+\newblock \emph{Physical Review Fluids}, 4\penalty0 (5):\penalty0 054701,
+  2019{\natexlab{a}}.
+
+\bibitem[Schloss et~al.(2019)Schloss, Barnett, Sachdeva, and
+  Busch]{schloss2019}
+J.~Schloss, P.~Barnett, R.~Sachdeva, and Th. Busch.
+\newblock Controlled creation of three-dimensional vortex structures in
+  {B}ose--{E}instein condensates using artificial magnetic fields, 2019.
+
+\bibitem[Schloss and Riordan(2018)]{schloss2018}
+J.~R Schloss and L.~J. Riordan.
+\newblock {GPUE}: Graphics processing unit {G}ross-{P}itaevskii equation
+  solver.
+\newblock \emph{J. Open Source Software}, 3\penalty0 (32):\penalty0 1037, 2018.
+
+\bibitem[Schloss and O'riordan(2019)]{docs}
+J.~Schloss and L.~O'riordan, 2019.
+\newblock URL \url{https://gpue-group.github.io/}.
 
 \bibitem[{Kahle} et~al.(2019){Kahle}, {Moreno}, and {Dreps}]{kahle2019}
 J.~A. {Kahle}, J.~{Moreno}, and D.~{Dreps}.
@@ -65,33 +97,6 @@ G.~P. Agrawal.
 \newblock Nonlinear fiber optics.
 \newblock In \emph{Nonlinear Science at the Dawn of the 21st Century}, pages
   195--211. Springer, 2000.
-
-\bibitem[Schloss et~al.(2016)Schloss, Benseny, Gillet, Swain, and
-  Busch]{schloss2016}
-J.~Schloss, A.~Benseny, J.~Gillet, J.~Swain, and Th. Busch.
-\newblock Non-adiabatic generation of {NOON} states in a {T}onks--{G}irardeau
-  gas.
-\newblock \emph{New Journal of Physics}, 18\penalty0 (3):\penalty0 035012,
-  2016.
-
-\bibitem[Schloss and Riordan(2018)]{schloss2018}
-J.~R Schloss and L.~J. Riordan.
-\newblock {GPUE}: Graphics processing unit {G}ross-{P}itaevskii equation
-  solver.
-\newblock \emph{J. Open Source Software}, 3\penalty0 (32):\penalty0 1037, 2018.
-
-\bibitem[Zhang et~al.(2019)Zhang, Schloss, Thomasen, O'Riordan, Busch, and
-  White]{zhang2019}
-T.~Zhang, J.~Schloss, A.~Thomasen, L.~J. O'Riordan, Th. Busch, and A.~White.
-\newblock Chaotic few-body vortex dynamics in rotating {B}ose-{E}instein
-  condensates.
-\newblock \emph{Physical Review Fluids}, 4\penalty0 (5):\penalty0 054701, 2019.
-
-\bibitem[Schloss et~al.(2019)Schloss, Barnett, Sachdeva, and
-  Busch]{schloss2019}
-J.~Schloss, P.~Barnett, R.~Sachdeva, and Th. Busch.
-\newblock Controlled creation of three-dimensional vortex structures in
-  {B}ose--{E}instein condensates using artificial magnetic fields, 2019.
 
 \bibitem[{Sinkin} et~al.(2003){Sinkin}, {Holzlohner}, {Zweck}, and
   {Menyuk}]{sinkin2003}
@@ -292,6 +297,23 @@ F.~Dalfovo, S.~Giorgini, L.~P. Pitaevskii, and S.~Stringari.
 \newblock \doi{10.1103/RevModPhys.71.463}.
 \newblock URL \url{http://link.aps.org/doi/10.1103/RevModPhys.71.463}.
 
+\bibitem[Rooney et~al.(2012)Rooney, Blakie, and Bradley]{rooney2012}
+S.~J. Rooney, P.~B. Blakie, and A.~S. Bradley.
+\newblock Stochastic projected gross-pitaevskii equation.
+\newblock \emph{Physical Review A}, 86\penalty0 (5):\penalty0 053634, 2012.
+
+\bibitem[Zaremba et~al.(1999)Zaremba, Nikuni, and Griffin]{zaremba1999}
+E.~Zaremba, T.~Nikuni, and A.~Griffin.
+\newblock Dynamics of trapped bose gases at finite temperatures.
+\newblock \emph{Journal of Low Temperature Physics}, 116\penalty0
+  (3-4):\penalty0 277--345, 1999.
+
+\bibitem[Savage et~al.(2003)Savage, Robins, and Hope]{savage2003}
+C.~M. Savage, N.~P. Robins, and J.~J. Hope.
+\newblock Bose-einstein condensate collapse: A comparison between theory and
+  experiment.
+\newblock \emph{Physical Review A}, 67\penalty0 (1):\penalty0 014304, 2003.
+
 \bibitem[Gross(1961)]{gross1961}
 E.~P. Gross.
 \newblock Structure of a quantized vortex in boson systems.
@@ -449,6 +471,13 @@ P.~Engels, I~Coddington, P.~C. Haljan, V.~Schweikhard, and E.~A. Cornell.
 \newblock \emph{Physical review letters}, 90\penalty0 (17):\penalty0 170405,
   2003.
 
+\bibitem[Guo et~al.(2019)Guo, Dubessy, de~Herve, Kumar, Badr, Perrin,
+  Longchambon, and Perrin]{guo2019}
+Y.~Guo, R.~Dubessy, M.~G. de~Herve, A.~Kumar, T.~Badr, A.~Perrin,
+  L.~Longchambon, and H.~Perrin.
+\newblock Supersonic rotation of a superfluid: a long-lived dynamical ring.
+\newblock \emph{arXiv preprint arXiv:1907.01795}, 2019.
+
 \bibitem[Kumar et~al.(2018)Kumar, Dubessy, Badr, De~Rossi, de~Herve,
   Longchambon, and Perrin]{kumar2018}
 A.~Kumar, R.~Dubessy, T.~Badr, C.~De~Rossi, M.G. de~Herve, L~Longchambon, and
@@ -556,6 +585,17 @@ R.~Bhat.
 A.~Tonomura M.~Peshkin.
 \newblock \emph{The Aharonov--Bohm Effect}, volume 340.
 \newblock Springer-Verlag, 1989.
+
+\bibitem[Niu et~al.(2017)Niu, Chang, Wu, Xiao, and Cheng]{niu2017}
+Q.~Niu, M.~Chang, B.~Wu, D.~Xiao, and R.~Cheng.
+\newblock \emph{Physical Effects of Geometric Phases}.
+\newblock World Scientific, 2017.
+
+\bibitem[Wu et~al.(2005)Wu, Liu, and Niu]{wu2005}
+B.~Wu, J.~Liu, and Q.~Niu.
+\newblock Geometric phase for adiabatic evolutions of general quantum states.
+\newblock \emph{Physical review letters}, 94\penalty0 (14):\penalty0 140402,
+  2005.
 
 \bibitem[Werschnik and Gross(2007)]{werschnik2007}
 J.~Werschnik and E.~K.~U. Gross.
@@ -918,10 +958,6 @@ T.~Besard, C.~Foket, and B.~De~Sutter.
 \newblock \emph{IEEE Transactions on Parallel and Distributed Systems},
   30\penalty0 (4):\penalty0 827--841, 2018.
 
-\bibitem[Schloss and O'riordan()]{docs}
-J.~Schloss and L.~O'riordan.
-\newblock URL \url{https://gpue-group.github.io/}.
-
 \bibitem[Cohen and Tamassia(1991)]{cohen1991}
 R.~F. Cohen and R.~Tamassia.
 \newblock Dynamic expression trees and their applications.
@@ -958,7 +994,7 @@ Y.~Guo, X.~Liu, C.~Xiong, X.~Xu, and C.~Fu.
 J.~Canny.
 \newblock A computational approach to edge detection.
 \newblock \emph{IEEE Transactions on pattern analysis and machine
-  intelligence}, \penalty0 (6):\penalty0 679--698, 1986.
+  intelligence}, 6:\penalty0 679--698, 1986.
 
 \bibitem[Jodra et~al.(2015)Jodra, Gurrutxaga, and Muguerza]{jodra2015}
 J.~L. Jodra, I.~Gurrutxaga, and J.~Muguerza.
@@ -991,6 +1027,16 @@ S.~H. Strogatz.
 \newblock \emph{Nonlinear dynamics and chaos: with applications to physics,
   biology, chemistry, and engineering}.
 \newblock CRC Press, 2018.
+
+\bibitem[Eastman et~al.(2017)Eastman, Hope, and Carvalho]{eastman2017}
+J.~K. Eastman, J.~J. Hope, and A.~R.~R. Carvalho.
+\newblock Tuning quantum measurements to control chaos.
+\newblock \emph{Scientific reports}, 7:\penalty0 44684, 2017.
+
+\bibitem[Eastman et~al.(2019)Eastman, Szigeti, Hope, and Carvalho]{eastman2019}
+J.~K. Eastman, S.~S. Szigeti, J.~J. Hope, and A.~R.~R. Carvalho.
+\newblock Controlling chaos in the quantum regime using adaptive measurements.
+\newblock \emph{Physical Review A}, 99\penalty0 (1):\penalty0 012111, 2019.
 
 \bibitem[Spiegel(1987)]{spiegel1987}
 E.~A. Spiegel.
@@ -1157,9 +1203,10 @@ A.~V. Zampetaki, R.~Carretero-Gonz{\'a}lez, P.~G. Kevrekidis, F.~K. Diakonos,
   bifurcations in atomic {B}ose--{E}instein condensates.
 \newblock \emph{Physical Review E}, 88\penalty0 (4):\penalty0 042914, 2013.
 
-\bibitem[Zhang et~al.()Zhang, Schloss, Thomasen, O'Riordan, Busch, and
-  White]{movie}
-T.~Zhang, J.~Schloss, A.~Thomasen, L.~J. O'Riordan, Th. Busch, and A.~White.
+\bibitem[Zhang et~al.(2019{\natexlab{b}})Zhang, Schloss, Thomasen, O'Riordan,
+  Busch, and White]{movie}
+T.~Zhang, J.~Schloss, A.~Thomasen, L.~J. O'Riordan, Th. Busch, and A.~White,
+  2019{\natexlab{b}}.
 \newblock URL
   \url{https://journals.aps.org/prfluids/abstract/10.1103/PhysRevFluids.4.054701#supplemental}.
 
@@ -1497,6 +1544,33 @@ K.~O. Hill and G.~Meltz.
 \newblock Fiber {B}ragg grating technology fundamentals and overview.
 \newblock \emph{Journal of lightwave technology}, 15\penalty0 (8):\penalty0
   1263--1276, 1997.
+
+\bibitem[Carleo and Troyer(2017)]{carleo2017}
+G.~Carleo and M.~Troyer.
+\newblock Solving the quantum many-body problem with artificial neural
+  networks.
+\newblock \emph{Science}, 355\penalty0 (6325):\penalty0 602--606, 2017.
+
+\bibitem[Carrasquilla and Melko(2017)]{carrasquilla2017}
+J.~Carrasquilla and R.~G. Melko.
+\newblock Machine learning phases of matter.
+\newblock \emph{Nature Physics}, 13\penalty0 (5):\penalty0 431, 2017.
+
+\bibitem[Wigley et~al.(2016)Wigley, Everitt, van~den Hengel, Bastian,
+  Sooriyabandara, McDonald, Hardman, Quinlivan, Manju, Kuhn,
+  et~al.]{wigley2016}
+P.~B. Wigley, P.~J. Everitt, A.~van~den Hengel, J.~W. Bastian, M.~A.
+  Sooriyabandara, G.~D. McDonald, K.~S. Hardman, C.~D. Quinlivan, P.~Manju,
+  C.~C.~N. Kuhn, et~al.
+\newblock Fast machine-learning online optimization of ultra-cold-atom
+  experiments.
+\newblock \emph{Scientific reports}, 6:\penalty0 25890, 2016.
+
+\bibitem[Biamonte et~al.(2017)Biamonte, Wittek, Pancotti, Rebentrost, Wiebe,
+  and Lloyd]{biamonte2017}
+J.~Biamonte, P.~Wittek, N.~Pancotti, P.~Rebentrost, N.~Wiebe, and S.~Lloyd.
+\newblock Quantum machine learning.
+\newblock \emph{Nature}, 549\penalty0 (7671):\penalty0 195, 2017.
 
 \bibitem[Revels et~al.(2018)Revels, Besard, Churavy, De~Sutter, and
   Vielma]{revels2018}

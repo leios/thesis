@@ -2,52 +2,48 @@ This is BibTeX, Version 0.99d (TeX Live 2019/Arch Linux)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Temporary_Thesis.aux
 The style file: unsrtnat.bst
-Reallocated field_info (elt_size=8) to 11160 items from 5000.
+Reallocated field_info (elt_size=8) to 11496 items from 5000.
 Database file #1: Preamble/Thesis_bibliography.bib
-Warning--can't use both volume and number fields in crank1947
 Warning--empty journal in koza1997
-Warning--empty year in docs
-Warning--there's a number but no volume in canny1986
-Warning--empty year in movie
-You've used 220 entries,
+You've used 232 entries,
             2481 wiz_defined-function locations,
-            1792 strings with 42011 characters,
-and the built_in function-call counts, 88374 in all, are:
-= -- 7236
-> -- 4926
-< -- 125
-+ -- 1894
-- -- 1454
-* -- 7370
-:= -- 14357
-add.period$ -- 764
-call.type$ -- 220
-change.case$ -- 415
-chr.to.int$ -- 220
-cite$ -- 225
-duplicate$ -- 4302
-empty$ -- 7948
-format.name$ -- 1776
-if$ -- 18602
-int.to.chr$ -- 1
-int.to.str$ -- 221
-missing$ -- 232
-newline$ -- 1200
-num.names$ -- 660
-pop$ -- 1674
+            1843 strings with 43683 characters,
+and the built_in function-call counts, 93320 in all, are:
+= -- 7598
+> -- 5280
+< -- 127
++ -- 2025
+- -- 1560
+* -- 7815
+:= -- 15196
+add.period$ -- 800
+call.type$ -- 232
+change.case$ -- 438
+chr.to.int$ -- 231
+cite$ -- 233
+duplicate$ -- 4529
+empty$ -- 8367
+format.name$ -- 1898
+if$ -- 19618
+int.to.chr$ -- 2
+int.to.str$ -- 233
+missing$ -- 245
+newline$ -- 1260
+num.names$ -- 696
+pop$ -- 1767
 preamble$ -- 1
-purify$ -- 220
+purify$ -- 232
 quote$ -- 0
-skip$ -- 2475
+skip$ -- 2593
 stack$ -- 0
-substring$ -- 3989
-swap$ -- 624
+substring$ -- 4183
+swap$ -- 649
 text.length$ -- 25
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1477
-warning$ -- 5
-while$ -- 703
+type$ -- 1558
+warning$ -- 1
+while$ -- 739
 width$ -- 0
-write$ -- 3033
-(There were 5 warnings)
+write$ -- 3189
+(There was 1 warning)

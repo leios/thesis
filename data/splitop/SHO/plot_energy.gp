@@ -15,5 +15,5 @@ gse = 5.27e-34
 
 set xlabel 'time (s)'
 
-plot "data/energy.dat" w l lw 3 dt 2 title "real energy, (a)", \
-     "data/energyi.dat" w l lw 3 title "imaginary energy, (b)"
+plot "data/energy.dat" w l lw 3 dt 2 title '$E(t)$, (a)', \
+     "data/energyi.dat" w l lw 3 title '$E(\tau )$, (b)'

@@ -11,9 +11,9 @@ As GPU technology grew, other areas of computational science became increasingly
 Historically, HPC systems were often developed as large, distributed networks of computing nodes intended for CPU-based computation.
 As such, these systems facilitated the development of highly parallel and distributed numerical methods to perform scientific computation.
 
-With new, parallel algorithms being developed for HPC systems and GPU technology advancing rapidly to perform more computation in parallel to satiate the consumer demands for high-quality videos and graphics for video games and other media, it became possible to use the GPU as a scientific computing device as well with a new technique called General Purpose computing on Graphics Processing Units (GPGPU).
+With new, parallel algorithms being developed for HPC systems and GPU technology advancing rapidly to perform more computation in parallel to satiate the consumer demands for high-quality videos and graphics for video games and other media, it became possible to use the GPU as a scientific computing device as well with a new technique called General Purpose computing with Graphics Processing Units (GPGPU).
 Modern HPC design often incorporates the GPU into each computing node, thereby increasing the throughput of the system, overall.
-The fastest known supercomputer today (Summit, ORNL~\cite{kahle2019}), is entirely composed of GPU nodes with NVIDIA Tesla V100 cards (32 GB of available RAM), connected with NVlink and IBM's power architecture.
+The fastest known supercomputer today (Summit, ORNL~\cite{kahle2019}), is entirely composed of GPU nodes with NVIDIA Tesla V100 cards (up to 32 GB of available RAM), connected with NVlink and IBM's power architecture.
 In addition to the utility of GPGPU for scientific computing, GPU technology has also been rapidly developed for AI and related fields.
 
 In this chapter, I will discuss the design methodology for the hardware and software related to GPGPU before proceeding to the development of GPUE, the GPU-based Gross-Pitaevskii Equation solver, which will be used for the remainder of this work.
@@ -34,7 +34,7 @@ Most modern HPC systems are designed to be MIMD (Multiple Instruction, Multiple 
 
 In the realm of data parallelism, there is an extreme case where the data is \textit{embarrassingly parallel}.
 Here, there could be a large matrix of data to manipulate, but no single element depends on any other.
-This means that when distributing computation along this matrix, we can simply assign tasks to each core without considering interactions with the rest of the data set.
+This means that when distributing computation along this matrix, one can simply assign tasks to each core without considering interactions with the rest of the data set.
 In this way, it is embarrassingly easy to parallelize, and hence the term \textit{embarrassingly parallel}.
 As a note, element-wise matrix multiplications are embarrassingly parallel operations; however, FFTs are not~\cite{czechowski2012}.
 As such, the SSFM is not overall embarrassingly parallel; however, because the FFTs are handled by the CuFFT library, programmers do not often need to consider task parallelism at all when developing SSFM code.
@@ -96,13 +96,13 @@ for (int i = 0; i < n; ++i){
 }
 \end{lstlisting}
 
-I will show a simple example where we would like to add two vectors such that $\mathbf{a} + \mathbf{b} = \mathbf{c}$.
+I will show a simple example where I would like to add two vectors such that $\mathbf{a} + \mathbf{b} = \mathbf{c}$.
 This can be done with a simple loop in C, shown in Listing~\ref{lst:vecadd}.
-In this case, we take each element with a specified index in $\mathbf{a}$ and $\mathbf{b}$ and add them to the appropriate index $\mathbf{c}$.
+In this case, each element with a specified index in $\mathbf{a}$ and $\mathbf{b}$ and is added to the appropriate index in $\mathbf{c}$.
 In some parallel programming models (OpenACC~\cite{wienke2012}, OpenMP~\cite{chandra2001}, GPUifyLoops.jl, and many others), parallelization of this method is possible by adding a pragma to the start of the loop to specify that the operation is to be performed in parallel; however, this obscures GPU hardware for the user and does not always have the same performance guarantees~\cite{reyes2012}.
-As such, CUDA takes a slightly different approach by requires software developers to write \textit{kernels}, specific to the computation at hand.
-An example CUDA kernel for vector addition is shown in Listing~\ref{lst:vecaddCUDA}, which has a number of notable differences to the loop in C in Listing~\ref{lst:vecaddCUDA}.
-This kernel is already remarkably different than an expected function on the CPU, and it is worth comparing Listings~\ref{lst:vecadd} and \ref{lst:vecaddCUDA} in detail for a better understanding of GPU hardware.
+As such, CUDA takes a slightly different approach by requiring software developers to write \textit{kernels}, specific to the computation at hand.
+An example CUDA kernel for vector addition is shown in Listing~\ref{lst:vecaddCUDA}, which has a number of notable differences to the loop in Listing~\ref{lst:vecaddCUDA}.
+Because this kernel is remarkably different than an expected function on the CPU, it is worth comparing Listings~\ref{lst:vecadd} and \ref{lst:vecaddCUDA} in detail for a better understanding of GPU hardware.
 
 \begin{lstlisting}[float,label=lst:vecaddCUDA, style=c++,caption=An example of a vector addition kernel in CUDA]
 __global__ void vecAdd(double *a, double *b, double *c){
@@ -121,14 +121,16 @@ A \texttt{\_\_host\_\_} function is exactly the same as a CPU function and can o
 Finally, a \texttt{\_\_device\_\_} function can only be called by other \texttt{\_\_device\_\_} functions or \texttt{\_\_global\_\_} kernels.
 As a note \texttt{\_\_global\_\_} kernels are incapable of returning vectors or other variables, and must instead mutate the variables, themselves.
 This is why the \texttt{\_\_global\_\_} \texttt{vecAdd(...)} kernel does not return $c$, but instead assumes it is a pre-allocated variable.
-All kernels are performed asynchronously, ans special care must be taken for iterative tasks.
+All kernels are performed asynchronously, and special care must be taken for iterative tasks.
+Here, it is also important to note the distinction between the device and host in CUDA.
+It is often much harder to manipulate data on the GPU, specifically because of the communication through the PCIE bus.
 
 Another peculiarity appears on line 6, where the addition, itself, occurs.
 Though there was a necessity for a loop in Listing~\ref{lst:vecadd}, there does not seem to be one at all in Listing~\ref{lst:vecaddCUDA}.
 This is because the GPU is performing this task in parallel and handling the parallelism behind the scenes on line 4 with the \texttt{int id = threadIdx.x} command.
-In this line, we are identifying which element of the array we are operating on with the CUDA-specific \texttt{threadIdx.x} variable.
+In this line, I am identifying which element of the array is being operated on with the CUDA-specific \texttt{threadIdx.x} variable.
 
-Here, each \textit{thread} is an individual instructional element acted on in parallel with other threads in the same \textit{block}, multiple blocks are organized into \textit{grids}.
+Here, each \textit{thread} is an individual instructional element acted on in parallel with other threads in the same \textit{block}, and multiple blocks are organized into \textit{grids}.
 All threads in the same block have a \textit{shared memory} resource, while all three structures have access to \textit{global memory}.
 In general, it is important to use shared memory when possible, as it has a lower latency than global memory, and this will be discussed further in subsequent sections.
 As a note, threads often work without feedback from other threads; moreover, it may be necessary to stop thread execution until all other threads have caught up.
@@ -244,13 +246,13 @@ Notably, the way a block is distributed into warps is always the same, so it is 
 Outside of this, developers can often ignore SIMT behavior as long as they do not allow threads in a warp to have separate operations.
 
 Understanding GPU memory architecture is essential to properly using GPU hardware, and as such, it is worth discussing in-detail.
-There are three forms of GPU memory that are useful for most applications of GPGPU for scientific computation: global memory, shared memory, local memory, and texture memory.
+There are four forms of GPU memory that are useful for most applications of GPGPU for scientific computation: global memory, shared memory, local memory, and texture memory.
 Of these memory types, local memory has the smallest scope and is only available on each individual thread.
 On the other hand, global memory is shared between all grids, blocks, and threads and is considered to be the slowest memory.
 As such, whenever a warp accesses global memory, it tries to perform as few accessing operations as possible, which is made easier if the warp needs to access contiguous memory blocks.
 Essentially, each time a warp needs to access global memory, it tries to read a word of 1, 2, 4, 8, or 16 bytes, and
 if the warp is required to access non-contiguous blocks, more accesses will be necessary and thus performance will take a relatively large hit.
-This is shown in Figure~\ref{fig:coalesce}, where the size of each word is depicted as a grey box on global memory.
+This is shown in Figure~\ref{fig:coalesce}, where the size of each word is depicted as a gray box on global memory.
 If each element is 1 byte, a single word is considered to be 4 bytes, and a transfer of 4 elements is required from global memory, a coalesced memory transfer corresponds to 4 consecutive elements in memory, while a strided memory transfer will not work on consecutive elements.
 In this example, if the stride is 2, an additional access to global memory must be used to transfer the memory, and thus the operation will be half as optimal.
 For this reason, it is important to make sure all data accesses are coalesced, which ensures that the warp will access consecutive elements as depicted in Figure~\ref{fig:threadsnblocks}.
@@ -258,7 +260,7 @@ For this reason, it is important to make sure all data accesses are coalesced, w
 \begin{figure}
 \includegraphics[width=\textwidth]{data/gpu/coalesce/check.pdf}
 \caption{An example of a coalesced and strided memory transfer.
-In this figure, each element is 1 byte and a single word consists of 4 bytes (grey box).
+In this figure, each element is 1 byte and a single word consists of 4 bytes (Gray box).
 If 4 elements are required to be transferred (green boxes), a coalesced accessing patters will access 4 consecutive elements, while a strided one will not.
 In this case, the strided memory access pattern requires an additional transfer and will thus be less optimal.
 In this figure, worker threads are seen as blue arrows.
@@ -279,25 +281,27 @@ Texture memory has a relatively long write time, but is quick to read.
 It is also faster than global memory for non-coalesced access patterns and therefore can be useful for certain tasks with slowly varying operators.
 In principle, this is the case for the momentum-space operator in the SSFM; however, because texture memory uses single-precision, it will not be used further in this work.
 
-In addition to appropriate usage of memory on GPU architecture, it is also essential to minimize data transfers between the device and host and even between devices in multi-GPU setups or perform these transfers asynchronously.
+In addition GPU memory considerations, it is also essential to minimize data transfers between the device and host and between devices in multi-GPU setups.
 The data transfer between the host and device or between devices must send data through the PCIE slot on the motherboard, which is a slow operation.
 For data transfer between devices, this transfer time can be slightly alleviated on Power architecture where NVlink technology can directly transfer data from device to device~\cite{foley2017}, but the data transfer between devices will still likely be the slowest part of the computation.
-In addition, CUDA-aware MPI for multi-GPU setups may greatly increase software development time~\cite{lonvcar2016, wang2013}.
+Though CUDA-aware MPI for multi-GPU setups functions can be used, the development of this API is still in its early stages, and using such functionality may greatly increase software development time~\cite{lonvcar2016, wang2013}.
 As such, developers often try to keep all of their computation on a single card, if possible, and several optimization strategies are used when multiple GPU cards are needed.
 These strategies will be covered on a case-by-case basis as they arise in this work.
+The easiest way to mitigate the amount of time spent transfering data is to perform these transfers asynchronously; however, even in this case, transfer time will likely affect the runtime of the program.
 
 As a final note, one optimization strategy for CUDA code that will not be discussed in-depth in this work is the maximization of instruction throughput.
 The simplest optimizations here involve increasing the number of instructions performed over a specified period by trading precision for speed and minimizing thread synchronization.
-Because we are performing high-precision superfluid simulations, we cannot perform a trade-off between precision and computational speed.
-When optimizing the instruction throughput for GPU devices, it is important to discuss conditionals, like \texttt{if} and \texttt{switch} statements.
-Here, programmers need to be careful not to accidentally cause the operation executed on threads in a warp to diverge.
+Because this work involves high-precision superfluid simulations, a trade-off between precision and computational speed cannot be performed.
+In addition, when optimizing the instruction throughput for GPU devices, it is important to discuss conditionals, like \texttt{if} and \texttt{switch} statements.
+Here, programmers need to be careful not to accidentally cause the operation executed on threads in a warp to diverge, and special care has been taken to ensure this is not the case with GPUE.
+
 
 \subsection{Comparison between various languages for GPGPU computation}
 \label{sec:compare}
 
 As one might expect, specialized programming languages are necessary to write code that compiles and runs on GPU architecture.
-There are several known libraries to extend modern programming languages such as Matlab, Python, and C++ to GPU devices; however, we will limit this discussion to common programming methods that allow fine-grained control of GPU memory and could be used for the development of GPUE.
-We will briefly discuss the advantages and disadvantages of three competing languages considered here: CUDA, OpenCL, and Julia, and as a simple example, vector addition in these languages is shown in  Appendix~\ref{app:GPU}.
+There are several known libraries to extend modern programming languages such as Matlab, Python, and C++ to GPU devices; however, I will limit this discussion to common programming methods that allow fine-grained control of GPU memory and could be used for the development of GPUE.
+We will briefly discuss the advantages and disadvantages of three competing languages considered here: CUDA, OpenCL, and Julia-GPU, and as a simple example, vector addition in these languages is shown in  Appendix~\ref{app:GPU}.
 
 \subsubsection{CUDA}
 CUDA is a computing API provided by NVIDIA for interfacing with NVIDIA GPUs and is the industry standard for GPGPU programming.
@@ -325,9 +329,9 @@ In addition, Julia's runtime is comparable to CUDA C for GPGPU computation and a
 This is an important point that will be discussed in more detail in Section~\ref{sec:expr_trees}.
 
 In addition, because Julia is much easier to write than C for new programmers, GPU-based Julia code could allow developers to provide fast, efficient code with a usable interface for scientists and engineers.
-The trade off between performance and readability in programming has been described as the ``two-language'' problem, as most scientific computing solutions to this point have required using two languages: a fast language for the back-end and a readable language for the user interface.
+The trade off between performance and readability in programming has been described as the ``two-language'' problem, as most scientific computing solutions require using two languages: a fast language for the back-end and a readable language for the user interface.
 Julia succeeds in bridging the gap between the languages, effectively solving the two-language problem and allowing scientists and engineers to write efficient code that is also compilable on the GPU.
-For these reasons, we have begun porting our CUDA code to Julia, as it will lead to simpler and more maintainable code in the future.
+For these reasons, we have begun porting our CUDA code to Julia-GPU, as it will lead to simpler and more maintainable code in the future.
 This will be further discussed in the outlook of this work, Chapter~\ref{ch:conclusion}.
 In Chapters~\ref{ch:2d} and \ref{ch:vortex_states}, I will also introduce systems that could benefit from a Julia interface.
 
@@ -338,24 +342,24 @@ At this point, all the motivation and background necessary has been provided to 
 This codebase will be used for all remaining simulations performed in this work and its development has also inspired the development of other computational libraries such as the \texttt{DistributedTranspose.jl} package, which will also be discussed in Section~\ref{sec:DT}.
 Some additional information on prior development of GPUE can be found in other sources~\cite{o2017}.
 The GPUE codebase was published in the \textit{Journal of Open Source Software} in 2018~\cite{schloss2018} and
-was originally designed by Lee J. O'Riordan with the capability of simulating large-scale Abrikosov lattices in two-dimensional superfluid BECs~\ref{o2017, o2016, o2016topo}.
-My focus with GPUE development has been to simulate three-dimensional systems and optimize the software for dynamic studies on GPU hardware.
+was originally designed by Lee J. O'Riordan with the capability of simulating large-scale Abrikosov lattices in two-dimensional superfluid BECs~\cite{o2017, o2016, o2016topo}.
+My focus with GPUE development has been with the simulation of three-dimensional systems and optimization of the software for dynamic studies on GPU hardware.
 For this section, I will first describe the FFT optimizations used in GPUE for three-dimensional simulations, followed by additional features necessary for dynamic simulations on GPU architecture.
 
 \subsection{FFT optimization}
 
 As mentioned in Chapter~\ref{ch:splitop} and previously in this chapter, the SSFM is primarily limited by the complexity of the FFT operations.
-For a three dimensional simulation with gauge fields in the $\hat x$, $\hat y$, and $\hat z$ directions, one set of global FFTs and three sets of one-dimensional FFTs must be performed.
+For a three-dimensional simulation with gauge fields in the $\hat x$, $\hat y$, and $\hat z$ directions, one set of global FFTs and three sets of one-dimensional FFTs must be performed.
 This is equivalent to two three-dimensional FFT operations, which become much more undesirable when scaling to multiple GPU devices~\cite{czechowski2012}.
-The CuFFT API provides an option for computing FFT's on separate batches of an array in GPU memory with the \texttt{cufftPlanMany(...)} command; however, if this command is repurposed for one-dimensional FFT operations, it does not provide the necessary functionality for FFTs across the $\hat y$ or $\hat z$ dimensions.
-With the CuFFT library, all FFT operations performed with this plan must follow an indexing pattern, such that 
+The CuFFT API provides an option for computing FFT's on separate batches of an array in GPU memory with the \texttt{cufftPlanMany(...)} command; however, if this command is repurposed for one-dimensional FFT operations, it does not provide the necessary functionality for FFTs across the $\hat y$ or $\hat z$ dimensions for gauge field simulation.
+With the CuFFT library, all FFT operations performed with the \texttt{cufftPlanMany(...)} plan must follow an indexing pattern, such that 
 
 \begin{lstlisting}
 input[b*idist + x*istride]
 output[b*odist + x*ostride]
 \end{lstlisting}
 
-\noindent where \texttt{b} is the batch ID, \texttt{x} is the element ID, \texttt{idist} and \texttt{odist} are the distances between batches for the input and output array, respectively, and \texttt{istride} and \texttt{ostride} are the strides between consecutive elements for computation with the input and output array, respectively.
+\noindent where \texttt{b} is the batch index, \texttt{x} is the element index, \texttt{idist} and \texttt{odist} are the distances between batches for the input and output array, respectively, and \texttt{istride} and \texttt{ostride} are the strides between consecutive elements for computation with the input and output array, respectively.
 On the other hand, if data is transferred to the GPU, it is often re-indexed as a one-dimensional array, such that
 
 \begin{lstlisting}
@@ -363,8 +367,8 @@ array[i,j,k] = array[i + j*xDim + k*xDim*yDim]
 \end{lstlisting}
 
 \noindent where \texttt{i}, \texttt{j}, and \texttt{k} are iterable variables in the $\hat x$, $\hat y$, and $\hat z$ directions, and \texttt{xDim}, \texttt{yDim}, and \texttt{zDim} are the dimensions in $\hat x$, $\hat y$, and $\hat z$, respectively.
-As such, it is not possible to use the \texttt{cufftPlanMany} functionality to perform one-dimensional FFTs in $\hat y$ and $\hat z$; however, if we increase the number of batches to \texttt{yDim*zDim}, set the distance between each stride to 1, and assume the stride between each element is \texttt{xDim*yDim}, we can recreate the functionality of the FFT in the $\hat z$ direction.
-For the $\hat y$ FFT operations, we need an external loop that iterates over each $xy$ slab, performing \texttt{xDim} operations on each slab, and this greatly hampers performance.
+As such, it is not possible to use the \texttt{cufftPlanMany} functionality to perform one-dimensional FFTs in $\hat y$ and $\hat z$; however, if one increases the number of batches to \texttt{yDim*zDim}, set the distance between each stride to 1, and assume the stride between each element is \texttt{xDim*yDim}, one can recreate the functionality of the FFT in the $\hat z$ direction.
+For the $\hat y$ FFT operations, one needs an external loop that iterates over each $xy$ slab, performing \texttt{xDim} operations on each slab, and this greatly hampers performance.
 This is depicted in Figure~\ref{fig:FFTopt} for a $2\times 2\times 2$ grid.
 
 \begin{figure}
@@ -383,8 +387,9 @@ This figure can be found in the GPUE documentation~\cite{docs}.
 \label{fig:FFTopt}
 \end{figure}
 
-With this considered, only one-third of the necessary FFT operations are appropriately coalesced in memory for three dimensional simulations.
+With this considered, only one-third of the necessary FFT operations are appropriately coalesced in memory for three-dimensional simulations.
 Because FFTs are global operations that are best performed on contiguous chunks of memory, multi-GPU simulations with the SSFM are even less optimal.
+In addition, the \texttt{cufftPlanMany(...)} functionality does not exist in the CUDA multi-GPU API.
 This has motivated the development of other packages to allow for memory coalescence with FFT operations, such as the distributed transpose, which will be described in Section~\ref{sec:DT}.
 Even though the three-dimensional FFT operations are the biggest bottleneck in the GPUE codebase, it is not easy to avoid usage of the \texttt{cufftPlanMany(...)} operation while still using CUDA.
 This is why optimizations to GPUE FFT operations will be performed exclusively in GPUE.jl.
@@ -396,7 +401,8 @@ Next, I will focus on another feature that was inhibited by the CUDA framework, 
 As mentioned in Chapter~\ref{ch:1d}, quantum state engineering typically requires some form of time-dependent variables, along with evolution in real time.
 This means that the user must be able to input a time-dependent equation to GPUE, often for $V(t)$, $g(t)$, or $\mathbf{A}(t)$.
 Because GPUE is written in C/C++ and CUDA, there is no straightforward method for the user to input time-dependent fields without recompiling the source code and modifying CUDA kernels at will, which is unnecessarily cumbersome for the user.
-As such, we have provided a method for users to input the fields of their choosing as strings, which will be compiled into a set of operations to perform on the GPU through expression trees, which are similar to Abstract Syntax Trees (ASTs) in compiler design~\cite{cohen1991, reyes2011}.
+As such, a method for users to input the fields of their choosing as strings has also been provided.
+These strings will be compiled into a set of operations to perform on the GPU through expression trees, which are similar to Abstract Syntax Trees (ASTs) in compiler design~\cite{cohen1991, reyes2011}.
 
 \begin{figure}
 \center \input{data/gpu/expression/expression.tex}
@@ -413,17 +419,17 @@ With this method, a user can type in a string, like \texttt{"V = m*omega*omega*x
 After parsing user-provided equations, certain leaf nodes are designated as either spatially or temporally dynamic.
 In the case of spatially dynamic variables (\texttt{x}, \texttt{y}, and \texttt{z}), values are taken from constituent vectors based on their \texttt{threadIdx.xyz} values, and for any equation that is dependent on \texttt{t}, a stored \texttt{time} variable is used.
 This operation necessitates the usage of a dictionary data structure to hold all variables on the host in some fashion, which inhibits host performance; however, because the bulk of the computation is performed on the GPU, this does not significantly impact GPUE performance, overall.
-On the GPU, each necessary variable can be stored in a shared memory buffer, and even though we are replacing the embarrassingly parallel element-wise matrix multiplications with these expression trees, the performance is not severely impacted; however,
-because parsing expression trees na\"ively is an iterative process, the longer the expression, the less optimal using this method is.
+On the GPU, each necessary variable can be stored in a shared memory buffer, and even though the embarrassingly parallel element-wise matrix multiplications are being replaced with these expression trees, the performance is not severely impacted; however,
+because parsing expression trees na\"ively is a recursive or iterative process, the longer the expression, the less optimal using this method is.
 There are ways to use task parallelism when parsing expression trees to allow for greater efficiency; however, because a new expression tree must be parsed for every element in the wavefunction array, adding an additional layer of task parallelism is not straightforward.
 Ultimately, more work could be done in the future to maximize instruction throughput with our implementation of GPU-accelerated expression trees.
 
 Not only do expression trees allow for STA and quantum optimal control methods to be used with GPUE, but they also eliminate the need to store any operators in GPU memory, effectively increasing the available memory by a factor of 5 for each three-dimensional simulation, as $V$, $K$, $A_x$, $A_y$, and $A_z$ no longer need to be stored.
-This allows one to perform higher-resolution simulations and could allow for dynamical turbulence studies in the future; however, in order to scale beyond this limit, either multiple GPUs must be used or we must find some way to compress the wavefuntion.
+This allows one to perform higher-resolution simulations and could allow for dynamical turbulence studies in the future; however, in order to scale beyond this limit, either multiple GPUs must be used or one must find some way to compress the wavefuntion.
 This will be discussed further in Section~\ref{sec:multiGPU}.
-As a final note, this feature can be implemented easier in other GPU frameworks, such as OpenCL and Julia.
+As a final note, dynamic equation parsing can be implemented easier in other GPU frameworks, such as OpenCL and Julia.
 
-The implementation of expression trees in GPUE effectively decreases the memory footprint of our simulations and allows for dynamical studies on the GPU; however, dynamical studies also require a large amount of file input and output.
+As mentioned, the implementation of expression trees in GPUE effectively decreases the memory footprint of our simulations and allows for dynamical studies on the GPU; however, dynamical studies also require a large amount of file input and output.
 Next, I will briefly discuss efforts to curtail the memory and storage footprint of GPUE simulations.
 
 \subsection{GPUE memory footprint}
@@ -442,7 +448,7 @@ After attempting to use this method with GPUE, it was found to be unsuitable for
 
 In addition to this, an octree-based grid reduction scheme has been considered for two and three-dimensional simulations with the SSFM.
 This method creates an octree grid based on the Sobel filter of the density with the intent of creating a higher-resolution simulation at locations where the condensate density fluctuates.
-Further discussion of this system can be found in the Conclusion~\ref{ch:conclusion}.
+Further discussion of this system can be found in the outlook of this work, Chapter~\ref{ch:conclusion}.
 
 \subsection{Vortex tracking and highlighting}
 \label{sec:tracking}
@@ -451,7 +457,7 @@ In order to analyze the motion of vortices in a superfluid system, some form of 
 It is important to describe two dimensional vortex-tracking first before continuing to three-dimensional vortex analysis, which is a much more complicated process.
 
 At a first glance, one might assume that vortices are located at areas of low density in a superfluid system; however, this is not always the case.
-Because a condensate simulated with GPUE is often inhomogeneously trapped and does not necessarily extend to the edges of the simulated domain, there will be large areas of zero density outside our condensate.
+Because a condensate simulated with GPUE is often inhomogeneously trapped and does not necessarily extend to the edges of the simulated domain, there might be large areas of zero density outside the condensate.
 In addition, sound waves and other perturbations with minimal density can occur.
 As such, locations of low density should only be used as educated guesses as to where actual vortices are located, but should not be used as the final predictor.
 
@@ -466,7 +472,7 @@ This image can be found in the GPUE documentation~\cite{docs}.
 
 Instead, the phase can be used to uniquely identify vortex locations, as shown in Figure~\ref{fig:phase_track}.
 In the highlighted region, all elements sum to a value of $2\pi$.
-In this way, vortex tracking essentially transforms into the task of locating all the $2\pi$ phase windings in the simulated domain via minimization routines where we attempt to find any four grid elements whose sum is $2\pi$.
+In this way, vortex tracking essentially transforms into the task of locating all the $2\pi$ phase windings in the simulated domain via minimization routines where one attempts to find any four grid elements whose sum is $2\pi$.
 This process also necessitates a mask for regions outside of the BEC domain, as these regions create spurious $2\pi$ phase windings because of the density is roughly zero outside of the condensate region. 
 Further discussion on how to refine this position can be found in previous work~\cite{o2017, docs}.
 
@@ -475,9 +481,9 @@ Tracking three-dimensional vortices is a much more difficult problem which does 
 The current state-of-the-art solution has been proposed by Villois \textit{et al.}~\cite{villois2016}, and requires finding density dips in the superfluid as initial guesses as to where a vortices might exist.
 From there, a vorticity plane is determined and the entire vortex is discovered by moving perpendicularly to the vorticity plane at each gridpoint.
 This is a tedious and time-consuming process that does not lend itself well to GPGPU computation without communication between the host and device.
-Because some systems simulated with GPUE do not fill the contents of our simulation domain, the proposed method will not work without some modification.
-This method could still be used if one has some understanding of the trapping geometry to mask out regions beyond the condensate density; however, as we discussed in Chapter~\ref{ch:splitop}, this is not always the case with gauge fields.
-As such, we are currently seeking a more computationally efficient method for tracking vortices in three dimensions, and some thoughts on how this could be done can be found in the Conclusion~\ref{ch:conclusion}.
+Because some systems simulated with GPUE do not fill the contents of our simulation domain, the Villois \textit{et al.} method will not work without some modification.
+This method could still be used if one has some understanding of the trapping geometry to mask out regions beyond the condensate density; however, as I discussed in Chapter~\ref{ch:splitop}, this is not always the case with gauge fields.
+As such, we are currently seeking a more computationally efficient method for tracking vortices in three dimensions, and some thoughts on how this could be done can be found in the outlook of this work, Chapter~\ref{ch:conclusion}.
 
 \begin{figure}
 \center \includegraphics[width=0.75\textwidth]{data/gpu/vortex_highlighting/all.png}
@@ -486,7 +492,7 @@ An example of vortex highlighting with a Sobel filter.
 The upper left quadrant is the superfluid density with no modifications and the upper right quadrant is an isosurface of the density with an opacity of 0.6.
 Note here that if there is no opacity set, it is not possible to see the vortex because it is obscured by the outside boundary of the BEC.
 The lower right quadrant is the superfluid density after Sobel filtering and the bottom left quadrant is an isosuface on the Sobel filtered density.
-Here, we can easily create isosurfaces of vortices that would be occluded when using the density, alone.
+Here, one can easily create isosurfaces of vortices that would be occluded when using the density, alone.
 The scale varies depending on whether it is coloring the normalized wavefunction density or the filtered density.
 }
 \label{fig:highlight}
@@ -495,10 +501,10 @@ The scale varies depending on whether it is coloring the normalized wavefunction
 For these reasons, instead of focusing on vortex \textit{tracking}, I have instead implemented a simple vortex \textit{highlighting} scheme for three dimensions.
 This can be done with a Sobel filter on the condensate density, and can easily create crisp visualizations like those found in the computer graphics literature~\cite{guo2018}.
 An example of a vortex highlighted wavefunction density, along with an isosurface of both the density and the highlighted density can be seen in Figure~\ref{fig:highlight}.
-In this figure, we show that the density after being Sobel filtered can be more easily used to isolate vortex structures without the background BEC.
+In this figure, I show that the density after being Sobel filtered can be more easily used to isolate vortex structures without the background BEC.
 Though it would be possible to use further edge detection methods, such as the Canny edge detector~\cite{canny1986}, this would add a significant computational overhead and thus was not implemented in the current work.
 The problem of efficiently tracking vortex skeletons in three-dimensions is a difficult problem that requires further study; however, vortex highlighting is enough for most three dimensional vortex simulations.
-In Chapter~\ref{ch:vortex_states}, we show and example simulation where vortex highlighting has been used to determine the vortex isosurfaces.
+In Chapter~\ref{ch:vortex_states}, I show and example simulation where vortex highlighting has been used to determine the vortex isosurfaces.
 
 \subsection{Energy calculation for superfluid simulations}
 
@@ -517,7 +523,6 @@ For this, the user must be able to estimate the duration of their simulation, an
 \noindent The first and second of these are somewhat self-explanatory, but the third requires further elucidation.
 
 Energy calculations in GPUE are essentially composed of the following operation,
-
 \begin{equation}
 E = \braket{\Psi|\mathcal{\hat H}|\Psi}
 \end{equation}
@@ -526,11 +531,10 @@ E = \braket{\Psi|\mathcal{\hat H}|\Psi}
 Even though a robust implementation of parallel reduction has exists in GPUE, this is still a slow process.
 The next problem comes from the nature of the Hamiltonian, itself.
 As described in Chapter~\ref{ch:splitop}, the Hamiltonian is essentially composed of three separate components for vortex simulations:
-
 \begin{align}
 \mathcal{\hat H}_v &= V_0 + g|\Psi|^2 + \frac{m\mathbf{A}^2}{2} \\
 \mathcal{\hat H}_p &= \frac{p^2}{2m} \\
-\mathcal{\hat H}_{pv} &= p\mathbf{A}
+\mathcal{\hat H}_{pv} &= -\frac{p\mathbf{A} + \mathbf{A}p}{2}
 \end{align}
 
 \noindent where $\mathcal{\hat H}_v$, $\mathcal{\hat H}_p$, and $\mathcal{\hat H}_{pv}$ are the Hamiltonians in position-space, momentum-space, and mixed-space, respectively.
@@ -547,19 +551,19 @@ Even so, for most applications of GPUE on HPC environments, there should be no p
 
 At this point, I would consider GPUE to be close to feature-complete.
 It is capable of simulating a wide-variety of quantum systems and can even perform dynamic quantum engineering studies with minimal file input and output.
-Though more work can be done to maximize instruction throughput, this will not significantly improve the performance of the code because it relies heavily on double-precision.
+Though more work can be done to maximize instruction throughput, this will not significantly improve the performance of the software because it relies heavily on double-precision.
 
 The next logical step for GPUE development is scaling to larger simulations.
-This means that we either need to increase the number of GPUs used for the simulation or decrease the size of the wavefunction, itself.
+This means that one either needs to increase the number of GPUs used for the simulation or decrease the size of the wavefunction, itself.
 Though the CSSFM method~\cite{bayindir2015} should allow for the latter, it was ultimately found unsuitable for general-purpose simulations.
 As such, the next logical progression is to scale GPUE to multiple GPU devices; however, as I hope to have impressed by now, this is not a trivial task.
-Even though the CuFFT library can support multiple GPU devices, this comes with a huge performance penalty because it lacks an in-built, distributed transpose.
-In addition, the \texttt{cufftPlanMany(...)} functionality is unavailble on multiple GPU systems.
+Even though the CuFFT library can support multiple GPU devices, this comes with a huge performance penalty because it is still a global operation requiring data transfer between GPU devices.
+In addition, the \texttt{cufftPlanMany(...)} functionality is unavailable on multiple GPU systems.
 To scale to multiple GPU devices efficiently, while still using the SSFM, a large-scale, in-place, multi-GPU transpose is required to ensure proper memory coalescence for FFT routines, which eliminates the need for \texttt{cufftPlanMany(...)} in GPUE.
 A transpose of this nature is performed at some step with the CuFFT library; however, unlike FFTW, this step is not outward facing and cannot be controlled by the user.
-In addition, the CuFFT library does not allow proper control over the threads designated in each grid when performing largescale allocations of data on multi-GPU memory.
+In addition, the CuFFT library does not allow proper control over the threads designated in each grid when performing large-scale allocations of data on multi-GPU memory.
 
-In other languages, like Julia, provide more robust features for distributed GPU computation, and 
+Other languages, like Julia, provide more robust features for distributed GPU computation, and 
 for this reason, development of GPUE.jl has begun.
 Currently, GPUE.jl has similar performance to GPUE, but is currently lacking the expression tree functionality.
 Once GPUE.jl is at feature parity with GPUE, it will become the primary software package for future development.
@@ -569,10 +573,10 @@ In addition to this, Julia allows for more modular development of certain featur
 \section{DistributedTranspose.jl}
 \label{sec:DT}
 
-At its heart, the two-dimensional transpose is a straightforward operation consisting of a swapping of all row and column elements.
+At its heart, the two-dimensional transpose is a straightforward operation consisting of a swap of all row and column elements.
 Unsurprisingly, this is a difficult task to ensure memory coalescence, but
-it is possible to perform a two-dimensional transpose at the same performance as a simple copy, so long as the operation is out-of-place in memory, the operation is performed on shared memory tiles, and bank conflicts are avoided by padding the data structure being transposed~\cite{harris2013}
-The transpose becomes even more difficult to create when we wish to transpose large three-dimensional matrices, potentially spanning across multiple GPU devices, while also ensuring the operation is in-place in memory.
+it is possible to perform a two-dimensional transpose at the same performance as a simple copy, so long as the operation is out-of-place in memory, the operation is performed on shared memory tiles, and bank conflicts are avoided by padding the data structure being transposed~\cite{harris2013}.
+The transpose becomes even more difficult to create when one wishes to transpose large three-dimensional matrices, potentially spanning across multiple GPU devices, while also ensuring the operation is in-place in memory.
 
 In principle, there are three types of three-dimensional transposes:
 
@@ -595,25 +599,25 @@ In principle, there are three types of three-dimensional transposes:
 \end{description}
 
 It has been shown that for out-of-place transpositions, it is possible to perform all of these operations as efficiently as a a simple copy; however, in-place rotational transposes can only attain 60-70\% of the performance based on currently known methods~\cite{jodra2015, el2008}.
-In addition, distributed transposes of this nature have not been discussed except for on an out-of-place array~\cite{ruetsch2013}.
+In addition, distributed transposes of this nature on GPU devices are most often implemented for an out-of-place operations~\cite{ruetsch2013}.
 
 At its current state, the DistributedTranspose.jl package is able to do out-of-place, distributed transposes; however, when feature-complete, it should allow for the implementation of new distributed methods for such computation.
 It should be mentioned that this package has potential to be used by many other software packages that require using spectral methods on multiple GPU devices.
-Often, HPC engineers prefer finite-element or difference methods when computing large-scale fluid flow because these methods scale much better across distributed systems; however, with an appropriate distributed transpose methods, it might be more optimal to perform spectral and pseudo-spectral simulations in certain regimes over other methods.
+With an appropriate distributed transpose methods, it might be more optimal to perform spectral and pseudo-spectral simulations in certain regimes over other methods.
 
 \section{Outlook}
 
 In this chapter, I presented the fundamentals of GPGPU, along with the GPUE codebase for simulating superfluid vortex systems.
 It is important to note that GPU architecture is best at embarrassingly parallel tasks, and as such, the SSFM is severely limited by its FFT routines; however, because one-dimensional FFT operations on GPU devices are often faster for larger matrix sizes than their CPU-based counter-parts~\cite{merz2016}, it seems that the SSFM is better suited for GPU architecture.
-In this chapter, I also discussed important optimizations done in GPUE to ensure proper utilization of GPU architecture for dynamic simulations of dynamic superfluid vortex simulations in two and three dimensions, including expression trees, FFT optimizations, vortex tracking and highlighting, methods used to decrease GPUE's storage footprint, and GPUE.jl.
+In this chapter, I also discussed important optimizations done in GPUE to ensure proper utilization of GPU architecture for dynamic simulations of superfluid vortex simulations in two and three dimensions, including expression trees, FFT optimizations, vortex tracking and highlighting, methods used to decrease GPUE's storage footprint, and GPUE.jl.
 Finally, I discussed the future development of the DistributedTranspose.jl package, which should allow for large-scale spectral methods to be suitable for distributed GPU systems, often found in HPC environments.
-Though not mentioned here, GPUE has also been extended for multicomponent simulations, and there is a wide variety of physical systems that can be simulated with this feature, some of which will be mentioned in the Conclusion~\ref{ch:conclusion}.
+Though not mentioned here, GPUE has also been extended for multicomponent simulations, and there is a wide variety of physical systems that can be simulated with this feature, some of which will be mentioned in the outlook of this work, Chapter~\ref{ch:conclusion}.
 
-A really interesting question involved scaling GPUE to become a more general-purposes quantum simulator, similar to XMDS~\cite{dennis2013}.
+An interesting question involves scaling GPUE to become a more general-purposes quantum simulator, similar to XMDS~\cite{dennis2013}.
 In comparison to XMDS, GPUE uses the pseudo-spectral SSFM method, while XMDS uses a variety of methods, depending on the task at-hand, primarily relying on interaction-picture methods, such as RK4IP~\cite{murray2011}.
 In addition, the XMDS user interface is entirely in XML, which is slightly more cumbersome to the user, but much easier for development.
 If GPUE is to scale and become a broader, general-purpose library beyond the GPE and Schr\"odinger equation, more work has to be done to extend the current framework.
 As an important note, even though future development for GPUE.jl will be in Julia, the GPUE codebase has been written to minimize the amount of code users will see when simulating superfluid BEC systems.
-As such, transitioning to Julia will not radically change the user-interface for GPUE, but will instead serve as a way for developers to write more maintainable code for largescale, multi-GPU simulations in the future.
+As such, transitioning to Julia will not radically change the user-interface for GPUE, but will instead serve as a way for developers to write more maintainable code for large-scale, multi-GPU simulations in the future.
 In addition, GPUE.jl will become a useful tool for users who wish to perform post-processing metrics in the same environment as GPUE, itself, potentially eliminating some file output.
 For Chapters~\ref{ch:2d} and \ref{ch:vortex_states}, I will discuss two physical examples that were enabled by the GPUE codebase, also highlighting future physical directions and re-enforcing the future directions discussed here.

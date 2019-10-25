@@ -8,16 +8,16 @@ For these reasons, General-Purpose GPU (GPGPU) programming methods have become m
 Though GPU devices are often faster than their CPU counterparts for simple tasks, there are plenty of drawbacks to using the GPU.
 For example, each GPU card typically has less available memory than the CPU, and inter-GPU or GPU-CPU communication is an incredibly slow process, thereby encouraging developers to restrict communication between devices as much as possible.
 In comparison to CPU software, developers need to be more aware of how GPU memory is being used to write optimized code for their specific purpose.
-In addition, individual GPU computing cores are weaker than those found on the CPU, so iterative tasks are even less optimal and should be avoided when programming for GPUs.
+In addition, individual GPU computing cores are weaker than those found on the CPU, so iterative or recursive tasks are even less optimal and should be avoided when programming for GPUs.
 
 Spectral and pseudo-spectral methods are interesting subsets of problems that are used for large-scale, distributed computation on HPC environments that rely on FFTs (Fast Fourier Transforms) to solve partial differential equations of various forms.
 Though there are robust FFT libraries, like FFTW~\cite{frigo1998} to perform distributed FFTs~\cite{popovici2018}, FFTs are still global operations, often requiring memory manipulation on multiple nodes simultaneously and requiring communication between them.
 For this reason, the FFT is often the computational bottleneck for many spectral and pseudo-spectral methods.
 It is difficult to directly benchmark GPU and CPU software, but it is generally accepted that one-dimensional GPU-based FFTs perform more optimally as the grid size increases; however, for higher-dimensional FFT operations, this performance increase is not as drastic~\cite{merz2016}.
 This leads to an interesting question about whether spectral methods could be faster on distributed networks of GPU devices, as the bulk of the parallelization occurs in a single device and should be faster than a distributed CPU network.
-In this work, I will focus on a particar pseudo-spectral method known as the Split-Step Fourier Method (SSFM)~\cite{agrawal2000}.
+In this work, I will focus on a particular pseudo-spectral method known as the Split-Step Fourier Method (SSFM)~\cite{agrawal2000}.
 
-The SSFM is known as the primary workhorse for computation of wavepackets in single and multi-mode fiber optic systems and is primarily intended to solve the Non-linear Schr\"odinger equation, which has obvious applications in many areas of quantum simulation.
+The SSFM is known as the primary workhorse for computation of wavepackets in single and multi-mode fiber optic systems and is primarily intended to solve the non-linear Schr\"odinger equation, which has obvious applications in many areas of quantum simulation.
 In particular, the SSFM can be used to solve the Gross-Pitaevskii equation, which is the governing formula for all dynamics of superfluid Bose--Einstein condensates in the mean-field limit.
 Superfluid systems behave fundamentally differently than classical fluids and there is significant interest in many areas of superfluid research, including methods of vortex generation and their interaction; however, three-dimensional simulations can quickly become computational infeasible.
 For this reason, it is worth exploring and developing GPU-based libraries for the computation of superfluid dynamics.
@@ -27,24 +27,24 @@ The structure of my thesis is as follows:
 \subsection*{Introduction to the SSFM for vortex simulations}
 
 I will begin with an introduction to the SSFM, along with the physical target for most of this work: superfluid vortex simulations.
-As such, it will also discuss methods of vortex generation, including rotation, phase imprinting, and gauge fields, along with modifications to the Gross--Pitaevskii equation for simulating rotating and multi-component systems.
+As such, this chapter will also discuss methods of vortex generation, including rotation, phase imprinting, and gauge fields, along with modifications to the Gross--Pitaevskii equation for simulating these systems.
 This chapter lays the groundwork for all subsequent chapters.
 
-\subsection*{Quantum engineering for one-dimensional quantum systems}
+\subsection*{Engineering NOON states in one-dimensional quantum gases}
 
-This chapter will discuss several settings that are difficult to simulate on GPU architecture, focusing on methods of quantum engineering for a one-dimensional example where macroscopic superposition states are generated in a Tonks--Girardeau gas.
+This chapter will discuss several settings that are difficult to simulate on GPU architecture, focusing on methods of quantum engineering for a one-dimensional example where macroscopic superposition states, like the maximally entangled $\ket{N,0} + \ket{0,N}$ (NOON) state, are generated in a Tonks--Girardeau gas.
 In addition, this chapter will highlight methods in quantum optimal control and shortcuts to adiabaticity that will serve as examples of quantum engineering methods that are difficult to perform on GPU architecture.
 This work has been published in the New Journal of Physics \textbf{18}(3):035012, 2016~\cite{schloss2016}.
 
 
 \subsection*{Introduction to GPGPU and the GPUE codebase}
 
-This chapter will introduce the concept of General-Purpose GPU computing and the GPUE (GPU-based Gross-Piteavskii Equation solver) codebase for superfluid vortex simulation.
+This chapter will introduce the concept of GPGPU and the GPUE (GPU-based Gross-Piteavskii Equation solver) codebase for superfluid vortex simulations.
 It will also cover GPU architecture in-depth and discuss several optimizations performed in GPUE to enable certain features which could not be done before with other GPU libraries with similar purposes.
 This chapter will conclude with a discussion of a notoriously difficult problem that could make spectral and pseudo-spectral methods even more efficient on GPU hardware: an $n$-dimensional distributed transpose.
 The GPUE codebase has been published in the Journal of Open Source Software \textbf{3}(32):1037, 2018~\cite{schloss2018}.
 
-\subsection*{Vortex analysis of two-dimensional superfluid systems}
+\subsection*{Vortex analysis of chaotic, two-dimensional superfluid simulations for few-vortex systems}
 
 This chapter will be related to an example of superfluid simulations with GPUE in two-dimensions, where vortices essentially follow the dynamics of point-vortex models.
 Here, the system is shown to exhibit chaotic dynamics with only a few vortices present.
@@ -59,4 +59,4 @@ This system highlights the need for many of the features suggested during GPUE d
 This work has been submitted to Phys. Rev. Fluids (arXiv:1910.02364)~\cite{schloss2019}.
 
 \subsection*{Outlook}
-Throughout this text, I will try to motivate future directions at the end of each chapter; however, a global outlook, including new simulations possible with GPUE and other areas of development that could be focused on will be discussed in the end.
+Throughout this text, I will try to motivate future directions at the end of each chapter; however, a global outlook, including new simulations possible with GPUE and other areas of development will be discussed in the end.

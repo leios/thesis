@@ -7,7 +7,7 @@ This is a compilation of an introductory GPGPU example in three languages (CUDA,
 
 Firstly, a simple vector addition without GPGPU as a baseline:
 
-\begin{lstlisting}
+\begin{lstlisting}[style=c++]
 #include <iostream>
 
 int main(){
@@ -56,7 +56,7 @@ Here, it is important to note that it is not practical to ask users to write CUD
 In addition, direct kernel manipulation would require a recompilation every run, which is cumbersome for most users along with dedicated directories for differently built binaries if running multiple GPUE simulations simultaneously.
 As such additional techniques are used in GPUE to allow users to write their own functions without recompiling the GPUE codebase every run, and these methods are discussed in Chapter~\ref{ch:gpu}
 
-\begin{lstlisting}
+\begin{lstlisting}[style=c++]
 #include <iostream>
 #include <math.h>
 #include <chrono>
@@ -136,7 +136,7 @@ Vector addition with OpenCL has notable advantages to CUDA, namely that users ca
 Though it is tempting to use OpenCL due to this, it is notably more cumbersome to write OpenCL code than CUDA, and it we lack the engineering resources to develop an OpenCL variant of GPUE.
 In addition, Julia provides similar benefits to OpenCL with much higher maintainability.
 
-\begin{lstlisting}
+\begin{lstlisting}[style=c++]
 #define __CL_ENABLE_EXCEPTIONS
 
 #include <CL/cl.hpp>

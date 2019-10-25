@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.8.25)  17 OCT 2019 07:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.8.25)  23 OCT 2019 12:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**SHO.tex
+**SHO
 (./SHO.tex
 LaTeX2e <2018-12-01>
 (/usr/share/texmf-dist/tex/latex/base/minimal.cls
@@ -202,30 +202,30 @@ e
 \gptboxwidth=\skip45
 \gptboxtext=\box28
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 173.
+(Font)              <10.95> on input line 167.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 173.
+(Font)              <8> on input line 167.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 173.
+(Font)              <6> on input line 167.
 Package epstopdf Info: Source file: <SHO-inc.eps>
-(epstopdf)                    date: 2019-10-17 07:02:23
-(epstopdf)                    size: 28384 bytes
+(epstopdf)                    date: 2019-10-23 12:43:05
+(epstopdf)                    size: 21046 bytes
 (epstopdf)             Output file: <SHO-inc-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-10-17 07:02:02
-(epstopdf)                    size: 5711 bytes
+(epstopdf)                    date: 2019-10-23 12:41:47
+(epstopdf)                    size: 4022 bytes
 (epstopdf)             Command: <repstopdf --outfile=SHO-inc-eps-converted-to.p
 df SHO-inc.eps>
-(epstopdf)             \includegraphics on input line 174.
+(epstopdf)             \includegraphics on input line 168.
 runsystem(repstopdf --outfile=SHO-inc-eps-converted-to.pdf SHO-inc.eps)...execu
 ted safely (allowed).
 
 Package epstopdf Info: Result file: <SHO-inc-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-10-17 07:02:24
-(epstopdf)                    size: 5709 bytes.
+(epstopdf)                    date: 2019-10-23 12:43:09
+(epstopdf)                    size: 4022 bytes.
 <SHO-inc-eps-converted-to.pdf, id=1, 361.35pt x 252.945pt>
 File: SHO-inc-eps-converted-to.pdf Graphic file (type pdf)
 <use SHO-inc-eps-converted-to.pdf>
-Package pdftex.def Info: SHO-inc-eps-converted-to.pdf  used on input line 174.
+Package pdftex.def Info: SHO-inc-eps-converted-to.pdf  used on input line 168.
 (pdftex.def)             Requested size: 361.34912pt x 252.94438pt.
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./SHO-inc-eps-converted-
 to.pdf>] (./SHO.aux) ) 
@@ -236,14 +236,14 @@ Here is how much of TeX's memory you used:
  6008 multiletter control sequences out of 15000+600000
  7148 words of font info for 24 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,6n,34p,270b,189s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,6n,34p,266b,189s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-
 t1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/s
 hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/s
 frm1095.pfb>
-Output written on SHO.pdf (1 page, 52743 bytes).
+Output written on SHO.pdf (1 page, 52432 bytes).
 PDF statistics:
  32 PDF objects out of 1000 (max. 8388607)
  22 compressed objects within 1 object stream

@@ -8,10 +8,8 @@ set xrange [0:511]
 set xtics('-200' 0, "-100" 128, "0" 256, "100" 384, "200" 511)
 set xlabel '$r$ ($\mu$m)'
 set ylabel "Field strength (J)"
+set key spacing 1.5
 
-p "V_1d.dat" w filledcurves x1 lc 3 title "Potential with gauge field", \
-  "V_1d.dat" w l lw 7 lc 3 notitle, \
-  "A2.dat" w filledcurves x1 lc 3 notitle, \
-  "V_nogauge_1d.dat" w filledcurves x1 lc 3 notitle, \
-  "V_nogauge_1d.dat" w l lw 7 lc 7 title "Potential without gauge field", \
-  "A2.dat" w l lw 7 lc 6 dt 3 title '$m \mathbf{A}^2$'
+p "V_1d.dat" w l lw 7 lc 3 title '$\frac{1}{2}m \mathbf{A}^2$ + $\frac{1}{2}m\omega^2x^2$', \
+  "V_nogauge_1d.dat" w l lw 7 lc 7 dt 2 title '$\frac{1}{2}m\omega^2x^2$', \
+  "A2.dat" w l lw 7 lc 6 dt 3 title '$\frac{1}{2} m \mathbf{A}^2$'
