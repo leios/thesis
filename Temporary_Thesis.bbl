@@ -21,21 +21,47 @@ T.~Zhang, J.~Schloss, A.~Thomasen, L.~J. O'Riordan, Th. Busch, and A.~White.
 \newblock \emph{Physical Review Fluids}, 4\penalty0 (5):\penalty0 054701,
   2019{\natexlab{a}}.
 
-\bibitem[Schloss et~al.(2019)Schloss, Barnett, Sachdeva, and
-  Busch]{schloss2019}
-J.~Schloss, P.~Barnett, R.~Sachdeva, and Th. Busch.
-\newblock Controlled creation of three-dimensional vortex structures in
-  {B}ose--{E}instein condensates using artificial magnetic fields, 2019.
-
 \bibitem[Schloss and Riordan(2018)]{schloss2018}
 J.~R Schloss and L.~J. Riordan.
 \newblock {GPUE}: Graphics processing unit {G}ross-{P}itaevskii equation
   solver.
 \newblock \emph{J. Open Source Software}, 3\penalty0 (32):\penalty0 1037, 2018.
 
+\bibitem[Schloss et~al.(2019)Schloss, Barnett, Sachdeva, and
+  Busch]{schloss2019}
+J.~Schloss, P.~Barnett, R.~Sachdeva, and Th. Busch.
+\newblock Controlled creation of three-dimensional vortex structures in
+  {B}ose--{E}instein condensates using artificial magnetic fields, 2019.
+
 \bibitem[Schloss and O'riordan(2019)]{docs}
 J.~Schloss and L.~O'riordan, 2019.
 \newblock URL \url{https://gpue-group.github.io/}.
+
+\bibitem[Wittek(2016)]{wittek2016}
+P.~Wittek.
+\newblock Comparing three numerical solvers of the {G}ross-{P}itaevskii
+  equation, 2016.
+\newblock URL
+  \url{https://web.archive.org/web/20171120181431/https://peterwittek.com/gpe-comparison.html}.
+
+\bibitem[Slaw(2013)]{stackoverflow}
+R.~Slaw, 2013.
+\newblock URL
+  \url{https://gist.github.com/realazthat/1eba733ab5cf3ae5fe2a#file-memory-access-coalescing-tex}.
+
+\bibitem[Nieddu et~al.(2016)Nieddu, Gokhroo, and Chormaic]{nieddu2016}
+T.~Nieddu, V.~Gokhroo, and S.~Nic Chormaic.
+\newblock Optical nanofibres and neutral atoms.
+\newblock \emph{Journal of Optics}, 18\penalty0 (5):\penalty0 053001, 2016.
+
+\bibitem[Kumar et~al.(2015)Kumar, Gokhroo, Deasy, Maimaiti, Frawley, Phelan,
+  and Chormaic]{kumar2015}
+R.~Kumar, V.~Gokhroo, K.~Deasy, A.~Maimaiti, M~C. Frawley, C~Phelan, and S.~Nic
+  Chormaic.
+\newblock Interaction of laser-cooled 87rb atoms with higher order modes of an
+  optical nanofibre.
+\newblock \emph{New Journal of Physics}, 17\penalty0 (1):\penalty0 013026,
+  2015.
 
 \bibitem[{Kahle} et~al.(2019){Kahle}, {Moreno}, and {Dreps}]{kahle2019}
 J.~A. {Kahle}, J.~{Moreno}, and D.~{Dreps}.
@@ -297,23 +323,6 @@ F.~Dalfovo, S.~Giorgini, L.~P. Pitaevskii, and S.~Stringari.
 \newblock \doi{10.1103/RevModPhys.71.463}.
 \newblock URL \url{http://link.aps.org/doi/10.1103/RevModPhys.71.463}.
 
-\bibitem[Rooney et~al.(2012)Rooney, Blakie, and Bradley]{rooney2012}
-S.~J. Rooney, P.~B. Blakie, and A.~S. Bradley.
-\newblock Stochastic projected gross-pitaevskii equation.
-\newblock \emph{Physical Review A}, 86\penalty0 (5):\penalty0 053634, 2012.
-
-\bibitem[Zaremba et~al.(1999)Zaremba, Nikuni, and Griffin]{zaremba1999}
-E.~Zaremba, T.~Nikuni, and A.~Griffin.
-\newblock Dynamics of trapped bose gases at finite temperatures.
-\newblock \emph{Journal of Low Temperature Physics}, 116\penalty0
-  (3-4):\penalty0 277--345, 1999.
-
-\bibitem[Savage et~al.(2003)Savage, Robins, and Hope]{savage2003}
-C.~M. Savage, N.~P. Robins, and J.~J. Hope.
-\newblock Bose-einstein condensate collapse: A comparison between theory and
-  experiment.
-\newblock \emph{Physical Review A}, 67\penalty0 (1):\penalty0 014304, 2003.
-
 \bibitem[Gross(1961)]{gross1961}
 E.~P. Gross.
 \newblock Structure of a quantized vortex in boson systems.
@@ -371,6 +380,23 @@ M.~H. Anderson, J.~R. Ensher, M.~R. Matthews, C.~E. Wieman, and E.~A. Cornell.
 \newblock ISSN 0036-8075.
 \newblock \doi{10.1126/science.269.5221.198}.
 \newblock URL \url{http://science.sciencemag.org/content/269/5221/198}.
+
+\bibitem[Rooney et~al.(2012)Rooney, Blakie, and Bradley]{rooney2012}
+S.~J. Rooney, P.~B. Blakie, and A.~S. Bradley.
+\newblock Stochastic projected gross-pitaevskii equation.
+\newblock \emph{Physical Review A}, 86\penalty0 (5):\penalty0 053634, 2012.
+
+\bibitem[Zaremba et~al.(1999)Zaremba, Nikuni, and Griffin]{zaremba1999}
+E.~Zaremba, T.~Nikuni, and A.~Griffin.
+\newblock Dynamics of trapped bose gases at finite temperatures.
+\newblock \emph{Journal of Low Temperature Physics}, 116\penalty0
+  (3-4):\penalty0 277--345, 1999.
+
+\bibitem[Savage et~al.(2003)Savage, Robins, and Hope]{savage2003}
+C.~M. Savage, N.~P. Robins, and J.~J. Hope.
+\newblock Bose-einstein condensate collapse: A comparison between theory and
+  experiment.
+\newblock \emph{Physical Review A}, 67\penalty0 (1):\penalty0 014304, 2003.
 
 \bibitem[Abrikosov(1957)]{abrikosov1957}
 A.~A. Abrikosov.
@@ -835,13 +861,6 @@ K.~Czechowski, C.~Battaglino, C.~McClanahan, K.~Iyer, P.~Yeung, and R.~Vuduc.
 \newblock In \emph{Proceedings of the 26th ACM international conference on
   Supercomputing}, pages 205--214. ACM, 2012.
 
-\bibitem[Wittek(2016)]{wittek2016}
-P.~Wittek.
-\newblock Comparing three numerical solvers of the {G}ross-{P}itaevskii
-  equation, 2016.
-\newblock URL
-  \url{https://web.archive.org/web/20171120181431/https://peterwittek.com/gpe-comparison.html}.
-
 \bibitem[Antoine and Duboscq(2014)]{antoine2014}
 X.~Antoine and R.~Duboscq.
 \newblock {GPELab}, a matlab toolbox to solve {G}ross--{P}itaevskii equations
@@ -895,11 +914,6 @@ L.~J. O'Riordan.
   {B}ose-{E}instein condensates}.
 \newblock PhD thesis, Okinawa Institute of Science and Technology Graduate
   University, 2017.
-
-\bibitem[Slaw(2013)]{stackoverflow}
-R.~Slaw, 2013.
-\newblock URL
-  \url{https://gist.github.com/realazthat/1eba733ab5cf3ae5fe2a#file-memory-access-coalescing-tex}.
 
 \bibitem[Harris(2013)]{harris2013}
 M.~Harris.
@@ -1215,20 +1229,6 @@ A.~Wolf, J.~B. Swift, H.~L. Swinney, and J.~A. Vastano.
 \newblock Determining {L}yapunov exponents from a time series.
 \newblock \emph{Physica D: Nonlinear Phenomena}, 16\penalty0 (3):\penalty0
   285--317, 1985.
-
-\bibitem[Nieddu et~al.(2016)Nieddu, Gokhroo, and Chormaic]{nieddu2016}
-T.~Nieddu, V.~Gokhroo, and S.~Nic Chormaic.
-\newblock Optical nanofibres and neutral atoms.
-\newblock \emph{Journal of Optics}, 18\penalty0 (5):\penalty0 053001, 2016.
-
-\bibitem[Kumar et~al.(2015)Kumar, Gokhroo, Deasy, Maimaiti, Frawley, Phelan,
-  and Chormaic]{kumar2015}
-R.~Kumar, V.~Gokhroo, K.~Deasy, A.~Maimaiti, M~C. Frawley, C~Phelan, and S.~Nic
-  Chormaic.
-\newblock Interaction of laser-cooled 87rb atoms with higher order modes of an
-  optical nanofibre.
-\newblock \emph{New Journal of Physics}, 17\penalty0 (1):\penalty0 013026,
-  2015.
 
 \bibitem[Wacks et~al.(2014)Wacks, Baggaley, and Barenghi]{wacks2014}
 D.~H. Wacks, A.~W. Baggaley, and C.~F. Barenghi.

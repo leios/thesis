@@ -287,7 +287,7 @@ For data transfer between devices, this transfer time can be slightly alleviated
 Though CUDA-aware MPI for multi-GPU setups functions can be used, the development of this API is still in its early stages, and using such functionality may greatly increase software development time~\cite{lonvcar2016, wang2013}.
 As such, developers often try to keep all of their computation on a single card, if possible, and several optimization strategies are used when multiple GPU cards are needed.
 These strategies will be covered on a case-by-case basis as they arise in this work.
-The easiest way to mitigate the amount of time spent transfering data is to perform these transfers asynchronously; however, even in this case, transfer time will likely affect the runtime of the program.
+The easiest way to mitigate the amount of time spent transferring data is to perform these transfers asynchronously; however, even in this case, transfer time will likely affect the runtime of the program.
 
 As a final note, one optimization strategy for CUDA code that will not be discussed in-depth in this work is the maximization of instruction throughput.
 The simplest optimizations here involve increasing the number of instructions performed over a specified period by trading precision for speed and minimizing thread synchronization.

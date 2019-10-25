@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.8.25)  25 OCT 2019 10:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.8.25)  25 OCT 2019 11:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -872,12 +872,8 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 
 
 
-]
-
-Package natbib Warning: Citation `Nieddu2016' on page iii undefined on input li
-ne 22.
-
-) (./Preamble/abstract.tex [3]
+]) (./Preamble/abstract.tex
+[3]
 Overfull \hbox (4.71983pt too wide) in paragraph at lines 3--3
 [][]\T1/cmr/bx/n/14.4 Massively par-al-lel split-step Fourier tech-niques for s
 im-u-lat-ing quan-
@@ -916,7 +912,7 @@ Chapter 1.
 
 
 ] [6] [7] [8]
-<data/splitop/SHO/SHO_gimp.pdf, id=548, 315.45854pt x 576.7146pt>
+<data/splitop/SHO/SHO_gimp.pdf, id=550, 315.45854pt x 576.7146pt>
 File: data/splitop/SHO/SHO_gimp.pdf Graphic file (type pdf)
 <use data/splitop/SHO/SHO_gimp.pdf>
 Package pdftex.def Info: data/splitop/SHO/SHO_gimp.pdf  used on input line 103.
@@ -933,13 +929,13 @@ ua-
  []
 
 [13] [14]
-<data/qs/SHO/SHO.pdf, id=640, 361.35pt x 252.945pt>
+<data/qs/SHO/SHO.pdf, id=642, 361.35pt x 252.945pt>
 File: data/qs/SHO/SHO.pdf Graphic file (type pdf)
 <use data/qs/SHO/SHO.pdf>
 Package pdftex.def Info: data/qs/SHO/SHO.pdf  used on input line 245.
 (pdftex.def)             Requested size: 455.24411pt x 318.67378pt.
  [15] [16 <./data/qs/SHO/SHO.pdf>] [17] [18]
-<data/splitop/rot/WIP.pdf, id=729, 531.8787pt x 455.69261pt>
+<data/splitop/rot/WIP.pdf, id=731, 531.8787pt x 455.69261pt>
 File: data/splitop/rot/WIP.pdf Graphic file (type pdf)
 <use data/splitop/rot/WIP.pdf>
 Package pdftex.def Info: data/splitop/rot/WIP.pdf  used on input line 338.
@@ -951,7 +947,7 @@ Overfull \hbox (3.37988pt too wide) in paragraph at lines 412--413
  []
 
 [23] [24] [25] [26] [27]
-<data/splitop/gauge/check.pdf, id=885, 361.35pt x 252.945pt>
+<data/splitop/gauge/check.pdf, id=887, 361.35pt x 252.945pt>
 File: data/splitop/gauge/check.pdf Graphic file (type pdf)
 <use data/splitop/gauge/check.pdf>
 Package pdftex.def Info: data/splitop/gauge/check.pdf  used on input line 543.
@@ -962,7 +958,7 @@ Chapter 2.
 [30
 
 ] [31] [32] [33]
-<data/1d/NM/NM.pdf, id=972, 361.35pt x 252.945pt>
+<data/1d/NM/NM.pdf, id=974, 361.35pt x 252.945pt>
 File: data/1d/NM/NM.pdf Graphic file (type pdf)
 <use data/1d/NM/NM.pdf>
 Package pdftex.def Info: data/1d/NM/NM.pdf  used on input line 76.
@@ -973,84 +969,84 @@ Overfull \hbox (18.4005pt too wide) in paragraph at lines 169--169
  []
 
 [38] [39]
-<data/1d/scheme.pdf, id=1052, 416.41394pt x 286.50488pt>
+<data/1d/scheme.pdf, id=1054, 416.41394pt x 286.50488pt>
 File: data/1d/scheme.pdf Graphic file (type pdf)
 <use data/1d/scheme.pdf>
 Package pdftex.def Info: data/1d/scheme.pdf  used on input line 223.
 (pdftex.def)             Requested size: 227.62206pt x 156.61201pt.
  [40 <./data/1d/scheme.pdf>]
-<data/1d/cross.png, id=1096, 293.59688pt x 304.13625pt>
+<data/1d/cross.png, id=1098, 293.59688pt x 304.13625pt>
 File: data/1d/cross.png Graphic file (type png)
 <use data/1d/cross.png>
 Package pdftex.def Info: data/1d/cross.png  used on input line 238.
 (pdftex.def)             Requested size: 182.09486pt x 188.63213pt.
-<data/1d/nocross.png, id=1098, 293.59688pt x 304.13625pt>
+<data/1d/nocross.png, id=1100, 293.59688pt x 304.13625pt>
 File: data/1d/nocross.png Graphic file (type png)
 <use data/1d/nocross.png>
 Package pdftex.def Info: data/1d/nocross.png  used on input line 241.
 (pdftex.def)             Requested size: 182.09486pt x 188.63213pt.
  [41 <./data/1d/cross.png> <./data/1d/nocross.png>] [42]
-<data/1d/figR0.pdf, id=1126, 227.55013pt x 227.55013pt>
+<data/1d/figR0.pdf, id=1128, 227.55013pt x 227.55013pt>
 File: data/1d/figR0.pdf Graphic file (type pdf)
 <use data/1d/figR0.pdf>
 Package pdftex.def Info: data/1d/figR0.pdf  used on input line 287.
 (pdftex.def)             Requested size: 204.85846pt x 204.85918pt.
-<data/1d/figB0.pdf, id=1127, 227.55013pt x 227.55013pt>
+<data/1d/figB0.pdf, id=1129, 227.55013pt x 227.55013pt>
 File: data/1d/figB0.pdf Graphic file (type pdf)
 <use data/1d/figB0.pdf>
 Package pdftex.def Info: data/1d/figB0.pdf  used on input line 290.
 (pdftex.def)             Requested size: 204.85846pt x 204.85918pt.
  [43 <./data/1d/figR0.pdf> <./data/1d/figB0.pdf>]
-<data/1d/figR1.pdf, id=1166, 227.55013pt x 227.55013pt>
+<data/1d/figR1.pdf, id=1168, 227.55013pt x 227.55013pt>
 File: data/1d/figR1.pdf Graphic file (type pdf)
 <use data/1d/figR1.pdf>
 Package pdftex.def Info: data/1d/figR1.pdf  used on input line 315.
 (pdftex.def)             Requested size: 204.85846pt x 204.85918pt.
-<data/1d/figB1.pdf, id=1167, 227.55013pt x 227.55013pt>
+<data/1d/figB1.pdf, id=1169, 227.55013pt x 227.55013pt>
 File: data/1d/figB1.pdf Graphic file (type pdf)
 <use data/1d/figB1.pdf>
 Package pdftex.def Info: data/1d/figB1.pdf  used on input line 319.
 (pdftex.def)             Requested size: 204.85846pt x 204.85918pt.
  [44 <./data/1d/figR1.pdf> <./data/1d/figB1.pdf>]
-<data/1d/figlfid.pdf, id=1208, 227.55013pt x 227.55013pt>
+<data/1d/figlfid.pdf, id=1210, 227.55013pt x 227.55013pt>
 File: data/1d/figlfid.pdf Graphic file (type pdf)
 <use data/1d/figlfid.pdf>
 Package pdftex.def Info: data/1d/figlfid.pdf  used on input line 335.
 (pdftex.def)             Requested size: 227.62206pt x 227.62247pt.
-<data/1d/figTG3.pdf, id=1209, 227.55013pt x 227.55013pt>
+<data/1d/figTG3.pdf, id=1211, 227.55013pt x 227.55013pt>
 File: data/1d/figTG3.pdf Graphic file (type pdf)
 <use data/1d/figTG3.pdf>
 Package pdftex.def Info: data/1d/figTG3.pdf  used on input line 347.
 (pdftex.def)             Requested size: 204.85846pt x 204.85918pt.
-<data/1d/figTG5.pdf, id=1210, 227.55013pt x 227.55013pt>
+<data/1d/figTG5.pdf, id=1212, 227.55013pt x 227.55013pt>
 File: data/1d/figTG5.pdf Graphic file (type pdf)
 <use data/1d/figTG5.pdf>
 Package pdftex.def Info: data/1d/figTG5.pdf  used on input line 351.
 (pdftex.def)             Requested size: 204.85846pt x 204.85918pt.
  [45 <./data/1d/figlfid.pdf>]
-<data/1d/STAscheme.png, id=1240, 598.6365pt x 375.0813pt>
+<data/1d/STAscheme.png, id=1242, 598.6365pt x 375.0813pt>
 File: data/1d/STAscheme.png Graphic file (type png)
 <use data/1d/STAscheme.png>
 Package pdftex.def Info: data/1d/STAscheme.png  used on input line 374.
 (pdftex.def)             Requested size: 364.19667pt x 228.19258pt.
  [46 <./data/1d/figTG3.pdf> <./data/1d/figTG5.pdf>] [47 <./data/1d/STAscheme.pn
 g>] [48] [49]
-<data/1d/fig1.png, id=1354, 442.0515pt x 398.6895pt>
+<data/1d/fig1.png, id=1356, 442.0515pt x 398.6895pt>
 File: data/1d/fig1.png Graphic file (type png)
 <use data/1d/fig1.png>
 Package pdftex.def Info: data/1d/fig1.png  used on input line 470.
 (pdftex.def)             Requested size: 218.51521pt x 197.08119pt.
-<data/1d/fig2.png, id=1355, 442.0515pt x 398.6895pt>
+<data/1d/fig2.png, id=1357, 442.0515pt x 398.6895pt>
 File: data/1d/fig2.png Graphic file (type png)
 <use data/1d/fig2.png>
 Package pdftex.def Info: data/1d/fig2.png  used on input line 473.
 (pdftex.def)             Requested size: 218.51521pt x 197.08119pt.
-<data/1d/fig5.png, id=1357, 578.16pt x 364.2408pt>
+<data/1d/fig5.png, id=1359, 578.16pt x 364.2408pt>
 File: data/1d/fig5.png Graphic file (type png)
 <use data/1d/fig5.png>
 Package pdftex.def Info: data/1d/fig5.png  used on input line 488.
 (pdftex.def)             Requested size: 204.85846pt x 129.05907pt.
-<data/1d/fig6.png, id=1358, 528.5346pt x 339.669pt>
+<data/1d/fig6.png, id=1360, 528.5346pt x 339.669pt>
 File: data/1d/fig6.png Graphic file (type png)
 <use data/1d/fig6.png>
 Package pdftex.def Info: data/1d/fig6.png  used on input line 489.
@@ -1058,12 +1054,12 @@ Package pdftex.def Info: data/1d/fig6.png  used on input line 489.
 
 [50] [51 <./data/1d/fig1.png> <./data/1d/fig2.png> <./data/1d/fig5.png> <./data
 /1d/fig6.png>]
-<data/1d/fig7a.png, id=1381, 522.5121pt x 339.9099pt>
+<data/1d/fig7a.png, id=1383, 522.5121pt x 339.9099pt>
 File: data/1d/fig7a.png Graphic file (type png)
 <use data/1d/fig7a.png>
 Package pdftex.def Info: data/1d/fig7a.png  used on input line 526.
 (pdftex.def)             Requested size: 204.85846pt x 133.26451pt.
-<data/1d/fig7b.png, id=1382, 524.1984pt x 342.8007pt>
+<data/1d/fig7b.png, id=1384, 524.1984pt x 342.8007pt>
 File: data/1d/fig7b.png Graphic file (type png)
 <use data/1d/fig7b.png>
 Package pdftex.def Info: data/1d/fig7b.png  used on input line 529.
@@ -1080,7 +1076,7 @@ We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
 [55] [56]
-<data/gpu/GPUEvsTS.png, id=1431, 577.6782pt x 433.3791pt>
+<data/gpu/GPUEvsTS.png, id=1433, 577.6782pt x 433.3791pt>
 File: data/gpu/GPUEvsTS.png Graphic file (type png)
 <use data/gpu/GPUEvsTS.png>
 Package pdftex.def Info: data/gpu/GPUEvsTS.png  used on input line 51.
@@ -1096,7 +1092,7 @@ File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 94.
  [59] [60]
-<data/gpu/gputhreads.pdf, id=1492, 460.44421pt x 460.44421pt>
+<data/gpu/gputhreads.pdf, id=1494, 460.44421pt x 460.44421pt>
 File: data/gpu/gputhreads.pdf Graphic file (type pdf)
 <use data/gpu/gputhreads.pdf>
 Package pdftex.def Info: data/gpu/gputhreads.pdf  used on input line 147.
@@ -1106,7 +1102,7 @@ Package pdftex.def Info: data/gpu/gputhreads.pdf  used on input line 147.
 LaTeX Warning: Float too large for page by 44.05858pt on input line 232.
 
 [62] [63 <./data/gpu/gputhreads.pdf>] [64] [65]
-<data/gpu/coalesce/check.pdf, id=1620, 1251.92119pt x 440.49068pt>
+<data/gpu/coalesce/check.pdf, id=1622, 1251.92119pt x 440.49068pt>
 File: data/gpu/coalesce/check.pdf Graphic file (type pdf)
 <use data/gpu/coalesce/check.pdf>
 Package pdftex.def Info: data/gpu/coalesce/check.pdf  used on input line 261.
@@ -1126,12 +1122,12 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 338.
 
 [70] [71]
-<data/gpu/fft/fft_fig.png, id=1694, 467.49657pt x 361.35pt>
+<data/gpu/fft/fft_fig.png, id=1696, 467.49657pt x 361.35pt>
 File: data/gpu/fft/fft_fig.png Graphic file (type png)
 <use data/gpu/fft/fft_fig.png>
 Package pdftex.def Info: data/gpu/fft/fft_fig.png  used on input line 375.
 (pdftex.def)             Requested size: 227.62206pt x 175.94376pt.
-<data/gpu/fft/fft_fig2.png, id=1695, 794.97pt x 614.295pt>
+<data/gpu/fft/fft_fig2.png, id=1697, 794.97pt x 614.295pt>
 File: data/gpu/fft/fft_fig2.png Graphic file (type png)
 <use data/gpu/fft/fft_fig2.png>
 Package pdftex.def Info: data/gpu/fft/fft_fig2.png  used on input line 377.
@@ -1147,14 +1143,14 @@ File: pgflibraryarrows.code.tex 2019/02/02 v3.1.1 (3.1.1)
 \arrowsize=\dimen193
 )))
 [74] [75] [76]
-<data/gpu/vortex_tracking/phi_grid.png, id=1741, 312.2064pt x 578.16pt>
+<data/gpu/vortex_tracking/phi_grid.png, id=1743, 312.2064pt x 578.16pt>
 File: data/gpu/vortex_tracking/phi_grid.png Graphic file (type png)
 <use data/gpu/vortex_tracking/phi_grid.png>
 Package pdftex.def Info: data/gpu/vortex_tracking/phi_grid.png  used on input l
 ine 465.
 (pdftex.def)             Requested size: 227.62206pt x 421.52397pt.
  [77] [78 <./data/gpu/vortex_tracking/phi_grid.png>]
-<data/gpu/vortex_highlighting/all.png, id=1761, 443.256pt x 216.0873pt>
+<data/gpu/vortex_highlighting/all.png, id=1763, 443.256pt x 216.0873pt>
 File: data/gpu/vortex_highlighting/all.png Graphic file (type png)
 <use data/gpu/vortex_highlighting/all.png>
 Package pdftex.def Info: data/gpu/vortex_highlighting/all.png  used on input li
@@ -1167,33 +1163,33 @@ Chapter 4.
 [87
 
 ] [88]
-<data/2d/phase/phase.pdf, id=1902, 822.27202pt x 512.30597pt>
+<data/2d/phase/phase.pdf, id=1904, 822.27202pt x 512.30597pt>
 File: data/2d/phase/phase.pdf Graphic file (type pdf)
 <use data/2d/phase/phase.pdf>
 Package pdftex.def Info: data/2d/phase/phase.pdf  used on input line 46.
 (pdftex.def)             Requested size: 341.43307pt x 212.72809pt.
  [89]
-<data/2d/histogram/histogram.png, id=1911, 1047.915pt x 482.0409pt>
+<data/2d/histogram/histogram.png, id=1913, 1047.915pt x 482.0409pt>
 File: data/2d/histogram/histogram.png Graphic file (type png)
 <use data/2d/histogram/histogram.png>
 Package pdftex.def Info: data/2d/histogram/histogram.png  used on input line 67
 .
 (pdftex.def)             Requested size: 455.24411pt x 209.40659pt.
  [90 <./data/2d/phase/phase.pdf>] [91 <./data/2d/histogram/histogram.png>]
-<data/2d/evolution/evolution.pdf, id=1965, 422.05681pt x 360.6273pt>
+<data/2d/evolution/evolution.pdf, id=1967, 422.05681pt x 360.6273pt>
 File: data/2d/evolution/evolution.pdf Graphic file (type pdf)
 <use data/2d/evolution/evolution.pdf>
 Package pdftex.def Info: data/2d/evolution/evolution.pdf  used on input line 85
 .
 (pdftex.def)             Requested size: 227.62206pt x 194.49371pt.
  [92 <./data/2d/evolution/evolution.pdf>]
-<data/2d/snapshots/snapshots.pdf, id=1986, 964.33995pt x 1102.10083pt>
+<data/2d/snapshots/snapshots.pdf, id=1988, 964.33995pt x 1102.10083pt>
 File: data/2d/snapshots/snapshots.pdf Graphic file (type pdf)
 <use data/2d/snapshots/snapshots.pdf>
 Package pdftex.def Info: data/2d/snapshots/snapshots.pdf  used on input line 11
 1.
 (pdftex.def)             Requested size: 341.43307pt x 390.21431pt.
-<data/2d/lyap/lyap.pdf, id=1989, 444.26175pt x 392.93298pt>
+<data/2d/lyap/lyap.pdf, id=1991, 444.26175pt x 392.93298pt>
 File: data/2d/lyap/lyap.pdf Graphic file (type pdf)
 <use data/2d/lyap/lyap.pdf>
 Package pdftex.def Info: data/2d/lyap/lyap.pdf  used on input line 125.
@@ -1210,38 +1206,38 @@ Overfull \hbox (18.07693pt too wide) in paragraph at lines 55--55
  []
 
 [102]
-<data/3d/Schematic_TB.pdf, id=2345, 372.36516pt x 562.03494pt>
+<data/3d/Schematic_TB.pdf, id=2346, 372.36516pt x 562.03494pt>
 File: data/3d/Schematic_TB.pdf Graphic file (type pdf)
 <use data/3d/Schematic_TB.pdf>
 Package pdftex.def Info: data/3d/Schematic_TB.pdf  used on input line 71.
 (pdftex.def)             Requested size: 182.09486pt x 274.85066pt.
  [103] [104 <./data/3d/Schematic_TB.pdf>]
-<data/3d/fiber/mode_plot.jpg, id=2439, 378.213pt x 176.0979pt>
+<data/3d/fiber/mode_plot.jpg, id=2440, 378.213pt x 176.0979pt>
 File: data/3d/fiber/mode_plot.jpg Graphic file (type jpg)
 <use data/3d/fiber/mode_plot.jpg>
 Package pdftex.def Info: data/3d/fiber/mode_plot.jpg  used on input line 125.
 (pdftex.def)             Requested size: 455.24411pt x 211.97743pt.
  [105] [106 <./data/3d/fiber/mode_plot.jpg>]
-<data/3d/all_fields.pdf, id=2462, 660.37543pt x 454.17384pt>
+<data/3d/all_fields.pdf, id=2463, 660.37543pt x 454.17384pt>
 File: data/3d/all_fields.pdf Graphic file (type pdf)
 <use data/3d/all_fields.pdf>
 Package pdftex.def Info: data/3d/all_fields.pdf  used on input line 159.
 (pdftex.def)             Requested size: 455.24411pt x 313.10307pt.
  [107] [108 <./data/3d/all_fields.pdf>]
-<data/3d/vortex_transition.png, id=2490, 3539.2225pt x 788.9475pt>
+<data/3d/vortex_transition.png, id=2491, 3539.2225pt x 788.9475pt>
 File: data/3d/vortex_transition.png Graphic file (type png)
 <use data/3d/vortex_transition.png>
 Package pdftex.def Info: data/3d/vortex_transition.png  used on input line 200.
 
 (pdftex.def)             Requested size: 455.24411pt x 101.47128pt.
  [109]
-<data/3d/HE21_3d.png, id=2500, 948.54375pt x 717.68124pt>
+<data/3d/HE21_3d.png, id=2501, 948.54375pt x 717.68124pt>
 File: data/3d/HE21_3d.png Graphic file (type png)
 <use data/3d/HE21_3d.png>
 Package pdftex.def Info: data/3d/HE21_3d.png  used on input line 220.
 (pdftex.def)             Requested size: 227.62206pt x 172.21416pt.
  [110 <./data/3d/vortex_transition.png>]
-<data/3d/vortex_line_all.pdf, id=2512, 361.35pt x 548.52928pt>
+<data/3d/vortex_line_all.pdf, id=2513, 361.35pt x 548.52928pt>
 File: data/3d/vortex_line_all.pdf Graphic file (type pdf)
 <use data/3d/vortex_line_all.pdf>
 Package pdftex.def Info: data/3d/vortex_line_all.pdf  used on input line 236.
@@ -1251,7 +1247,7 @@ Package pdftex.def Info: data/3d/vortex_line_all.pdf  used on input line 236.
 LaTeX Warning: Float too large for page by 40.97336pt on input line 242.
 
 [111 <./data/3d/HE21_3d.png>] [112 <./data/3d/vortex_line_all.pdf>]
-<data/3d/scissors_plot.pdf, id=2535, 361.35pt x 320.1561pt>
+<data/3d/scissors_plot.pdf, id=2536, 361.35pt x 320.1561pt>
 File: data/3d/scissors_plot.pdf Graphic file (type pdf)
 <use data/3d/scissors_plot.pdf>
 Package pdftex.def Info: data/3d/scissors_plot.pdf  used on input line 258.
@@ -1267,35 +1263,36 @@ Appendix A.
 
 
 ] [124] [125] [126] [127] [128] [129] [130] [131]) [132]
-(./Temporary_Thesis.bbl [133
-
-
-] [134]
-Underfull \hbox (badness 4403) in paragraph at lines 129--132
-[]\T1/cmr/m/n/12 C. Bayindir.  Com-pres-sive split-step Fourier method.  \T1/cm
-r/m/it/12 arXiv preprint
- []
-
-[135] [136] [137] [138] [139] [140] [141] [142] [143] [144] [145]
-Underfull \hbox (badness 1028) in paragraph at lines 839--844
+(./Temporary_Thesis.bbl
+Underfull \hbox (badness 1028) in paragraph at lines 41--46
 \T1/cmr/m/n/12 tion, 2016.  URL []$\T1/cmtt/m/n/12 https : / / web . archive . 
 org / web / 20171120181431 / https : / /
  []
 
-[146] [147]
-Underfull \hbox (badness 10000) in paragraph at lines 900--903
+
+Underfull \hbox (badness 10000) in paragraph at lines 48--51
 []\T1/cmr/m/n/12 R. Slaw, 2013.  URL []$\T1/cmtt/m/n/12 https : / / gist . gith
 ub . com / realazthat /
  []
 
-[148] [149] [150]
-Underfull \hbox (badness 1264) in paragraph at lines 1083--1089
+[133
+
+
+] [134]
+Underfull \hbox (badness 4403) in paragraph at lines 155--158
+[]\T1/cmr/m/n/12 C. Bayindir.  Com-pres-sive split-step Fourier method.  \T1/cm
+r/m/it/12 arXiv preprint
+ []
+
+[135] [136] [137] [138] [139] [140] [141] [142] [143] [144] [145] [146]
+[147] [148] [149] [150]
+Underfull \hbox (badness 1264) in paragraph at lines 1097--1103
 []\T1/cmr/m/n/12 R. Navarro, R. Carretero-González, P. J. Tor-res, P. G. Kevrek
 idis, D. J.
  []
 
 [151] [152]
-Underfull \hbox (badness 2460) in paragraph at lines 1208--1212
+Underfull \hbox (badness 2460) in paragraph at lines 1222--1226
 []\T1/cmr/m/n/12 T. Zhang, J. Schloss, A. Thomasen, L. J. O'Riordan, Th. Busch,
  and
  []
@@ -1316,7 +1313,7 @@ Underfull \hbox (badness 5893) in paragraph at lines 1339--1345
 
 pdfTeX warning: pdflatex (file ./Images/papers/NJP_TG.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<./Images/papers/NJP_TG.pdf, id=3158, 597.23125pt x 845.1575pt>
+<./Images/papers/NJP_TG.pdf, id=3159, 597.23125pt x 845.1575pt>
 File: ./Images/papers/NJP_TG.pdf Graphic file (type pdf)
 <use ./Images/papers/NJP_TG.pdf>
 Package pdftex.def Info: ./Images/papers/NJP_TG.pdf  used on input line 177.
@@ -1337,7 +1334,7 @@ d PDF version <1.7>, but at most version <1.5> allowed
 
 pdfTeX warning: pdflatex (file ./Images/papers/NJP_TG.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<./Images/papers/NJP_TG.pdf, id=3161, page=2, 597.50829pt x 845.0471pt>
+<./Images/papers/NJP_TG.pdf, id=3162, page=2, 597.50829pt x 845.0471pt>
 File: ./Images/papers/NJP_TG.pdf Graphic file (type pdf)
 <use ./Images/papers/NJP_TG.pdf, page 2>
 Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page2 used on input line 
@@ -1371,7 +1368,7 @@ Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page2 used on input line
 
 pdfTeX warning: pdflatex (file ./Images/papers/NJP_TG.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<./Images/papers/NJP_TG.pdf, id=3244, page=3, 597.50829pt x 845.0471pt>
+<./Images/papers/NJP_TG.pdf, id=3245, page=3, 597.50829pt x 845.0471pt>
 File: ./Images/papers/NJP_TG.pdf Graphic file (type pdf)
 <use ./Images/papers/NJP_TG.pdf, page 3>
 Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page3 used on input line 
@@ -1391,7 +1388,7 @@ Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page3 used on input line
 
 pdfTeX warning: pdflatex (file ./Images/papers/NJP_TG.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<./Images/papers/NJP_TG.pdf, id=3281, page=4, 597.50829pt x 845.0471pt>
+<./Images/papers/NJP_TG.pdf, id=3282, page=4, 597.50829pt x 845.0471pt>
 File: ./Images/papers/NJP_TG.pdf Graphic file (type pdf)
 <use ./Images/papers/NJP_TG.pdf, page 4>
 Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page4 used on input line 
@@ -1411,7 +1408,7 @@ Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page4 used on input line
 
 pdfTeX warning: pdflatex (file ./Images/papers/NJP_TG.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<./Images/papers/NJP_TG.pdf, id=3304, page=5, 597.50829pt x 845.0471pt>
+<./Images/papers/NJP_TG.pdf, id=3305, page=5, 597.50829pt x 845.0471pt>
 File: ./Images/papers/NJP_TG.pdf Graphic file (type pdf)
 <use ./Images/papers/NJP_TG.pdf, page 5>
 Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page5 used on input line 
@@ -1431,7 +1428,7 @@ Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page5 used on input line
 
 pdfTeX warning: pdflatex (file ./Images/papers/NJP_TG.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<./Images/papers/NJP_TG.pdf, id=3318, page=6, 597.50829pt x 845.0471pt>
+<./Images/papers/NJP_TG.pdf, id=3319, page=6, 597.50829pt x 845.0471pt>
 File: ./Images/papers/NJP_TG.pdf Graphic file (type pdf)
 <use ./Images/papers/NJP_TG.pdf, page 6>
 Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page6 used on input line 
@@ -1451,7 +1448,7 @@ Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page6 used on input line
 
 pdfTeX warning: pdflatex (file ./Images/papers/NJP_TG.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<./Images/papers/NJP_TG.pdf, id=3329, page=7, 597.50829pt x 845.0471pt>
+<./Images/papers/NJP_TG.pdf, id=3330, page=7, 597.50829pt x 845.0471pt>
 File: ./Images/papers/NJP_TG.pdf Graphic file (type pdf)
 <use ./Images/papers/NJP_TG.pdf, page 7>
 Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page7 used on input line 
@@ -1471,7 +1468,7 @@ Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page7 used on input line
 
 pdfTeX warning: pdflatex (file ./Images/papers/NJP_TG.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<./Images/papers/NJP_TG.pdf, id=3344, page=8, 597.50829pt x 845.0471pt>
+<./Images/papers/NJP_TG.pdf, id=3345, page=8, 597.50829pt x 845.0471pt>
 File: ./Images/papers/NJP_TG.pdf Graphic file (type pdf)
 <use ./Images/papers/NJP_TG.pdf, page 8>
 Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page8 used on input line 
@@ -1491,7 +1488,7 @@ Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page8 used on input line
 
 pdfTeX warning: pdflatex (file ./Images/papers/NJP_TG.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<./Images/papers/NJP_TG.pdf, id=3357, page=9, 597.50829pt x 845.0471pt>
+<./Images/papers/NJP_TG.pdf, id=3358, page=9, 597.50829pt x 845.0471pt>
 File: ./Images/papers/NJP_TG.pdf Graphic file (type pdf)
 <use ./Images/papers/NJP_TG.pdf, page 9>
 Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page9 used on input line 
@@ -1511,7 +1508,7 @@ Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page9 used on input line
 
 pdfTeX warning: pdflatex (file ./Images/papers/NJP_TG.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<./Images/papers/NJP_TG.pdf, id=3364, page=10, 597.50829pt x 845.0471pt>
+<./Images/papers/NJP_TG.pdf, id=3365, page=10, 597.50829pt x 845.0471pt>
 File: ./Images/papers/NJP_TG.pdf Graphic file (type pdf)
 <use ./Images/papers/NJP_TG.pdf, page 10>
 Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page10 used on input line
@@ -1531,7 +1528,7 @@ Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page10 used on input line
 
 pdfTeX warning: pdflatex (file ./Images/papers/NJP_TG.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<./Images/papers/NJP_TG.pdf, id=3377, page=11, 597.50829pt x 845.0471pt>
+<./Images/papers/NJP_TG.pdf, id=3378, page=11, 597.50829pt x 845.0471pt>
 File: ./Images/papers/NJP_TG.pdf Graphic file (type pdf)
 <use ./Images/papers/NJP_TG.pdf, page 11>
 Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page11 used on input line
@@ -1551,7 +1548,7 @@ Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page11 used on input line
 
 pdfTeX warning: pdflatex (file ./Images/papers/NJP_TG.pdf): PDF inclusion: foun
 d PDF version <1.7>, but at most version <1.5> allowed
-<./Images/papers/NJP_TG.pdf, id=3397, page=12, 597.50829pt x 845.0471pt>
+<./Images/papers/NJP_TG.pdf, id=3398, page=12, 597.50829pt x 845.0471pt>
 File: ./Images/papers/NJP_TG.pdf Graphic file (type pdf)
 <use ./Images/papers/NJP_TG.pdf, page 12>
 Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page12 used on input line
@@ -1568,7 +1565,7 @@ Package pdftex.def Info: ./Images/papers/NJP_TG.pdf , page12 used on input line
  177.
 (pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 [171 <./Images/papers/NJP_TG.pdf>]
-<./Images/papers/GPUE_JOSS.pdf, id=3407, 597.51233pt x 845.0471pt>
+<./Images/papers/GPUE_JOSS.pdf, id=3408, 597.51233pt x 845.0471pt>
 File: ./Images/papers/GPUE_JOSS.pdf Graphic file (type pdf)
 <use ./Images/papers/GPUE_JOSS.pdf>
 Package pdftex.def Info: ./Images/papers/GPUE_JOSS.pdf  used on input line 178.
@@ -1579,7 +1576,7 @@ File: ./Images/papers/GPUE_JOSS.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Images/papers/GPUE_JOSS.pdf  used on input line 178.
 
 (pdftex.def)             Requested size: 597.51086pt x 845.04504pt.
-<./Images/papers/GPUE_JOSS.pdf, id=3410, page=1, 597.51233pt x 845.0471pt>
+<./Images/papers/GPUE_JOSS.pdf, id=3411, page=1, 597.51233pt x 845.0471pt>
 File: ./Images/papers/GPUE_JOSS.pdf Graphic file (type pdf)
 <use ./Images/papers/GPUE_JOSS.pdf, page 1>
 Package pdftex.def Info: ./Images/papers/GPUE_JOSS.pdf , page1 used on input li
@@ -1606,7 +1603,7 @@ Package pdftex.def Info: ./Images/papers/GPUE_JOSS.pdf , page1 used on input li
 ne 178.
 (pdftex.def)             Requested size: 597.53821pt x 845.08372pt.
  [172 <./Images/papers/GPUE_JOSS.pdf>]
-<./Images/papers/GPUE_JOSS.pdf, id=3525, page=2, 597.51233pt x 845.0471pt>
+<./Images/papers/GPUE_JOSS.pdf, id=3526, page=2, 597.51233pt x 845.0471pt>
 File: ./Images/papers/GPUE_JOSS.pdf Graphic file (type pdf)
 <use ./Images/papers/GPUE_JOSS.pdf, page 2>
 Package pdftex.def Info: ./Images/papers/GPUE_JOSS.pdf , page2 used on input li
@@ -1624,7 +1621,7 @@ ne 178.
 (pdftex.def)             Requested size: 597.53821pt x 845.08372pt.
 
 [173 <./Images/papers/GPUE_JOSS.pdf>]
-<./Images/papers/GPUE_JOSS.pdf, id=3544, page=3, 597.51233pt x 845.0471pt>
+<./Images/papers/GPUE_JOSS.pdf, id=3545, page=3, 597.51233pt x 845.0471pt>
 File: ./Images/papers/GPUE_JOSS.pdf Graphic file (type pdf)
 <use ./Images/papers/GPUE_JOSS.pdf, page 3>
 Package pdftex.def Info: ./Images/papers/GPUE_JOSS.pdf , page3 used on input li
@@ -1641,7 +1638,7 @@ Package pdftex.def Info: ./Images/papers/GPUE_JOSS.pdf , page3 used on input li
 ne 178.
 (pdftex.def)             Requested size: 597.53821pt x 845.08372pt.
  [174 <./Images/papers/GPUE_JOSS.pdf>]
-<./Images/papers/PRF_CHAOS.pdf, id=3549, 505.89pt x 722.7pt>
+<./Images/papers/PRF_CHAOS.pdf, id=3550, 505.89pt x 722.7pt>
 File: ./Images/papers/PRF_CHAOS.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_CHAOS.pdf>
 Package pdftex.def Info: ./Images/papers/PRF_CHAOS.pdf  used on input line 179.
@@ -1652,7 +1649,7 @@ File: ./Images/papers/PRF_CHAOS.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Images/papers/PRF_CHAOS.pdf  used on input line 179.
 
 (pdftex.def)             Requested size: 505.88875pt x 722.69823pt.
-<./Images/papers/PRF_CHAOS.pdf, id=3552, page=1, 505.89pt x 722.7pt>
+<./Images/papers/PRF_CHAOS.pdf, id=3553, page=1, 505.89pt x 722.7pt>
 File: ./Images/papers/PRF_CHAOS.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_CHAOS.pdf, page 1>
 Package pdftex.def Info: ./Images/papers/PRF_CHAOS.pdf , page1 used on input li
@@ -1680,7 +1677,7 @@ ne 179.
 (pdftex.def)             Requested size: 592.09732pt x 845.85333pt.
 
 [175 <./Images/papers/PRF_CHAOS.pdf>]
-<./Images/papers/PRF_CHAOS.pdf, id=3577, page=2, 505.89pt x 722.7pt>
+<./Images/papers/PRF_CHAOS.pdf, id=3578, page=2, 505.89pt x 722.7pt>
 File: ./Images/papers/PRF_CHAOS.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_CHAOS.pdf, page 2>
 Package pdftex.def Info: ./Images/papers/PRF_CHAOS.pdf , page2 used on input li
@@ -1697,7 +1694,7 @@ Package pdftex.def Info: ./Images/papers/PRF_CHAOS.pdf , page2 used on input li
 ne 179.
 (pdftex.def)             Requested size: 592.09732pt x 845.85333pt.
  [176 <./Images/papers/PRF_CHAOS.pdf>]
-<./Images/papers/PRF_CHAOS.pdf, id=3601, page=3, 505.89pt x 722.7pt>
+<./Images/papers/PRF_CHAOS.pdf, id=3602, page=3, 505.89pt x 722.7pt>
 File: ./Images/papers/PRF_CHAOS.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_CHAOS.pdf, page 3>
 Package pdftex.def Info: ./Images/papers/PRF_CHAOS.pdf , page3 used on input li
@@ -1715,7 +1712,7 @@ ne 179.
 (pdftex.def)             Requested size: 592.09732pt x 845.85333pt.
 
 [177 <./Images/papers/PRF_CHAOS.pdf>]
-<./Images/papers/PRF_CHAOS.pdf, id=3610, page=4, 505.89pt x 722.7pt>
+<./Images/papers/PRF_CHAOS.pdf, id=3611, page=4, 505.89pt x 722.7pt>
 File: ./Images/papers/PRF_CHAOS.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_CHAOS.pdf, page 4>
 Package pdftex.def Info: ./Images/papers/PRF_CHAOS.pdf , page4 used on input li
@@ -1732,7 +1729,7 @@ Package pdftex.def Info: ./Images/papers/PRF_CHAOS.pdf , page4 used on input li
 ne 179.
 (pdftex.def)             Requested size: 592.09732pt x 845.85333pt.
  [178 <./Images/papers/PRF_CHAOS.pdf>]
-<./Images/papers/PRF_CHAOS.pdf, id=3620, page=5, 505.89pt x 722.7pt>
+<./Images/papers/PRF_CHAOS.pdf, id=3621, page=5, 505.89pt x 722.7pt>
 File: ./Images/papers/PRF_CHAOS.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_CHAOS.pdf, page 5>
 Package pdftex.def Info: ./Images/papers/PRF_CHAOS.pdf , page5 used on input li
@@ -1750,7 +1747,7 @@ ne 179.
 (pdftex.def)             Requested size: 592.09732pt x 845.85333pt.
 
 [179 <./Images/papers/PRF_CHAOS.pdf>]
-<./Images/papers/PRF_CHAOS.pdf, id=3634, page=6, 505.89pt x 722.7pt>
+<./Images/papers/PRF_CHAOS.pdf, id=3635, page=6, 505.89pt x 722.7pt>
 File: ./Images/papers/PRF_CHAOS.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_CHAOS.pdf, page 6>
 Package pdftex.def Info: ./Images/papers/PRF_CHAOS.pdf , page6 used on input li
@@ -1767,7 +1764,7 @@ Package pdftex.def Info: ./Images/papers/PRF_CHAOS.pdf , page6 used on input li
 ne 179.
 (pdftex.def)             Requested size: 592.09732pt x 845.85333pt.
  [180 <./Images/papers/PRF_CHAOS.pdf>]
-<./Images/papers/PRF_CHAOS.pdf, id=3647, page=7, 505.89pt x 722.7pt>
+<./Images/papers/PRF_CHAOS.pdf, id=3648, page=7, 505.89pt x 722.7pt>
 File: ./Images/papers/PRF_CHAOS.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_CHAOS.pdf, page 7>
 Package pdftex.def Info: ./Images/papers/PRF_CHAOS.pdf , page7 used on input li
@@ -1785,7 +1782,7 @@ ne 179.
 (pdftex.def)             Requested size: 592.09732pt x 845.85333pt.
 
 [181 <./Images/papers/PRF_CHAOS.pdf>]
-<./Images/papers/PRF_CHAOS.pdf, id=3680, page=8, 505.89pt x 722.7pt>
+<./Images/papers/PRF_CHAOS.pdf, id=3681, page=8, 505.89pt x 722.7pt>
 File: ./Images/papers/PRF_CHAOS.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_CHAOS.pdf, page 8>
 Package pdftex.def Info: ./Images/papers/PRF_CHAOS.pdf , page8 used on input li
@@ -1802,7 +1799,7 @@ Package pdftex.def Info: ./Images/papers/PRF_CHAOS.pdf , page8 used on input li
 ne 179.
 (pdftex.def)             Requested size: 592.09732pt x 845.85333pt.
  [182 <./Images/papers/PRF_CHAOS.pdf>]
-<./Images/papers/PRF_CHAOS.pdf, id=3685, page=9, 505.89pt x 722.7pt>
+<./Images/papers/PRF_CHAOS.pdf, id=3686, page=9, 505.89pt x 722.7pt>
 File: ./Images/papers/PRF_CHAOS.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_CHAOS.pdf, page 9>
 Package pdftex.def Info: ./Images/papers/PRF_CHAOS.pdf , page9 used on input li
@@ -1820,7 +1817,7 @@ ne 179.
 (pdftex.def)             Requested size: 592.09732pt x 845.85333pt.
 
 [183 <./Images/papers/PRF_CHAOS.pdf>]
-<./Images/papers/PRF_CHAOS.pdf, id=3690, page=10, 505.89pt x 722.7pt>
+<./Images/papers/PRF_CHAOS.pdf, id=3691, page=10, 505.89pt x 722.7pt>
 File: ./Images/papers/PRF_CHAOS.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_CHAOS.pdf, page 10>
 Package pdftex.def Info: ./Images/papers/PRF_CHAOS.pdf , page10 used on input l
@@ -1837,7 +1834,7 @@ Package pdftex.def Info: ./Images/papers/PRF_CHAOS.pdf , page10 used on input l
 ine 179.
 (pdftex.def)             Requested size: 592.09732pt x 845.85333pt.
  [184 <./Images/papers/PRF_CHAOS.pdf>]
-<./Images/papers/PRF_VORTEX.pdf, id=3696, 614.295pt x 794.97pt>
+<./Images/papers/PRF_VORTEX.pdf, id=3697, 614.295pt x 794.97pt>
 File: ./Images/papers/PRF_VORTEX.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_VORTEX.pdf>
 Package pdftex.def Info: ./Images/papers/PRF_VORTEX.pdf  used on input line 180
@@ -1848,7 +1845,7 @@ File: ./Images/papers/PRF_VORTEX.pdf Graphic file (type pdf)
 Package pdftex.def Info: ./Images/papers/PRF_VORTEX.pdf  used on input line 180
 .
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-<./Images/papers/PRF_VORTEX.pdf, id=3699, page=1, 614.295pt x 794.97pt>
+<./Images/papers/PRF_VORTEX.pdf, id=3700, page=1, 614.295pt x 794.97pt>
 File: ./Images/papers/PRF_VORTEX.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_VORTEX.pdf, page 1>
 Package pdftex.def Info: ./Images/papers/PRF_VORTEX.pdf , page1 used on input l
@@ -1876,7 +1873,7 @@ ine 180.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 
 [185 <./Images/papers/PRF_VORTEX.pdf>]
-<./Images/papers/PRF_VORTEX.pdf, id=3736, page=2, 614.295pt x 794.97pt>
+<./Images/papers/PRF_VORTEX.pdf, id=3737, page=2, 614.295pt x 794.97pt>
 File: ./Images/papers/PRF_VORTEX.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_VORTEX.pdf, page 2>
 Package pdftex.def Info: ./Images/papers/PRF_VORTEX.pdf , page2 used on input l
@@ -1893,7 +1890,7 @@ Package pdftex.def Info: ./Images/papers/PRF_VORTEX.pdf , page2 used on input l
 ine 180.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [186 <./Images/papers/PRF_VORTEX.pdf>]
-<./Images/papers/PRF_VORTEX.pdf, id=3846, page=3, 614.295pt x 794.97pt>
+<./Images/papers/PRF_VORTEX.pdf, id=3847, page=3, 614.295pt x 794.97pt>
 File: ./Images/papers/PRF_VORTEX.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_VORTEX.pdf, page 3>
 Package pdftex.def Info: ./Images/papers/PRF_VORTEX.pdf , page3 used on input l
@@ -1911,7 +1908,7 @@ ine 180.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 
 [187 <./Images/papers/PRF_VORTEX.pdf>]
-<./Images/papers/PRF_VORTEX.pdf, id=3851, page=4, 614.295pt x 794.97pt>
+<./Images/papers/PRF_VORTEX.pdf, id=3852, page=4, 614.295pt x 794.97pt>
 File: ./Images/papers/PRF_VORTEX.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_VORTEX.pdf, page 4>
 Package pdftex.def Info: ./Images/papers/PRF_VORTEX.pdf , page4 used on input l
@@ -1928,7 +1925,7 @@ Package pdftex.def Info: ./Images/papers/PRF_VORTEX.pdf , page4 used on input l
 ine 180.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [188 <./Images/papers/PRF_VORTEX.pdf>]
-<./Images/papers/PRF_VORTEX.pdf, id=3872, page=5, 614.295pt x 794.97pt>
+<./Images/papers/PRF_VORTEX.pdf, id=3873, page=5, 614.295pt x 794.97pt>
 File: ./Images/papers/PRF_VORTEX.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_VORTEX.pdf, page 5>
 Package pdftex.def Info: ./Images/papers/PRF_VORTEX.pdf , page5 used on input l
@@ -1946,7 +1943,7 @@ ine 180.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 
 [189 <./Images/papers/PRF_VORTEX.pdf>]
-<./Images/papers/PRF_VORTEX.pdf, id=3888, page=6, 614.295pt x 794.97pt>
+<./Images/papers/PRF_VORTEX.pdf, id=3889, page=6, 614.295pt x 794.97pt>
 File: ./Images/papers/PRF_VORTEX.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_VORTEX.pdf, page 6>
 Package pdftex.def Info: ./Images/papers/PRF_VORTEX.pdf , page6 used on input l
@@ -1963,7 +1960,7 @@ Package pdftex.def Info: ./Images/papers/PRF_VORTEX.pdf , page6 used on input l
 ine 180.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [190 <./Images/papers/PRF_VORTEX.pdf>]
-<./Images/papers/PRF_VORTEX.pdf, id=3924, page=7, 614.295pt x 794.97pt>
+<./Images/papers/PRF_VORTEX.pdf, id=3925, page=7, 614.295pt x 794.97pt>
 File: ./Images/papers/PRF_VORTEX.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_VORTEX.pdf, page 7>
 Package pdftex.def Info: ./Images/papers/PRF_VORTEX.pdf , page7 used on input l
@@ -1981,7 +1978,7 @@ ine 180.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
 
 [191 <./Images/papers/PRF_VORTEX.pdf>]
-<./Images/papers/PRF_VORTEX.pdf, id=3937, page=8, 614.295pt x 794.97pt>
+<./Images/papers/PRF_VORTEX.pdf, id=3938, page=8, 614.295pt x 794.97pt>
 File: ./Images/papers/PRF_VORTEX.pdf Graphic file (type pdf)
 <use ./Images/papers/PRF_VORTEX.pdf, page 8>
 Package pdftex.def Info: ./Images/papers/PRF_VORTEX.pdf , page8 used on input l
@@ -1998,11 +1995,9 @@ Package pdftex.def Info: ./Images/papers/PRF_VORTEX.pdf , page8 used on input l
 ine 180.
 (pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
  [192 <./Images/papers/PRF_VORTEX.pdf>]
-
-Package natbib Warning: There were undefined citations.
-
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 182.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 182.
+
 (./Temporary_Thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 182.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 182.
@@ -2017,7 +2012,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 182.
 Here is how much of TeX's memory you used:
  24787 strings out of 492623
  440449 string characters out of 6135669
- 855326 words of memory out of 5000000
+ 856326 words of memory out of 5000000
  27103 multiletter control sequences out of 15000+600000
  24107 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2065,10 +2060,10 @@ er/sftt1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb
 ></usr/share/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texmf-d
 ist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/
 palatino/uplri8a.pfb>
-Output written on Temporary_Thesis.pdf (201 pages, 16066652 bytes).
+Output written on Temporary_Thesis.pdf (201 pages, 16066563 bytes).
 PDF statistics:
- 4268 PDF objects out of 4296 (max. 8388607)
- 3534 compressed objects within 36 object streams
+ 4269 PDF objects out of 4296 (max. 8388607)
+ 3535 compressed objects within 36 object streams
  1045 named destinations out of 1200 (max. 500000)
  963 words of extra memory for PDF output out of 10000 (max. 10000000)
 
