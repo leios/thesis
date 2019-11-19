@@ -1,0 +1,154 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Modified by Jeremie Gillet in November 2015 to make an OIST Skill Pill template
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+
+\mode<presentation> {
+
+\usetheme{}
+
+\definecolor{OISTcolor}{rgb}{0.65,0.16,0.16}
+\usecolortheme[named=OISTcolor]{structure}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{textpos} % Use for positioning the Skill Pill logo
+\usepackage{fancyvrb}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{listings}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\setbeamertemplate{frametitle}[default][center]
+
+\lstset{frame=tb,
+  language=python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[PhD presentation]{Massively parallel split step Fourier techniques for simulating quantum systems} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{James Schloss} % Your name
+\institute[OIST] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Okinawa Institute of Science and Technology \\ % Your institution for the title page
+\textit{james.schloss@oist.jp}
+}
+\date{December 9, 2019} % Date, can be changed to a custom date
+
+\begin{document}
+
+\setbeamertemplate{background}{\includegraphics[width=\paperwidth]{OISTBG.png}} % Adding the background logo
+
+\begin{frame}
+\vspace*{1.4cm}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+
+\setbeamertemplate{background}{} % No background logo after title frame
+
+\addtobeamertemplate{frametitle}{}{% Adding the Skill Pill logo on the title screen after title frame
+\begin{textblock*}{100mm}(.92\textwidth,-0.75cm)
+\includegraphics[height=1cm]{OIST}
+\end{textblock*}}
+
+\begin{frame}
+\frametitle{Overview}
+This project has created fast, GPU-accelerated software for the simulation of superfluid systems
+\begin{columns}
+\column{0.7\textwidth}
+\begin{itemize}
+\onslide<2->
+\item The split-step Fourier method
+\onslide<3->
+\item Non-adiabatic superposition states via quantum state engineering
+\onslide<4->
+\item GPU architecture and the GPUE codebase
+\onslide<5->
+\item Chaotic vortex dynamics in a few-vortex system
+\onslide<6->
+\item Vortex rings with artificial magnetic fields
+\onslide<7->
+\item Conclusions and future directions
+\end{itemize}
+\column{0.3\textwidth}
+\onslide<1->
+\includegraphics<1>[width=\textwidth]{GPUE.png}
+\includegraphics<2>[width=\textwidth]{../data/splitop/method/split_op_method.pdf}
+\includegraphics<3>[width=\textwidth]{../data/1d/scheme.pdf}
+\includegraphics<4>[width=\textwidth]{../data/gpu/gputhreads.pdf}
+\includegraphics<5>[width=\textwidth]{../data/2d/evolution/evolution.pdf}
+\includegraphics<6>[width=\textwidth]{../data/3d/HE21_3d.png}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\center \huge The split-step Fourier method
+\end{frame}
+
+\begin{frame}
+\frametitle{Heisenberg uncertainty principle}
+\end{frame}
+
+\begin{frame}
+\frametitle{The Fourier Transform}
+\end{frame}
+
+\begin{frame}
+\frametitle{Cooley-Tukey}
+\end{frame}
+
+\begin{frame}
+\frametitle{Hamiltonian}
+\end{frame}
+
+\begin{frame}
+\frametitle{Bose-Einstein condensation}
+\end{frame}
+
+\begin{frame}
+\frametitle{Superfluid rotation}
+\end{frame}
+
+\end{document}
