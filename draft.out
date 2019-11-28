@@ -1,14 +1,12 @@
 \BOOKMARK [0][-]{section*.1}{Contents}{}% 1
 \BOOKMARK [0][-]{section*.3}{Introduction}{}% 2
-\BOOKMARK [0][-]{chapter.1}{Engineering NOON states in for one-dimensional quantum gases}{}% 3
-\BOOKMARK [1][-]{section.1.1}{Optimization methods}{chapter.1}% 4
-\BOOKMARK [2][-]{subsection.1.1.1}{Nelder\205Mead}{section.1.1}% 5
-\BOOKMARK [2][-]{subsection.1.1.2}{Chopped random basis optimal control}{section.1.1}% 6
-\BOOKMARK [1][-]{section.1.2}{Shortcuts to adiabaticity}{chapter.1}% 7
-\BOOKMARK [1][-]{section.1.3}{Non-adiabatic generation of NOON states in a Tonks\205Girardeau gas}{chapter.1}% 8
-\BOOKMARK [2][-]{subsection.1.3.1}{Tonks\205Girardeau gas}{section.1.3}% 9
-\BOOKMARK [2][-]{subsection.1.3.2}{NOON states in a TG gas}{section.1.3}% 10
-\BOOKMARK [2][-]{subsection.1.3.3}{Optimal control protocols}{section.1.3}% 11
-\BOOKMARK [2][-]{subsection.1.3.4}{Results with STA protocols}{section.1.3}% 12
-\BOOKMARK [1][-]{section.1.4}{Outlook}{chapter.1}% 13
-\BOOKMARK [0][-]{section*.15}{Bibliography}{}% 14
+\BOOKMARK [0][-]{chapter.1}{Introduction to the SSFM for simulating superfluid vortex systems}{}% 3
+\BOOKMARK [1][-]{section.1.1}{The SSFM}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.2}{Introduction to ultracold quantum systems}{chapter.1}% 5
+\BOOKMARK [2][-]{subsection.1.2.1}{Bose\205Einstein condensation and the Gross\205Pitaevskii Equation}{section.1.2}% 6
+\BOOKMARK [1][-]{section.1.3}{Superfluid systems and vortex dynamics}{chapter.1}% 7
+\BOOKMARK [2][-]{subsection.1.3.1}{Rotation}{section.1.3}% 8
+\BOOKMARK [2][-]{subsection.1.3.2}{Phase imprinting}{section.1.3}% 9
+\BOOKMARK [2][-]{subsection.1.3.3}{Artificial magnetic fields}{section.1.3}% 10
+\BOOKMARK [1][-]{section.1.4}{Modifications to the SSFM for superfluid vortex simulations}{chapter.1}% 11
+\BOOKMARK [0][-]{section*.9}{Bibliography}{}% 12

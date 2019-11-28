@@ -27,7 +27,7 @@
 \usecolortheme[named=OISTcolor]{structure}
 
 %\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
-%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+\setbeamertemplate{footline}[frame number] % To replace the footer line in all slides with a simple slide count uncomment this line
 
 \setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
 }
@@ -70,13 +70,13 @@
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 
-\title[PhD presentation]{Massively parallel split step Fourier techniques for simulating quantum systems} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[PhD presentation]{Massively parallel split-step Fourier techniques for simulating quantum systems on graphics processing units} % The short title appears at the bottom of every slide, the full title is only on the title page
 
 \author{James Schloss} % Your name
 \institute[OIST] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
 {
-Okinawa Institute of Science and Technology \\ % Your institution for the title page
-\textit{james.schloss@oist.jp}
+Advisor: \textbf{Thomas Busch} \\
+Quantum Systems Unit \\ % Your institution for the title page
 }
 \date{December 9, 2019} % Date, can be changed to a custom date
 
@@ -106,44 +106,31 @@ This project has created fast, GPU-accelerated software for the simulation of su
 \onslide<2->
 \item The split-step Fourier method
 \onslide<3->
-\item Quantum state engineering
-\onslide<4->
 \item GPU architecture and the GPUE codebase
-\onslide<5->
+\onslide<4->
 \item Chaotic vortex dynamics in a few-vortex system
-\onslide<6->
+\onslide<5->
 \item Vortex rings with artificial magnetic fields
-\onslide<7->
+\onslide<6->
 \item Conclusions and future directions
 \end{itemize}
+
 \column{0.3\textwidth}
 \onslide<1->
-\includegraphics<1>[width=\textwidth]{GPUE.png}
-\includegraphics<2>[width=\textwidth]{../data/splitop/method/split_op_method.pdf}
-\includegraphics<3>[width=\textwidth]{../data/1d/scheme.pdf}
-\includegraphics<4>[width=\textwidth]{v100.png}
-\includegraphics<5>[width=\textwidth]{../data/2d/evolution/evolution.pdf}
-\includegraphics<6>[width=\textwidth]{../data/3d/HE21_3d.png}
+\includegraphics[width=\textwidth]{GPUE.png}
 \end{columns}
 \end{frame}
 
 \begin{frame}
-\center \huge The split-step Fourier method
-\end{frame}
-
-\begin{frame}
-\frametitle{Heisenberg uncertainty principle}
-\center Position and momentum space are conjugate variables
-$$
-\sigma_x\sigma_p \geq \frac{\hbar}{2}
-$$
+\center{ \huge The split-step Fourier method}
+\center{\small algorithm-archive.org}
 
 \pause
+\begin{center}
+\includegraphics[width=0.6\textwidth]{../data/splitop/rot/density_L10.pdf}
 
-%\movie[poster,width=0.6\textwidth, autostart, loop]{}{gaussian.mp4}
-\center \includemovie[autoplay,loop]{5.33cm}{3cm}{gaussian.mp4}
-
-We can flip between spaces with a Fourier transform
+I'll show you how to make this
+\end{center}
 \end{frame}
 
 \begin{frame}
@@ -154,19 +141,19 @@ We can flip between spaces with a Fourier transform
 \column{0.5\textwidth}
 Fourier Transform:
 \begin{align*}
-F(\xi) &= \int_{-\infty}^{\infty}f(x)e^{2\pi i x \xi}dx\\
-f(x) &= \int_{-\infty}^{\infty}F(\xi)e^{-2\pi i x \xi}d\xi
+F(\xi) &= \int_{-\infty}^{\infty}f(t)e^{-2\pi i t \xi}dt\\
+f(t) &= \int_{-\infty}^{\infty}F(\xi)e^{2\pi i t \xi}d\xi
 \end{align*}
 
 \onslide<3->
 Discrete Fourier Transform:
 \begin{align*}
-X_k &= \sum_{n=0}^{N-1} x_ne^{2\pi i k x / N}\\
-x_n &= \sum_{k=0}^{N-1} X_ke^{-2\pi i k x / N}
+X_k &= \sum_{n=0}^{N-1} x_ne^{2\pi i k n / N}\\
+x_n &= \frac{1}{N}\sum_{k=0}^{N-1} X_ke^{-2\pi i k n / N}
 \end{align*}
 
 \onslide<4->
-This is a \textit{global} operation requiring matrix multiplications
+This is a \textit{global} operation requiring matrix multiplications $\rightarrow$ FFT
 \column{0.5\textwidth}
 \onslide<2->
 \includegraphics[width=\textwidth]{time_0066.png}
@@ -174,82 +161,52 @@ This is a \textit{global} operation requiring matrix multiplications
 \end{columns}
 \end{frame}
 
-\begin{frame}
-\frametitle{Cooley-Tukey}
-
-\begin{columns}
-\column{0.5\textwidth}
-\begin{itemize}
-\item Recursively subdivides DFT into simple sums with twiddle factors
-\item Many known libraries, like FFTW, and CuFFT
-\item Hard to parallelize (note for later)
-\end{itemize}
-\column{0.5\textwidth}
-\includegraphics[width=\textwidth]{radix-8screen.jpg}
-\end{columns}
-\end{frame}
 
 \begin{frame}
 \frametitle{Hamiltonian}
 1D Schr\"odinger equation:
 \begin{equation*}
-i\hbar \frac{\partial \Psi(\mathbf{r}, t)}{\partial t} = \left(\frac{\hat p^2}{2m} + V_0(\mathbf{r}) \right)\Psi(\mathbf{r},t) = \mathcal{\hat H} \Psi(\mathbf{r},t)
+i\hbar \frac{\partial \Psi(\mathbf{r}, t)}{\partial t} = \left(\frac{ p^2}{2m} + V_0(\mathbf{r}) \right)\Psi(\mathbf{r},t) = \mathcal{ H} \Psi(\mathbf{r},t)
 \end{equation*}
+
+\vspace{-0.25cm}
 \begin{columns}
 \column{0.4\textwidth}
-\pause
+\onslide<2->
 Splits into:
 \begin{align*}
-\mathcal{\hat H}_v &= V_0(\mathbf{r}) = \frac{1}{2}m\omega^2x^2\\
-\mathcal{\hat H}_p &= \frac{\hat p^2}{2m}
+\mathcal{ H}_v &= V_0(\mathbf{r}) = \frac{1}{2}m\omega^2x^2\\
+\mathcal{ H}_p &= \frac{p^2}{2m} = \frac{1}{2m}\left(i\hbar \frac{\partial}{\partial x}\right)^2
 \end{align*}
-\column{0.6\textwidth}
-\includegraphics[width=\textwidth]{SHO_2.pdf}
-\end{columns}
-\end{frame}
 
-\begin{frame}
-\frametitle{The Split-Step Fourier Method}
-
-Solution for $\Psi$:
-\begin{equation*}
-\Psi(\mathbf{r},t + dt) = \left[e^{-\frac{i\mathcal{\hat{H}}dt}{\hbar}}\right]\Psi(\mathbf{r},t) = \left[e^{-\frac{i(\mathcal{\hat{H}}_v + \mathcal{\hat{H}}_p)dt}{\hbar}}\right]\Psi(\mathbf{r},t)
-\end{equation*}
-
-\pause
-Baker-Campbell-Hausdorff:
-\begin{equation*}
-\Psi(\mathbf{r},t+dt) = \left[e^{-\frac{i\mathcal{\hat{H}}_vdt}{\hbar}}e^{-\frac{i\mathcal{\hat{H}}_pdt}{\hbar}}e^{-\frac{[i\hat{H}_v, i\hat{H}_p]dt^2}{2}}\right]\Psi(\mathbf{r},t)
-\end{equation*}
-
-\pause
-Strang splitting:
-\begin{equation*}
-\Psi(\mathbf{r},t+dt) = \left[e^{-\frac{i\mathcal{\hat{H}}_vdt}{2\hbar}}e^{-\frac{i\mathcal{\hat{H}}_pdt}{\hbar}}e^{-\frac{i\mathcal{\hat{H}}_vdt}{2\hbar}} \right]\Psi(\mathbf{r},t) + \mathcal{O}(dt^3)
-\end{equation*}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{The Split-Step Fourier Method}
-\begin{equation*}
-\Psi(\mathbf{r}, t+dt) = \left[\hat{U}_r(dt)\mathcal{F}^{-1}\left[\hat{U}_p(dt) \mathcal{F} \left[\hat{U}_r(dt) \Psi(\mathbf{r},t) \right] \right] \right] + \mathcal{O}(dt^3)
-\end{equation*}
-
-\begin{columns}
-\column{0.5\textwidth}
+\vspace{-0.1cm}
+\onslide<3->
+Matrices:
 \begin{align*}
-\hat{U}_r &= e^{-\frac{i\mathcal{\hat{H}}_vdt}{2\hbar}} \\
-\hat{U}_p &= e^{-\frac{i\mathcal{\hat{H}}_pdt}{\hbar}}
+{U}_v &= e^{-\frac{i\mathcal{{H}}_vdt}{\hbar}} \\
+{U}_p &= e^{-\frac{i\mathcal{{H}}_pdt}{\hbar}}
 \end{align*}
-\column{0.5\textwidth}
-\includegraphics[width=\textwidth]{../data/splitop/method/split_op_method.pdf}
+
+\column{0.6\textwidth}
+\onslide<2->
+\begin{center}
+\includegraphics[width=0.8\textwidth]{SHO_2.pdf}
+\end{center}
+
 \end{columns}
+
+\onslide<3->
+\vspace{0.25cm}
+
+\begin{equation*}
+\Psi(\mathbf{r}, t+dt) = \mathcal{F}^{-1}\left[{U}_p(dt) \mathcal{F} \left[{U}_r(dt) \Psi(\mathbf{r},t) \right] \right] + \mathcal{O}(dt^2)
+\end{equation*}
+
 \end{frame}
 
 \begin{frame}
 \frametitle{Bose-Einstein condensation}
-Bosons condense into a superfluid at 0 Kelvin
+Bosons condense into a superfluid at roughly 0 Kelvin
 
 \begin{center}
 \includegraphics[width=0.5\textwidth]{Bose_Einstein_condensate.png}
@@ -261,7 +218,7 @@ Bosons condense into a superfluid at 0 Kelvin
 
 Described by the Gross--Pitaevskii equation:
 \begin{equation*}
-    i\hbar \frac{\partial}{\partial t}\Psi(\mathbf{r},t) = \left( - \frac{\hbar^2}{2m} \nabla^2 + V_0(\mathbf{r}) + {\color{red}{g |\Psi(\mathbf{r},t)|^2}}\right)\Psi(\mathbf{r},t).
+    i\hbar \frac{\partial}{\partial t}\Psi(\mathbf{r},t) = \left( - \frac{\hbar^2}{2m} \nabla^2 + V_0(\mathbf{r}) + {\color{red}{g |\Psi(\mathbf{r},t)|^2}}\right)\Psi(\mathbf{r},t)
 \end{equation*}
 
 
@@ -269,7 +226,7 @@ Described by the Gross--Pitaevskii equation:
 
 \begin{frame}
 \frametitle{Superfluid rotation}
-\center Rotation leads to many vortices in a triangular lattice
+\center Rotation leads to many vortices along the axis of rotation
 \vspace{0.25cm}
 
 \begin{columns}
@@ -284,8 +241,13 @@ Described by the Gross--Pitaevskii equation:
 \end{columns}
 
 \pause
-\vspace{0.25cm}
-Note: Vortices must follow axis of rotation
+\begin{equation*}
+    i\hbar \frac{\partial}{\partial t}\Psi(\mathbf{r},t) = \left( - \frac{\hbar^2}{2m} \nabla^2 + V_0(\mathbf{r}) + g |\Psi(\mathbf{r},t)|^2 {\color{red}{-\Omega L_z}} \right)\Psi(\mathbf{r},t)
+\end{equation*}
+$$
+L_z = (xp_y - yp_x) = -i\hbar\left(x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x} \right)
+$$
+
 \end{frame}
 
 \begin{frame}
@@ -297,7 +259,7 @@ Each vortex has a $2\pi$ complex phase winding
 
 \begin{frame}
 \frametitle{Phase imprinting}
-\center \includegraphics[width=0.75\textwidth]{../data/2d/phase/phase}
+\center \includegraphics[width=0.75\textwidth]{phase}
 
 
 Phase masks can induce dynamical vortices
@@ -334,7 +296,7 @@ $$
 \frametitle{Modifications to the GPE}
 With gauge fields, the GPE becomes
 \begin{equation*}
-\mathcal{\hat H} = \frac{(p-{\color{red}{m\mathbf{A}}} )^2}{2m} + V_0 + g|\Psi(\mathbf{r},t)|^2
+\mathcal{ H} = \frac{(p-{\color{red}{m\mathbf{A}}} )^2}{2m} + V_0 + g|\Psi(\mathbf{r},t)|^2
 \end{equation*}
 
 \onslide<2->
@@ -363,6 +325,359 @@ $$
 \end{frame}
 
 \begin{frame}
+\frametitle{Takeaways}
+\begin{columns}
+\hspace{0.25cm} \column{0.7\textwidth}
+Physics
+\begin{itemize}
+\item Quantized vortices can be formed with rotation, phase imprinting, and artificial magnetic fields
+\item Quantum state engineering can be used \\
+\small{(New Journal of Physics 18 (3), 035012)}
+\end{itemize}
+
+Computer Science
+\begin{itemize}
+\item The SSFM requires a large number of FFT's
+\item This system is a great for testing spectral methods
+\end{itemize}
+\hspace{-0.3cm} \column{0.3\textwidth}
+ \includegraphics[width=1\textwidth]{../data/splitop/rot/density_L10.pdf}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}
+\center \huge GPU computing and the GPUE codebase
+\center{\small GPUE: Graphics Processing Unit Gross--Pitaevskii Equation solver \\
+J Schloss, LJ O'Riordan \\
+Journal of Open Source Software 3 (32), 1037}
+\end{frame}
+
+\begin{frame}
+\frametitle{What is a GPU?}
+
+\begin{columns}
+\column{0.7\textwidth}
+\begin{itemize}
+\item Graphics processing units (GPUs) are massively parallel computing devices
+\onslide<2->
+\item GPUs are fast for parallel tasks
+\onslide<3-> 
+\item Summit uses GPUs
+\end{itemize}
+
+\column{0.3\textwidth}
+\onslide<1->
+\includegraphics[width=\textwidth]{v100.png}
+
+\end{columns}
+
+\onslide<2->
+\center{\includegraphics[width=0.6\textwidth]{../data/gpu/GPUEvsTS.png}}
+\end{frame}
+
+\begin{frame}
+\frametitle{GPU memory hierarchy}
+
+\begin{columns}
+\column{0.7\textwidth}
+\begin{itemize}
+\item GPU memory is weird...
+\onslide<2->
+\item Computing threads in blocks, blocks in grids
+\onslide<3->
+\item Memory coalescence
+\onslide<4->
+\item Data transfer is slow
+\onslide<5->
+\item Recursion and iteration is slow
+\onslide<6->
+\item Limited memory
+\end{itemize}
+
+\vspace{0.5cm}
+\onslide<3->
+\includegraphics[width=\textwidth]{../data/gpu/coalesce/check.pdf}
+
+\column{0.3\textwidth}
+
+\onslide<2->
+\includegraphics[width=\textwidth]{../data/gpu/gputhreads.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{FFT notes}
+\begin{columns}
+\column{0.4\textwidth}
+\begin{itemize}
+\item Global operations
+\item 1D FFT's are not supported by CuFFT
+\item Transposes are necessary
+\end{itemize}
+\center \includegraphics[width=\textwidth]{../data/gpu/fft/fft_fig.png}
+
+\column{0.7\textwidth}
+\center \includegraphics[width=\textwidth]{../data/gpu/fft/fft_fig2.png}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Distributed transpose}
+\begin{columns}
+\column{0.7\textwidth}
+GPU transpose
+\begin{itemize}
+\item 2D out-of-place transpose $\approx$ copy \\
+      \small{(shared memory, coalescence, bank conflicts)}
+\item In-place transposes are inefficient
+\item 3D permutations of arrays have 70\% efficiency
+\onslide<2->
+\item 2D distributed example
+\end{itemize}
+
+\onslide<3->
+\center{Application in GPUE and CLIMA}
+
+\column{0.3\textwidth}
+\onslide<2->
+\includegraphics[width=\textwidth]{transpose.png}
+\center{\tiny Ruetsch, G. and Fatica, M. 2013}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Two important features}
+\center{\includegraphics[width=0.5\textwidth]{GPUE.png}}
+
+\begin{itemize}
+\item Novel features useful for understanding examples
+\item No discussion of implementation details
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Expression trees}
+Reminders:
+\begin{itemize}
+\item CUDA code is hard to write
+\item Users want time-dependent fields for state engineering
+\item GPUs have limited memory
+\end{itemize}
+
+\pause
+\center \includegraphics[width=0.6\textwidth]{expr_tree.png}
+\end{frame}
+
+\begin{frame}
+\frametitle{Vortex tracking and highlighting}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{itemize}
+\item Phase plaquettes in 2D
+\onslide<2->
+\item Vortex highlighting in 3D
+\end{itemize}
+\onslide<2->
+\center \includegraphics[width=1.2\textwidth]{../data/gpu/vortex_highlighting/all.png}
+\column{0.5\textwidth}
+
+\onslide<1->
+\center \includegraphics[width = 0.8\textwidth]{../data/gpu/vortex_tracking/phi_grid.png}
+
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Takeaways}
+
+Physics
+\begin{itemize}
+\item GPUE is fast, can do dynamic simulations, and vortex detection
+\item Multi-component simulations and HDF5 have also been implemented
+\end{itemize}
+
+Computer Science
+\begin{itemize}
+\item The distributed transpose is hard
+\item Expression trees save a lot of GPU memory when usable
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\center \huge Chaotic vortex dynamics in 2D BEC simulations
+\center{\small Chaotic few-body vortex dynamics in rotating Bose-Einstein condensates \\
+T Zhang, J Schloss, A Thomasen, LJ O'Riordan, T Busch, A White \\
+Physical Review Fluids 4 (5), 054701}
+\end{frame}
+
+\begin{frame}
+\frametitle{3 vortex, 1 anti-vortex}
+\includegraphics[width=\textwidth]{../data/2d/histogram/histogram}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Dynamics}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Divergence in trajectories}
+\begin{columns}
+
+\column{0.6\textwidth}
+Divergence in trajectory when Lyapunov exp ($\lambda$) becomes positive
+$$
+|\delta\mathbf{P}(t)| \approx e^{\lambda t} |\delta \mathbf{P}_0|
+$$
+$$
+\lambda = \lim_{t\to\infty}\frac{1}{t}\text{ln}\frac{||\delta\textbf{P}(t)||}{||\delta\textbf{P}(0)||}
+$$
+
+\column{0.4\textwidth}
+\includegraphics[width=\textwidth]{../data/2d/evolution/evolution}
+
+\includegraphics[width=\textwidth]{../data/2d/lyap/lyap}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Takeaway}
+Physics
+\begin{itemize}
+\item Chaotic dynamics of few-vortex systems is accelerated by collisional events
+\end{itemize}
+Computer Science
+\begin{itemize}
+\item 50 TB of data
+\item Reliant on post-processing metrics (Lyapunov exp, Vortex tracking)
+\item 1 hour per run, infeasible with other software
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\center \huge 3D vortex ring generation in toroidal BEC systems
+\center{\small Controlled creation of three-dimensional vortex structures in Bose--Einstein condensates using artificial magnetic fields \\
+J Schloss, P Barnett, R Sachdeva, T Busch \\
+arXiv preprint arXiv:1910.02364}
+\end{frame}
+
+\begin{frame}
+\frametitle{The system}
+
+\begin{columns}
+
+\column{0.5\textwidth}
+\begin{itemize}
+\item BEC toroidally trapped around nanofiber
+\item Nanofiber generates $\mathbf{A}$
+\item Vortices follow $\mathbf{B} = \nabla \times \mathbf{A}$
+\end{itemize}
+
+\column{0.5\textwidth}
+\includegraphics[width=\textwidth]{../data/3d/Schematic_TB}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Optical nanofiber}
+\center \includegraphics[width=0.8\textwidth]{../data/3d/all_fields.pdf}
+
+$$
+\mathbf{A} = \hat{z} \hbar \kappa_0 (n_1 + 1) \tilde{s} \left[\frac{|d_rE_r + d_{\phi}E_{\phi} + d_zE_z|^2}{1 + \tilde s^2|d_rE_r + d_{\phi}E_{\phi} + d_zE_z|^2} \right]
+$$
+\end{frame}
+
+\begin{frame}
+\frametitle{Vortex structures}
+\includegraphics[width=\textwidth]{../data/3d/vortex_transition.png}
+\begin{columns}
+\column{0.5\textwidth}
+\begin{itemize}
+\item Transition with linear polarization
+\item Vortex structures align with $\mathbf{B}$
+\end{itemize}
+\column{0.5\textwidth}
+\center \includegraphics[width=\linewidth]{../data/3d/HE21_3d.png}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Interesting notes}
+
+\begin{columns}
+\column{0.5\textwidth}
+\begin{itemize}
+\item A vortex ring lattice can be generated with high $\mathbf{B}$
+\onslide<2->
+\item Scissors modes can be used to detect vortices
+\end{itemize}
+\onslide<2->
+\includegraphics[width=\textwidth]{../data/3d/scissors_plot.pdf}
+\column{0.5\textwidth}
+\onslide<1->
+\includegraphics[width=\linewidth]{../data/3d/vortex_line_all.pdf}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Takeaway}
+Physics
+\begin{itemize}
+\item We can generate, control, and detect vortex structures in a BEC around a nanofiber
+\item Dynamic simulations are underway!
+\end{itemize}
+Computer Science
+\begin{itemize}
+\item Dynamic simulations require a large amount of fileIO
+\item Scaling to a larger grid requires multiple GPU's
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\center \huge Overall conclusions
+\end{frame}
+
+\begin{frame}
+\frametitle{Overall conclusions}
+
+\begin{itemize}
+\item The SSFM is nice
+\item GPU computing is fast
+\item We can create chaos
+\item We can create not-chaos
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Future directions}
+\begin{itemize}
+\item Distributed Transpose
+\item General-purpose Hamiltonian solver
+\item Full vortex tracking
+\item Octree-based gridding for SSFM
+\item GPUE.jl
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{People}
+\begin{itemize}
+\item Collaborators: Lee, Rashi, Angela, TT, Andreas, Peter, Albert, Jeremie, Ben, Irina, \textbf{Thomas}
+\item Sponsors: JSPS, OIST, SCDA
+\item Other: AAA
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Conclusions}
+\end{frame}
+
+\begin{frame}
 \center \huge Quantum state engineering
 \end{frame}
 
@@ -388,17 +703,7 @@ Nelder--Mead
 \end{center}
 \includegraphics[width=\textwidth]{../data/1d/NM/NM.pdf}
 
-\begin{center}
-ADD ANIMATION
-\end{center}
-
 \end{columns}
-\end{frame}
-
-\begin{frame}
-\frametitle{Shortcuts to Adiabaticity}
-
-\center \Huge{HELP}
 \end{frame}
 
 \begin{frame}
@@ -470,216 +775,6 @@ $$
 
 
 \begin{frame}
-\center \huge GPU computing and the GPUE codebase
-\end{frame}
-
-\begin{frame}
-\frametitle{What is a GPU?}
-
-\begin{columns}
-\column{0.7\textwidth}
-\begin{itemize}
-\item Massively parallel computing device
-\onslide<2->
-\item Computing threads in blocks, blocks in grids
-\onslide<3->
-\item Memory coalescence
-\onslide<4->
-\item Data transfer is slow
-\onslide<5->
-\item Recursion and iteration is slow
-\onslide<6->
-\item Limited memory
-\end{itemize}
-
-\onslide<3->
-\includegraphics[width=\textwidth]{../data/gpu/coalesce/check.pdf}
-
-\column{0.3\textwidth}
-\onslide<1->
-\includegraphics[width=\textwidth]{v100.png}
-
-\onslide<2->
-\includegraphics[width=\textwidth]{../data/gpu/gputhreads.pdf}
-\end{columns}
-\end{frame}
-
-\begin{frame}
-\frametitle{FFT notes}
-\begin{columns}
-\column{0.4\textwidth}
-\begin{itemize}
-\item Global operations
-\item 1D FFT's are not supported by CuFFT
-\item Transposes are necessary
-\end{itemize}
-\center \includegraphics[width=\textwidth]{../data/gpu/fft/fft_fig.png}
-
-\column{0.7\textwidth}
-\center \includegraphics[width=\textwidth]{../data/gpu/fft/fft_fig2.png}
-\end{columns}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Expression trees}
-
-\center \includegraphics[width=0.6\textwidth]{expr_tree.png}
-
-\begin{itemize}
-\item Allows for quantum state engineering
-\item Saves GPU memory
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Vortex tracking and highlighting}
-\begin{columns}
-\column{0.5\textwidth}
-\begin{itemize}
-\item Phase plaquettes in 2D
-\onslide<2->
-\item Vortex highlighting in 3D
-\end{itemize}
-\onslide<2->
-\center \includegraphics[width=1.2\textwidth]{../data/gpu/vortex_highlighting/all.png}
-\column{0.5\textwidth}
-
-\onslide<1->
-\center \includegraphics[width = 0.8\textwidth]{../data/gpu/vortex_tracking/phi_grid.png}
-
-\end{columns}
-\end{frame}
-
-\begin{frame}
-\center \huge Chaotic vortex dynamics in 2D BEC simulations
-\end{frame}
-
-\begin{frame}
-\frametitle{3 vortex, 1 anti-vortex}
-\includegraphics[width=\textwidth]{../data/2d/histogram/histogram}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{dynamics}
-\center \includemovie[autoplay,repeat, poster]{9.55cm}{4.5cm}{chaos.mp4}
-\end{frame}
-
-\begin{frame}
-\frametitle{Divergence in trajectories}
-\begin{columns}
-
-\column{0.6\textwidth}
-Divergence in trajectory when Lyapunov exp ($\lambda$) becomes positive
-$$
-|\delta\mathbf{P}(t)| \approx e^{\lambda t} |\delta \mathbf{P}_0|
-$$
-$$
-\lambda = \lim_{t\to\infty}\frac{1}{t}\text{ln}\frac{||\delta\textbf{P}(t)||}{||\delta\textbf{P}(0)||}
-$$
-
-\column{0.4\textwidth}
-\includegraphics[width=\textwidth]{../data/2d/evolution/evolution}
-
-\includegraphics[width=\textwidth]{../data/2d/lyap/lyap}
-\end{columns}
-\end{frame}
-
-\begin{frame}
-\center \huge 3D vortex ring generation in toroidal BEC systems
-\end{frame}
-
-\begin{frame}
-\frametitle{The system}
-
-\begin{columns}
-
-\column{0.5\textwidth}
-\begin{itemize}
-\item BEC toroidally trapped around nanofiber
-\item Nanofiber generates $\mathbf{A}$
-\item Vortices follow $\mathbf{B} = \nabla \times \mathbf{A}$
-\end{itemize}
-
-\column{0.5\textwidth}
-\includegraphics[width=\textwidth]{../data/3d/Schematic_TB}
-\end{columns}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Optical nanofiber}
-\center \includegraphics[width=0.8\textwidth]{../data/3d/all_fields.pdf}
-
-$$
-\mathbf{A} = \hat{z} \hbar \kappa_0 (n_1 + 1) \tilde{s} \left[\frac{|d_rE_r + d_{\phi}E_{\phi} + d_zE_z|^2}{1 + \tilde s^2|d_rE_r + d_{\phi}E_{\phi} + d_zE_z|^2} \right]
-$$
-\end{frame}
-
-\begin{frame}
-\frametitle{Vortex structures}
-\includegraphics[width=\textwidth]{../data/3d/vortex_transition.png}
-\begin{columns}
-\column{0.5\textwidth}
-\begin{itemize}
-\item Transition with linear polarization
-\item Vortex structures align with $\mathbf{B}$
-\end{itemize}
-\column{0.5\textwidth}
-\center \includegraphics[width=\linewidth]{../data/3d/HE21_3d.png}
-\end{columns}
-\end{frame}
-
-\begin{frame}
-\frametitle{Interesting notes}
-
-\begin{columns}
-\column{0.5\textwidth}
-\begin{itemize}
-\item A vortex ring lattice can be generated with high $\mathbf{B}$
-\onslide<2->
-\item Scissors modes can be used to detect vortices
-\end{itemize}
-\onslide<2->
-\includegraphics[width=\textwidth]{../data/3d/scissors_plot.pdf}
-\column{0.5\textwidth}
-\onslide<1->
-\includegraphics[width=\linewidth]{../data/3d/vortex_line_all.pdf}
-\end{columns}
-\end{frame}
-
-
-\begin{frame}
-\center \huge Overall conclusions
-\end{frame}
-
-\begin{frame}
-\frametitle{Overall conclusions}
-
-\begin{itemize}
-\item The SSFM is nice
-\item Quantum state engineering is cool
-\item GPU computing is fast
-\item We can create chaos
-\item We can create not-chaos
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{People}
-\begin{itemize}
-\item Collaborators: Lee, Rashi, Angela, TT, Andreas, Peter, Albert, Jeremie, Ben, Irina, \textbf{Thomas}
-\item Sponsors: JSPS, OIST, SCDA
-\item Other: AAA
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Conclusions}
-\end{frame}
-
-\begin{frame}
 \frametitle{Fidelities with optimal control}
 \begin{columns}
 \column{0.3\textwidth}
@@ -748,6 +843,22 @@ Optimizations of NOON state generation with 3 and 5 particles
 \includegraphics[width=\linewidth]{../data/1d/fig7b.png}
 \end{columns}
 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Cooley-Tukey}
+
+\begin{columns}
+\column{0.5\textwidth}
+\begin{itemize}
+\item Recursively subdivides DFT into simple sums with twiddle factors
+\item Many known libraries, like FFTW, and CuFFT
+\item Hard to parallelize (note for later)
+\end{itemize}
+\column{0.5\textwidth}
+\includegraphics[width=\textwidth]{radix-8screen.jpg}
+\end{columns}
 \end{frame}
 
 \end{document}

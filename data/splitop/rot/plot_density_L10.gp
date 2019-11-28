@@ -14,7 +14,7 @@ set ytics ("-100" 128, "-50" 192, "0" 256, "50" 320, "100" 384)
 set xtics ("-100" 128, "-50" 192, "0" 256, "50" 320, "100" 384)
 
 set key center top
-set cblabel 'wavefunction density (arb. units)'
+set cblabel 'Normalized density'
 #set key box opaque
 #set border back
 set palette defined ( 0 '#000090',\

@@ -1,22 +1,199 @@
-\begin{thebibliography}{33}
+\begin{thebibliography}{79}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Werschnik and Gross(2007)]{werschnik2007}
-J.~Werschnik and E.~K.~U. Gross.
-\newblock Quantum optimal control theory.
-\newblock \emph{Journal of Physics B: Atomic, Molecular and Optical Physics},
-  40\penalty0 (18):\penalty0 R175, 2007.
+\bibitem[Agrawal(2000)]{agrawal2000}
+G.~P. Agrawal.
+\newblock Nonlinear fiber optics.
+\newblock In \emph{Nonlinear Science at the Dawn of the 21st Century}, pages
+  195--211. Springer, 2000.
 
-\bibitem[Gu{\'e}ry-Odelin et~al.(2019)Gu{\'e}ry-Odelin, Ruschhaupt, Kiely,
-  Torrontegui, Mart{\'\i}nez-Garaot, and Muga]{guery2019}
-D.~Gu{\'e}ry-Odelin, A.~Ruschhaupt, A.~Kiely, E.~Torrontegui,
-  S.~Mart{\'\i}nez-Garaot, and J.~G. Muga.
-\newblock Shortcuts to adiabaticity: concepts, methods, and applications.
-\newblock \emph{arXiv preprint arXiv:1904.08448}, 2019.
+\bibitem[{Sinkin} et~al.(2003){Sinkin}, {Holzlohner}, {Zweck}, and
+  {Menyuk}]{sinkin2003}
+O.~V. {Sinkin}, R.~{Holzlohner}, J.~{Zweck}, and C.~R. {Menyuk}.
+\newblock Optimization of the split-step {F}ourier method in modeling
+  optical-fiber communications systems.
+\newblock \emph{Journal of Lightwave Technology}, 21\penalty0 (1):\penalty0
+  61--68, Jan 2003.
+\newblock ISSN 0733-8724.
+\newblock \doi{10.1109/JLT.2003.808628}.
+
+\bibitem[{Meirelles} et~al.(2005){Meirelles}, {Rieznik}, and
+  {Fragnito}]{meirelles2005}
+T.~T. {Meirelles}, A.~A. {Rieznik}, and H.~L. {Fragnito}.
+\newblock Study on a new split-step {F}ourier algorithm for optical fiber
+  transmission systems simulations.
+\newblock In \emph{SBMO/IEEE MTT-S International Conference on Microwave and
+  Optoelectronics, 2005.}, pages 100--102, July 2005.
+\newblock \doi{10.1109/IMOC.2005.1580091}.
+
+\bibitem[M. et~al.(2003)M., X., and M.]{min2003}
+Rao M., Sun X., and Zhang M.
+\newblock A modified split-step {F}ourier method for optical pulse propagation
+  with polarization mode dispersion.
+\newblock \emph{Chinese Physics}, 12\penalty0 (5):\penalty0 502--506, apr 2003.
+\newblock \doi{10.1088/1009-1963/12/5/307}.
+\newblock URL \url{https://doi.org/10.1088%2F1009-1963%2F12%2F5%2F307}.
+
+\bibitem[Bayindir(2015)]{bayindir2015}
+C.~Bayindir.
+\newblock Compressive split-step {F}ourier method.
+\newblock \emph{arXiv preprint arXiv:1512.03932}, 2015.
+
+\bibitem[Weideman and Herbst(1986)]{weideman1986}
+J.~A.~C. Weideman and B.~M. Herbst.
+\newblock Split-step methods for the solution of the nonlinear
+  {S}chr{\"o}dinger equation.
+\newblock \emph{SIAM Journal on Numerical Analysis}, 23\penalty0 (3):\penalty0
+  485--507, 1986.
+
+\bibitem[Wang(2005)]{wang2005}
+H.~Wang.
+\newblock Numerical studies on the split-step finite difference method for
+  nonlinear {S}chr{\"o}dinger equations.
+\newblock \emph{Applied Mathematics and Computation}, 170\penalty0
+  (1):\penalty0 17--35, 2005.
+
+\bibitem[Butcher(2016)]{butcher2016}
+J.~C. Butcher.
+\newblock \emph{Numerical methods for ordinary differential equations}.
+\newblock John Wiley \& Sons, 2016.
+
+\bibitem[Crank and Nicolson(1947)]{crank1947}
+J.~Crank and P.~Nicolson.
+\newblock A practical method for numerical evaluation of solutions of partial
+  differential equations of the heat-conduction type.
+\newblock In \emph{Mathematical Proceedings of the Cambridge Philosophical
+  Society}, volume~43, pages 50--67. Cambridge University Press, 1947.
+
+\bibitem[Murray(2011)]{murray2011}
+Lawrence Murray.
+\newblock Gpu acceleration of runge-kutta integrators.
+\newblock \emph{IEEE transactions on parallel and distributed systems},
+  23\penalty0 (1):\penalty0 94--101, 2011.
+
+\bibitem[Conte and De~Boor(2017)]{conte2017}
+S.~D. Conte and C.~De~Boor.
+\newblock \emph{Elementary numerical analysis: an algorithmic approach},
+  volume~78.
+\newblock SIAM, 2017.
+
+\bibitem[Thomas(1949)]{thomas1949}
+L.~Thomas.
+\newblock Elliptic problems in linear differential equations over a network:
+  Watson scientific computing laboratory.
+\newblock \emph{Columbia Univ., NY}, 1949.
+
+\bibitem[Goddeke and Strzodka(2010)]{goddeke2010}
+D.~Goddeke and R.~Strzodka.
+\newblock Cyclic reduction tridiagonal solvers on {GPU}s applied to
+  mixed-precision multigrid.
+\newblock \emph{IEEE Transactions on Parallel and Distributed Systems},
+  22\penalty0 (1):\penalty0 22--32, 2010.
+
+\bibitem[Wang(1981)]{wang1981}
+H.~H. Wang.
+\newblock A parallel method for tridiagonal equations.
+\newblock \emph{ACM Transactions on Mathematical Software (TOMS)}, 7\penalty0
+  (2):\penalty0 170--183, 1981.
+
+\bibitem[Sweet(1977)]{sweet1977}
+R.~A. Sweet.
+\newblock A cyclic reduction algorithm for solving block tridiagonal systems of
+  arbitrary dimension.
+\newblock \emph{SIAM Journal on Numerical Analysis}, 14\penalty0 (4):\penalty0
+  706--720, 1977.
+
+\bibitem[Brehler et~al.(2017)Brehler, Schirwon, G{\"o}ddeke, and
+  Krummrich]{brehler2017}
+M.~Brehler, M.~Schirwon, D.~G{\"o}ddeke, and P.~M. Krummrich.
+\newblock A gpu-accelerated fourth-order runge--kutta in the interaction
+  picture method for the simulation of nonlinear signal propagation in
+  multimode fibers.
+\newblock \emph{Journal of Lightwave Technology}, 35\penalty0 (17):\penalty0
+  3622--3628, 2017.
+
+\bibitem[Benzi et~al.(1992)Benzi, Colella, Briscolini, and
+  Santangelo]{benzi1992}
+R.~Benzi, M.~Colella, M.~Briscolini, and P.~Santangelo.
+\newblock A simple point vortex model for two-dimensional decaying turbulence.
+\newblock \emph{Physics of Fluids A: Fluid Dynamics}, 4\penalty0 (5):\penalty0
+  1036--1039, 1992.
+
+\bibitem[Schwarz(1988)]{schwarz1988}
+K.~W. Schwarz.
+\newblock Three-dimensional vortex dynamics in superfluid he 4: Homogeneous
+  superfluid turbulence.
+\newblock \emph{Physical Review B}, 38\penalty0 (4):\penalty0 2398, 1988.
+
+\bibitem[Strang(1968)]{strang1968}
+G.~Strang.
+\newblock On the construction and comparison of difference schemes.
+\newblock \emph{SIAM journal on numerical analysis}, 5\penalty0 (3):\penalty0
+  506--517, 1968.
+
+\bibitem[MacNamara and Strang(2016)]{macnamara2016}
+S.~MacNamara and G.~Strang.
+\newblock Operator splitting.
+\newblock In \emph{Splitting Methods in Communication, Imaging, Science, and
+  Engineering}, pages 95--114. Springer, 2016.
+
+\bibitem[Cooley and Tukey(1965)]{cooley1965}
+J.~W. Cooley and J.~W. Tukey.
+\newblock An algorithm for the machine calculation of complex {F}ourier series.
+\newblock \emph{Mathematics of computation}, 19\penalty0 (90):\penalty0
+  297--301, 1965.
+
+\bibitem[Frigo and Johnson(1998)]{frigo1998}
+M.~Frigo and S.~G. Johnson.
+\newblock {FFTW}: An adaptive software architecture for the {FFT}.
+\newblock In \emph{Proceedings of the 1998 IEEE International Conference on
+  Acoustics, Speech and Signal Processing, ICASSP'98 (Cat. No. 98CH36181)},
+  volume~3, pages 1381--1384. IEEE, 1998.
+
+\bibitem[Fatica et~al.(2008)Fatica, LeGresley, Buck, Stone, Phillips, Morton,
+  and Micikevicius]{fatica2008}
+M.~Fatica, P.~LeGresley, I.~Buck, J.~Stone, J.~Phillips, S.~Morton, and
+  P.~Micikevicius.
+\newblock High performance computing with {CUDA}.
+\newblock \emph{SC08}, 2008.
+
+\bibitem[Schloss and Riordan(2018)]{schloss2018}
+J.~R Schloss and L.~J. Riordan.
+\newblock {GPUE}: Graphics processing unit {G}ross-{P}itaevskii equation
+  solver.
+\newblock \emph{J. Open Source Software}, 3\penalty0 (32):\penalty0 1037, 2018.
+
+\bibitem[Wick(1954)]{wick1954}
+G.~C. Wick.
+\newblock Properties of {B}ethe--{S}alpeter wave functions.
+\newblock \emph{Physical Review}, 96\penalty0 (4):\penalty0 1124, 1954.
+
+\bibitem[Harris et~al.(2007)]{harris2007}
+M.~Harris et~al.
+\newblock Optimizing parallel reduction in {CUDA}.
+\newblock \emph{Nvidia developer technology}, 2\penalty0 (4):\penalty0 70,
+  2007.
+
+\bibitem[Migdal(1925)]{einstein1925}
+A.~B. Migdal.
+\newblock Quantum theory of the monatomic ideal gas, part {II}.
+\newblock \emph{Physikalisch-mathematische Klasse}, 1:\penalty0 3, 1925.
+
+\bibitem[Fetter and Walecka(2003)]{fetter2003}
+A.~L. Fetter and J.~D. Walecka.
+\newblock \emph{Quantum Theory of Many-Particle Systems}.
+\newblock Dover Publications, 2003.
+
+\bibitem[Girardeau(1960)]{girardeau1960}
+M.~Girardeau.
+\newblock Relationship between systems of impenetrable bosons and fermions in
+  one dimension.
+\newblock \emph{Journal of Mathematical Physics}, 1\penalty0 (6):\penalty0
+  516--523, 1960.
 
 \bibitem[Schloss et~al.(2016)Schloss, Benseny, Gillet, Swain, and
   Busch]{schloss2016}
@@ -26,222 +203,339 @@ J.~Schloss, A.~Benseny, J.~Gillet, J.~Swain, and Th. Busch.
 \newblock \emph{New Journal of Physics}, 18\penalty0 (3):\penalty0 035012,
   2016.
 
-\bibitem[Lewis et~al.(2012)Lewis, Vrabie, and Syrmos]{lewis2012}
-F.~L. Lewis, D.~Vrabie, and V.~L. Syrmos.
-\newblock \emph{Optimal control}.
-\newblock John Wiley \& Sons, 2012.
+\bibitem[Nozi{\`e}res and Schmitt-Rink(1985)]{nozieres1985}
+P.~Nozi{\`e}res and S.~Schmitt-Rink.
+\newblock Bose condensation in an attractive fermion gas: From weak to strong
+  coupling superconductivity.
+\newblock \emph{Journal of Low Temperature Physics}, 59\penalty0 (3):\penalty0
+  195--211, 1985.
+\newblock ISSN 1573-7357.
+\newblock \doi{10.1007/BF00683774}.
+\newblock URL \url{http://dx.doi.org/10.1007/BF00683774}.
 
-\bibitem[Ruder(2016)]{ruder2016}
-S.~Ruder.
-\newblock An overview of gradient descent optimization algorithms.
-\newblock \emph{arXiv preprint arXiv:1609.04747}, 2016.
+\bibitem[Bulgac et~al.(2014)Bulgac, Forbes, Kelley, Roche, and
+  Wlaz{\l}owski]{bulgac2014}
+A.~Bulgac, M.~M. Forbes, M.~M. Kelley, K.~J. Roche, and G.~Wlaz{\l}owski.
+\newblock Quantized superfluid vortex rings in the unitary {F}ermi gas.
+\newblock \emph{Physical review letters}, 112\penalty0 (2):\penalty0 025301,
+  2014.
 
-\bibitem[Nelder and Mead(1965)]{nelder1965}
-J.~A. Nelder and R.~Mead.
-\newblock {A Simplex Method for Function Minimization}.
-\newblock \emph{The Computer Journal}, 7\penalty0 (4):\penalty0 308--313, 01
-  1965.
-\newblock ISSN 0010-4620.
-\newblock \doi{10.1093/comjnl/7.4.308}.
-\newblock URL \url{https://doi.org/10.1093/comjnl/7.4.308}.
+\bibitem[Aversa(2008)]{aversa2008}
+A.~Aversa.
+\newblock The {Gross-Pitaevskii} equation: A non-linear {S}chr{\"o}dinger
+  equation, 2008.
 
-\bibitem[Koza(1997)]{koza1997}
-J.~R. Koza.
-\newblock Genetic programming.
-\newblock 1997.
+\bibitem[Bogoliubov(1947)]{bogoliubov1947}
+N.~N. Bogoliubov.
+\newblock {On the theory of superfluidity}.
+\newblock \emph{J. Phys.(USSR)}, 11:\penalty0 23--32, 1947.
 
-\bibitem[Kolda et~al.(2003)Kolda, Lewis, and Torczon]{kolda2003}
-T.~G. Kolda, R.~M. Lewis, and V.~Torczon.
-\newblock Optimization by direct search: New perspectives on some classical and
-  modern methods.
-\newblock \emph{SIAM review}, 45\penalty0 (3):\penalty0 385--482, 2003.
+\bibitem[Dalfovo et~al.(1999)Dalfovo, Giorgini, Pitaevskii, and
+  Stringari]{dalfovo1999}
+F.~Dalfovo, S.~Giorgini, L.~P. Pitaevskii, and S.~Stringari.
+\newblock Theory of {B}ose-{E}instein condensation in trapped gases.
+\newblock \emph{Rev. Mod. Phys.}, 71:\penalty0 463--512, Apr 1999.
+\newblock \doi{10.1103/RevModPhys.71.463}.
+\newblock URL \url{http://link.aps.org/doi/10.1103/RevModPhys.71.463}.
 
-\bibitem[Lewis et~al.(2007)Lewis, Shepherd, and Torczon]{lewis2007}
-R.~M. Lewis, A.~Shepherd, and V.~Torczon.
-\newblock Implementing generating set search methods for linearly constrained
-  minimization.
-\newblock \emph{SIAM Journal on Scientific Computing}, 29\penalty0
-  (6):\penalty0 2507--2530, 2007.
+\bibitem[Gross(1961)]{gross1961}
+E.~P. Gross.
+\newblock Structure of a quantized vortex in boson systems.
+\newblock \emph{Il Nuovo Cimento (1955-1965)}, 20\penalty0 (3):\penalty0
+  454--477, 1961.
+\newblock ISSN 1827-6121.
+\newblock \doi{10.1007/BF02731494}.
+\newblock URL \url{http://dx.doi.org/10.1007/BF02731494}.
 
-\bibitem[Pohlheim(2007)]{pohlheim2007}
-H.~Pohlheim.
-\newblock Examples of objective functions.
-\newblock \emph{Retrieved}, 4\penalty0 (10):\penalty0 2012, 2007.
+\bibitem[Pitaevskii(1961)]{pitaevskii1961}
+L.~Pitaevskii.
+\newblock Vortex lines in an imperfect {B}ose gas.
+\newblock \emph{Zh. Eksp. Teor. Fiz}, 40:\penalty0 646, 1961.
 
-\bibitem[Torrontegui et~al.(2013)Torrontegui, Ib{\'a}nez, Mart{\'\i}nez-Garaot,
-  Modugno, del Campo, Gu{\'e}ry-Odelin, Ruschhaupt, Chen, and
-  Muga]{torrontegui2013}
-E.~Torrontegui, S.~Ib{\'a}nez, S.~Mart{\'\i}nez-Garaot, M.~Modugno, A.~del
-  Campo, D.~Gu{\'e}ry-Odelin, A.~Ruschhaupt, X.~Chen, and J.~G. Muga.
-\newblock Shortcuts to adiabaticity.
-\newblock In \emph{Advances in atomic, molecular, and optical physics},
-  volume~62, pages 117--169. Elsevier, 2013.
+\bibitem[Pethick and Smith(2002)]{pethick2002}
+C.~J. Pethick and H.~Smith.
+\newblock \emph{{B}ose--{E}instein Condensation in Dilute Gases}.
+\newblock Cambridge University Press, 2002.
 
-\bibitem[Lewis~Jr and Riesenfeld(1969)]{lewis1969}
-H.~R. Lewis~Jr and W.~B. Riesenfeld.
-\newblock An exact quantum theory of the time-dependent harmonic oscillator and
-  of a charged particle in a time-dependent electromagnetic field.
-\newblock \emph{Journal of Mathematical Physics}, 10\penalty0 (8):\penalty0
-  1458--1473, 1969.
+\bibitem[Fetter(2009)]{fetter2009}
+A.~L. Fetter.
+\newblock Rotating trapped {B}ose-{E}instein condensates.
+\newblock \emph{Rev. Mod. Phys.}, 81:\penalty0 647--691, May 2009.
+\newblock \doi{10.1103/RevModPhys.81.647}.
+\newblock URL \url{http://link.aps.org/doi/10.1103/RevModPhys.81.647}.
 
-\bibitem[Lewis and Leach(1982)]{lewis1982}
-H.~R. Lewis and P.~G.~L. Leach.
-\newblock A direct approach to finding exact invariants for one-dimensional
-  time-dependent classical hamiltonians.
-\newblock \emph{Journal of Mathematical Physics}, 23\penalty0 (12):\penalty0
-  2371--2374, 1982.
+\bibitem[Ueda(2010)]{ueda2010}
+M.~Ueda.
+\newblock \emph{Fundamentals and new frontiers of {B}ose--{E}instein
+  condensation}.
+\newblock World Scientific, 2010.
 
-\bibitem[Girardeau et~al.(2001)Girardeau, Wright, and
-  Triscari]{girardeau2001ground}
-M.~D. Girardeau, E.~M. Wright, and J.~M. Triscari.
-\newblock Ground-state properties of a one-dimensional system of hard-core
-  bosons in a harmonic trap.
-\newblock \emph{Phys. Rev. A}, 63:\penalty0 033601, Feb 2001.
-\newblock \doi{10.1103/PhysRevA.63.033601}.
-\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevA.63.033601}.
-
-\bibitem[Girardeau and Wright(2001)]{girardeau2001measurement}
-M.~D. Girardeau and E.~M. Wright.
-\newblock Measurement of one-particle correlations and momentum distributions
-  for trapped 1d gases.
-\newblock \emph{Phys. Rev. Lett.}, 87:\penalty0 050403, Jul 2001.
-\newblock \doi{10.1103/PhysRevLett.87.050403}.
-\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevLett.87.050403}.
-
-\bibitem[Slater(1929)]{slater1929}
-J.~C. Slater.
-\newblock The theory of complex spectra.
-\newblock \emph{Physical Review}, 34\penalty0 (10):\penalty0 1293, 1929.
-
-\bibitem[Das et~al.(2002)Das, Girardeau, and Wright]{das2002}
-K.~K. Das, M.~D. Girardeau, and E.~M. Wright.
-\newblock Interference of a thermal {T}onks gas on a ring.
-\newblock \emph{Phys. Rev. Lett.}, 89:\penalty0 170404, Oct 2002.
-\newblock \doi{10.1103/PhysRevLett.89.170404}.
-\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevLett.89.170404}.
-
-\bibitem[Girardeau and Minguzzi(2009)]{girardeau2009}
-M.~D. Girardeau and A.~Minguzzi.
-\newblock Motion of an impurity particle in an ultracold quasi-one-dimensional
-  gas of hard-core bosons.
-\newblock \emph{Phys. Rev. A}, 79:\penalty0 033610, Mar 2009.
-\newblock \doi{10.1103/PhysRevA.79.033610}.
-\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevA.79.033610}.
-
-\bibitem[Hallwood et~al.(2010)Hallwood, Ernst, and Brand]{hallwood2010}
-D.~W. Hallwood, T.~Ernst, and J.~Brand.
-\newblock Robust mesoscopic superposition of strongly correlated ultracold
-  atoms.
-\newblock \emph{Phys. Rev. A}, 82:\penalty0 063623, Dec 2010.
-\newblock \doi{10.1103/PhysRevA.82.063623}.
-\newblock URL \url{http://link.aps.org/doi/10.1103/PhysRevA.82.063623}.
-
-\bibitem[Schenke et~al.(2012)Schenke, Minguzzi, and Hekking]{schenke2012}
-C.~Schenke, A.~Minguzzi, and F.~W.~J. Hekking.
-\newblock Probing superfluidity of a mesoscopic {T}onks--{G}irardeau gas.
-\newblock \emph{Physical Review A}, 85\penalty0 (5):\penalty0 053627, 2012.
-
-\bibitem[Nunnenkamp et~al.(2008)Nunnenkamp, Rey, and Burnett]{nunnenkamp2008}
-A.~Nunnenkamp, A.~M. Rey, and K.~Burnett.
-\newblock Generation of macroscopic superposition states in ring superlattices.
-\newblock \emph{Phys. Rev. A}, 77:\penalty0 023622, Feb 2008.
-\newblock \doi{10.1103/PhysRevA.77.023622}.
-\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevA.77.023622}.
-
-\bibitem[Hallwood et~al.(2007)Hallwood, Burnett, and Dunningham]{hallwood2007}
-D.~W. Hallwood, K.~Burnett, and J.~Dunningham.
-\newblock The barriers to producing multiparticle superposition states in
-  rotating {B}ose--{E}instein condensates.
-\newblock \emph{Journal of Modern Optics}, 54\penalty0 (13-15):\penalty0
-  2129--2148, 2007.
-
-\bibitem[Mart\'{\i}nez-Garaot et~al.(2015)Mart\'{\i}nez-Garaot, Ruschhaupt,
-  Gillet, Busch, and Muga]{garaot2015}
-S.~Mart\'{\i}nez-Garaot, A.~Ruschhaupt, J.~Gillet, Th. Busch, and J.~G. Muga.
-\newblock Fast quasiadiabatic dynamics.
-\newblock \emph{Phys. Rev. A}, 92:\penalty0 043406, Oct 2015.
-\newblock \doi{10.1103/PhysRevA.92.043406}.
-\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevA.92.043406}.
-
-\bibitem[del Campo(2011)]{campo2011}
-A.~del Campo.
-\newblock Long-time behavior of many-particle quantum decay.
-\newblock \emph{Phys. Rev. A}, 84:\penalty0 012113, Jul 2011.
-\newblock \doi{10.1103/PhysRevA.84.012113}.
-\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevA.84.012113}.
-
-\bibitem[Lelas et~al.(2011)Lelas, \ifmmode~\check{S}\else \v{S}\fi{}eva, and
-  Buljan]{lelas2011}
-K.~Lelas, T.~\ifmmode~\check{S}\else \v{S}\fi{}eva, and H.~Buljan.
-\newblock Loschmidt echo in one-dimensional interacting {B}ose gases.
-\newblock \emph{Phys. Rev. A}, 84:\penalty0 063601, Dec 2011.
-\newblock \doi{10.1103/PhysRevA.84.063601}.
-\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevA.84.063601}.
-
-\bibitem[Girardeau(1960)]{girardeau1960}
-M.~Girardeau.
-\newblock Relationship between systems of impenetrable bosons and fermions in
-  one dimension.
-\newblock \emph{Journal of Mathematical Physics}, 1\penalty0 (6):\penalty0
-  516--523, 1960.
-
-\bibitem[Chen and Muga(2010)]{chen2010}
-Xi~Chen and J.~G. Muga.
-\newblock Transient energy excitation in shortcuts to adiabaticity for the
-  time-dependent harmonic oscillator.
-\newblock \emph{Phys. Rev. A}, 82:\penalty0 053403, Nov 2010.
-\newblock \doi{10.1103/PhysRevA.82.053403}.
-\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevA.82.053403}.
-
-\bibitem[Chen et~al.(2010)Chen, Ruschhaupt, Schmidt, del Campo, Gu\'ery-Odelin,
-  and Muga]{chen20102}
-X.~Chen, A.~Ruschhaupt, S.~Schmidt, A.~del Campo, D.~Gu\'ery-Odelin, and J.~G.
-  Muga.
-\newblock Fast optimal frictionless atom cooling in harmonic traps: Shortcut to
-  adiabaticity.
-\newblock \emph{Phys. Rev. Lett.}, 104:\penalty0 063002, Feb 2010.
-\newblock \doi{10.1103/PhysRevLett.104.063002}.
-\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevLett.104.063002}.
-
-\bibitem[Masuda and Nakamura(2009)]{masuda2009}
-S.~Masuda and K.~Nakamura.
-\newblock Fast-forward of adiabatic dynamics in quantum mechanics.
-\newblock \emph{Proceedings of the Royal Society A: Mathematical, Physical and
-  Engineering Sciences}, 466\penalty0 (2116):\penalty0 1135--1154, 2009.
-
-\bibitem[Torrontegui et~al.(2011)Torrontegui, Ib\'a\~nez, Chen, Ruschhaupt,
-  Gu\'ery-Odelin, and Muga]{torrontegui2011}
-E.~Torrontegui, S.~Ib\'a\~nez, Xi~Chen, A.~Ruschhaupt, D.~Gu\'ery-Odelin, and
-  J.~G. Muga.
-\newblock Fast atomic transport without vibrational heating.
-\newblock \emph{Phys. Rev. A}, 83:\penalty0 013415, Jan 2011.
-\newblock \doi{10.1103/PhysRevA.83.013415}.
-\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevA.83.013415}.
-
-\bibitem[Masuda(2012)]{masuda2012}
-S.~Masuda.
-\newblock Acceleration of adiabatic transport of interacting particles and
-  rapid manipulations of a dilute {B}ose gas in the ground state.
-\newblock \emph{Phys. Rev. A}, 86:\penalty0 063624, Dec 2012.
-\newblock \doi{10.1103/PhysRevA.86.063624}.
-\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevA.86.063624}.
-
-\bibitem[Phelan et~al.(2013)Phelan, Hennessy, and Busch]{phelan2013}
-C.F. Phelan, T.~Hennessy, and Th. Busch.
-\newblock Shaping the evanescent field of optical nanofibers for cold atom
-  trapping.
-\newblock \emph{Opt. Express}, 21\penalty0 (22):\penalty0 27093--27101, Nov
-  2013.
-\newblock \doi{10.1364/OE.21.027093}.
+\bibitem[Allen and Misener(1938)]{allen1938}
+J.~Allen and A.~Misener.
+\newblock Flow of liquid {H}elium {II}.
+\newblock \emph{Nature}, 142:\penalty0 643, 1938.
+\newblock \doi{10.1038/141075a0}.
 \newblock URL
-  \url{http://www.opticsexpress.org/abstract.cfm?URI=oe-21-22-27093}.
+  \url{http://www.nature.com/nature/journal/v141/n3558/abs/141075a0.html}.
 
-\bibitem[Masuda et~al.(2014)Masuda, Nakamura, and del Campo]{masuda2014}
-S.~Masuda, K.~Nakamura, and A.~del Campo.
-\newblock High-fidelity rapid ground-state loading of an ultracold gas into an
-  optical lattice.
-\newblock \emph{Phys. Rev. Lett.}, 113:\penalty0 063003, Aug 2014.
-\newblock \doi{10.1103/PhysRevLett.113.063003}.
-\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevLett.113.063003}.
+\bibitem[Migdal(1960)]{migdal1960}
+A.~B. Migdal.
+\newblock A phenomenological approach to the theory of the nucleus.
+\newblock \emph{Soviet Physics JETP}, 10:\penalty0 176, 1960.
+\newblock \doi{10.1016/0029-5582(64)90294-9}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/0029558264902949}.
+
+\bibitem[Anderson et~al.(1995)Anderson, Ensher, Matthews, Wieman, and
+  Cornell]{anderson1995}
+M.~H. Anderson, J.~R. Ensher, M.~R. Matthews, C.~E. Wieman, and E.~A. Cornell.
+\newblock Observation of {B}ose--{E}instein condensation in a dilute atomic
+  vapor.
+\newblock \emph{Science}, 269\penalty0 (5221):\penalty0 198--201, 1995.
+\newblock ISSN 0036-8075.
+\newblock \doi{10.1126/science.269.5221.198}.
+\newblock URL \url{http://science.sciencemag.org/content/269/5221/198}.
+
+\bibitem[Rooney et~al.(2012)Rooney, Blakie, and Bradley]{rooney2012}
+S.~J. Rooney, P.~B. Blakie, and A.~S. Bradley.
+\newblock Stochastic projected gross-pitaevskii equation.
+\newblock \emph{Physical Review A}, 86\penalty0 (5):\penalty0 053634, 2012.
+
+\bibitem[Zaremba et~al.(1999)Zaremba, Nikuni, and Griffin]{zaremba1999}
+E.~Zaremba, T.~Nikuni, and A.~Griffin.
+\newblock Dynamics of trapped bose gases at finite temperatures.
+\newblock \emph{Journal of Low Temperature Physics}, 116\penalty0
+  (3-4):\penalty0 277--345, 1999.
+
+\bibitem[Savage et~al.(2003)Savage, Robins, and Hope]{savage2003}
+C.~M. Savage, N.~P. Robins, and J.~J. Hope.
+\newblock Bose-einstein condensate collapse: A comparison between theory and
+  experiment.
+\newblock \emph{Physical Review A}, 67\penalty0 (1):\penalty0 014304, 2003.
+
+\bibitem[Abrikosov(1957)]{abrikosov1957}
+A.~A. Abrikosov.
+\newblock The magnetic properties of superconducting alloys.
+\newblock \emph{Journal of Physics and Chemistry of Solids}, 2\penalty0
+  (3):\penalty0 199--208, 1957.
+
+\bibitem[Fetter and Svidzinsky(2001)]{fetter2001}
+A.~L. Fetter and A.~A. Svidzinsky.
+\newblock Vortices in a trapped dilute {B}ose-{E}instein condensate.
+\newblock \emph{Journal of Physics: Condensed Matter}, 13\penalty0
+  (12):\penalty0 R135, 2001.
+\newblock URL \url{http://stacks.iop.org/0953-8984/13/i=12/a=201}.
+
+\bibitem[Madison et~al.(2000)Madison, Chevy, Wohlleben, and
+  Dalibard]{madison2000}
+K.~W. Madison, F.~Chevy, W.~Wohlleben, and Jl. Dalibard.
+\newblock Vortex formation in a stirred {B}ose--{E}instein condensate.
+\newblock \emph{Physical review letters}, 84\penalty0 (5):\penalty0 806, 2000.
+
+\bibitem[Reichl and Mueller(2013)]{reichl2013}
+M.~D. Reichl and E.~J. Mueller.
+\newblock Vortex ring dynamics in trapped {B}ose--{E}instein condensates.
+\newblock \emph{Phys. Rev. A}, 88:\penalty0 053626, Nov 2013.
+\newblock \doi{10.1103/PhysRevA.88.053626}.
+\newblock URL \url{http://link.aps.org/doi/10.1103/PhysRevA.88.053626}.
+
+\bibitem[Barenghi et~al.(2014)Barenghi, Skrbek, and Sreenivasan]{barenghi2014}
+C.~F. Barenghi, L.~Skrbek, and K.~R. Sreenivasan.
+\newblock Introduction to quantum turbulence.
+\newblock \emph{PNAS}, 111:\penalty0 4647, 2014.
+
+\bibitem[Feynman(1955)]{feynman1955}
+R.~P. Feynman.
+\newblock \emph{Progress in Low Temperature Physics: Chapter II, Application of
+  Quantum Mechanics to Liquid Helium}, volume~1.
+\newblock Interscience Publishers Inc, 1955.
+
+\bibitem[O'Riordan et~al.(2016)O'Riordan, White, and Busch]{o2016}
+L.~J. O'Riordan, A.~C. White, and Th. Busch.
+\newblock Moir{\'e} superlattice structures in kicked {B}ose--{E}instein
+  condensates.
+\newblock \emph{Physical Review A}, 93\penalty0 (2):\penalty0 023609, 2016.
+
+\bibitem[O'Riordan and Busch(2016)]{o2016topo}
+L.~J. O'Riordan and Th. Busch.
+\newblock Topological defect dynamics of vortex lattices in {B}ose--{E}instein
+  condensates.
+\newblock \emph{Physical Review A}, 94\penalty0 (5):\penalty0 053603, 2016.
+
+\bibitem[Abo-Shaeer et~al.(2001)Abo-Shaeer, Raman, Vogels, and
+  Ketterle]{abo2001}
+J.~R. Abo-Shaeer, C.~Raman, J.~M. Vogels, and W.~Ketterle.
+\newblock Observation of vortex lattices in {B}ose-{E}instein condensates.
+\newblock \emph{Science}, 292\penalty0 (5516):\penalty0 476--479, 2001.
+
+\bibitem[Schweikhard et~al.(2004)Schweikhard, Coddington, Engels, Mogendorff,
+  and Cornell]{schweikhard2004}
+V.~Schweikhard, I.~Coddington, P.~Engels, V.~P. Mogendorff, and E.~A. Cornell.
+\newblock Rapidly rotating {B}ose--{E}instein condensates in and near the
+  lowest landau level.
+\newblock \emph{Phys. Rev. Lett.}, 92:\penalty0 040404, Jan 2004.
+\newblock \doi{10.1103/PhysRevLett.92.040404}.
+\newblock URL \url{http://link.aps.org/doi/10.1103/PhysRevLett.92.040404}.
+
+\bibitem[Chevy and Dalibard(2006)]{chevy2006}
+F.~Chevy and J.~Dalibard.
+\newblock Rotating {B}ose--{E}instein condensates.
+\newblock \emph{Europhysics News}, 37\penalty0 (1):\penalty0 12--16, 2006.
+
+\bibitem[Hodby et~al.(2001)Hodby, Hechenblaikner, Hopkins, Marago, and
+  Foot]{hodby2001}
+E.~Hodby, G.~Hechenblaikner, S.~A. Hopkins, O.~M. Marago, and C.~J. Foot.
+\newblock Vortex nucleation in {B}ose--{E}instein condensates in an oblate,
+  purely magnetic potential.
+\newblock \emph{Physical review letters}, 88\penalty0 (1):\penalty0 010405,
+  2001.
+
+\bibitem[Haljan et~al.(2001)Haljan, Coddington, Engels, and
+  Cornell]{haljan2001}
+P.~C. Haljan, I.~Coddington, P.~Engels, and E.~A. Cornell.
+\newblock Driving {B}ose--{E}instein-condensate vorticity with a rotating
+  normal cloud.
+\newblock \emph{Physical review letters}, 87\penalty0 (21):\penalty0 210403,
+  2001.
+
+\bibitem[Bretin et~al.(2004)Bretin, Stock, Seurin, and Dalibard]{bretin2004}
+V.~Bretin, S.~Stock, Y.~Seurin, and J.~Dalibard.
+\newblock Fast rotation of a {B}ose--{E}instein condensate.
+\newblock \emph{Physical review letters}, 92\penalty0 (5):\penalty0 050403,
+  2004.
+
+\bibitem[Engels et~al.(2003)Engels, Coddington, Haljan, Schweikhard, and
+  Cornell]{engels2003}
+P.~Engels, I~Coddington, P.~C. Haljan, V.~Schweikhard, and E.~A. Cornell.
+\newblock Observation of long-lived vortex aggregates in rapidly rotating
+  {B}ose--{E}instein condensates.
+\newblock \emph{Physical review letters}, 90\penalty0 (17):\penalty0 170405,
+  2003.
+
+\bibitem[Guo et~al.(2019)Guo, Dubessy, de~Herve, Kumar, Badr, Perrin,
+  Longchambon, and Perrin]{guo2019}
+Y.~Guo, R.~Dubessy, M.~G. de~Herve, A.~Kumar, T.~Badr, A.~Perrin,
+  L.~Longchambon, and H.~Perrin.
+\newblock Supersonic rotation of a superfluid: a long-lived dynamical ring.
+\newblock \emph{arXiv preprint arXiv:1907.01795}, 2019.
+
+\bibitem[Kumar et~al.(2018)Kumar, Dubessy, Badr, De~Rossi, de~Herve,
+  Longchambon, and Perrin]{kumar2018}
+A.~Kumar, R.~Dubessy, T.~Badr, C.~De~Rossi, M.G. de~Herve, L~Longchambon, and
+  H.~Perrin.
+\newblock Producing superfluid circulation states using phase imprinting.
+\newblock \emph{Physical Review A}, 97\penalty0 (4):\penalty0 043615, 2018.
+
+\bibitem[Moulder et~al.(2012)Moulder, Beattie, Smith, Tammuz, and
+  Hadzibabic]{moulder2012}
+S.~Moulder, S.~Beattie, R.~P. Smith, N.~Tammuz, and Z.~Hadzibabic.
+\newblock Quantized supercurrent decay in an annular {B}ose-{E}instein
+  condensate.
+\newblock \emph{Phys. Rev. A}, 86:\penalty0 013629, Jul 2012.
+\newblock \doi{10.1103/PhysRevA.86.013629}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevA.86.013629}.
+
+\bibitem[Burger et~al.(1999)Burger, Bongs, Dettmer, Ertmer, Sengstock, Sanpera,
+  Shlyapnikov, and Lewenstein]{burger1999}
+S.~Burger, K.~Bongs, S.~Dettmer, W.~Ertmer, K.~Sengstock, A.~Sanpera, G.~V.
+  Shlyapnikov, and M.~Lewenstein.
+\newblock Dark solitons in {B}ose-{E}instein condensates.
+\newblock \emph{Phys. Rev. Lett.}, 83:\penalty0 5198--5201, Dec 1999.
+\newblock \doi{10.1103/PhysRevLett.83.5198}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevLett.83.5198}.
+
+\bibitem[Denschlag et~al.(2000)Denschlag, Simsarian, Feder, Clark, Collins,
+  Cubizolles, Deng, Hagley, Helmerson, Reinhardt, et~al.]{denschlag2000}
+J.~Denschlag, Je.~E. Simsarian, Dl.~L. Feder, C.~W. Clark, La.~A. Collins,
+  J.~Cubizolles, L.~Deng, E.~W. Hagley, K.~Helmerson, W.~P. Reinhardt, et~al.
+\newblock Generating solitons by phase engineering of a {B}ose-{E}instein
+  condensate.
+\newblock \emph{Science}, 287\penalty0 (5450):\penalty0 97--101, 2000.
+
+\bibitem[Wu et~al.(2002)Wu, Liu, and Niu]{wu2002}
+B.~Wu, J.~Liu, and Q.~Niu.
+\newblock Controlled generation of dark solitons with phase imprinting.
+\newblock \emph{Physical review letters}, 88\penalty0 (3):\penalty0 034101,
+  2002.
+
+\bibitem[Ryu et~al.(2007)Ryu, Andersen, Clad\'e, Natarajan, Helmerson, and
+  Phillips]{ryu2007}
+C.~Ryu, M.~F. Andersen, P.~Clad\'e, Vasant Natarajan, K.~Helmerson, and W.~D.
+  Phillips.
+\newblock Observation of persistent flow of a {B}ose-{E}instein condensate in a
+  toroidal trap.
+\newblock \emph{Phys. Rev. Lett.}, 99:\penalty0 260401, Dec 2007.
+\newblock \doi{10.1103/PhysRevLett.99.260401}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevLett.99.260401}.
+
+\bibitem[Kasevich and Chu(1991)]{kasevich1991}
+M.~Kasevich and S.~Chu.
+\newblock Atomic interferometry using stimulated {R}aman transitions.
+\newblock \emph{Phys. Rev. Lett.}, 67:\penalty0 181--184, Jul 1991.
+\newblock \doi{10.1103/PhysRevLett.67.181}.
+\newblock URL \url{https://link.aps.org/doi/10.1103/PhysRevLett.67.181}.
+
+\bibitem[Gajda et~al.(1999)Gajda, Lewenstein, Sengstock, Birkl, Ertmer,
+  et~al.]{gajda1999}
+M.~Gajda, M.~Lewenstein, K.~Sengstock, G.~Birkl, W.~Ertmer, et~al.
+\newblock Optical generation of vortices in trapped {B}ose--{E}instein
+  condensates.
+\newblock \emph{Physical Review A}, 60\penalty0 (5):\penalty0 R3381, 1999.
+
+\bibitem[Shin et~al.(2004)Shin, Saba, Vengalattore, Pasquini, Sanner,
+  Leanhardt, Prentiss, Pritchard, and Ketterle]{shin2004}
+Y.~Shin, M.~Saba, M.~Vengalattore, T.~A. Pasquini, C.~Sanner, A.~E. Leanhardt,
+  M.~Prentiss, D.~E. Pritchard, and W.~Ketterle.
+\newblock Dynamical instability of a doubly quantized vortex in a
+  {B}ose--{E}instein condensate.
+\newblock \emph{Physical review letters}, 93\penalty0 (16):\penalty0 160406,
+  2004.
+
+\bibitem[White et~al.(2014)White, Anderson, and Bagnato]{white2014}
+A.~C. White, B.~P. Anderson, and V.~S. Bagnato.
+\newblock Vortices and turbulence in trapped atomic condensates.
+\newblock \emph{Proceedings of the National Academy of Sciences}, 111\penalty0
+  (Supplement 1):\penalty0 4719--4726, 2014.
+
+\bibitem[Maucher et~al.(2016)Maucher, Gardiner, and Hughes]{maucher2016}
+.F~Maucher, S.~A. Gardiner, and I.~G. Hughes.
+\newblock Excitation of knotted vortex lines in matter waves.
+\newblock \emph{New Journal of Physics}, 18\penalty0 (6):\penalty0 063016,
+  2016.
+
+\bibitem[Lin et~al.(2009)Lin, Compton, Jimenez-Garcia, Porto, and
+  Spielman]{lin2009}
+Y.~J. Lin, R.~L. Compton, K.~Jimenez-Garcia, J.~V. Porto, and I.~B. Spielman.
+\newblock Synthetic magnetic fields for ultracold neutral atoms.
+\newblock \emph{Nature}, 462\penalty0 (7273):\penalty0 628--632, Dec 2009.
+\newblock ISSN 0028-0836.
+\newblock \doi{10.1038/nature08609}.
+\newblock URL \url{http://dx.doi.org/10.1038/nature08609}.
+
+\bibitem[{Dalibard}(2015)]{dalibard2015}
+J.~{Dalibard}.
+\newblock {Introduction to the physics of artificial gauge fields}.
+\newblock \emph{ArXiv e-prints}, April 2015.
+
+\bibitem[Bhat(2001)]{bhat2008}
+R.~Bhat.
+\newblock \emph{Bosons in rotating optical lattices}.
+\newblock PhD thesis, Indian Institute of Technology Kanpur, 2001.
+
+\bibitem[M.~Peshkin(1989)]{peshkin1989}
+A.~Tonomura M.~Peshkin.
+\newblock \emph{The Aharonov--Bohm Effect}, volume 340.
+\newblock Springer-Verlag, 1989.
+
+\bibitem[Niu et~al.(2017)Niu, Chang, Wu, Xiao, and Cheng]{niu2017}
+Q.~Niu, M.~Chang, B.~Wu, D.~Xiao, and R.~Cheng.
+\newblock \emph{Physical Effects of Geometric Phases}.
+\newblock World Scientific, 2017.
+
+\bibitem[Wu et~al.(2005)Wu, Liu, and Niu]{wu2005}
+B.~Wu, J.~Liu, and Q.~Niu.
+\newblock Geometric phase for adiabatic evolutions of general quantum states.
+\newblock \emph{Physical review letters}, 94\penalty0 (14):\penalty0 140402,
+  2005.
 
 \end{thebibliography}

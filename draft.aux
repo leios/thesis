@@ -20,123 +20,201 @@
 \babel@aux{english}{}
 \@writefile{toc}{\contentsline {chapter}{Contents}{ii}{section*.1}\protected@file@percent }
 \@writefile{toc}{\vspace  {2em}}
-\citation{werschnik2007}
-\citation{guery2019}
-\citation{schloss2016}
-\citation{schloss2016}
-\citation{lewis2012}
-\citation{ruder2016}
-\citation{nelder1965}
-\citation{koza1997}
+\citation{agrawal2000,sinkin2003,meirelles2005,min2003}
+\citation{bayindir2015,weideman1986,wang2005}
+\citation{butcher2016}
+\citation{crank1947}
+\citation{butcher2016}
+\citation{murray2011}
+\citation{conte2017,thomas1949}
+\citation{goddeke2010,wang1981,sweet1977}
+\citation{brehler2017}
+\citation{benzi1992}
+\citation{schwarz1988}
 \@writefile{toc}{\contentsline {chapter}{Introduction}{1}{section*.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {1}Engineering NOON states in for one-dimensional quantum gases}{1}{chapter.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction to the SSFM for simulating superfluid vortex systems}{1}{chapter.1}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{ch:1d}{{1}{1}{Engineering NOON states in for one-dimensional quantum gases}{chapter.1}{}}
-\citation{werschnik2007}
-\citation{nelder1965,kolda2003,lewis2007}
-\@writefile{toc}{\contentsline {section}{\numberline {1.1}Optimization methods}{2}{section.1.1}\protected@file@percent }
-\citation{nelder1965}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.1}Nelder--Mead}{3}{subsection.1.1.1}\protected@file@percent }
-\newlabel{sec:NM}{{1.1.1}{3}{Nelder--Mead}{subsection.1.1.1}{}}
-\citation{pohlheim2007}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Plot of the centroid locations (green dots connected with white line) for the Nelder--Mead method while optimizing the Rosenbrock banana function, $f(x,y)=(a-x)^2+b(y-x^2)^2$, with $a=1$ and $b=100$. Here, centroid locations start at $(-0.851,-1.553)$ and end at the known minimum of $(1,1)$ in 19 iterations. Here, $\alpha = 1$, $\beta = 0.5$, and $\gamma = 1.5$.\relax }}{5}{figure.caption.4}\protected@file@percent }
+\newlabel{ch:splitop}{{1}{1}{Introduction to the SSFM for simulating superfluid vortex systems}{chapter.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}The SSFM}{2}{section.1.1}\protected@file@percent }
+\newlabel{eqn:schrody}{{1.1}{2}{The SSFM}{equation.1.1.1}{}}
+\citation{strang1968}
+\citation{macnamara2016}
+\newlabel{eqn:rsolve}{{1.4}{3}{The SSFM}{equation.1.1.4}{}}
+\newlabel{eqn:tstrang}{{1.6}{3}{The SSFM}{equation.1.1.6}{}}
+\citation{cooley1965}
+\citation{frigo1998}
+\citation{fatica2008}
+\citation{schloss2018}
+\citation{schloss2018}
+\citation{wick1954}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Evolution of a one-dimensional simple harmonic oscillator in (a) real, and (b) imaginary time after slightly shifting the trapping potential in the $\mathaccentV {hat}05Ex$ direction. In (c), the energy as a function of time is shown and one can see that the energy of the system when evolving in real time remains constant, but in imaginary time it will decay to the known ground-state energy of the simple harmonic oscillator. The simulated results are from evolution with the SSFM after 10,000 steps. Here, I use a $^{87}$Rb atom with $\omega _x = 10$ Hz on a 256-point grid of size 200 $\mu $m, at $t = 0$, where the trap has been shifted by 5 $\mu m$. The wavefunction has been normalized such that $\DOTSI \intop \ilimits@ _{-\infty }^\infty |\Psi |^2 dx = 1$. This simulation was performed with the GPUE codebase \cite  {schloss2018}.\relax }}{6}{figure.caption.4}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:minimize_NM}{{1.1}{5}{Plot of the centroid locations (green dots connected with white line) for the Nelder--Mead method while optimizing the Rosenbrock banana function, $f(x,y)=(a-x)^2+b(y-x^2)^2$, with $a=1$ and $b=100$. Here, centroid locations start at $(-0.851,-1.553)$ and end at the known minimum of $(1,1)$ in 19 iterations. Here, $\alpha = 1$, $\beta = 0.5$, and $\gamma = 1.5$.\relax }{figure.caption.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.2}Chopped random basis optimal control}{6}{subsection.1.1.2}\protected@file@percent }
-\newlabel{sec:CRAB}{{1.1.2}{6}{Chopped random basis optimal control}{subsection.1.1.2}{}}
-\citation{guery2019}
-\citation{torrontegui2013}
-\citation{torrontegui2013,guery2019,schloss2016}
-\citation{lewis1969}
-\@writefile{toc}{\contentsline {section}{\numberline {1.2}Shortcuts to adiabaticity}{7}{section.1.2}\protected@file@percent }
-\citation{lewis1969}
-\citation{lewis1982}
-\newlabel{eqn:HSTA}{{1.13}{8}{Shortcuts to adiabaticity}{equation.1.2.13}{}}
-\newlabel{eqn:rho}{{1.15}{8}{Shortcuts to adiabaticity}{equation.1.2.15}{}}
-\newlabel{eqn:xc}{{1.16}{8}{Shortcuts to adiabaticity}{equation.1.2.16}{}}
-\citation{girardeau2001ground,girardeau2001measurement}
-\@writefile{toc}{\contentsline {section}{\numberline {1.3}Non-adiabatic generation of NOON states in a Tonks--Girardeau gas}{9}{section.1.3}\protected@file@percent }
-\citation{slater1929}
-\citation{das2002,girardeau2009}
-\citation{hallwood2010}
-\citation{hallwood2010}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.1}Tonks--Girardeau gas}{10}{subsection.1.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.2}NOON states in a TG gas}{10}{subsection.1.3.2}\protected@file@percent }
-\newlabel{sec:controltro}{{1.3.2}{10}{NOON states in a TG gas}{subsection.1.3.2}{}}
-\citation{schenke2012}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces Schematic of the system. Here, the density profile for five atoms in a TG gas is shown being stirred by a highly localized potential, indicated by the vertical line.\relax }}{11}{figure.caption.5}\protected@file@percent }
-\newlabel{fig:ring_scheme}{{1.2}{11}{Schematic of the system. Here, the density profile for five atoms in a TG gas is shown being stirred by a highly localized potential, indicated by the vertical line.\relax }{figure.caption.5}{}}
-\citation{hallwood2010}
-\citation{nunnenkamp2008}
-\citation{hallwood2007}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces Single-particle energy spectrum as a function of $\Omega $ for a barrier height of (a) $b = 0$ and (b) $b=2$. When a barrier is present in the system, avoided crossings appear in the energy spectrum which grow as the barrier strength increases.\relax }}{12}{figure.caption.6}\protected@file@percent }
-\newlabel{fig:avoid}{{1.3}{12}{Single-particle energy spectrum as a function of $\Omega $ for a barrier height of (a) $b = 0$ and (b) $b=2$. When a barrier is present in the system, avoided crossings appear in the energy spectrum which grow as the barrier strength increases.\relax }{figure.caption.6}{}}
-\citation{garaot2015}
-\citation{campo2011,lelas2011}
-\citation{girardeau1960}
-\newlabel{eq:fid}{{1.22}{13}{NOON states in a TG gas}{equation.1.3.22}{}}
-\newlabel{eq:TG}{{1.23}{13}{NOON states in a TG gas}{equation.1.3.23}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces Accelerating a single particle from the ground state with $J=15$. (a) Optimal rotational velocity pulses for $T = 1$, 10, and 100 for fixed barrier height $b=1$. (b) Optimal barrier height for a linearly increasing rotational velocity, $\Omega = \pi t/T$ for $T=1$, 10, and 100.\relax }}{14}{figure.caption.7}\protected@file@percent }
-\newlabel{fig:pulses}{{1.4}{14}{Accelerating a single particle from the ground state with $J=15$. (a) Optimal rotational velocity pulses for $T = 1$, 10, and 100 for fixed barrier height $b=1$. (b) Optimal barrier height for a linearly increasing rotational velocity, $\Omega = \pi t/T$ for $T=1$, 10, and 100.\relax }{figure.caption.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.3}Optimal control protocols}{14}{subsection.1.3.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1.5}{\ignorespaces  Optimal pulses to accelerate a single particle initially in the ground state of the trap for $T = 1$, 10, and 100 for the (a) rotational velocity and (b) barrier height when optimizing over both simultaneously. \relax }}{15}{figure.caption.8}\protected@file@percent }
-\newlabel{fig:pulses_pair}{{1.5}{15}{Optimal pulses to accelerate a single particle initially in the ground state of the trap for $T = 1$, 10, and 100 for the (a) rotational velocity and (b) barrier height when optimizing over both simultaneously. \relax }{figure.caption.8}{}}
-\citation{garaot2015}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.6}{\ignorespaces  Infidelities as a function of the overall process time for optimally controlled rotational acceleration, barrier height, or both. Here, 'linear' refers to an unoptimized linear acceleration from $\Omega = 0$ to $\pi $ while keeping the barrier height fixed at $b=1$. \relax }}{16}{figure.caption.9}\protected@file@percent }
-\newlabel{fig:lfid}{{1.6}{16}{Infidelities as a function of the overall process time for optimally controlled rotational acceleration, barrier height, or both. Here, 'linear' refers to an unoptimized linear acceleration from $\Omega = 0$ to $\pi $ while keeping the barrier height fixed at $b=1$. \relax }{figure.caption.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.7}{\ignorespaces  Infidelities for the evolution of a TG gas with (a) $N=3$ and (b) $N=5$ particles using the CRAB optimal control technique. The optimal pulses were determined for the particle at the Fermi edge (blue crosses), and applied to the whole gas (red circles). Here, the green squares show the fidelity of a linear pulse for the atom closest to the Fermi edge. A clear range where the CRAB algorithm is effective for generating NOON states with multiple particles can be clearly identified.\relax }}{17}{figure.caption.10}\protected@file@percent }
-\newlabel{fig:TGOC}{{1.7}{17}{Infidelities for the evolution of a TG gas with (a) $N=3$ and (b) $N=5$ particles using the CRAB optimal control technique. The optimal pulses were determined for the particle at the Fermi edge (blue crosses), and applied to the whole gas (red circles). Here, the green squares show the fidelity of a linear pulse for the atom closest to the Fermi edge. A clear range where the CRAB algorithm is effective for generating NOON states with multiple particles can be clearly identified.\relax }{figure.caption.10}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.4}Results with STA protocols}{17}{subsection.1.3.4}\protected@file@percent }
-\citation{chen2010,chen20102}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.8}{\ignorespaces Scheme for the acceleration of a single atom using STA. In this example, the homogeneous ground state gets localized, accelerated and released at the angular velocity of $\Omega =\pi $ into the state $\left ( \qopname  \relax o{exp}(i 2\pi x) +1 \right ) /\sqrt  2$. The atomic density is indicated in blue and the potential is in red.\relax }}{18}{figure.caption.11}\protected@file@percent }
-\newlabel{fig:STA-scheme}{{1.8}{18}{Scheme for the acceleration of a single atom using STA. In this example, the homogeneous ground state gets localized, accelerated and released at the angular velocity of $\Omega =\pi $ into the state $\left ( \exp (i 2\pi x) +1 \right ) /\sqrt 2$. The atomic density is indicated in blue and the potential is in red.\relax }{figure.caption.11}{}}
-\citation{masuda2009,torrontegui2011,masuda2012}
-\newlabel{eqn:squeeze}{{1.25}{19}{Results with STA protocols}{equation.1.3.25}{}}
-\newlabel{eq:rho_pol}{{1.26}{19}{Results with STA protocols}{equation.1.3.26}{}}
-\citation{phelan2013,masuda2014}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.9}{\ignorespaces  Energy eigenspectrum of the system with (a) a harmonic or (b) a sinusoidal potential as a function of $\omega $. The eigenstates continuously change from angular momentum states of energy $E_k=2\pi ^2 k^2$ (with $k=0,\pm 1,\ldots  $) at $\omega =0$, towards harmonic-oscillator states of energy $E_n=\omega (n+1/2)$ (with $n=0,1,\ldots  $) for large $\omega $. For comparison, the horizontal lines on the right vertical axis give the energy levels in a harmonic potential with $\omega =200$.\relax }}{21}{figure.caption.12}\protected@file@percent }
-\newlabel{fig:spectrum}{{1.9}{21}{Energy eigenspectrum of the system with (a) a harmonic or (b) a sinusoidal potential as a function of $\omega $. The eigenstates continuously change from angular momentum states of energy $E_k=2\pi ^2 k^2$ (with $k=0,\pm 1,\ldots $) at $\omega =0$, towards harmonic-oscillator states of energy $E_n=\omega (n+1/2)$ (with $n=0,1,\ldots $) for large $\omega $. For comparison, the horizontal lines on the right vertical axis give the energy levels in a harmonic potential with $\omega =200$.\relax }{figure.caption.12}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.10}{\ignorespaces  (a) Plot of the parameters $\omega (t)$ and the angular velocity $\Omega (t)$ for the entire protocol. The parameters are $\omega _0=2$, $\omega _f=100$, $d=100$, each step is executed in $t_f-t_0=10$, and $\Omega _f$ is picked depending on the desired output state (here, $\Omega _f=5 \times 2\pi $). (b) Final infidelities for $\Omega _f=1,2,\ldots  ,10 \times 2\pi $ for $V_H$ (dotted blue line) and $V_S$ (solid red line). The rest of parameters are as shown in (a). \relax }}{22}{figure.caption.13}\protected@file@percent }
-\newlabel{fig:final+param}{{1.10}{22}{(a) Plot of the parameters $\omega (t)$ and the angular velocity $\Omega (t)$ for the entire protocol. The parameters are $\omega _0=2$, $\omega _f=100$, $d=100$, each step is executed in $t_f-t_0=10$, and $\Omega _f$ is picked depending on the desired output state (here, $\Omega _f=5 \times 2\pi $). (b) Final infidelities for $\Omega _f=1,2,\ldots ,10 \times 2\pi $ for $V_H$ (dotted blue line) and $V_S$ (solid red line). The rest of parameters are as shown in (a). \relax }{figure.caption.13}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.11}{\ignorespaces  Final fidelities $F$ of TG states of increasing particle number for the protocol shown in Figure \ref  {fig:final+param}(a) with $\Omega _f = \pi $ for $V_H$ (red circle) and $V_S$ (blue cross). Plot (a) shows the fidelity of the protocol with $\omega _f = 100$ and (b) with $\omega _f = 200$.\relax }}{23}{figure.caption.14}\protected@file@percent }
-\newlabel{fig:TG-STA}{{1.11}{23}{Final fidelities $F$ of TG states of increasing particle number for the protocol shown in Figure \ref {fig:final+param}(a) with $\Omega _f = \pi $ for $V_H$ (red circle) and $V_S$ (blue cross). Plot (a) shows the fidelity of the protocol with $\omega _f = 100$ and (b) with $\omega _f = 200$.\relax }{figure.caption.14}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.4}Outlook}{24}{section.1.4}\protected@file@percent }
+\newlabel{fig:evolve}{{1.1}{6}{Evolution of a one-dimensional simple harmonic oscillator in (a) real, and (b) imaginary time after slightly shifting the trapping potential in the $\hat x$ direction. In (c), the energy as a function of time is shown and one can see that the energy of the system when evolving in real time remains constant, but in imaginary time it will decay to the known ground-state energy of the simple harmonic oscillator. The simulated results are from evolution with the SSFM after 10,000 steps. Here, I use a $^{87}$Rb atom with $\omega _x = 10$ Hz on a 256-point grid of size 200 $\mu $m, at $t = 0$, where the trap has been shifted by 5 $\mu m$. The wavefunction has been normalized such that $\int _{-\infty }^\infty |\Psi |^2 dx = 1$. This simulation was performed with the GPUE codebase \cite {schloss2018}.\relax }{figure.caption.4}{}}
+\citation{harris2007}
+\newlabel{eqn:energy}{{1.10}{7}{The SSFM}{equation.1.1.10}{}}
+\newlabel{eqn:norm}{{1.11}{7}{The SSFM}{equation.1.1.11}{}}
+\citation{einstein1925,fetter2003}
+\citation{girardeau1960,schloss2016}
+\citation{nozieres1985,bulgac2014}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Introduction to ultracold quantum systems}{8}{section.1.2}\protected@file@percent }
+\newlabel{sec:intro}{{1.2}{8}{Introduction to ultracold quantum systems}{section.1.2}{}}
+\citation{aversa2008}
+\citation{bogoliubov1947,dalfovo1999}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.1}Bose--Einstein condensation and the Gross--Pitaevskii Equation}{9}{subsection.1.2.1}\protected@file@percent }
+\newlabel{eqn:2nd}{{1.13}{9}{Bose--Einstein condensation and the Gross--Pitaevskii Equation}{equation.1.2.13}{}}
+\citation{gross1961,pitaevskii1961}
+\newlabel{eqn:bog1}{{1.17}{10}{Bose--Einstein condensation and the Gross--Pitaevskii Equation}{equation.1.2.17}{}}
+\citation{fetter2003,pethick2002,fetter2009}
+\citation{schloss2018}
+\citation{schloss2018}
+\citation{ueda2010}
+\newlabel{eqn:GP}{{1.24}{11}{Bose--Einstein condensation and the Gross--Pitaevskii Equation}{equation.1.2.24}{}}
+\newlabel{eqn:rtf}{{1.26}{11}{Bose--Einstein condensation and the Gross--Pitaevskii Equation}{equation.1.2.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces Slice of the ground state of a two-dimensional simple harmonic oscillator for the GPE equation with $g=1$ (purple, dashed) and the TF distribution (blue, solid). Here, the GPE solution follows a TF distribution near the center of the trap, but the tail is slightly different. This simulation was performed with GPUE~\cite  {schloss2018} for a two-dimensional grid of $256^2$ elements of size $250 \mu m$ with a trapping potential of $\omega _x = \omega _y = 1$, and $5\times 10^4$ particles.\relax }}{12}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:TF}{{1.2}{12}{Slice of the ground state of a two-dimensional simple harmonic oscillator for the GPE equation with $g=1$ (purple, dashed) and the TF distribution (blue, solid). Here, the GPE solution follows a TF distribution near the center of the trap, but the tail is slightly different. This simulation was performed with GPUE~\cite {schloss2018} for a two-dimensional grid of $256^2$ elements of size $250 \mu m$ with a trapping potential of $\omega _x = \omega _y = 1$, and $5\times 10^4$ particles.\relax }{figure.caption.5}{}}
+\citation{allen1938}
+\citation{migdal1960}
+\citation{einstein1925,anderson1995}
+\citation{rooney2012}
+\citation{zaremba1999}
+\citation{savage2003}
+\citation{pethick2002}
+\newlabel{eqn:mutf}{{1.27}{13}{Bose--Einstein condensation and the Gross--Pitaevskii Equation}{equation.1.2.27}{}}
+\citation{pethick2002}
+\@writefile{toc}{\contentsline {section}{\numberline {1.3}Superfluid systems and vortex dynamics}{14}{section.1.3}\protected@file@percent }
+\newlabel{eqn:ansatz}{{1.29}{14}{Superfluid systems and vortex dynamics}{equation.1.3.29}{}}
+\newlabel{eqn:current_density}{{1.32}{14}{Superfluid systems and vortex dynamics}{equation.1.3.32}{}}
+\citation{schloss2018}
+\citation{schloss2018}
+\citation{pethick2002}
+\citation{abrikosov1957,fetter2001}
+\newlabel{eqn:quantized}{{1.35}{15}{Superfluid systems and vortex dynamics}{equation.1.3.35}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces  Simulation of condensate under rotation that leads to a single vortex (a, c) and a vortex lattice (b, d). The wavefunction density is shown in (a) and (b), while the corresponding phase is shown in (c) and (d). An external rotation of $\Omega = 0.35\omega _x$ was used for (a) and (b), while a rotation of $\Omega = 0.99\omega _x$ was used for (c) and (d). The system consists of $^87$ Rb atoms is used with a trapping frequency of $\omega _x = \omega _y = 2\pi $Hz on a 512-point grid of size 200$\times $200 $\mu $m. This simulation was performed with the GPUE codebase \cite  {schloss2018}, and the phase plots are created by multiplying the phase by the wavefunction density to remove anomalous noise beyond the BEC boundary.\relax }}{16}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:rot}{{1.3}{16}{Simulation of condensate under rotation that leads to a single vortex (a, c) and a vortex lattice (b, d). The wavefunction density is shown in (a) and (b), while the corresponding phase is shown in (c) and (d). An external rotation of $\Omega = 0.35\omega _x$ was used for (a) and (b), while a rotation of $\Omega = 0.99\omega _x$ was used for (c) and (d). The system consists of $^87$ Rb atoms is used with a trapping frequency of $\omega _x = \omega _y = 2\pi $Hz on a 512-point grid of size 200$\times $200 $\mu $m. This simulation was performed with the GPUE codebase \cite {schloss2018}, and the phase plots are created by multiplying the phase by the wavefunction density to remove anomalous noise beyond the BEC boundary.\relax }{figure.caption.6}{}}
+\citation{madison2000}
+\citation{reichl2013,barenghi2014}
+\citation{feynman1955}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.1}Rotation}{17}{subsection.1.3.1}\protected@file@percent }
+\newlabel{sec:rot}{{1.3.1}{17}{Rotation}{subsection.1.3.1}{}}
+\citation{fetter2009}
+\citation{o2016,o2016topo,abo2001,schweikhard2004}
+\citation{chevy2006}
+\citation{madison2000,abo2001,hodby2001,haljan2001}
+\citation{bretin2004}
+\citation{schweikhard2004,engels2003}
+\citation{guo2019}
+\citation{kumar2018,moulder2012,burger1999,denschlag2000,wu2002}
+\citation{moulder2012,ryu2007}
+\citation{kasevich1991}
+\citation{denschlag2000}
+\citation{gajda1999}
+\citation{kumar2018}
+\citation{o2016topo}
+\citation{shin2004}
+\newlabel{eqn:GPErot}{{1.39}{18}{Rotation}{equation.1.3.39}{}}
+\citation{white2014,maucher2016}
+\citation{lin2009}
+\citation{dalibard2015}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.2}Phase imprinting}{19}{subsection.1.3.2}\protected@file@percent }
+\citation{bhat2008}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.3}Artificial magnetic fields}{20}{subsection.1.3.3}\protected@file@percent }
+\newlabel{sec:gauge}{{1.3.3}{20}{Artificial magnetic fields}{subsection.1.3.3}{}}
+\citation{peshkin1989,madison2000,abo2001}
+\@writefile{toc}{\contentsline {subsubsection}{Geometric Gauge Fields}{21}{section*.7}\protected@file@percent }
+\newlabel{sec:geom}{{1.3.3}{21}{Geometric Gauge Fields}{section*.7}{}}
+\citation{lin2009}
+\citation{niu2017}
+\citation{wu2005}
+\newlabel{Bcnx-1}{{1.47}{22}{Geometric Gauge Fields}{equation.1.3.47}{}}
+\newlabel{eqn:Bcnx}{{1.48}{22}{Geometric Gauge Fields}{equation.1.3.48}{}}
+\newlabel{eqn:BC}{{1.49}{22}{Geometric Gauge Fields}{equation.1.3.49}{}}
+\newlabel{eqn:c}{{1.50}{22}{Geometric Gauge Fields}{equation.1.3.50}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.4}Modifications to the SSFM for superfluid vortex simulations}{23}{section.1.4}\protected@file@percent }
+\newlabel{sec:implementation}{{1.4}{23}{Modifications to the SSFM for superfluid vortex simulations}{section.1.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces  (solid blue) Modified trap geometry due to the influence of high artificial vector potential strength. The vector potential ($\frac  {\mathbf  {A}^2}{2}$) is shown in dotted blue and the original, harmonic trap is shown in dashed red. \relax }}{24}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:V_change}{{1.4}{24}{(solid blue) Modified trap geometry due to the influence of high artificial vector potential strength. The vector potential ($\frac {\mathbf {A}^2}{2}$) is shown in dotted blue and the original, harmonic trap is shown in dashed red. \relax }{figure.caption.8}{}}
 \@writefile{toc}{\vspace  {2em}}
 \bibdata{Preamble/Thesis_bibliography}
-\bibcite{werschnik2007}{{1}{2007}{{Werschnik and Gross}}{{}}}
-\bibcite{guery2019}{{2}{2019}{{Gu{\'e}ry-Odelin et~al.}}{{Gu{\'e}ry-Odelin, Ruschhaupt, Kiely, Torrontegui, Mart{\'\i }nez-Garaot, and Muga}}}
-\bibcite{schloss2016}{{3}{2016}{{Schloss et~al.}}{{Schloss, Benseny, Gillet, Swain, and Busch}}}
-\bibcite{lewis2012}{{4}{2012}{{Lewis et~al.}}{{Lewis, Vrabie, and Syrmos}}}
-\bibcite{ruder2016}{{5}{2016}{{Ruder}}{{}}}
-\bibcite{nelder1965}{{6}{1965}{{Nelder and Mead}}{{}}}
-\bibcite{koza1997}{{7}{1997}{{Koza}}{{}}}
-\bibcite{kolda2003}{{8}{2003}{{Kolda et~al.}}{{Kolda, Lewis, and Torczon}}}
-\bibcite{lewis2007}{{9}{2007}{{Lewis et~al.}}{{Lewis, Shepherd, and Torczon}}}
+\bibcite{agrawal2000}{{1}{2000}{{Agrawal}}{{}}}
+\bibcite{sinkin2003}{{2}{2003}{{{Sinkin} et~al.}}{{{Sinkin}, {Holzlohner}, {Zweck}, and {Menyuk}}}}
+\bibcite{meirelles2005}{{3}{2005}{{{Meirelles} et~al.}}{{{Meirelles}, {Rieznik}, and {Fragnito}}}}
+\bibcite{min2003}{{4}{2003}{{M. et~al.}}{{M., X., and M.}}}
+\bibcite{bayindir2015}{{5}{2015}{{Bayindir}}{{}}}
+\bibcite{weideman1986}{{6}{1986}{{Weideman and Herbst}}{{}}}
+\bibcite{wang2005}{{7}{2005}{{Wang}}{{}}}
 \@writefile{toc}{\vspace  {2em}}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{25}{section*.15}\protected@file@percent }
-\bibcite{pohlheim2007}{{10}{2007}{{Pohlheim}}{{}}}
-\bibcite{torrontegui2013}{{11}{2013}{{Torrontegui et~al.}}{{Torrontegui, Ib{\'a}nez, Mart{\'\i }nez-Garaot, Modugno, del Campo, Gu{\'e}ry-Odelin, Ruschhaupt, Chen, and Muga}}}
-\bibcite{lewis1969}{{12}{1969}{{Lewis~Jr and Riesenfeld}}{{}}}
-\bibcite{lewis1982}{{13}{1982}{{Lewis and Leach}}{{}}}
-\bibcite{girardeau2001ground}{{14}{2001}{{Girardeau et~al.}}{{Girardeau, Wright, and Triscari}}}
-\bibcite{girardeau2001measurement}{{15}{2001}{{Girardeau and Wright}}{{}}}
-\bibcite{slater1929}{{16}{1929}{{Slater}}{{}}}
-\bibcite{das2002}{{17}{2002}{{Das et~al.}}{{Das, Girardeau, and Wright}}}
-\bibcite{girardeau2009}{{18}{2009}{{Girardeau and Minguzzi}}{{}}}
-\bibcite{hallwood2010}{{19}{2010}{{Hallwood et~al.}}{{Hallwood, Ernst, and Brand}}}
-\bibcite{schenke2012}{{20}{2012}{{Schenke et~al.}}{{Schenke, Minguzzi, and Hekking}}}
-\bibcite{nunnenkamp2008}{{21}{2008}{{Nunnenkamp et~al.}}{{Nunnenkamp, Rey, and Burnett}}}
-\bibcite{hallwood2007}{{22}{2007}{{Hallwood et~al.}}{{Hallwood, Burnett, and Dunningham}}}
-\bibcite{garaot2015}{{23}{2015}{{Mart\'{\i }nez-Garaot et~al.}}{{Mart\'{\i }nez-Garaot, Ruschhaupt, Gillet, Busch, and Muga}}}
-\bibcite{campo2011}{{24}{2011}{{del Campo}}{{}}}
-\bibcite{lelas2011}{{25}{2011}{{Lelas et~al.}}{{Lelas, \v {S}{}eva, and Buljan}}}
-\bibcite{girardeau1960}{{26}{1960}{{Girardeau}}{{}}}
-\bibcite{chen2010}{{27}{2010}{{Chen and Muga}}{{}}}
-\bibcite{chen20102}{{28}{2010}{{Chen et~al.}}{{Chen, Ruschhaupt, Schmidt, del Campo, Gu\'ery-Odelin, and Muga}}}
-\bibcite{masuda2009}{{29}{2009}{{Masuda and Nakamura}}{{}}}
-\bibcite{torrontegui2011}{{30}{2011}{{Torrontegui et~al.}}{{Torrontegui, Ib\'a\~nez, Chen, Ruschhaupt, Gu\'ery-Odelin, and Muga}}}
-\bibcite{masuda2012}{{31}{2012}{{Masuda}}{{}}}
-\bibcite{phelan2013}{{32}{2013}{{Phelan et~al.}}{{Phelan, Hennessy, and Busch}}}
-\bibcite{masuda2014}{{33}{2014}{{Masuda et~al.}}{{Masuda, Nakamura, and del Campo}}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{26}{section*.9}\protected@file@percent }
+\bibcite{butcher2016}{{8}{2016}{{Butcher}}{{}}}
+\bibcite{crank1947}{{9}{1947}{{Crank and Nicolson}}{{}}}
+\bibcite{murray2011}{{10}{2011}{{Murray}}{{}}}
+\bibcite{conte2017}{{11}{2017}{{Conte and De~Boor}}{{}}}
+\bibcite{thomas1949}{{12}{1949}{{Thomas}}{{}}}
+\bibcite{goddeke2010}{{13}{2010}{{Goddeke and Strzodka}}{{}}}
+\bibcite{wang1981}{{14}{1981}{{Wang}}{{}}}
+\bibcite{sweet1977}{{15}{1977}{{Sweet}}{{}}}
+\bibcite{brehler2017}{{16}{2017}{{Brehler et~al.}}{{Brehler, Schirwon, G{\"o}ddeke, and Krummrich}}}
+\bibcite{benzi1992}{{17}{1992}{{Benzi et~al.}}{{Benzi, Colella, Briscolini, and Santangelo}}}
+\bibcite{schwarz1988}{{18}{1988}{{Schwarz}}{{}}}
+\bibcite{strang1968}{{19}{1968}{{Strang}}{{}}}
+\bibcite{macnamara2016}{{20}{2016}{{MacNamara and Strang}}{{}}}
+\bibcite{cooley1965}{{21}{1965}{{Cooley and Tukey}}{{}}}
+\bibcite{frigo1998}{{22}{1998}{{Frigo and Johnson}}{{}}}
+\bibcite{fatica2008}{{23}{2008}{{Fatica et~al.}}{{Fatica, LeGresley, Buck, Stone, Phillips, Morton, and Micikevicius}}}
+\bibcite{schloss2018}{{24}{2018}{{Schloss and Riordan}}{{}}}
+\bibcite{wick1954}{{25}{1954}{{Wick}}{{}}}
+\bibcite{harris2007}{{26}{2007}{{Harris et~al.}}{{}}}
+\bibcite{einstein1925}{{27}{1925}{{Migdal}}{{}}}
+\bibcite{fetter2003}{{28}{2003}{{Fetter and Walecka}}{{}}}
+\bibcite{girardeau1960}{{29}{1960}{{Girardeau}}{{}}}
+\bibcite{schloss2016}{{30}{2016}{{Schloss et~al.}}{{Schloss, Benseny, Gillet, Swain, and Busch}}}
+\bibcite{nozieres1985}{{31}{1985}{{Nozi{\`e}res and Schmitt-Rink}}{{}}}
+\bibcite{bulgac2014}{{32}{2014}{{Bulgac et~al.}}{{Bulgac, Forbes, Kelley, Roche, and Wlaz{\l }owski}}}
+\bibcite{aversa2008}{{33}{2008}{{Aversa}}{{}}}
+\bibcite{bogoliubov1947}{{34}{1947}{{Bogoliubov}}{{}}}
+\bibcite{dalfovo1999}{{35}{1999}{{Dalfovo et~al.}}{{Dalfovo, Giorgini, Pitaevskii, and Stringari}}}
+\bibcite{gross1961}{{36}{1961}{{Gross}}{{}}}
+\bibcite{pitaevskii1961}{{37}{1961}{{Pitaevskii}}{{}}}
+\bibcite{pethick2002}{{38}{2002}{{Pethick and Smith}}{{}}}
+\bibcite{fetter2009}{{39}{2009}{{Fetter}}{{}}}
+\bibcite{ueda2010}{{40}{2010}{{Ueda}}{{}}}
+\bibcite{allen1938}{{41}{1938}{{Allen and Misener}}{{}}}
+\bibcite{migdal1960}{{42}{1960}{{Migdal}}{{}}}
+\bibcite{anderson1995}{{43}{1995}{{Anderson et~al.}}{{Anderson, Ensher, Matthews, Wieman, and Cornell}}}
+\bibcite{rooney2012}{{44}{2012}{{Rooney et~al.}}{{Rooney, Blakie, and Bradley}}}
+\bibcite{zaremba1999}{{45}{1999}{{Zaremba et~al.}}{{Zaremba, Nikuni, and Griffin}}}
+\bibcite{savage2003}{{46}{2003}{{Savage et~al.}}{{Savage, Robins, and Hope}}}
+\bibcite{abrikosov1957}{{47}{1957}{{Abrikosov}}{{}}}
+\bibcite{fetter2001}{{48}{2001}{{Fetter and Svidzinsky}}{{}}}
+\bibcite{madison2000}{{49}{2000}{{Madison et~al.}}{{Madison, Chevy, Wohlleben, and Dalibard}}}
+\bibcite{reichl2013}{{50}{2013}{{Reichl and Mueller}}{{}}}
+\bibcite{barenghi2014}{{51}{2014}{{Barenghi et~al.}}{{Barenghi, Skrbek, and Sreenivasan}}}
+\bibcite{feynman1955}{{52}{1955}{{Feynman}}{{}}}
+\bibcite{o2016}{{53}{2016}{{O'Riordan et~al.}}{{O'Riordan, White, and Busch}}}
+\bibcite{o2016topo}{{54}{2016}{{O'Riordan and Busch}}{{}}}
+\bibcite{abo2001}{{55}{2001}{{Abo-Shaeer et~al.}}{{Abo-Shaeer, Raman, Vogels, and Ketterle}}}
+\bibcite{schweikhard2004}{{56}{2004}{{Schweikhard et~al.}}{{Schweikhard, Coddington, Engels, Mogendorff, and Cornell}}}
+\bibcite{chevy2006}{{57}{2006}{{Chevy and Dalibard}}{{}}}
+\bibcite{hodby2001}{{58}{2001}{{Hodby et~al.}}{{Hodby, Hechenblaikner, Hopkins, Marago, and Foot}}}
+\bibcite{haljan2001}{{59}{2001}{{Haljan et~al.}}{{Haljan, Coddington, Engels, and Cornell}}}
+\bibcite{bretin2004}{{60}{2004}{{Bretin et~al.}}{{Bretin, Stock, Seurin, and Dalibard}}}
+\bibcite{engels2003}{{61}{2003}{{Engels et~al.}}{{Engels, Coddington, Haljan, Schweikhard, and Cornell}}}
+\bibcite{guo2019}{{62}{2019}{{Guo et~al.}}{{Guo, Dubessy, de~Herve, Kumar, Badr, Perrin, Longchambon, and Perrin}}}
+\bibcite{kumar2018}{{63}{2018}{{Kumar et~al.}}{{Kumar, Dubessy, Badr, De~Rossi, de~Herve, Longchambon, and Perrin}}}
+\bibcite{moulder2012}{{64}{2012}{{Moulder et~al.}}{{Moulder, Beattie, Smith, Tammuz, and Hadzibabic}}}
+\bibcite{burger1999}{{65}{1999}{{Burger et~al.}}{{Burger, Bongs, Dettmer, Ertmer, Sengstock, Sanpera, Shlyapnikov, and Lewenstein}}}
+\bibcite{denschlag2000}{{66}{2000}{{Denschlag et~al.}}{{Denschlag, Simsarian, Feder, Clark, Collins, Cubizolles, Deng, Hagley, Helmerson, Reinhardt, et~al.}}}
+\bibcite{wu2002}{{67}{2002}{{Wu et~al.}}{{Wu, Liu, and Niu}}}
+\bibcite{ryu2007}{{68}{2007}{{Ryu et~al.}}{{Ryu, Andersen, Clad\'e, Natarajan, Helmerson, and Phillips}}}
+\bibcite{kasevich1991}{{69}{1991}{{Kasevich and Chu}}{{}}}
+\bibcite{gajda1999}{{70}{1999}{{Gajda et~al.}}{{Gajda, Lewenstein, Sengstock, Birkl, Ertmer, et~al.}}}
+\bibcite{shin2004}{{71}{2004}{{Shin et~al.}}{{Shin, Saba, Vengalattore, Pasquini, Sanner, Leanhardt, Prentiss, Pritchard, and Ketterle}}}
+\bibcite{white2014}{{72}{2014}{{White et~al.}}{{White, Anderson, and Bagnato}}}
+\bibcite{maucher2016}{{73}{2016}{{Maucher et~al.}}{{Maucher, Gardiner, and Hughes}}}
+\bibcite{lin2009}{{74}{2009}{{Lin et~al.}}{{Lin, Compton, Jimenez-Garcia, Porto, and Spielman}}}
+\bibcite{dalibard2015}{{75}{2015}{{Dalibard}}{{}}}
+\bibcite{bhat2008}{{76}{2001}{{Bhat}}{{}}}
+\bibcite{peshkin1989}{{77}{1989}{{M.~Peshkin}}{{}}}
+\bibcite{niu2017}{{78}{2017}{{Niu et~al.}}{{Niu, Chang, Wu, Xiao, and Cheng}}}
+\bibcite{wu2005}{{79}{2005}{{Wu et~al.}}{{Wu, Liu, and Niu}}}
 \@writefile{toc}{\vspace  {2em}}

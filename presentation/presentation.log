@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.8.25)  26 NOV 2019 13:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2019.8.25)  28 NOV 2019 10:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -974,17 +974,17 @@ Package pdftex.def Info: OISTBG.png  used on input line 90.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./OISTBG.png>]
-LaTeX Font Info:    Try loading font information for U+msa on input line 128.
+LaTeX Font Info:    Try loading font information for U+msa on input line 122.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 128.
+LaTeX Font Info:    Try loading font information for U+msb on input line 122.
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 128.
+line 122.
 
 (/usr/share/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
@@ -993,827 +993,774 @@ thkerncmss.
 <GPUE.png, id=26, 1027.84pt x 770.88pt>
 File: GPUE.png Graphic file (type png)
 <use GPUE.png>
-Package pdftex.def Info: GPUE.png  used on input line 128.
+Package pdftex.def Info: GPUE.png  used on input line 122.
 (pdftex.def)             Requested size: 92.1879pt x 69.14095pt.
 <OIST.png, id=27, 289.08pt x 179.7114pt>
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 128.
+Package pdftex.def Info: OIST.png  used on input line 122.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
  [2
 
  <./OIST.png> <./GPUE.png>]
-<../data/splitop/method/split_op_method.pdf, id=36, 686.49374pt x 751.22858pt>
-File: ../data/splitop/method/split_op_method.pdf Graphic file (type pdf)
-<use ../data/splitop/method/split_op_method.pdf>
-Package pdftex.def Info: ../data/splitop/method/split_op_method.pdf  used on in
-put line 128.
-(pdftex.def)             Requested size: 92.1879pt x 100.87273pt.
+File: GPUE.png Graphic file (type png)
+<use GPUE.png>
+Package pdftex.def Info: GPUE.png  used on input line 122.
+(pdftex.def)             Requested size: 92.1879pt x 69.14095pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 128.
+Package pdftex.def Info: OIST.png  used on input line 122.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
  [3
 
- <../data/splitop/method/split_op_method.pdf>]
-<../data/1d/scheme.pdf, id=48, 416.41394pt x 286.50488pt>
-File: ../data/1d/scheme.pdf Graphic file (type pdf)
-<use ../data/1d/scheme.pdf>
-Package pdftex.def Info: ../data/1d/scheme.pdf  used on input line 128.
-(pdftex.def)             Requested size: 92.1879pt x 63.42471pt.
+]
+File: GPUE.png Graphic file (type png)
+<use GPUE.png>
+Package pdftex.def Info: GPUE.png  used on input line 122.
+(pdftex.def)             Requested size: 92.1879pt x 69.14095pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 128.
+Package pdftex.def Info: OIST.png  used on input line 122.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
  [4
 
- <../data/1d/scheme.pdf>]
-<v100.png, id=82, 963.6pt x 963.6pt>
-File: v100.png Graphic file (type png)
-<use v100.png>
-Package pdftex.def Info: v100.png  used on input line 128.
-(pdftex.def)             Requested size: 92.1879pt x 92.17519pt.
+]
+File: GPUE.png Graphic file (type png)
+<use GPUE.png>
+Package pdftex.def Info: GPUE.png  used on input line 122.
+(pdftex.def)             Requested size: 92.1879pt x 69.14095pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 128.
+Package pdftex.def Info: OIST.png  used on input line 122.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
  [5
 
- <./v100.png>]
-<../data/2d/evolution/evolution.pdf, id=89, 422.05681pt x 360.6273pt>
-File: ../data/2d/evolution/evolution.pdf Graphic file (type pdf)
-<use ../data/2d/evolution/evolution.pdf>
-Package pdftex.def Info: ../data/2d/evolution/evolution.pdf  used on input line
- 128.
-(pdftex.def)             Requested size: 92.1879pt x 78.76596pt.
+]
+File: GPUE.png Graphic file (type png)
+<use GPUE.png>
+Package pdftex.def Info: GPUE.png  used on input line 122.
+(pdftex.def)             Requested size: 92.1879pt x 69.14095pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 128.
+Package pdftex.def Info: OIST.png  used on input line 122.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
  [6
 
- <../data/2d/evolution/evolution.pdf>]
-<../data/3d/HE21_3d.png, id=101, 948.54375pt x 717.68124pt>
-File: ../data/3d/HE21_3d.png Graphic file (type png)
-<use ../data/3d/HE21_3d.png>
-Package pdftex.def Info: ../data/3d/HE21_3d.png  used on input line 128.
-(pdftex.def)             Requested size: 92.1879pt x 69.7464pt.
+]
+File: GPUE.png Graphic file (type png)
+<use GPUE.png>
+Package pdftex.def Info: GPUE.png  used on input line 122.
+(pdftex.def)             Requested size: 92.1879pt x 69.14095pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 128.
+Package pdftex.def Info: OIST.png  used on input line 122.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [7
 
-[7
-
- <../data/3d/HE21_3d.png>]
-File: OIST.png Graphic file (type png)
-<use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 128.
-(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+]
+<../data/splitop/rot/density_L10.pdf, id=62, 291.97081pt x 218.2554pt>
+File: ../data/splitop/rot/density_L10.pdf Graphic file (type pdf)
+<use ../data/splitop/rot/density_L10.pdf>
+Package pdftex.def Info: ../data/splitop/rot/density_L10.pdf  used on input lin
+e 134.
+(pdftex.def)             Requested size: 184.3758pt x 137.82466pt.
  [8
 
-] [9
+ <../data/splitop/rot/density_L10.pdf>]
+File: ../data/splitop/rot/density_L10.pdf Graphic file (type pdf)
+<use ../data/splitop/rot/density_L10.pdf>
+Package pdftex.def Info: ../data/splitop/rot/density_L10.pdf  used on input lin
+e 134.
+(pdftex.def)             Requested size: 184.3758pt x 137.82466pt.
+ [9
 
 ]
-File: OIST.png Graphic file (type png)
-<use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 147.
-(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [10
-
-]
-File: OIST.png Graphic file (type png)
-<use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 147.
-(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [11
-
-<<gaussian.mp4>>]
-<time_0066.png, id=145, 602.25pt x 401.5pt>
+<time_0066.png, id=81, 602.25pt x 401.5pt>
 File: time_0066.png Graphic file (type png)
 <use time_0066.png>
-Package pdftex.def Info: time_0066.png  used on input line 175.
+Package pdftex.def Info: time_0066.png  used on input line 162.
 (pdftex.def)             Requested size: 153.64493pt x 102.42708pt.
-<freq_0066.png, id=146, 602.25pt x 401.5pt>
+<freq_0066.png, id=82, 602.25pt x 401.5pt>
 File: freq_0066.png Graphic file (type png)
 <use freq_0066.png>
-Package pdftex.def Info: freq_0066.png  used on input line 175.
+Package pdftex.def Info: freq_0066.png  used on input line 162.
 (pdftex.def)             Requested size: 153.64493pt x 102.42708pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 175.
+Package pdftex.def Info: OIST.png  used on input line 162.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [12
+ [10
 
  <./time_0066.png> <./freq_0066.png>]
 File: time_0066.png Graphic file (type png)
 <use time_0066.png>
-Package pdftex.def Info: time_0066.png  used on input line 175.
+Package pdftex.def Info: time_0066.png  used on input line 162.
 (pdftex.def)             Requested size: 153.64493pt x 102.42708pt.
 File: freq_0066.png Graphic file (type png)
 <use freq_0066.png>
-Package pdftex.def Info: freq_0066.png  used on input line 175.
+Package pdftex.def Info: freq_0066.png  used on input line 162.
 (pdftex.def)             Requested size: 153.64493pt x 102.42708pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 175.
+Package pdftex.def Info: OIST.png  used on input line 162.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [11
+
+]
+File: time_0066.png Graphic file (type png)
+<use time_0066.png>
+Package pdftex.def Info: time_0066.png  used on input line 162.
+(pdftex.def)             Requested size: 153.64493pt x 102.42708pt.
+File: freq_0066.png Graphic file (type png)
+<use freq_0066.png>
+Package pdftex.def Info: freq_0066.png  used on input line 162.
+(pdftex.def)             Requested size: 153.64493pt x 102.42708pt.
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 162.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [12
+
+]
+File: time_0066.png Graphic file (type png)
+<use time_0066.png>
+Package pdftex.def Info: time_0066.png  used on input line 162.
+(pdftex.def)             Requested size: 153.64493pt x 102.42708pt.
+File: freq_0066.png Graphic file (type png)
+<use freq_0066.png>
+Package pdftex.def Info: freq_0066.png  used on input line 162.
+(pdftex.def)             Requested size: 153.64493pt x 102.42708pt.
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 162.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
  [13
 
 ]
-File: time_0066.png Graphic file (type png)
-<use time_0066.png>
-Package pdftex.def Info: time_0066.png  used on input line 175.
-(pdftex.def)             Requested size: 153.64493pt x 102.42708pt.
-File: freq_0066.png Graphic file (type png)
-<use freq_0066.png>
-Package pdftex.def Info: freq_0066.png  used on input line 175.
-(pdftex.def)             Requested size: 153.64493pt x 102.42708pt.
-File: OIST.png Graphic file (type png)
-<use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 175.
-(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [14
-
-]
-File: time_0066.png Graphic file (type png)
-<use time_0066.png>
-Package pdftex.def Info: time_0066.png  used on input line 175.
-(pdftex.def)             Requested size: 153.64493pt x 102.42708pt.
-File: freq_0066.png Graphic file (type png)
-<use freq_0066.png>
-Package pdftex.def Info: freq_0066.png  used on input line 175.
-(pdftex.def)             Requested size: 153.64493pt x 102.42708pt.
-File: OIST.png Graphic file (type png)
-<use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 175.
-(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [15
-
-]
-<radix-8screen.jpg, id=174, 1003.75pt x 1002.74625pt>
-File: radix-8screen.jpg Graphic file (type jpg)
-<use radix-8screen.jpg>
-Package pdftex.def Info: radix-8screen.jpg  used on input line 190.
-(pdftex.def)             Requested size: 153.64493pt x 153.48088pt.
-File: OIST.png Graphic file (type png)
-<use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 190.
-(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [16
-
- <./radix-8screen.jpg>]
-<SHO_2.pdf, id=180, 361.35pt x 252.945pt>
+<SHO_2.pdf, id=112, 361.35pt x 252.945pt>
 File: SHO_2.pdf Graphic file (type pdf)
 <use SHO_2.pdf>
-Package pdftex.def Info: SHO_2.pdf  used on input line 209.
-(pdftex.def)             Requested size: 184.3758pt x 129.062pt.
+Package pdftex.def Info: SHO_2.pdf  used on input line 205.
+(pdftex.def)             Requested size: 147.50119pt x 103.24883pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 209.
+Package pdftex.def Info: OIST.png  used on input line 205.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [17
+ [14
 
  <./SHO_2.pdf>]
 File: SHO_2.pdf Graphic file (type pdf)
 <use SHO_2.pdf>
-Package pdftex.def Info: SHO_2.pdf  used on input line 209.
-(pdftex.def)             Requested size: 184.3758pt x 129.062pt.
+Package pdftex.def Info: SHO_2.pdf  used on input line 205.
+(pdftex.def)             Requested size: 147.50119pt x 103.24883pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 209.
+Package pdftex.def Info: OIST.png  used on input line 205.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [18
+ [15
 
 ]
+File: SHO_2.pdf Graphic file (type pdf)
+<use SHO_2.pdf>
+Package pdftex.def Info: SHO_2.pdf  used on input line 205.
+(pdftex.def)             Requested size: 147.50119pt x 103.24883pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 231.
+Package pdftex.def Info: OIST.png  used on input line 205.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [19
+ [16
 
 ]
-File: OIST.png Graphic file (type png)
-<use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 231.
-(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [20
-
-]
-File: OIST.png Graphic file (type png)
-<use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 231.
-(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [21
-
-]
-File: ../data/splitop/method/split_op_method.pdf Graphic file (type pdf)
-<use ../data/splitop/method/split_op_method.pdf>
-Package pdftex.def Info: ../data/splitop/method/split_op_method.pdf  used on in
-put line 248.
-(pdftex.def)             Requested size: 153.64493pt x 168.12503pt.
-File: OIST.png Graphic file (type png)
-<use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 248.
-(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [22
-
-]
-<Bose_Einstein_condensate.png, id=260, 653.44125pt x 429.605pt>
+<Bose_Einstein_condensate.png, id=175, 653.44125pt x 429.605pt>
 File: Bose_Einstein_condensate.png Graphic file (type png)
 <use Bose_Einstein_condensate.png>
-Package pdftex.def Info: Bose_Einstein_condensate.png  used on input line 268.
+Package pdftex.def Info: Bose_Einstein_condensate.png  used on input line 225.
 (pdftex.def)             Requested size: 153.64493pt x 101.00963pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 268.
+Package pdftex.def Info: OIST.png  used on input line 225.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [23
+ [17
 
  <./Bose_Einstein_condensate.png>]
 File: Bose_Einstein_condensate.png Graphic file (type png)
 <use Bose_Einstein_condensate.png>
-Package pdftex.def Info: Bose_Einstein_condensate.png  used on input line 268.
+Package pdftex.def Info: Bose_Einstein_condensate.png  used on input line 225.
 (pdftex.def)             Requested size: 153.64493pt x 101.00963pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 268.
+Package pdftex.def Info: OIST.png  used on input line 225.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [24
+ [18
 
 ]
-<vortex.jpg, id=272, 72.27pt x 72.27pt>
+<vortex.jpg, id=188, 72.27pt x 72.27pt>
 File: vortex.jpg Graphic file (type jpg)
 <use vortex.jpg>
-Package pdftex.def Info: vortex.jpg  used on input line 289.
+Package pdftex.def Info: vortex.jpg  used on input line 251.
 (pdftex.def)             Requested size: 138.2795pt x 138.28702pt.
-<vortexlattice.jpg, id=273, 542.025pt x 546.27618pt>
+<vortexlattice.jpg, id=189, 542.025pt x 546.27618pt>
 File: vortexlattice.jpg Graphic file (type jpg)
 <use vortexlattice.jpg>
-Package pdftex.def Info: vortexlattice.jpg  used on input line 289.
+Package pdftex.def Info: vortexlattice.jpg  used on input line 251.
 (pdftex.def)             Requested size: 138.2795pt x 139.3611pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 289.
+Package pdftex.def Info: OIST.png  used on input line 251.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
 
-[25
+Overfull \vbox (6.9113pt too high) detected at line 251
+ []
+
+[19
 
  <./vortex.jpg> <./Vortexlattice.jpg>]
 File: vortex.jpg Graphic file (type jpg)
 <use vortex.jpg>
-Package pdftex.def Info: vortex.jpg  used on input line 289.
+Package pdftex.def Info: vortex.jpg  used on input line 251.
 (pdftex.def)             Requested size: 138.2795pt x 138.28702pt.
 File: vortexlattice.jpg Graphic file (type jpg)
 <use vortexlattice.jpg>
-Package pdftex.def Info: vortexlattice.jpg  used on input line 289.
+Package pdftex.def Info: vortexlattice.jpg  used on input line 251.
 (pdftex.def)             Requested size: 138.2795pt x 139.3611pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 289.
+Package pdftex.def Info: OIST.png  used on input line 251.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [26
+
+Overfull \vbox (6.9113pt too high) detected at line 251
+ []
+
+[20
 
 ]
-<../data/splitop/rot/WIP.pdf, id=285, 531.8787pt x 455.69261pt>
+<../data/splitop/rot/WIP.pdf, id=201, 531.8787pt x 455.69261pt>
 File: ../data/splitop/rot/WIP.pdf Graphic file (type pdf)
 <use ../data/splitop/rot/WIP.pdf>
-Package pdftex.def Info: ../data/splitop/rot/WIP.pdf  used on input line 296.
+Package pdftex.def Info: ../data/splitop/rot/WIP.pdf  used on input line 258.
 (pdftex.def)             Requested size: 245.83282pt x 210.61546pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 296.
+Package pdftex.def Info: OIST.png  used on input line 258.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [27
+ [21
 
  <../data/splitop/rot/WIP.pdf>]
-<../data/2d/phase/phase.pdf, id=297, 822.27202pt x 512.30597pt>
-File: ../data/2d/phase/phase.pdf Graphic file (type pdf)
-<use ../data/2d/phase/phase.pdf>
-Package pdftex.def Info: ../data/2d/phase/phase.pdf  used on input line 305.
-(pdftex.def)             Requested size: 230.46739pt x 143.5854pt.
+<phase.pdf, id=213, 821.70992pt x 565.15138pt>
+File: phase.pdf Graphic file (type pdf)
+<use phase.pdf>
+Package pdftex.def Info: phase.pdf  used on input line 267.
+(pdftex.def)             Requested size: 230.46739pt x 158.50864pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 305.
+Package pdftex.def Info: OIST.png  used on input line 267.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [28
+ [22
 
- <../data/2d/phase/phase.pdf>]
-<2level.jpg, id=338, 80.3pt x 60.3856pt>
+ <./phase.pdf>]
+<2level.jpg, id=231, 80.3pt x 60.3856pt>
 File: 2level.jpg Graphic file (type jpg)
 <use 2level.jpg>
-Package pdftex.def Info: 2level.jpg  used on input line 331.
+Package pdftex.def Info: 2level.jpg  used on input line 293.
 (pdftex.def)             Requested size: 92.1879pt x 69.3277pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 331.
+Package pdftex.def Info: OIST.png  used on input line 293.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [29
+ [23
 
  <./2level.jpg>]
 File: 2level.jpg Graphic file (type jpg)
 <use 2level.jpg>
-Package pdftex.def Info: 2level.jpg  used on input line 331.
+Package pdftex.def Info: 2level.jpg  used on input line 293.
 (pdftex.def)             Requested size: 92.1879pt x 69.3277pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 331.
+Package pdftex.def Info: OIST.png  used on input line 293.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [30
+
+[24
 
 ]
 File: 2level.jpg Graphic file (type jpg)
 <use 2level.jpg>
-Package pdftex.def Info: 2level.jpg  used on input line 331.
+Package pdftex.def Info: 2level.jpg  used on input line 293.
 (pdftex.def)             Requested size: 92.1879pt x 69.3277pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 331.
+Package pdftex.def Info: OIST.png  used on input line 293.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [31
+ [25
 
 ]
-<../data/splitop/gauge/check.pdf, id=355, 361.35pt x 252.945pt>
+<../data/splitop/gauge/check.pdf, id=248, 361.35pt x 252.945pt>
 File: ../data/splitop/gauge/check.pdf Graphic file (type pdf)
 <use ../data/splitop/gauge/check.pdf>
-Package pdftex.def Info: ../data/splitop/gauge/check.pdf  used on input line 36
-3.
+Package pdftex.def Info: ../data/splitop/gauge/check.pdf  used on input line 32
+5.
 (pdftex.def)             Requested size: 185.91241pt x 130.13882pt.
 
-Overfull \hbox (16.90205pt too wide) in paragraph at lines 363--363
+Overfull \hbox (16.90205pt too wide) in paragraph at lines 325--325
 [][]  
  []
 
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 363.
+Package pdftex.def Info: OIST.png  used on input line 325.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
-[32
+[26
 
  <../data/splitop/gauge/check.pdf>]
 File: ../data/splitop/gauge/check.pdf Graphic file (type pdf)
 <use ../data/splitop/gauge/check.pdf>
-Package pdftex.def Info: ../data/splitop/gauge/check.pdf  used on input line 36
-3.
+Package pdftex.def Info: ../data/splitop/gauge/check.pdf  used on input line 32
+5.
 (pdftex.def)             Requested size: 185.91241pt x 130.13882pt.
 
-Overfull \hbox (16.90205pt too wide) in paragraph at lines 363--363
+Overfull \hbox (16.90205pt too wide) in paragraph at lines 325--325
 [][]  
  []
 
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 363.
+Package pdftex.def Info: OIST.png  used on input line 325.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
-[33
+[27
 
 ]
 File: ../data/splitop/gauge/check.pdf Graphic file (type pdf)
 <use ../data/splitop/gauge/check.pdf>
-Package pdftex.def Info: ../data/splitop/gauge/check.pdf  used on input line 36
-3.
+Package pdftex.def Info: ../data/splitop/gauge/check.pdf  used on input line 32
+5.
 (pdftex.def)             Requested size: 185.91241pt x 130.13882pt.
 
-Overfull \hbox (16.90205pt too wide) in paragraph at lines 363--363
+Overfull \hbox (16.90205pt too wide) in paragraph at lines 325--325
 [][]  
  []
 
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 363.
+Package pdftex.def Info: OIST.png  used on input line 325.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
-[34
-
-] [35
+[28
 
 ]
-<../data/1d/NM/NM.pdf, id=405, 361.35pt x 252.945pt>
-File: ../data/1d/NM/NM.pdf Graphic file (type pdf)
-<use ../data/1d/NM/NM.pdf>
-Package pdftex.def Info: ../data/1d/NM/NM.pdf  used on input line 396.
-(pdftex.def)             Requested size: 153.64493pt x 107.5523pt.
+File: ../data/splitop/rot/density_L10.pdf Graphic file (type pdf)
+<use ../data/splitop/rot/density_L10.pdf>
+Package pdftex.def Info: ../data/splitop/rot/density_L10.pdf  used on input lin
+e 347.
+(pdftex.def)             Requested size: 92.1879pt x 68.91066pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 396.
+Package pdftex.def Info: OIST.png  used on input line 347.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [36
+ [29
 
- <../data/1d/NM/NM.pdf>]
-File: ../data/1d/NM/NM.pdf Graphic file (type pdf)
-<use ../data/1d/NM/NM.pdf>
-Package pdftex.def Info: ../data/1d/NM/NM.pdf  used on input line 396.
-(pdftex.def)             Requested size: 153.64493pt x 107.5523pt.
-File: OIST.png Graphic file (type png)
-<use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 396.
-(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [37
+] [30
 
 ]
-File: ../data/1d/NM/NM.pdf Graphic file (type pdf)
-<use ../data/1d/NM/NM.pdf>
-Package pdftex.def Info: ../data/1d/NM/NM.pdf  used on input line 396.
-(pdftex.def)             Requested size: 153.64493pt x 107.5523pt.
-File: OIST.png Graphic file (type png)
-<use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 396.
-(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [38
-
-]
-File: ../data/1d/NM/NM.pdf Graphic file (type pdf)
-<use ../data/1d/NM/NM.pdf>
-Package pdftex.def Info: ../data/1d/NM/NM.pdf  used on input line 396.
-(pdftex.def)             Requested size: 153.64493pt x 107.5523pt.
-File: OIST.png Graphic file (type png)
-<use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 396.
-(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [39
-
-]
-File: OIST.png Graphic file (type png)
-<use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 402.
-(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [40
-
-]
-File: ../data/1d/scheme.pdf Graphic file (type pdf)
-<use ../data/1d/scheme.pdf>
-Package pdftex.def Info: ../data/1d/scheme.pdf  used on input line 424.
-(pdftex.def)             Requested size: 107.55098pt x 73.9955pt.
-<../data/1d/cross.png, id=444, 293.59688pt x 304.13625pt>
-File: ../data/1d/cross.png Graphic file (type png)
-<use ../data/1d/cross.png>
-Package pdftex.def Info: ../data/1d/cross.png  used on input line 424.
-(pdftex.def)             Requested size: 150.57372pt x 155.97989pt.
-<../data/1d/nocross.png, id=445, 293.59688pt x 304.13625pt>
-File: ../data/1d/nocross.png Graphic file (type png)
-<use ../data/1d/nocross.png>
-Package pdftex.def Info: ../data/1d/nocross.png  used on input line 424.
-(pdftex.def)             Requested size: 150.57372pt x 155.97989pt.
-File: OIST.png Graphic file (type png)
-<use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 424.
-(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [41
-
- <../data/1d/cross.png> <../data/1d/nocross.png>]
-File: ../data/1d/scheme.pdf Graphic file (type pdf)
-<use ../data/1d/scheme.pdf>
-Package pdftex.def Info: ../data/1d/scheme.pdf  used on input line 424.
-(pdftex.def)             Requested size: 107.55098pt x 73.9955pt.
-File: ../data/1d/cross.png Graphic file (type png)
-<use ../data/1d/cross.png>
-Package pdftex.def Info: ../data/1d/cross.png  used on input line 424.
-(pdftex.def)             Requested size: 150.57372pt x 155.97989pt.
-File: ../data/1d/nocross.png Graphic file (type png)
-<use ../data/1d/nocross.png>
-Package pdftex.def Info: ../data/1d/nocross.png  used on input line 424.
-(pdftex.def)             Requested size: 150.57372pt x 155.97989pt.
-File: OIST.png Graphic file (type png)
-<use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 424.
-(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [42
-
-]
-File: OIST.png Graphic file (type png)
-<use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 444.
-(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [43
-
-]
-<../data/1d/STAscheme.png, id=465, 598.6365pt x 375.0813pt>
-File: ../data/1d/STAscheme.png Graphic file (type png)
-<use ../data/1d/STAscheme.png>
-Package pdftex.def Info: ../data/1d/STAscheme.png  used on input line 449.
-(pdftex.def)             Requested size: 307.28987pt x 192.5366pt.
-File: OIST.png Graphic file (type png)
-<use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 449.
-(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [44
-
- <../data/1d/STAscheme.png>]
-<../data/1d/figlfid.pdf, id=472, 227.55013pt x 227.55013pt>
-File: ../data/1d/figlfid.pdf Graphic file (type pdf)
-<use ../data/1d/figlfid.pdf>
-Package pdftex.def Info: ../data/1d/figlfid.pdf  used on input line 469.
-(pdftex.def)             Requested size: 122.9164pt x 122.91689pt.
-<../data/1d/fig6.png, id=473, 528.5346pt x 339.669pt>
-File: ../data/1d/fig6.png Graphic file (type png)
-<use ../data/1d/fig6.png>
-Package pdftex.def Info: ../data/1d/fig6.png  used on input line 469.
-(pdftex.def)             Requested size: 153.64493pt x 98.7399pt.
-File: OIST.png Graphic file (type png)
-<use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 469.
-(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
-
-[45
-
- <../data/1d/figlfid.pdf> <../data/1d/fig6.png>] [46
-
-]
-<../data/gpu/coalesce/check.pdf, id=507, 1251.92119pt x 440.49068pt>
-File: ../data/gpu/coalesce/check.pdf Graphic file (type pdf)
-<use ../data/gpu/coalesce/check.pdf>
-Package pdftex.def Info: ../data/gpu/coalesce/check.pdf  used on input line 505
-.
-(pdftex.def)             Requested size: 215.10196pt x 75.68225pt.
+<v100.png, id=303, 963.6pt x 963.6pt>
 File: v100.png Graphic file (type png)
 <use v100.png>
-Package pdftex.def Info: v100.png  used on input line 505.
+Package pdftex.def Info: v100.png  used on input line 377.
 (pdftex.def)             Requested size: 92.1879pt x 92.17519pt.
-<../data/gpu/gputhreads.pdf, id=508, 460.44421pt x 460.44421pt>
+<../data/gpu/GPUEvsTS.png, id=304, 577.6782pt x 433.3791pt>
+File: ../data/gpu/GPUEvsTS.png Graphic file (type png)
+<use ../data/gpu/GPUEvsTS.png>
+Package pdftex.def Info: ../data/gpu/GPUEvsTS.png  used on input line 377.
+(pdftex.def)             Requested size: 184.3758pt x 138.32043pt.
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 377.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [31
+
+ <./v100.png> <../data/gpu/GPUEvsTS.png (PNG copy)>]
+File: v100.png Graphic file (type png)
+<use v100.png>
+Package pdftex.def Info: v100.png  used on input line 377.
+(pdftex.def)             Requested size: 92.1879pt x 92.17519pt.
+File: ../data/gpu/GPUEvsTS.png Graphic file (type png)
+<use ../data/gpu/GPUEvsTS.png>
+Package pdftex.def Info: ../data/gpu/GPUEvsTS.png  used on input line 377.
+(pdftex.def)             Requested size: 184.3758pt x 138.32043pt.
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 377.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [32
+
+]
+File: v100.png Graphic file (type png)
+<use v100.png>
+Package pdftex.def Info: v100.png  used on input line 377.
+(pdftex.def)             Requested size: 92.1879pt x 92.17519pt.
+File: ../data/gpu/GPUEvsTS.png Graphic file (type png)
+<use ../data/gpu/GPUEvsTS.png>
+Package pdftex.def Info: ../data/gpu/GPUEvsTS.png  used on input line 377.
+(pdftex.def)             Requested size: 184.3758pt x 138.32043pt.
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 377.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+
+[33
+
+]
+<../data/gpu/coalesce/check.pdf, id=323, 1251.92119pt x 440.49068pt>
+File: ../data/gpu/coalesce/check.pdf Graphic file (type pdf)
+<use ../data/gpu/coalesce/check.pdf>
+Package pdftex.def Info: ../data/gpu/coalesce/check.pdf  used on input line 407
+.
+(pdftex.def)             Requested size: 215.10196pt x 75.68225pt.
+<../data/gpu/gputhreads.pdf, id=324, 460.44421pt x 460.44421pt>
 File: ../data/gpu/gputhreads.pdf Graphic file (type pdf)
 <use ../data/gpu/gputhreads.pdf>
-Package pdftex.def Info: ../data/gpu/gputhreads.pdf  used on input line 505.
+Package pdftex.def Info: ../data/gpu/gputhreads.pdf  used on input line 407.
 (pdftex.def)             Requested size: 92.1879pt x 92.18556pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 505.
+Package pdftex.def Info: OIST.png  used on input line 407.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [47
+ [34
 
  <../data/gpu/coalesce/check.pdf> <../data/gpu/gputhreads.pdf>]
 File: ../data/gpu/coalesce/check.pdf Graphic file (type pdf)
 <use ../data/gpu/coalesce/check.pdf>
-Package pdftex.def Info: ../data/gpu/coalesce/check.pdf  used on input line 505
+Package pdftex.def Info: ../data/gpu/coalesce/check.pdf  used on input line 407
 .
 (pdftex.def)             Requested size: 215.10196pt x 75.68225pt.
-File: v100.png Graphic file (type png)
-<use v100.png>
-Package pdftex.def Info: v100.png  used on input line 505.
-(pdftex.def)             Requested size: 92.1879pt x 92.17519pt.
 File: ../data/gpu/gputhreads.pdf Graphic file (type pdf)
 <use ../data/gpu/gputhreads.pdf>
-Package pdftex.def Info: ../data/gpu/gputhreads.pdf  used on input line 505.
+Package pdftex.def Info: ../data/gpu/gputhreads.pdf  used on input line 407.
 (pdftex.def)             Requested size: 92.1879pt x 92.18556pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 505.
+Package pdftex.def Info: OIST.png  used on input line 407.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [48
+
+[35
 
 ]
 File: ../data/gpu/coalesce/check.pdf Graphic file (type pdf)
 <use ../data/gpu/coalesce/check.pdf>
-Package pdftex.def Info: ../data/gpu/coalesce/check.pdf  used on input line 505
+Package pdftex.def Info: ../data/gpu/coalesce/check.pdf  used on input line 407
 .
 (pdftex.def)             Requested size: 215.10196pt x 75.68225pt.
-File: v100.png Graphic file (type png)
-<use v100.png>
-Package pdftex.def Info: v100.png  used on input line 505.
-(pdftex.def)             Requested size: 92.1879pt x 92.17519pt.
 File: ../data/gpu/gputhreads.pdf Graphic file (type pdf)
 <use ../data/gpu/gputhreads.pdf>
-Package pdftex.def Info: ../data/gpu/gputhreads.pdf  used on input line 505.
+Package pdftex.def Info: ../data/gpu/gputhreads.pdf  used on input line 407.
 (pdftex.def)             Requested size: 92.1879pt x 92.18556pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 505.
+Package pdftex.def Info: OIST.png  used on input line 407.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [49
+ [36
 
 ]
 File: ../data/gpu/coalesce/check.pdf Graphic file (type pdf)
 <use ../data/gpu/coalesce/check.pdf>
-Package pdftex.def Info: ../data/gpu/coalesce/check.pdf  used on input line 505
+Package pdftex.def Info: ../data/gpu/coalesce/check.pdf  used on input line 407
 .
 (pdftex.def)             Requested size: 215.10196pt x 75.68225pt.
-File: v100.png Graphic file (type png)
-<use v100.png>
-Package pdftex.def Info: v100.png  used on input line 505.
-(pdftex.def)             Requested size: 92.1879pt x 92.17519pt.
 File: ../data/gpu/gputhreads.pdf Graphic file (type pdf)
 <use ../data/gpu/gputhreads.pdf>
-Package pdftex.def Info: ../data/gpu/gputhreads.pdf  used on input line 505.
+Package pdftex.def Info: ../data/gpu/gputhreads.pdf  used on input line 407.
 (pdftex.def)             Requested size: 92.1879pt x 92.18556pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 505.
+Package pdftex.def Info: OIST.png  used on input line 407.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [50
+ [37
 
 ]
 File: ../data/gpu/coalesce/check.pdf Graphic file (type pdf)
 <use ../data/gpu/coalesce/check.pdf>
-Package pdftex.def Info: ../data/gpu/coalesce/check.pdf  used on input line 505
+Package pdftex.def Info: ../data/gpu/coalesce/check.pdf  used on input line 407
 .
 (pdftex.def)             Requested size: 215.10196pt x 75.68225pt.
-File: v100.png Graphic file (type png)
-<use v100.png>
-Package pdftex.def Info: v100.png  used on input line 505.
-(pdftex.def)             Requested size: 92.1879pt x 92.17519pt.
 File: ../data/gpu/gputhreads.pdf Graphic file (type pdf)
 <use ../data/gpu/gputhreads.pdf>
-Package pdftex.def Info: ../data/gpu/gputhreads.pdf  used on input line 505.
+Package pdftex.def Info: ../data/gpu/gputhreads.pdf  used on input line 407.
 (pdftex.def)             Requested size: 92.1879pt x 92.18556pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 505.
+Package pdftex.def Info: OIST.png  used on input line 407.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [51
+ [38
 
 ]
 File: ../data/gpu/coalesce/check.pdf Graphic file (type pdf)
 <use ../data/gpu/coalesce/check.pdf>
-Package pdftex.def Info: ../data/gpu/coalesce/check.pdf  used on input line 505
+Package pdftex.def Info: ../data/gpu/coalesce/check.pdf  used on input line 407
 .
 (pdftex.def)             Requested size: 215.10196pt x 75.68225pt.
-File: v100.png Graphic file (type png)
-<use v100.png>
-Package pdftex.def Info: v100.png  used on input line 505.
-(pdftex.def)             Requested size: 92.1879pt x 92.17519pt.
 File: ../data/gpu/gputhreads.pdf Graphic file (type pdf)
 <use ../data/gpu/gputhreads.pdf>
-Package pdftex.def Info: ../data/gpu/gputhreads.pdf  used on input line 505.
+Package pdftex.def Info: ../data/gpu/gputhreads.pdf  used on input line 407.
 (pdftex.def)             Requested size: 92.1879pt x 92.18556pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 505.
+Package pdftex.def Info: OIST.png  used on input line 407.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [52
+ [39
 
 ]
-<../data/gpu/fft/fft_fig.png, id=568, 467.49657pt x 361.35pt>
+<../data/gpu/fft/fft_fig.png, id=384, 467.49657pt x 361.35pt>
 File: ../data/gpu/fft/fft_fig.png Graphic file (type png)
 <use ../data/gpu/fft/fft_fig.png>
-Package pdftex.def Info: ../data/gpu/fft/fft_fig.png  used on input line 522.
+Package pdftex.def Info: ../data/gpu/fft/fft_fig.png  used on input line 424.
 (pdftex.def)             Requested size: 122.91406pt x 95.0019pt.
-<../data/gpu/fft/fft_fig2.png, id=569, 794.97pt x 614.295pt>
+<../data/gpu/fft/fft_fig2.png, id=385, 794.97pt x 614.295pt>
 File: ../data/gpu/fft/fft_fig2.png Graphic file (type png)
 <use ../data/gpu/fft/fft_fig2.png>
-Package pdftex.def Info: ../data/gpu/fft/fft_fig2.png  used on input line 522.
+Package pdftex.def Info: ../data/gpu/fft/fft_fig2.png  used on input line 424.
 (pdftex.def)             Requested size: 215.10196pt x 166.21805pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 522.
+Package pdftex.def Info: OIST.png  used on input line 424.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [53
+ [40
 
  <../data/gpu/fft/fft_fig.png> <../data/gpu/fft/fft_fig2.png>]
-<expr_tree.png, id=577, 225.9642pt x 131.5314pt>
+<transpose.png, id=393, 602.25pt x 1169.36874pt>
+File: transpose.png Graphic file (type png)
+<use transpose.png>
+Package pdftex.def Info: transpose.png  used on input line 448.
+(pdftex.def)             Requested size: 92.1879pt x 178.9842pt.
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 448.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [41
+
+ <./transpose.png>]
+File: transpose.png Graphic file (type png)
+<use transpose.png>
+Package pdftex.def Info: transpose.png  used on input line 448.
+(pdftex.def)             Requested size: 92.1879pt x 178.9842pt.
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 448.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [42
+
+]
+File: transpose.png Graphic file (type png)
+<use transpose.png>
+Package pdftex.def Info: transpose.png  used on input line 448.
+(pdftex.def)             Requested size: 92.1879pt x 178.9842pt.
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 448.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [43
+
+]
+File: GPUE.png Graphic file (type png)
+<use GPUE.png>
+Package pdftex.def Info: GPUE.png  used on input line 458.
+(pdftex.def)             Requested size: 153.64493pt x 115.22708pt.
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 458.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [44
+
+]
+<expr_tree.png, id=416, 225.9642pt x 131.5314pt>
 File: expr_tree.png Graphic file (type png)
 <use expr_tree.png>
-Package pdftex.def Info: expr_tree.png  used on input line 533.
+Package pdftex.def Info: expr_tree.png  used on input line 471.
 (pdftex.def)             Requested size: 184.3758pt x 107.32658pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 533.
+Package pdftex.def Info: OIST.png  used on input line 471.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [54
+ [45
 
  <./expr_tree.png>]
-<../data/gpu/vortex_highlighting/all.png, id=583, 443.256pt x 216.0873pt>
+File: expr_tree.png Graphic file (type png)
+<use expr_tree.png>
+Package pdftex.def Info: expr_tree.png  used on input line 471.
+(pdftex.def)             Requested size: 184.3758pt x 107.32658pt.
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 471.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+
+[46
+
+]
+<../data/gpu/vortex_highlighting/all.png, id=427, 443.256pt x 216.0873pt>
 File: ../data/gpu/vortex_highlighting/all.png Graphic file (type png)
 <use ../data/gpu/vortex_highlighting/all.png>
 Package pdftex.def Info: ../data/gpu/vortex_highlighting/all.png  used on input
- line 552.
+ line 490.
 (pdftex.def)             Requested size: 184.37344pt x 89.88228pt.
 
-Overfull \hbox (30.72852pt too wide) in paragraph at lines 552--552
+Overfull \hbox (30.72852pt too wide) in paragraph at lines 490--490
  [] 
  []
 
-<../data/gpu/vortex_tracking/phi_grid.png, id=584, 312.2064pt x 578.16pt>
+<../data/gpu/vortex_tracking/phi_grid.png, id=428, 312.2064pt x 578.16pt>
 File: ../data/gpu/vortex_tracking/phi_grid.png Graphic file (type png)
 <use ../data/gpu/vortex_tracking/phi_grid.png>
 Package pdftex.def Info: ../data/gpu/vortex_tracking/phi_grid.png  used on inpu
-t line 552.
+t line 490.
 (pdftex.def)             Requested size: 122.9164pt x 227.61641pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 552.
+Package pdftex.def Info: OIST.png  used on input line 490.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
-[55
+
+Overfull \vbox (0.34329pt too high) detected at line 490
+ []
+
+[47
 
  <../data/gpu/vortex_highlighting/all.png> <../data/gpu/vortex_tracking/phi_gri
 d.png>]
 File: ../data/gpu/vortex_highlighting/all.png Graphic file (type png)
 <use ../data/gpu/vortex_highlighting/all.png>
 Package pdftex.def Info: ../data/gpu/vortex_highlighting/all.png  used on input
- line 552.
+ line 490.
 (pdftex.def)             Requested size: 184.37344pt x 89.88228pt.
 
-Overfull \hbox (30.72852pt too wide) in paragraph at lines 552--552
+Overfull \hbox (30.72852pt too wide) in paragraph at lines 490--490
  [] 
  []
 
 File: ../data/gpu/vortex_tracking/phi_grid.png Graphic file (type png)
 <use ../data/gpu/vortex_tracking/phi_grid.png>
 Package pdftex.def Info: ../data/gpu/vortex_tracking/phi_grid.png  used on inpu
-t line 552.
+t line 490.
 (pdftex.def)             Requested size: 122.9164pt x 227.61641pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 552.
+Package pdftex.def Info: OIST.png  used on input line 490.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
-[56
 
-] [57
+Overfull \vbox (0.34329pt too high) detected at line 490
+ []
+
+[48
 
 ]
-<../data/2d/histogram/histogram.png, id=604, 1047.915pt x 482.0409pt>
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 506.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [49
+
+] [50
+
+]
+<../data/2d/histogram/histogram.png, id=452, 1047.915pt x 482.0409pt>
 File: ../data/2d/histogram/histogram.png Graphic file (type png)
 <use ../data/2d/histogram/histogram.png>
 Package pdftex.def Info: ../data/2d/histogram/histogram.png  used on input line
- 562.
+ 519.
 (pdftex.def)             Requested size: 307.28987pt x 141.3476pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 562.
+Package pdftex.def Info: OIST.png  used on input line 519.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [58
+ [51
 
  <../data/2d/histogram/histogram.png>]
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 567.
+Package pdftex.def Info: OIST.png  used on input line 524.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [59
+ [52
 
-<<chaos.mp4>>]
+]
+<../data/2d/evolution/evolution.pdf, id=465, 422.05681pt x 360.6273pt>
 File: ../data/2d/evolution/evolution.pdf Graphic file (type pdf)
 <use ../data/2d/evolution/evolution.pdf>
 Package pdftex.def Info: ../data/2d/evolution/evolution.pdf  used on input line
- 587.
+ 544.
 (pdftex.def)             Requested size: 122.91406pt x 105.01945pt.
-<../data/2d/lyap/lyap.pdf, id=627, 444.26175pt x 392.93298pt>
+<../data/2d/lyap/lyap.pdf, id=466, 444.26175pt x 392.93298pt>
 File: ../data/2d/lyap/lyap.pdf Graphic file (type pdf)
 <use ../data/2d/lyap/lyap.pdf>
-Package pdftex.def Info: ../data/2d/lyap/lyap.pdf  used on input line 587.
+Package pdftex.def Info: ../data/2d/lyap/lyap.pdf  used on input line 544.
 (pdftex.def)             Requested size: 122.91406pt x 108.71342pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 587.
+Package pdftex.def Info: OIST.png  used on input line 544.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [60
+ [53
 
- <../data/2d/lyap/lyap.pdf>] [61
+ <../data/2d/evolution/evolution.pdf> <../data/2d/lyap/lyap.pdf>]
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 558.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [54
+
+] [55
 
 ]
-<../data/3d/Schematic_TB.pdf, id=721, 372.36516pt x 562.03494pt>
+<../data/3d/Schematic_TB.pdf, id=571, 372.36516pt x 562.03494pt>
 File: ../data/3d/Schematic_TB.pdf Graphic file (type pdf)
 <use ../data/3d/Schematic_TB.pdf>
-Package pdftex.def Info: ../data/3d/Schematic_TB.pdf  used on input line 609.
+Package pdftex.def Info: ../data/3d/Schematic_TB.pdf  used on input line 583.
 (pdftex.def)             Requested size: 153.64493pt x 231.9023pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 609.
+Package pdftex.def Info: OIST.png  used on input line 583.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [62
+ [56
 
  <../data/3d/Schematic_TB.pdf>]
-<../data/3d/all_fields.pdf, id=789, 660.37543pt x 454.17384pt>
+<../data/3d/all_fields.pdf, id=639, 660.37543pt x 454.17384pt>
 File: ../data/3d/all_fields.pdf Graphic file (type pdf)
 <use ../data/3d/all_fields.pdf>
-Package pdftex.def Info: ../data/3d/all_fields.pdf  used on input line 618.
+Package pdftex.def Info: ../data/3d/all_fields.pdf  used on input line 592.
 (pdftex.def)             Requested size: 245.83282pt x 169.07428pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 618.
+Package pdftex.def Info: OIST.png  used on input line 592.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [63
+ [57
 
  <../data/3d/all_fields.pdf>]
-<../data/3d/vortex_transition.png, id=801, 3539.2225pt x 788.9475pt>
+<../data/3d/vortex_transition.png, id=651, 3539.2225pt x 788.9475pt>
 File: ../data/3d/vortex_transition.png Graphic file (type png)
 <use ../data/3d/vortex_transition.png>
 Package pdftex.def Info: ../data/3d/vortex_transition.png  used on input line 6
-32.
+06.
 (pdftex.def)             Requested size: 307.28987pt x 68.49823pt.
+<../data/3d/HE21_3d.png, id=652, 948.54375pt x 717.68124pt>
 File: ../data/3d/HE21_3d.png Graphic file (type png)
 <use ../data/3d/HE21_3d.png>
-Package pdftex.def Info: ../data/3d/HE21_3d.png  used on input line 632.
+Package pdftex.def Info: ../data/3d/HE21_3d.png  used on input line 606.
 (pdftex.def)             Requested size: 153.64493pt x 116.244pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 632.
+Package pdftex.def Info: OIST.png  used on input line 606.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [64
+ [58
 
- <../data/3d/vortex_transition.png>]
-<../data/3d/scissors_plot.pdf, id=808, 361.35pt x 320.1561pt>
+ <../data/3d/vortex_transition.png> <../data/3d/HE21_3d.png>]
+<../data/3d/scissors_plot.pdf, id=660, 361.35pt x 320.1561pt>
 File: ../data/3d/scissors_plot.pdf Graphic file (type pdf)
 <use ../data/3d/scissors_plot.pdf>
-Package pdftex.def Info: ../data/3d/scissors_plot.pdf  used on input line 650.
+Package pdftex.def Info: ../data/3d/scissors_plot.pdf  used on input line 624.
 (pdftex.def)             Requested size: 153.64493pt x 136.13048pt.
-<../data/3d/vortex_line_all.pdf, id=809, 361.35pt x 548.52928pt>
+<../data/3d/vortex_line_all.pdf, id=661, 361.35pt x 548.52928pt>
 File: ../data/3d/vortex_line_all.pdf Graphic file (type pdf)
 <use ../data/3d/vortex_line_all.pdf>
-Package pdftex.def Info: ../data/3d/vortex_line_all.pdf  used on input line 650
+Package pdftex.def Info: ../data/3d/vortex_line_all.pdf  used on input line 624
 .
 (pdftex.def)             Requested size: 153.64493pt x 233.23485pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 650.
+Package pdftex.def Info: OIST.png  used on input line 624.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [65
+ [59
 
  <../data/3d/scissors_plot.pdf> <../data/3d/vortex_line_all.pdf
 
@@ -1822,244 +1769,403 @@ multiple pdfs with page group included in a single page
 >]
 File: ../data/3d/scissors_plot.pdf Graphic file (type pdf)
 <use ../data/3d/scissors_plot.pdf>
-Package pdftex.def Info: ../data/3d/scissors_plot.pdf  used on input line 650.
+Package pdftex.def Info: ../data/3d/scissors_plot.pdf  used on input line 624.
 (pdftex.def)             Requested size: 153.64493pt x 136.13048pt.
 File: ../data/3d/vortex_line_all.pdf Graphic file (type pdf)
 <use ../data/3d/vortex_line_all.pdf>
-Package pdftex.def Info: ../data/3d/vortex_line_all.pdf  used on input line 650
+Package pdftex.def Info: ../data/3d/vortex_line_all.pdf  used on input line 624
 .
 (pdftex.def)             Requested size: 153.64493pt x 233.23485pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 650.
+Package pdftex.def Info: OIST.png  used on input line 624.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [60
+
+]
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 638.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [61
+
+] [62
+
+]
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 654.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [63
+
+]
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 665.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [64
+
+]
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 674.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [65
+
+]
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 678.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
  [66
 
 ] [67
 
 ]
+<../data/1d/NM/NM.pdf, id=742, 361.35pt x 252.945pt>
+File: ../data/1d/NM/NM.pdf Graphic file (type pdf)
+<use ../data/1d/NM/NM.pdf>
+Package pdftex.def Info: ../data/1d/NM/NM.pdf  used on input line 707.
+(pdftex.def)             Requested size: 153.64493pt x 107.5523pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 667.
+Package pdftex.def Info: OIST.png  used on input line 707.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
  [68
 
-]
+ <../data/1d/NM/NM.pdf>]
+File: ../data/1d/NM/NM.pdf Graphic file (type pdf)
+<use ../data/1d/NM/NM.pdf>
+Package pdftex.def Info: ../data/1d/NM/NM.pdf  used on input line 707.
+(pdftex.def)             Requested size: 153.64493pt x 107.5523pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 676.
+Package pdftex.def Info: OIST.png  used on input line 707.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
  [69
 
 ]
+File: ../data/1d/NM/NM.pdf Graphic file (type pdf)
+<use ../data/1d/NM/NM.pdf>
+Package pdftex.def Info: ../data/1d/NM/NM.pdf  used on input line 707.
+(pdftex.def)             Requested size: 153.64493pt x 107.5523pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 680.
+Package pdftex.def Info: OIST.png  used on input line 707.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [70
+
+[70
 
 ]
-<../data/1d/figR0.pdf, id=874, 227.55013pt x 227.55013pt>
+File: ../data/1d/NM/NM.pdf Graphic file (type pdf)
+<use ../data/1d/NM/NM.pdf>
+Package pdftex.def Info: ../data/1d/NM/NM.pdf  used on input line 707.
+(pdftex.def)             Requested size: 153.64493pt x 107.5523pt.
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 707.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [71
+
+]
+<../data/1d/scheme.pdf, id=776, 416.41394pt x 286.50488pt>
+File: ../data/1d/scheme.pdf Graphic file (type pdf)
+<use ../data/1d/scheme.pdf>
+Package pdftex.def Info: ../data/1d/scheme.pdf  used on input line 729.
+(pdftex.def)             Requested size: 107.55098pt x 73.9955pt.
+<../data/1d/cross.png, id=777, 293.59688pt x 304.13625pt>
+File: ../data/1d/cross.png Graphic file (type png)
+<use ../data/1d/cross.png>
+Package pdftex.def Info: ../data/1d/cross.png  used on input line 729.
+(pdftex.def)             Requested size: 150.57372pt x 155.97989pt.
+<../data/1d/nocross.png, id=778, 293.59688pt x 304.13625pt>
+File: ../data/1d/nocross.png Graphic file (type png)
+<use ../data/1d/nocross.png>
+Package pdftex.def Info: ../data/1d/nocross.png  used on input line 729.
+(pdftex.def)             Requested size: 150.57372pt x 155.97989pt.
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 729.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+
+Overfull \vbox (3.70227pt too high) detected at line 729
+ []
+
+[72
+
+ <../data/1d/scheme.pdf> <../data/1d/cross.png> <../data/1d/nocross.png>]
+File: ../data/1d/scheme.pdf Graphic file (type pdf)
+<use ../data/1d/scheme.pdf>
+Package pdftex.def Info: ../data/1d/scheme.pdf  used on input line 729.
+(pdftex.def)             Requested size: 107.55098pt x 73.9955pt.
+File: ../data/1d/cross.png Graphic file (type png)
+<use ../data/1d/cross.png>
+Package pdftex.def Info: ../data/1d/cross.png  used on input line 729.
+(pdftex.def)             Requested size: 150.57372pt x 155.97989pt.
+File: ../data/1d/nocross.png Graphic file (type png)
+<use ../data/1d/nocross.png>
+Package pdftex.def Info: ../data/1d/nocross.png  used on input line 729.
+(pdftex.def)             Requested size: 150.57372pt x 155.97989pt.
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 729.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+
+Overfull \vbox (3.70227pt too high) detected at line 729
+ []
+
+[73
+
+]
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 749.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [74
+
+]
+<../data/1d/STAscheme.png, id=825, 598.6365pt x 375.0813pt>
+File: ../data/1d/STAscheme.png Graphic file (type png)
+<use ../data/1d/STAscheme.png>
+Package pdftex.def Info: ../data/1d/STAscheme.png  used on input line 754.
+(pdftex.def)             Requested size: 307.28987pt x 192.5366pt.
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 754.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [75
+
+ <../data/1d/STAscheme.png>]
+<../data/1d/figlfid.pdf, id=832, 227.55013pt x 227.55013pt>
+File: ../data/1d/figlfid.pdf Graphic file (type pdf)
+<use ../data/1d/figlfid.pdf>
+Package pdftex.def Info: ../data/1d/figlfid.pdf  used on input line 774.
+(pdftex.def)             Requested size: 122.9164pt x 122.91689pt.
+<../data/1d/fig6.png, id=833, 528.5346pt x 339.669pt>
+File: ../data/1d/fig6.png Graphic file (type png)
+<use ../data/1d/fig6.png>
+Package pdftex.def Info: ../data/1d/fig6.png  used on input line 774.
+(pdftex.def)             Requested size: 153.64493pt x 98.7399pt.
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 774.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [76
+
+ <../data/1d/figlfid.pdf> <../data/1d/fig6.png>]
+<../data/1d/figR0.pdf, id=862, 227.55013pt x 227.55013pt>
 File: ../data/1d/figR0.pdf Graphic file (type pdf)
 <use ../data/1d/figR0.pdf>
-Package pdftex.def Info: ../data/1d/figR0.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figR0.pdf  used on input line 804.
 (pdftex.def)             Requested size: 105.40114pt x 105.4pt.
-<../data/1d/figB0.pdf, id=875, 227.55013pt x 227.55013pt>
+<../data/1d/figB0.pdf, id=863, 227.55013pt x 227.55013pt>
 File: ../data/1d/figB0.pdf Graphic file (type pdf)
 <use ../data/1d/figB0.pdf>
-Package pdftex.def Info: ../data/1d/figB0.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figB0.pdf  used on input line 804.
 (pdftex.def)             Requested size: 105.40114pt x 105.4pt.
 File: ../data/1d/figlfid.pdf Graphic file (type pdf)
 <use ../data/1d/figlfid.pdf>
-Package pdftex.def Info: ../data/1d/figlfid.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figlfid.pdf  used on input line 804.
 (pdftex.def)             Requested size: 110.62518pt x 110.62555pt.
 
-Overfull \hbox (18.43729pt too wide) in paragraph at lines 709--709
+Overfull \hbox (18.43729pt too wide) in paragraph at lines 804--804
 [][][][]  
  []
 
-<../data/1d/figR1.pdf, id=876, 227.55013pt x 227.55013pt>
+<../data/1d/figR1.pdf, id=864, 227.55013pt x 227.55013pt>
 File: ../data/1d/figR1.pdf Graphic file (type pdf)
 <use ../data/1d/figR1.pdf>
-Package pdftex.def Info: ../data/1d/figR1.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figR1.pdf  used on input line 804.
 (pdftex.def)             Requested size: 105.40114pt x 105.4pt.
-<../data/1d/figB1.pdf, id=877, 227.55013pt x 227.55013pt>
+<../data/1d/figB1.pdf, id=865, 227.55013pt x 227.55013pt>
 File: ../data/1d/figB1.pdf Graphic file (type pdf)
 <use ../data/1d/figB1.pdf>
-Package pdftex.def Info: ../data/1d/figB1.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figB1.pdf  used on input line 804.
 (pdftex.def)             Requested size: 105.40114pt x 105.4pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 709.
+Package pdftex.def Info: OIST.png  used on input line 804.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
-[71
+[77
 
  <../data/1d/figR0.pdf> <../data/1d/figB0.pdf> <../data/1d/figR1.pdf> <../data/
 1d/figB1.pdf>]
 File: ../data/1d/figR0.pdf Graphic file (type pdf)
 <use ../data/1d/figR0.pdf>
-Package pdftex.def Info: ../data/1d/figR0.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figR0.pdf  used on input line 804.
 (pdftex.def)             Requested size: 105.40114pt x 105.4pt.
 File: ../data/1d/figB0.pdf Graphic file (type pdf)
 <use ../data/1d/figB0.pdf>
-Package pdftex.def Info: ../data/1d/figB0.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figB0.pdf  used on input line 804.
 (pdftex.def)             Requested size: 105.40114pt x 105.4pt.
 File: ../data/1d/figlfid.pdf Graphic file (type pdf)
 <use ../data/1d/figlfid.pdf>
-Package pdftex.def Info: ../data/1d/figlfid.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figlfid.pdf  used on input line 804.
 (pdftex.def)             Requested size: 110.62518pt x 110.62555pt.
 
-Overfull \hbox (18.43729pt too wide) in paragraph at lines 709--709
+Overfull \hbox (18.43729pt too wide) in paragraph at lines 804--804
 [][][][][]  
  []
 
 File: ../data/1d/figR1.pdf Graphic file (type pdf)
 <use ../data/1d/figR1.pdf>
-Package pdftex.def Info: ../data/1d/figR1.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figR1.pdf  used on input line 804.
 (pdftex.def)             Requested size: 105.40114pt x 105.4pt.
 File: ../data/1d/figB1.pdf Graphic file (type pdf)
 <use ../data/1d/figB1.pdf>
-Package pdftex.def Info: ../data/1d/figB1.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figB1.pdf  used on input line 804.
 (pdftex.def)             Requested size: 105.40114pt x 105.4pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 709.
+Package pdftex.def Info: OIST.png  used on input line 804.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
-[72
+[78
 
 ]
 File: ../data/1d/figR0.pdf Graphic file (type pdf)
 <use ../data/1d/figR0.pdf>
-Package pdftex.def Info: ../data/1d/figR0.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figR0.pdf  used on input line 804.
 (pdftex.def)             Requested size: 105.40114pt x 105.4pt.
 File: ../data/1d/figB0.pdf Graphic file (type pdf)
 <use ../data/1d/figB0.pdf>
-Package pdftex.def Info: ../data/1d/figB0.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figB0.pdf  used on input line 804.
 (pdftex.def)             Requested size: 105.40114pt x 105.4pt.
 File: ../data/1d/figlfid.pdf Graphic file (type pdf)
 <use ../data/1d/figlfid.pdf>
-Package pdftex.def Info: ../data/1d/figlfid.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figlfid.pdf  used on input line 804.
 (pdftex.def)             Requested size: 110.62518pt x 110.62555pt.
 
-Overfull \hbox (18.43729pt too wide) in paragraph at lines 709--709
+Overfull \hbox (18.43729pt too wide) in paragraph at lines 804--804
 [][][][][]  
  []
 
 File: ../data/1d/figR1.pdf Graphic file (type pdf)
 <use ../data/1d/figR1.pdf>
-Package pdftex.def Info: ../data/1d/figR1.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figR1.pdf  used on input line 804.
 (pdftex.def)             Requested size: 105.40114pt x 105.4pt.
 File: ../data/1d/figB1.pdf Graphic file (type pdf)
 <use ../data/1d/figB1.pdf>
-Package pdftex.def Info: ../data/1d/figB1.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figB1.pdf  used on input line 804.
 (pdftex.def)             Requested size: 105.40114pt x 105.4pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 709.
+Package pdftex.def Info: OIST.png  used on input line 804.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
-[73
+[79
 
 ]
 File: ../data/1d/figR0.pdf Graphic file (type pdf)
 <use ../data/1d/figR0.pdf>
-Package pdftex.def Info: ../data/1d/figR0.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figR0.pdf  used on input line 804.
 (pdftex.def)             Requested size: 105.40114pt x 105.4pt.
 File: ../data/1d/figB0.pdf Graphic file (type pdf)
 <use ../data/1d/figB0.pdf>
-Package pdftex.def Info: ../data/1d/figB0.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figB0.pdf  used on input line 804.
 (pdftex.def)             Requested size: 105.40114pt x 105.4pt.
 File: ../data/1d/figlfid.pdf Graphic file (type pdf)
 <use ../data/1d/figlfid.pdf>
-Package pdftex.def Info: ../data/1d/figlfid.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figlfid.pdf  used on input line 804.
 (pdftex.def)             Requested size: 110.62518pt x 110.62555pt.
 
-Overfull \hbox (18.43729pt too wide) in paragraph at lines 709--709
+Overfull \hbox (18.43729pt too wide) in paragraph at lines 804--804
 [][][][][][]  
  []
 
 File: ../data/1d/figR1.pdf Graphic file (type pdf)
 <use ../data/1d/figR1.pdf>
-Package pdftex.def Info: ../data/1d/figR1.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figR1.pdf  used on input line 804.
 (pdftex.def)             Requested size: 105.40114pt x 105.4pt.
 File: ../data/1d/figB1.pdf Graphic file (type pdf)
 <use ../data/1d/figB1.pdf>
-Package pdftex.def Info: ../data/1d/figB1.pdf  used on input line 709.
+Package pdftex.def Info: ../data/1d/figB1.pdf  used on input line 804.
 (pdftex.def)             Requested size: 105.40114pt x 105.4pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 709.
+Package pdftex.def Info: OIST.png  used on input line 804.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
-[74
+[80
 
 ]
-<../data/1d/figTG3.pdf, id=955, 227.55013pt x 227.55013pt>
+<../data/1d/figTG3.pdf, id=943, 227.55013pt x 227.55013pt>
 File: ../data/1d/figTG3.pdf Graphic file (type pdf)
 <use ../data/1d/figTG3.pdf>
-Package pdftex.def Info: ../data/1d/figTG3.pdf  used on input line 718.
+Package pdftex.def Info: ../data/1d/figTG3.pdf  used on input line 813.
 (pdftex.def)             Requested size: 150.57372pt x 150.57242pt.
-<../data/1d/figTG5.pdf, id=956, 227.55013pt x 227.55013pt>
+<../data/1d/figTG5.pdf, id=944, 227.55013pt x 227.55013pt>
 File: ../data/1d/figTG5.pdf Graphic file (type pdf)
 <use ../data/1d/figTG5.pdf>
-Package pdftex.def Info: ../data/1d/figTG5.pdf  used on input line 718.
+Package pdftex.def Info: ../data/1d/figTG5.pdf  used on input line 813.
 (pdftex.def)             Requested size: 150.57372pt x 150.57242pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 718.
+Package pdftex.def Info: OIST.png  used on input line 813.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [75
+ [81
 
  <../data/1d/figTG3.pdf> <../data/1d/figTG5.pdf>]
 File: ../data/1d/STAscheme.png Graphic file (type png)
 <use ../data/1d/STAscheme.png>
-Package pdftex.def Info: ../data/1d/STAscheme.png  used on input line 723.
+Package pdftex.def Info: ../data/1d/STAscheme.png  used on input line 818.
 (pdftex.def)             Requested size: 307.28987pt x 192.5366pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 723.
+Package pdftex.def Info: OIST.png  used on input line 818.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [76
+ [82
 
 ]
 File: ../data/1d/fig6.png Graphic file (type png)
 <use ../data/1d/fig6.png>
-Package pdftex.def Info: ../data/1d/fig6.png  used on input line 751.
+Package pdftex.def Info: ../data/1d/fig6.png  used on input line 846.
 (pdftex.def)             Requested size: 153.64493pt x 98.7399pt.
-<../data/1d/fig7a.png, id=1024, 522.5121pt x 339.9099pt>
+<../data/1d/fig7a.png, id=1012, 522.5121pt x 339.9099pt>
 File: ../data/1d/fig7a.png Graphic file (type png)
 <use ../data/1d/fig7a.png>
-Package pdftex.def Info: ../data/1d/fig7a.png  used on input line 751.
+Package pdftex.def Info: ../data/1d/fig7a.png  used on input line 846.
 (pdftex.def)             Requested size: 153.64493pt x 99.95097pt.
-<../data/1d/fig7b.png, id=1025, 524.1984pt x 342.8007pt>
+<../data/1d/fig7b.png, id=1013, 524.1984pt x 342.8007pt>
 File: ../data/1d/fig7b.png Graphic file (type png)
 <use ../data/1d/fig7b.png>
-Package pdftex.def Info: ../data/1d/fig7b.png  used on input line 751.
+Package pdftex.def Info: ../data/1d/fig7b.png  used on input line 846.
 (pdftex.def)             Requested size: 153.64493pt x 100.47672pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 751.
+Package pdftex.def Info: OIST.png  used on input line 846.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [77
+ [83
 
  <../data/1d/fig7a.png> <../data/1d/fig7b.png>]
 File: ../data/1d/fig6.png Graphic file (type png)
 <use ../data/1d/fig6.png>
-Package pdftex.def Info: ../data/1d/fig6.png  used on input line 751.
+Package pdftex.def Info: ../data/1d/fig6.png  used on input line 846.
 (pdftex.def)             Requested size: 153.64493pt x 98.7399pt.
 File: ../data/1d/fig7a.png Graphic file (type png)
 <use ../data/1d/fig7a.png>
-Package pdftex.def Info: ../data/1d/fig7a.png  used on input line 751.
+Package pdftex.def Info: ../data/1d/fig7a.png  used on input line 846.
 (pdftex.def)             Requested size: 153.64493pt x 99.95097pt.
 File: ../data/1d/fig7b.png Graphic file (type png)
 <use ../data/1d/fig7b.png>
-Package pdftex.def Info: ../data/1d/fig7b.png  used on input line 751.
+Package pdftex.def Info: ../data/1d/fig7b.png  used on input line 846.
 (pdftex.def)             Requested size: 153.64493pt x 100.47672pt.
 File: OIST.png Graphic file (type png)
 <use OIST.png>
-Package pdftex.def Info: OIST.png  used on input line 751.
+Package pdftex.def Info: OIST.png  used on input line 846.
 (pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
- [78
+ [84
 
 ]
+<radix-8screen.jpg, id=1026, 1003.75pt x 1002.74625pt>
+File: radix-8screen.jpg Graphic file (type jpg)
+<use radix-8screen.jpg>
+Package pdftex.def Info: radix-8screen.jpg  used on input line 862.
+(pdftex.def)             Requested size: 153.64493pt x 153.48088pt.
+File: OIST.png Graphic file (type png)
+<use OIST.png>
+Package pdftex.def Info: OIST.png  used on input line 862.
+(pdftex.def)             Requested size: 45.76411pt x 28.45274pt.
+ [85
+
+ <./radix-8screen.jpg>]
 \tf@nav=\write7
 \openout7 = `presentation.nav'.
 
@@ -2076,27 +2182,22 @@ Package movie15 Warning: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 (movie15)                @@ superseded by `media9'.           @@
 (movie15)                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.
 
-
-Package movie15 Warning: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-(movie15)                @@ Rerun to get object references right! @@
-(movie15)                @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 753.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 753.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 864.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 864.
 (./presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 753.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 753.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 864.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 864.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 22851 strings out of 492623
- 434395 string characters out of 6135669
- 725783 words of memory out of 5000000
- 26060 multiletter control sequences out of 15000+600000
- 18729 words of font info for 67 fonts, out of 8000000 for 9000
+ 22840 strings out of 492623
+ 433604 string characters out of 6135669
+ 727924 words of memory out of 5000000
+ 26039 multiletter control sequences out of 15000+600000
+ 22748 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,16n,55p,779b,611s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,15n,55p,779b,611s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/publi
@@ -2119,10 +2220,10 @@ ublic/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts
 e/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-d
 ist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texmf-dist/fonts/
 type1/public/cm-super/sfrm1095.pfb>
-Output written on presentation.pdf (78 pages, 13249152 bytes).
+Output written on presentation.pdf (85 pages, 7908181 bytes).
 PDF statistics:
- 1136 PDF objects out of 1200 (max. 8388607)
- 857 compressed objects within 9 object streams
- 159 named destinations out of 1000 (max. 500000)
- 342 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1131 PDF objects out of 1200 (max. 8388607)
+ 851 compressed objects within 9 object streams
+ 171 named destinations out of 1000 (max. 500000)
+ 288 words of extra memory for PDF output out of 10000 (max. 10000000)
 
