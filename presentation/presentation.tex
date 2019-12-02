@@ -166,7 +166,7 @@ This is a \textit{global} operation requiring matrix multiplications $\rightarro
 \frametitle{Hamiltonian}
 1D Schr\"odinger equation:
 \begin{equation*}
-i\hbar \frac{\partial \Psi(\mathbf{r}, t)}{\partial t} = \left(\frac{ p^2}{2m} + V_0(\mathbf{r}) \right)\Psi(\mathbf{r},t) = \mathcal{ H} \Psi(\mathbf{r},t)
+i\hbar \frac{\partial \Psi(x, t)}{\partial t} = \left(\frac{ p^2}{2m} + V_0(x) \right)\Psi(x,t) = \mathcal{ H} \Psi(x,t)
 \end{equation*}
 
 \vspace{-0.25cm}
@@ -175,7 +175,7 @@ i\hbar \frac{\partial \Psi(\mathbf{r}, t)}{\partial t} = \left(\frac{ p^2}{2m} +
 \onslide<2->
 Splits into:
 \begin{align*}
-\mathcal{ H}_v &= V_0(\mathbf{r}) = \frac{1}{2}m\omega^2x^2\\
+\mathcal{ H}_v &= V_0(x) = \frac{1}{2}m\omega^2x^2\\
 \mathcal{ H}_p &= \frac{p^2}{2m} = \frac{1}{2m}\left(i\hbar \frac{\partial}{\partial x}\right)^2
 \end{align*}
 
@@ -199,7 +199,7 @@ Matrices:
 \vspace{0.25cm}
 
 \begin{equation*}
-\Psi(\mathbf{r}, t+dt) = \mathcal{F}^{-1}\left[{U}_p(dt) \mathcal{F} \left[{U}_r(dt) \Psi(\mathbf{r},t) \right] \right] + \mathcal{O}(dt^2)
+\Psi(\mathbf{r}, t+dt) = \mathcal{F}^{-1}\left[{U}_v(dt) \mathcal{F} \left[{U}_r(dt) \Psi(x,t) \right] \right] + \mathcal{O}(dt^2)
 \end{equation*}
 
 \end{frame}
@@ -657,20 +657,45 @@ Computer Science
 \frametitle{Future directions}
 \begin{itemize}
 \item Distributed Transpose
+\item GPUE.jl
 \item General-purpose Hamiltonian solver
 \item Full vortex tracking
 \item Octree-based gridding for SSFM
-\item GPUE.jl
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{People}
-\begin{itemize}
-\item Collaborators: Lee, Rashi, Angela, TT, Andreas, Peter, Albert, Jeremie, Ben, Irina, \textbf{Thomas}
-\item Sponsors: JSPS, OIST, SCDA
-\item Other: AAA
-\end{itemize}
+\begin{columns}
+\column{0.7\textwidth}
+\begin{columns}
+\column{0.03\textwidth}
+\column{0.15\textwidth}
+\includegraphics[width=\textwidth]{ABC.jpg}
+\includegraphics[width=\textwidth]{Jeremie.jpg}
+\column{0.15\textwidth}
+\includegraphics[width=\textwidth]{Lee.jpg}
+\includegraphics[width=\textwidth]{Ben.png}
+\column{0.15\textwidth}
+\includegraphics[width=\textwidth]{Irina.jpg}
+\includegraphics[width=\textwidth]{Valentin.jpg}
+\column{0.15\textwidth}
+\includegraphics[width=\textwidth]{Rashi.jpg}
+\includegraphics[width=\textwidth]{Peter.jpg}
+\column{0.15\textwidth}
+\includegraphics[width=\textwidth]{Angela.jpg}
+\includegraphics[width=\textwidth]{TT.jpg}
+\column{0.15\textwidth}
+\includegraphics[width=\textwidth]{TB.JPG}
+\column{0.03\textwidth}
+\end{columns}
+\includegraphics[width=\textwidth]{unit.JPG}
+\column{0.3\textwidth}
+Organizations:
+\includegraphics[width=\textwidth]{OIST.png}
+\includegraphics[width=\textwidth]{JSPS.png}
+\includegraphics[width=\textwidth]{AAA.png}
+\end{columns}
 \end{frame}
 
 \begin{frame}
