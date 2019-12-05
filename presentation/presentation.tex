@@ -267,6 +267,8 @@ Baker-Campbell-Hausdorff:
 \Psi(x,t+dt) = \left[e^{-\frac{i{\color{blue}{\mathcal{{H}}_v}}dt}{\hbar}}e^{-\frac{i{\color{red}{\mathcal{{H}}_p}}dt}{\hbar}}e^{-\frac{[i{\color{blue}{\mathcal{{H}}_v}}, i{\color{red}{\mathcal{{H}}_p}}]dt^2}{2}}\right]\Psi(x,t)
 \end{equation*}
 
+\pause
+
 Matrices:
 \begin{columns}
 \column{0.5\textwidth}
@@ -278,7 +280,6 @@ $$
 \color{red}{{U}_p = e^{-\frac{i\mathcal{{H}}_pdt}{\hbar}}}
 $$
 \end{columns}
-
 
 \begin{equation*}
 \Psi(x, t+dt) = \mathcal{F}^{-1}\left[{\color{red}{{U}_p(dt)}} \mathcal{F} \left[{\color{blue}{{U}_v(dt)}} \Psi(x,t) \right] \right] + \mathcal{O}(dt^2)
@@ -331,11 +332,7 @@ $$
 L_z = (xp_y - yp_x) = -i\hbar\left(x\frac{\partial}{\partial y} - y\frac{\partial}{\partial x} \right)
 $$
 
-\end{frame}
-
-\begin{frame}
-\center
-\Huge{How do we create more complicated vortex structures?}
+\tiny{In the co-rotating frame}
 \end{frame}
 
 \begin{frame}
@@ -351,13 +348,18 @@ Each vortex has a $2\pi$ complex phase winding, $v \sim \nabla\phi$
 \end{frame}
 
 \begin{frame}
-\frametitle{Phase imprinting}
+\center
+\Huge{How do we create more complicated vortex structures?}
+\end{frame}
+
+\begin{frame}
+\frametitle{Phase manipulation}
 \begin{center}
 \includegraphics<1>[width=0.75\textwidth]{phase_1.png}
 
 \includegraphics<2>[width=0.75\textwidth]{phase_2.png}
 
-Phase masks can induce dynamical vortices
+Phase masks can induce non-stationary vortices
 \end{center}
 
 \end{frame}
@@ -377,13 +379,8 @@ $$
 $$
 \onslide<3->
 \item Vortices follow the magnetic field lines
-\onslide<4->
-\item Modified GPE:
-\begin{equation*}
-\mathcal{ H} = \frac{(p-{\color{red}{m\mathbf{A}}} )^2}{2m} + V_0 + g|\Psi(x,t)|^2
-\end{equation*}
 \end{itemize}
-\onslide<5->
+\onslide<4->
 \column{0.3\textwidth}
 \includegraphics[width=\textwidth]{exp_synth.jpg}
 \center{\tiny Ian Spielman, NIST}
@@ -392,7 +389,7 @@ $$
 
 
 \begin{frame}
-\frametitle{Modifications to the GPE}
+\frametitle{GPE with gauge fields}
 With gauge fields, the GPE becomes
 \begin{equation*}
 \mathcal{ H} = \frac{(p-{\color{red}{m\mathbf{A}}} )^2}{2m} + V_0 + g|\Psi(x,t)|^2
@@ -424,12 +421,12 @@ $$
 \end{frame}
 
 \begin{frame}
-\frametitle{Takeaways}
+\frametitle{Interesting notes}
 \begin{columns}
 \hspace{0.25cm} \column{0.7\textwidth}
 Physics
 \begin{itemize}
-\item Quantized vortices can be formed with rotation, phase imprinting, and artificial magnetic fields
+\item Quantized vortices can be formed in BECs with rotation, phase imprinting, and artificial magnetic fields
 \end{itemize}
 
 Computer Science
@@ -467,6 +464,7 @@ Computer Science
 \column{0.4\textwidth}
 \onslide<2->
 \center{\includegraphics[width=\textwidth]{bench.png}}
+\center{\small{Smaller is faster!}}
 
 \end{columns}
 
@@ -508,9 +506,10 @@ Computer Science
 \begin{itemize}
 \item Global operations
 \item 1D FFT's are not supported by CuFFT
-\pause
+\onslide<2->
 \item Transposes are necessary
 \end{itemize}
+\onslide<1->
 \center \includegraphics[width=\textwidth]{../data/gpu/fft/fft_fig.png}
 
 \column{0.7\textwidth}
@@ -522,7 +521,7 @@ Computer Science
 \begin{frame}
 \center{\Huge Transposes are actually hard}
 
-... We are working on it.
+... I'm working on it.
 
 \end{frame}
 
@@ -571,7 +570,7 @@ Notes:
 \end{frame}
 
 \begin{frame}
-\frametitle{Takeaways}
+\frametitle{Interesting notes}
 
 Physics
 \begin{itemize}
@@ -581,36 +580,47 @@ Physics
 
 Computer Science
 \begin{itemize}
-\item The distributed transpose is hard
-\item Expression trees save a lot of GPU memory when usable
+\item Expression trees save a lot of GPU memory
+\item Distributed transpose methods are in development
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\center \huge Chaotic vortex dynamics in 2D BEC simulations
+\center \huge Chaotic vortex dynamics in 2D BEC
 \center{\scriptsize T Zhang, \textbf{J Schloss}, A Thomasen, LJ O'Riordan, T Busch, A White \\
 \textit{Physical Review Fluids} 4 (5):054701}
 \end{frame}
 
 \begin{frame}
-\frametitle{3 vortex, 1 anti-vortex}
+\frametitle{Few vortex dynamics}
 
-\includegraphics<1>[width=\textwidth]{histogram_1}
+4 vortices:
+\includegraphics[width=\textwidth]{histogram_1}
 
-\includegraphics<2->[width=\textwidth]{histogram_2}
+\pause 
+4 Vortex, 1 anti-vortex:
+\includegraphics[width=\textwidth]{histogram_2}
 
 \onslide<3->
-\center{\Huge Can we induce chaos?}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Dynamics}
+\center{\Huge Is this chaotic?}
 
 \end{frame}
 
 \begin{frame}
 \frametitle{Divergence in trajectories}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Divergence in trajectories}
+\begin{columns}
+\column{0.6\textwidth}
+Divergence in trajectories at $\sim$10s
+\column{0.4\textwidth}
+\includegraphics[width=\textwidth]{../data/2d/evolution/evolution}
+\end{columns}
+
+\pause
 \begin{columns}
 
 \column{0.6\textwidth}
@@ -621,22 +631,18 @@ $$
 $$
 |\delta\mathbf{P}(t)| \approx e^{\lambda t} |\delta \mathbf{P}_0|
 $$
-$$
-\lambda = \lim_{t\to\infty}\frac{1}{t}\text{ln}\frac{||\delta\textbf{P}(t)||}{||\delta\textbf{P}(0)||}
-$$
 
 \column{0.4\textwidth}
-\includegraphics[width=\textwidth]{../data/2d/evolution/evolution}
 
 \includegraphics[width=\textwidth]{../data/2d/lyap/lyap}
 \end{columns}
 \end{frame}
 
 \begin{frame}
-\frametitle{Takeaway}
+\frametitle{Interesting notes}
 Physics
 \begin{itemize}
-\item \textit{Controlled} creation of chaotic dynamics
+\item This is a chaotic system with a controlled initial state
 \item Chaotic dynamics of few-vortex systems is accelerated by collisional events
 \end{itemize}
 Computer Science
@@ -650,7 +656,8 @@ Computer Science
 \begin{frame}
 \center \huge 3D vortex ring generation in toroidal BEC systems
 \center{\scriptsize J Schloss, P Barnett, R Sachdeva, T Busch \\
-arXiv:1910.02364}
+arXiv:1910.02364 \\
+Submitted to \textit{Physical Review Fluids}}
 \end{frame}
 
 \begin{frame}
@@ -681,34 +688,43 @@ $$
 
 
 \begin{frame}
-\frametitle{The system}
+\frametitle{Optical nanofibers and BECs}
 
 \begin{columns}
 
-\onslide<2->
 \column{0.7\textwidth}
 \begin{itemize}
-\item BEC toroidally trapped around nanofiber
+\item Nanofiber has exponentially decaying evanescent field
 \item Nanofiber generates $\mathbf{A}$
+\onslide<2->
+\item BEC toroidally trapped around nanofiber
 \item Vortices follow $\mathbf{B} = \nabla \times \mathbf{A}$
 \end{itemize}
 
 \column{0.3\textwidth}
-\includegraphics[width=\textwidth]{../data/3d/Schematic_TB}
+\onslide<1->
+\begin{center}
+\includegraphics<1>[width=\textwidth]{nanofiber_1}
+
+\includegraphics<2>[width=\textwidth]{nanofiber_2}
+\end{center}
+\onslide<1>
+
+\tiny MJ Morrissey \textit{et al.} \textit{Sensors} 13(8):10449-81, 2013
 \end{columns}
 
-\onslide<1->
-\center \includegraphics[width=0.8\textwidth]{nanofiber.png}
 
-\tiny MJ Morrissey, K Deasy, M Frawley, R Kumar, E Prel, L Russell, VG Truong, and S Nic Chormaic \textit{Sensors} 13(8):10449-81, 2013
 
 \end{frame}
 
 \begin{frame}
-\frametitle{Optical nanofiber}
-\center \includegraphics[width=0.8\textwidth]{all_fields.png}
+\frametitle{Optical nanofiber modes}
+\center \includegraphics[width=0.75\textwidth]{all_fields.png}
 
-
+\small{\begin{align}
+\mathbf{B} =& \frac{\hbar \kappa_0 s^2(n_1 + 1)}{(1+\tilde s^2|d_rE_r + d_{\phi}E_{\phi} + d_zE_z|^2)^2} \nonumber\\
+&\times \bigg[ {\color{red}{\hat\phi}}  \frac{\partial}{\partial r} |d_rE_r + d_{\phi}E_{\phi} + d_zE_z|^2 - {\color{red}{\hat r}} \frac{1}{r} \frac{\partial}{\partial \phi} |d_rE_r + d_{\phi}E_{\phi} + d_zE_z|^2 \bigg ] \nonumber
+\end{align}}
 \end{frame}
 
 \begin{frame}
@@ -724,11 +740,11 @@ $$
 \onslide<2->
 \item Transition with linear polarization
 \onslide<3->
-\item Vortex structures align with $\mathbf{B}$
+\item New vortex structures with this system!
 \end{itemize}
 \column{0.5\textwidth}
 \onslide<3->
-\center \includegraphics[width=\linewidth]{../data/3d/HE21_3d.png}
+\center \includegraphics[width=\linewidth]{HE21_3d.png}
 \end{columns}
 \end{frame}
 
@@ -737,10 +753,20 @@ $$
 
 \begin{columns}
 \column{0.5\textwidth}
-A vortex ring lattice can be generated with high $\mathbf{B}$
+\begin{itemize}
+\item With low magnetic field, vortices follow magnetic field
+\onslide<2->
+\item With high magnetic field, they form a somewhat triangular lattice
+\end{itemize}
+\onslide<3->
+\center{\Huge{Vortex detection?}}
 \column{0.5\textwidth}
 \onslide<1->
-\includegraphics[width=\linewidth]{../data/3d/vortex_line_all.pdf}
+\begin{center}
+\includegraphics<1>[width=\linewidth]{vortex_line_all_1.png}
+
+\includegraphics<2->[width=\linewidth]{vortex_line_all_2.png}
+\end{center}
 \end{columns}
 \end{frame}
 
@@ -759,10 +785,10 @@ A vortex ring lattice can be generated with high $\mathbf{B}$
 \end{frame}
 
 \begin{frame}
-\frametitle{Takeaway}
+\frametitle{Interesting notes}
 Physics
 \begin{itemize}
-\item We can generate, control, and detect vortex structures in a BEC around a nanofiber
+\item This system can generate, control, and detect vortex structures in a BEC around a nanofiber
 \item Dynamic simulations are underway!
 \end{itemize}
 Computer Science
@@ -781,22 +807,38 @@ Computer Science
 \frametitle{Overall conclusions}
 
 \begin{columns}
-\column{0.8\textwidth}
+\column{0.4\textwidth}
 GPU computing is fast
+\begin{itemize}
+\item Distributed transpose
+\item Expression trees
+\end{itemize}
+\column{0.4\textwidth}
+\includegraphics[width=\textwidth]{GPUE.png}
 \column{0.2\textwidth}
 \includegraphics[width=\textwidth]{bench.png}
 \end{columns}
 
+\pause
 \begin{columns}
 \column{0.3\textwidth}
 \includegraphics[width=\textwidth]{../data/2d/evolution/evolution}
 \column{0.7\textwidth}
-We can control chaos
+We can create chaotic systems
+\begin{itemize}
+\item Chaos is accelerated by collisions
+\item Highly controllable initial conditions
+\end{itemize}
 \end{columns}
 
+\pause
 \begin{columns}
 \column{0.7\textwidth}
 We can control vortex structures
+\begin{itemize}
+\item New vortex structures
+\item Vortex detection
+\end{itemize}
 \column{0.3\textwidth}
 \includegraphics[width=\textwidth]{../data/3d/HE21_3d}
 \end{columns}
@@ -805,13 +847,50 @@ We can control vortex structures
 
 \begin{frame}
 \frametitle{Future directions}
-\begin{itemize}
-\item Distributed Transpose
-\item GPUE.jl
-\item General-purpose Hamiltonian solver
-\item Full vortex tracking
-\item Octree-based gridding for SSFM
-\end{itemize}
+
+\begin{columns}
+\column{0.5\textwidth}
+\center
+\textbf{Physics: understanding superfluid vortices}
+
+\vspace{0.5cm}
+
+3D vortex dynamics
+
+\vspace{0.5cm}
+
+Vortex knots
+
+\vspace{0.5cm}
+
+Vortex turbulence
+
+\vspace{0.5cm}
+
+Multicomponent simulations
+
+\column{0.5\textwidth}
+\center
+
+\textbf{Computer Science: Spectral methods for GPUs}
+
+\vspace{0.5cm}
+
+Distributed Transpose
+
+\vspace{0.5cm}
+
+GPUE.jl
+
+\vspace{0.5cm}
+
+Expression tree extensions
+
+\vspace{0.5cm}
+
+Compression methods
+
+\end{columns}
 \end{frame}
 
 \begin{frame}
@@ -828,7 +907,7 @@ We can control vortex structures
 \includegraphics[width=\textwidth]{Ben.png}
 \column{0.15\textwidth}
 \includegraphics[width=\textwidth]{Irina.jpg}
-\includegraphics[width=\textwidth]{Valentin.jpg}
+\includegraphics[width=\textwidth]{Valentin.png}
 \column{0.15\textwidth}
 \includegraphics[width=\textwidth]{Rashi.jpg}
 \includegraphics[width=\textwidth]{Peter.jpg}
@@ -852,8 +931,45 @@ Organizations:
 \end{frame}
 
 \begin{frame}
-\frametitle{Conclusions}
+\frametitle{Overall conclusions}
+
+\begin{columns}
+\column{0.4\textwidth}
+GPU computing is fast
+\begin{itemize}
+\item Distributed transpose
+\item Expression trees
+\end{itemize}
+\column{0.4\textwidth}
+\includegraphics[width=\textwidth]{GPUE.png}
+\column{0.2\textwidth}
+\includegraphics[width=\textwidth]{bench.png}
+\end{columns}
+
+\begin{columns}
+\column{0.3\textwidth}
+\includegraphics[width=\textwidth]{../data/2d/evolution/evolution}
+\column{0.7\textwidth}
+We can create chaotic systems
+\begin{itemize}
+\item Chaos is accelerated by collisions
+\item Highly controllable initial conditions
+\end{itemize}
+\end{columns}
+
+\begin{columns}
+\column{0.7\textwidth}
+We can control vortex structures
+\begin{itemize}
+\item New vortex structures
+\item Vortex detection
+\end{itemize}
+\column{0.3\textwidth}
+\includegraphics[width=\textwidth]{../data/3d/HE21_3d}
+\end{columns}
+
 \end{frame}
+
 
 \begin{frame}
 \center \huge Quantum state engineering
