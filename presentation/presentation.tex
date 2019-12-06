@@ -289,7 +289,7 @@ $$
 
 \begin{frame}
 \frametitle{Bose-Einstein condensation}
-Bosons condense into a superfluid at slightly above 0 Kelvin
+Bosons condense into a superfluid BEC
 
 \begin{center}
 \includegraphics[width=0.5\textwidth]{Bose_Einstein_condensate.png}
@@ -349,7 +349,7 @@ Each vortex has a $2\pi$ complex phase winding, $v \sim \nabla\phi$
 
 \begin{frame}
 \center
-\Huge{How do we create more complicated vortex structures?}
+\Huge{What else can we do?}
 \end{frame}
 
 \begin{frame}
@@ -359,7 +359,15 @@ Each vortex has a $2\pi$ complex phase winding, $v \sim \nabla\phi$
 
 \includegraphics<2>[width=0.75\textwidth]{phase_2.png}
 
-Phase masks can induce non-stationary vortices
+\includegraphics<3>[width=0.75\textwidth]{phase_3.png}
+
+\includegraphics<4>[width=0.75\textwidth]{phase_4.png}
+
+\includegraphics<5->[width=0.75\textwidth]{phase_5.png}
+
+\onslide<3->Phase masks can change the vortex distribution
+
+\onslide<6->... but will create energetic condensates
 \end{center}
 
 \end{frame}
@@ -408,7 +416,7 @@ $$
 $$
 
 \onslide<3->
-\item Components in position and momentum-space, that \textbf{require 1D FFT's}
+\item Components in position and momentum-space, that \textbf{require 1D FFTs}
 $$
 -\left(\frac{p\mathbf{A} + \mathbf{A}p}{2}\right)
 $$
@@ -431,7 +439,7 @@ Physics
 
 Computer Science
 \begin{itemize}
-\item The SSFM requires a large number of FFT's
+\item The SSFM requires a large number of FFTs
 \item This system is a great for testing spectral methods
 \end{itemize}
 \hspace{-0.3cm} \column{0.3\textwidth}
@@ -464,7 +472,7 @@ Computer Science
 \column{0.4\textwidth}
 \onslide<2->
 \center{\includegraphics[width=\textwidth]{bench.png}}
-\center{\small{Smaller is faster!}}
+\center{\small{Total runtime, smaller has higher performance!}}
 
 \end{columns}
 
@@ -505,7 +513,7 @@ Computer Science
 \column{0.4\textwidth}
 \begin{itemize}
 \item Global operations
-\item 1D FFT's are not supported by CuFFT
+\item 1D FFTs are not supported by CuFFT
 \onslide<2->
 \item Transposes are necessary
 \end{itemize}
@@ -517,14 +525,6 @@ Computer Science
 \end{columns}
 
 \end{frame}
-
-\begin{frame}
-\center{\Huge Transposes are actually hard}
-
-... I'm working on it.
-
-\end{frame}
-
 
 \begin{frame}
 \frametitle{Two important features}
@@ -560,7 +560,7 @@ Notes:
 \item Vortex highlighting in 3D
 \end{itemize}
 \onslide<2->
-\center \includegraphics[width=1.2\textwidth]{../data/gpu/vortex_highlighting/all.png}
+\center \includegraphics[width=1.2\textwidth]{all.png}
 \column{0.5\textwidth}
 
 \onslide<1->
@@ -744,7 +744,7 @@ $$
 \end{itemize}
 \column{0.5\textwidth}
 \onslide<3->
-\center \includegraphics[width=\linewidth]{HE21_3d.png}
+\center \includegraphics[width=0.8\textwidth]{HE21_3d.png}
 \end{columns}
 \end{frame}
 
@@ -794,7 +794,7 @@ Physics
 Computer Science
 \begin{itemize}
 \item Dynamic simulations require a large amount of fileIO
-\item Scaling to a larger grid requires multiple GPU's
+\item Scaling to a larger grid requires multiple GPUs
 \end{itemize}
 \end{frame}
 
