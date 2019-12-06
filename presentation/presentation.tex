@@ -376,6 +376,8 @@ Each vortex has a $2\pi$ complex phase winding, $v \sim \nabla\phi$
 \frametitle{Artificial magnetic fields}
 \begin{center}
 Magnetic fields cause rotation in \textit{charged} particles
+
+(Example: Type II superconductors)
 \end{center}
 \begin{columns}
 \column{0.7\textwidth}
@@ -388,9 +390,18 @@ $$
 \onslide<3->
 \item Vortices follow the magnetic field lines
 \end{itemize}
-\onslide<4->
 \column{0.3\textwidth}
-\includegraphics[width=\textwidth]{exp_synth.jpg}
+\begin{center}
+\onslide<1->
+\includegraphics<1-3>[width=0.8\textwidth]{IIvortices.jpg}
+
+\onslide<1-3>
+\tiny FS Wells \textit{et al.}, \textit{Scientific Reports} 5: 8677, 2015
+\end{center}
+\onslide<4->
+\includegraphics<4>[width=\textwidth]{exp_synth.jpg}
+
+\vspace{-0.5cm}
 \center{\tiny Ian Spielman, NIST}
 \end{columns}
 \end{frame}
@@ -400,57 +411,55 @@ $$
 \frametitle{GPE with gauge fields}
 With gauge fields, the GPE becomes
 \begin{equation*}
-\mathcal{ H} = \frac{(p-{\color{red}{m\mathbf{A}}} )^2}{2m} + V_0 + g|\Psi(x,t)|^2
+\mathcal{ H} = \frac{(p-{\color{red}{m\mathbf{A}(x)}} )^2}{2m} + V_0 + g|\Psi(x,t)|^2
 \end{equation*}
 
 \onslide<2->
 Which creates
 
 \begin{columns}
-\column{0.5\textwidth}
+\column{0.7\textwidth}
 \onslide<2->
 \begin{itemize}
 \item A position-space component that couples with the trap
 $$
-\frac{m\mathbf{A}^2}{2}
+\frac{m\mathbf{A}(x)^2}{2}
 $$
 
 \onslide<3->
 \item Components in position and momentum-space, that \textbf{require 1D FFTs}
 $$
--\left(\frac{p\mathbf{A} + \mathbf{A}p}{2}\right)
+-\left(\frac{p\mathbf{A}(x) + \mathbf{A}(x)p}{2}\right)
 $$
 \end{itemize}
 \onslide<2->
-\column{0.55\textwidth}
-\includegraphics[width=1.1\textwidth]{../data/splitop/gauge/check.pdf}
+\column{0.3\textwidth}
+\includegraphics[width=1.1\textwidth]{check.png}
 \end{columns}
 
 \end{frame}
 
 \begin{frame}
 \frametitle{Interesting notes}
-\begin{columns}
-\hspace{0.25cm} \column{0.7\textwidth}
 Physics
 \begin{itemize}
 \item Quantized vortices can be formed in BECs with rotation, phase imprinting, and artificial magnetic fields
 \end{itemize}
+
+\vspace{0.5cm}
+\pause
 
 Computer Science
 \begin{itemize}
 \item The SSFM requires a large number of FFTs
 \item This system is a great for testing spectral methods
 \end{itemize}
-\hspace{-0.3cm} \column{0.3\textwidth}
- \includegraphics[width=1\textwidth]{../data/splitop/rot/density_L10.pdf}
-\end{columns}
 
 \end{frame}
 
 \begin{frame}
 \center \huge GPU computing and the GPUE codebase
-\center{\scriptsize J Schloss, LJ O'Riordan \\
+\center{\scriptsize \textbf{J Schloss}, LJ O'Riordan \\
 \textit{Journal of Open Source Software} 3 (32):1037, 2018}
 \end{frame}
 
