@@ -381,6 +381,7 @@ Magnetic fields cause rotation in \textit{charged} particles
 \end{center}
 \begin{columns}
 \column{0.7\textwidth}
+\vspace{0.5cm}
 \begin{itemize}
 \onslide<2->
 \item The Hamiltonian of a particle with the Lorentz force law is:
@@ -390,19 +391,24 @@ $$
 \onslide<3->
 \item Vortices follow the magnetic field lines
 \end{itemize}
+\vspace{0.5cm}
+
 \column{0.3\textwidth}
 \begin{center}
-\onslide<1->
-\includegraphics<1-3>[width=0.8\textwidth]{IIvortices.jpg}
+
+\onslide<1-3>
+\includegraphics<1-3>[width=0.75\textwidth]{IIvortices.jpg}
 
 \onslide<1-3>
 \tiny FS Wells \textit{et al.}, \textit{Scientific Reports} 5: 8677, 2015
-\end{center}
+
 \onslide<4->
 \includegraphics<4>[width=\textwidth]{exp_synth.jpg}
 
-\vspace{-0.5cm}
-\center{\tiny Ian Spielman, NIST}
+\tiny Ian Spielman, NIST
+
+\end{center}
+
 \end{columns}
 \end{frame}
 
@@ -440,7 +446,7 @@ $$
 \end{frame}
 
 \begin{frame}
-\frametitle{Interesting notes}
+\frametitle{Intermittent summary}
 Physics
 \begin{itemize}
 \item Quantized vortices can be formed in BECs with rotation, phase imprinting, and artificial magnetic fields
@@ -547,16 +553,20 @@ Computer Science
 
 
 \begin{frame}
-\frametitle{Expression trees}
+\onslide<1->\frametitle{How do we scale?}
+
+\onslide<1->
 Notes:
 \begin{itemize}
-\item CUDA code is hard to write
-\item Users want time-dependent fields for state engineering
-\item GPUs have limited memory
+\item GPUs have limited memory, so we should minimize the memory footprint with dynamic kernels
+\onslide<2->
+\item CUDA code is hard to write and users want time-dependent fields for state engineering
 \end{itemize}
 
-\pause
+\onslide<3->
 \center \includegraphics[width=0.6\textwidth]{expr_tree.png}
+
+\center Expression trees
 \end{frame}
 
 \begin{frame}
@@ -579,13 +589,16 @@ Notes:
 \end{frame}
 
 \begin{frame}
-\frametitle{Interesting notes}
+\frametitle{Intermittent summary}
 
 Physics
 \begin{itemize}
 \item GPUE is fast, can do dynamic simulations, and vortex detection
 \item Multi-component simulations and HDF5 have also been implemented
 \end{itemize}
+
+\vspace{0.5cm}
+\pause
 
 Computer Science
 \begin{itemize}
@@ -597,7 +610,7 @@ Computer Science
 \begin{frame}
 \center \huge Chaotic vortex dynamics in 2D BEC
 \center{\scriptsize T Zhang, \textbf{J Schloss}, A Thomasen, LJ O'Riordan, T Busch, A White \\
-\textit{Physical Review Fluids} 4 (5):054701}
+\textit{Physical Review Fluids} 4 (5):054701, 2019}
 \end{frame}
 
 \begin{frame}
@@ -618,10 +631,7 @@ Computer Science
 \begin{frame}
 \frametitle{Divergence in trajectories}
 
-\end{frame}
-
-\begin{frame}
-\frametitle{Divergence in trajectories}
+\onslide<2-3>
 \begin{columns}
 \column{0.6\textwidth}
 Divergence in trajectories at $\sim$10s
@@ -629,11 +639,11 @@ Divergence in trajectories at $\sim$10s
 \includegraphics[width=\textwidth]{../data/2d/evolution/evolution}
 \end{columns}
 
-\pause
+\onslide<3>
 \begin{columns}
 
 \column{0.6\textwidth}
-Divergence in trajectory when Lyapunov exp ($\lambda$) becomes positive
+Divergence in trajectory when Lyapunov exponent ($\lambda$) becomes positive
 $$
 \delta \mathbf{P(t)} = (\delta x(t), \delta y(t), \delta v_x(t), \delta v_y(t))
 $$
@@ -645,26 +655,32 @@ $$
 
 \includegraphics[width=\textwidth]{../data/2d/lyap/lyap}
 \end{columns}
+
+\onslide<4>
 \end{frame}
 
 \begin{frame}
-\frametitle{Interesting notes}
+\frametitle{Intermittent summary}
 Physics
 \begin{itemize}
 \item This is a chaotic system with a controlled initial state
 \item Chaotic dynamics of few-vortex systems is accelerated by collisional events
 \end{itemize}
+
+\vspace{0.5cm}
+\pause
+
 Computer Science
 \begin{itemize}
 \item 50 TB of data
-\item Reliant on post-processing metrics (Lyapunov exp, Vortex tracking)
+\item Reliant on post-processing metrics (Lyapunov exponent, Vortex tracking)
 \item 1 hour per run (on K80's), infeasible with other software
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \center \huge 3D vortex ring generation in toroidal BEC systems
-\center{\scriptsize J Schloss, P Barnett, R Sachdeva, T Busch \\
+\center{\scriptsize \textbf{J Schloss}, P Barnett, R Sachdeva, T Busch \\
 arXiv:1910.02364 \\
 Submitted to \textit{Physical Review Fluids}}
 \end{frame}
@@ -687,7 +703,7 @@ $$
 \mathbf{B} = \nabla \times \mathbf{A}
 $$
 \onslide<3->
-\item Vortices follow the magnetic field lines
+\item Artificial magnetic fields are created with a strongly varying electric field
 \end{itemize}
 \onslide<2->
 \column{0.3\textwidth}
@@ -722,17 +738,36 @@ $$
 \tiny MJ Morrissey \textit{et al.} \textit{Sensors} 13(8):10449-81, 2013
 \end{columns}
 
-
-
 \end{frame}
 
 \begin{frame}
 \frametitle{Optical nanofiber modes}
-\center \includegraphics[width=0.75\textwidth]{all_fields.png}
+\center \includegraphics[width=0.8\textwidth]{../data/3d/fiber/mode_plot.jpg}
+\center {\tiny Kumar \textit{et al.} \textit{NJP} 17(1):013026, 2015}
 
+$$
+V = k_0a\sqrt{n_1^2 - n_2^2}
+$$
+\pause
+\begin{itemize}
+\item Different optical modes propagate at different fiber widths
+\item We will focus on HE11 and HE21 with linear and circular polarization
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Optical nanofiber fields}
+\begin{center}
+\includegraphics<1-2>[width=0.75\textwidth]{all_fields_1.png}
+
+\includegraphics<3->[width=0.75\textwidth]{all_fields_2.png}
+\end{center}
+
+\onslide<2->
+\vspace{-0.5cm}
 \small{\begin{align}
-\mathbf{B} =& \frac{\hbar \kappa_0 s^2(n_1 + 1)}{(1+\tilde s^2|d_rE_r + d_{\phi}E_{\phi} + d_zE_z|^2)^2} \nonumber\\
-&\times \bigg[ {\color{red}{\hat\phi}}  \frac{\partial}{\partial r} |d_rE_r + d_{\phi}E_{\phi} + d_zE_z|^2 - {\color{red}{\hat r}} \frac{1}{r} \frac{\partial}{\partial \phi} |d_rE_r + d_{\phi}E_{\phi} + d_zE_z|^2 \bigg ] \nonumber
+\mathbf{B} =& \frac{\hbar \kappa_0 s^2(n_1 + 1)}{(1+\tilde s^2|d_r{\color{red}{E_r}} + d_{\phi}{\color{red}{E_{\phi}}} + d_z{\color{red}{E_z}}|^2)^2} \nonumber\\
+&\times \bigg[ {\color{blue}{\hat\phi}}  \frac{\partial}{\partial r} |d_r{\color{red}{E_r}} + d_{\phi}{\color{red}{E_{\phi}}} + d_z{\color{red}{E_z}}|^2 - {\color{blue}{\hat r}} \frac{1}{r} \frac{\partial}{\partial \phi} |d_r{\color{red}{E_r}} + d_{\phi}{\color{red}{E_{\phi}}} + d_z{\color{red}{E_z}}|^2 \bigg ] \nonumber
 \end{align}}
 \end{frame}
 
@@ -749,7 +784,7 @@ $$
 \onslide<2->
 \item Transition with linear polarization
 \onslide<3->
-\item New vortex structures with this system!
+\item Highly controllable vortex structures that align to $\mathbf{B}$
 \end{itemize}
 \column{0.5\textwidth}
 \onslide<3->
@@ -765,7 +800,7 @@ $$
 \begin{itemize}
 \item With low magnetic field, vortices follow magnetic field
 \onslide<2->
-\item With high magnetic field, they form a somewhat triangular lattice
+\item With high magnetic field, they form a triangular lattice
 \end{itemize}
 \onslide<3->
 \center{\Huge{Vortex detection?}}
@@ -785,7 +820,7 @@ $$
 \item Vortex detection in 3D is difficult
 \item Scissors modes provide different oscillations with vortices
 \onslide<2->
-\item First time shown for elliptic-toroidal trap
+\item Relies on elliptic-toroidal geometry
 \end{itemize}
 \begin{center}
 \onslide<1->
@@ -794,12 +829,16 @@ $$
 \end{frame}
 
 \begin{frame}
-\frametitle{Interesting notes}
+\frametitle{Intermittent summary}
 Physics
 \begin{itemize}
 \item This system can generate, control, and detect vortex structures in a BEC around a nanofiber
 \item Dynamic simulations are underway!
 \end{itemize}
+
+\pause
+\vspace{0.5cm}
+
 Computer Science
 \begin{itemize}
 \item Dynamic simulations require a large amount of fileIO
@@ -817,10 +856,10 @@ Computer Science
 
 \begin{columns}
 \column{0.4\textwidth}
-GPU computing is fast
+I developed GPUE and GPU methods for
 \begin{itemize}
-\item Distributed transpose
 \item Expression trees
+\item Vortex tracking
 \end{itemize}
 \column{0.4\textwidth}
 \includegraphics[width=\textwidth]{GPUE.png}
@@ -829,11 +868,17 @@ GPU computing is fast
 \end{columns}
 
 \pause
+\vspace{-0.5cm}
+\begin{center}
+I have also shown...
+\end{center}
+\vspace{-0.3cm}
+
 \begin{columns}
 \column{0.3\textwidth}
 \includegraphics[width=\textwidth]{../data/2d/evolution/evolution}
 \column{0.7\textwidth}
-We can create chaotic systems
+Chaos can be found in few-vortex systems
 \begin{itemize}
 \item Chaos is accelerated by collisions
 \item Highly controllable initial conditions
@@ -843,10 +888,10 @@ We can create chaotic systems
 \pause
 \begin{columns}
 \column{0.7\textwidth}
-We can control vortex structures
+3D vortex structures can be controlled, generated, and detected
 \begin{itemize}
-\item New vortex structures
-\item Vortex detection
+\item Vortex ring lattice
+\item Scissors mode
 \end{itemize}
 \column{0.3\textwidth}
 \includegraphics[width=\textwidth]{../data/3d/HE21_3d}
