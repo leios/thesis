@@ -132,7 +132,7 @@ $\downarrow$
 \column{0.5\textwidth}
 \onslide<2->
 \center
-\textbf{Computer Science: Spectral methods for GPUs}
+\textbf{Computer Science: SSFM on GPUs}
 
 \vspace{0.5cm}
 
@@ -183,7 +183,7 @@ Quantum state engineering
 \column{0.5\textwidth}
 \center
 
-\textbf{Computer Science: Spectral methods for GPUs}
+\textbf{Computer Science: SSFM on GPUs}
 
 \vspace{0.5cm}
 
@@ -458,7 +458,7 @@ Physics
 Computer Science
 \begin{itemize}
 \item The SSFM requires a large number of FFTs
-\item This system is a great for testing spectral methods
+\item This system is a great for testing spectral-like methods
 \end{itemize}
 
 \end{frame}
@@ -926,7 +926,7 @@ Multicomponent simulations
 \column{0.5\textwidth}
 \center
 
-\textbf{Computer Science: Spectral methods for GPUs}
+\textbf{Computer Science: SSFM on GPUs}
 
 \vspace{0.5cm}
 
@@ -1229,6 +1229,45 @@ GPU transpose
 \includegraphics[width=\textwidth]{transpose.png}
 \center{\tiny Ruetsch, G. and Fatica, M. 2013}
 \end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{Strang splitting}
+
+$$
+\Psi(\mathbf{r},t+dt) = \left[e^{-\frac{i\mathcal{\hat{H}}_vdt}{2\hbar}}e^{-\frac{i\mathcal{\hat{H}}_pdt}{\hbar}}e^{-\frac{i\mathcal{\hat{H}}_vdt}{2\hbar}} \right]\Psi(\mathbf{r},t) + \mathcal{O}(dt^3)
+$$
+
+Taylor expansion of exponential:
+$$
+e^{h(\mathbf{A}+\mathbf{B})} \approx \mathbf{I} + h(\mathbf{A} + \mathbf{B}) + frac{1}{2}h^2(\mathbf{A} + \mathbf{B})^2
+$$
+
+Last term:
+$$
+\frac{1}{2}h^2(\mathbf{A} + \mathbf{B})^2 = \frac{1}{2}\left( \mathbf{A}^2 + \mathbf{AB} + \mathbf{BA} + \mathbf{B}^2\right)
+$$
+
+Symmetric splitting:
+$$
+e^{h(\mathbf{A}+\mathbf{B})} \approx e^{h\mathbf{A}/2}e^{h\mathbf{B}}e^{h\mathbf{A}/2}
+$$
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Evolution of SHO}
+
+\center \includegraphics[width=0.4\textwidth]{../data/splitop/SHO/SHO_gimp.pdf}
+\end{frame}
+
+\begin{frame}
+\frametitle{Thomas--Fermi}
+
+\center \includegraphics[width = 0.8\textwidth]{../data/qs/SHO/SHO.pdf}
+$$
+R_\text{TF} = \sqrt{\frac{2\mu}{m\omega_i^2}}
+$$
 \end{frame}
 
 \end{document}
