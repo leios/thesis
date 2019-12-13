@@ -1,4 +1,4 @@
-\begin{thebibliography}{232}
+\begin{thebibliography}{235}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -1533,11 +1533,34 @@ S~Stringari.
 \newblock \emph{Physical review letters}, 86\penalty0 (21):\penalty0 4725,
   2001.
 
+\bibitem[Dowling and Gea-Banacloche(1996)]{dowling1996}
+J.~P. Dowling and J.~Gea-Banacloche.
+\newblock Evanescent light-wave atom mirrors, resonators, waveguides, and
+  traps.
+\newblock In \emph{Advances in atomic, molecular, and optical physics},
+  volume~37, pages 1--94. Elsevier, 1996.
+
 \bibitem[Minogin and Chormaic(2010)]{minogin2010}
 V.~G. Minogin and S.~Nic Chormaic.
 \newblock Manifestation of the van der {W}aals surface interaction in the
   spontaneous emission of atoms into an optical nanofiber.
 \newblock \emph{Laser Physics}, 20\penalty0 (1):\penalty0 32--37, 2010.
+
+\bibitem[Kumar et~al.(2016)Kumar, Anderson, Phillips, Eckel, Campbell, and
+  Stringari]{kumar2016}
+A.~Kumar, N.~Anderson, W.~D. Phillips, S.~Eckel, G.~K. Campbell, and
+  S.~Stringari.
+\newblock Minimally destructive, doppler measurement of a quantized flow in a
+  ring-shaped bose--einstein condensate.
+\newblock \emph{New Journal of Physics}, 18\penalty0 (2):\penalty0 025001,
+  2016.
+
+\bibitem[Schnelle et~al.(2008)Schnelle, Van~Ooijen, Davis, Heckenberg, and
+  Rubinsztein-Dunlop]{schnelle2008}
+S.~K. Schnelle, E.~D. Van~Ooijen, M.~J. Davis, N.~R. Heckenberg, and
+  H.~Rubinsztein-Dunlop.
+\newblock Versatile two-dimensional potentials for ultra-cold atoms.
+\newblock \emph{Optics Express}, 16\penalty0 (3):\penalty0 1405--1412, 2008.
 
 \bibitem[Hill and Meltz(1997)]{hill1997}
 K.~O. Hill and G.~Meltz.

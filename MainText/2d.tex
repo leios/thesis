@@ -15,6 +15,9 @@ For this reason, it is interesting to attempt to probe classical chaos in system
 Chaotic, few-vortex systems have been studied previously by Aref and Pomphrey~\cite{aref1982, aref1980, aref1983}, who showed that chaos can be excited in systems with as few as four vortices in an infinite plane~\cite{aref1982}.
 Unlike chaos in classical fluids, the onset of chaos in quantum systems seems to appear with fewer vortices present, and few-vortex systems have been explored experimentally for two, three, and four vortices in harmonically trapped BECs~\cite{navarro2013}.
 When analyzed with a reduced Hamiltonian approach, harmonically trapped BECs seem to exhibit chaotic effects with as few as three vortices, two co-rotating vortices and an anti-vortex rotating in the other direction~\cite{kyriakopoulos2014,koukouloyannis2014}.
+In this approach, the system can be seen as having three degrees of freedom with two integrals of motion, the energy and angular momentum.
+This can be further reduced to two degrees of freedom with appropriate canonical transformations and using the angular momentum as a parameter~\cite{koukouloyannis2014}.
+For this reason, it seems that three point-vortices is the minimum number necessary for chaotic dynamics.
 
 Experimentally, it is now possible to detect vortex circulation~\cite{seo2017} and image vortices in-situ~\cite{wilson2015}.
 It is also possible to probe vortex dynamics at different times within a single experiment~\cite{freilich2010, serafini2017}.
@@ -127,22 +130,22 @@ A minimum around $t=10$ seconds is clearly visible.
 \caption{
 The insets show the histograms of the COM trajectories calculated over 20 seconds of evolution for the system of four vortices when the position of a single vortex has been shifted by $\Delta x=0\xi$ and $\Delta x=\xi/3$.
 The upper two panels depict the corresponding trajectories after the direction of rotation of a single vortex has been reversed, whereas the lower row displays the trajectories for the case where all vortices co-rotate.
-The main curve plots the corresponding Lyapunov exponents,  calculated from the shown COM trajectories. 
-The negative Lyapunov exponents (orange) indicate that shifting the vortex about the initial position still ensures the stability of vortex trajectories. Reversing the direction of circulation of a single vortex (blue) however leads to fluctuations about zero, eventually leading to a fully positive exponent. 
+The main curve plots the corresponding time-dependent Lyapunov exponents,  calculated from the shown COM trajectories. 
+The negative time-dependent Lyapunov exponents (orange) indicate that shifting the vortex about the initial position still ensures the stability of vortex trajectories. Reversing the direction of circulation of a single vortex (blue) however leads to fluctuations about zero, eventually leading to a fully positive exponent. 
 }
 \label{fig:lyap}
 \end{figure}
 
 
-To characterize the degree of chaos for the shown vortex dynamics, Lyapunov exponents will be used.
+To characterize the degree of chaos for the shown vortex dynamics, a variation on Lyapunov exponents will be used.
 These exponents give the rates of divergence for nearby orbits in phase space~\cite{wolf1985},
 and with this measure, one can track two trajectories in phase space to see if the divergence between the two trajectories will either exponentially converge or diverge, which can be modeled with
 
 \begin{equation}
-|\delta\mathbf{Z}(t)| \approx e^{\lambda t} |\delta \mathbf{Z}_0|.
+|\delta\mathbf{Z}(t)| \approx e^{\Lambda t} |\delta \mathbf{Z}_0|.
 \end{equation}
 
-\noindent Here, $\delta\mathbf{Z}_0$ is the initial separation between the trajectories and $\lambda$ is a quantity known as the Lyapunov exponent.
+\noindent Here, $\delta\mathbf{Z}_0$ is the initial separation between the trajectories and $\Lambda$ is a quantity known as the Lyapunov exponent.
 If the exponent is negative, this means that the trajectories tend to converge, but if it is positive, the trajectories will diverge, thus indicating chaotic motion.
 The rate of divergence is determined by the value of the exponent.
 
@@ -151,11 +154,22 @@ The separation is then defined to be $\delta \mathbf{P(t)} = (\delta x(t), \delt
 The exponent can then be calculated as
 
 \begin{equation}
-\lambda = \lim_{t\to\infty}\frac{1}{t}\text{ln}\frac{||\delta\textbf{P}(t)||}{||\delta\textbf{P}(0)||}
-\label{eqn:lyap}
+\Lambda = \lim_{t\to\infty}\frac{1}{t}\text{ln}\frac{||\delta\textbf{P}(t)||}{||\delta\textbf{P}(0)||}
+\label{eqn:lyap_full}
 \end{equation}
 
 \noindent where $||\cdot||$ denotes the Euclidean norm.
+
+Because this system is finite, the value of the Lyapunov exponent from Equation~\eqref{eqn:lyap_full} will tend to 0.
+For this reason, rather than performing the full calculation of the Lyapunov exponent, $\Lambda$, I will instead show the exponent as a function of time, here notated as
+
+\begin{equation}
+\lambda(t) = \frac{1}{t}\text{ln}\frac{||\delta\textbf{P}(t)||}{||\delta\textbf{P}(0)||}.
+\label{eqn:lyap}
+\end{equation}
+
+\noindent This value can characterize chaotic dynamics in finite-sized systems, and
+will be referred to as the time-dependent Lyapunov exponent for the remainder of this work.
 
 In this case, each vortex is tracked with the methods outlined in Chapter~\ref{ch:gpu}, which use both the position and velocity of the vortex.
 To determine whether the total system is chaotic, beyond its constituent vortices, I use a center of mass (COM) variable, defined as $\mathbf{R}_M = \frac{1}{n+1}\sum_{i=0}^nr_i$, where $n+1$ is the number of vortices.
@@ -171,7 +185,7 @@ It is worth noting that other global measurements could be used instead of the C
 \section{Outlook}
 
 With this study, I have shown that it is possible to induce chaotic vortex dynamics in a two-dimensional few-vortex systems by using phase imprinting to flip the rotational direction of a vortex.
-I also show that a scattering event seems to be correlated to a positive Lyapunov exponent and an acceleration of chaotic behavior.
+I also show that a scattering event seems to be correlated to a positive time-dependent Lyapunov exponent and an acceleration of chaotic behavior.
 This behavior is radically different to the behavior of large scale vortex lattices, where similar techniques have been shown to only cause local disturbances~\cite{o2016topo}.
 Further exploration of the crossover from regular to turbulent dynamics, and the crossover from chaotic to stable dynamics for large-scale vortex lattices remains an interesting extension for future work.
 

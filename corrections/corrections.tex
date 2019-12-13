@@ -1,0 +1,145 @@
+\documentclass[11pt]{article}
+
+\usepackage{xcolor}
+\usepackage{amsmath}
+\begin{document}
+
+\newcommand{\jrs}[1]{\textcolor{blue}{[#1]}}
+
+\section*{Thesis Corrections}
+
+In addition to the correction of minor typos, I have addressed thee examiner comments as described in the following sections.
+
+\section{Addressing comments from examiner 1}
+[preliminary recommendation]
+
+\begin{enumerate}
+\item At the beginning of Chapter 2, it is not clearly stated why optimization algorithm is related to STA or quantum optimal control. It is clearly explained later in Section 2.1. It would be better to briefly explain it at the beginning.
+
+\jrs{I have moved this discussion to the start of the chapter}
+
+\item In Chapter 4, the Lyaponov exponent is computed for vortex dynamics. It is a bit unusual that the Lyaponov exponent can be negative. To my knowledge, it is always non-negative. It would be nice to offer some explanation.
+
+\jrs{I have added a paragraph explaining our calculation of the Lyapunov exponent, which was ambiguous in the original text.
+In particular, I have modified the full Lyapunov exponent to be $\Lambda$, and introduced the time-dependent Lyapunov exponent $\lambda(t)$, which was the actual quantity calculated in this work.
+I have modified the text as such:}
+
+\jrs{...
+\begin{equation}
+\Lambda = \lim_{t\to\infty}\frac{1}{t}\text{ln}\frac{||\delta\textbf{P}(t)||}{||\delta\textbf{P}(0)||}
+\label{eqn:lyap_full}
+\end{equation}
+where $||\cdot||$ denotes the Euclidean norm.}
+
+\jrs{
+Because this system is finite, the value of the Lyapunov exponent from Equation~\eqref{eqn:lyap_full} will tend to 0.
+For this reason, rather than performing the full calculation of the Lyapunov exponent, $\Lambda$, I will instead show the exponent as a function of time, here notated as
+\begin{equation}
+\lambda(t) = \frac{1}{t}\text{ln}\frac{||\delta\textbf{P}(t)||}{||\delta\textbf{P}(0)||}.
+\label{eqn:lyap}
+\end{equation}
+\noindent This value can characterize chaotic dynamics in finite-sized systems, and will be referred to as the time-dependent Lyapunov exponent for the remainder of this work.
+}
+
+\item The explanation of Nelder–Mead method is not clear. For example, there is no explanation of “heights”.
+
+\jrs{I have added the following: For this method, one is attempting to find the minimum value in some $n$-dimensional space.
+In Nelder and Mead's original notation, a ``height'' is defined as the value of the cost function with provided input parameters, often depicted as the an elevation out of the plane.}
+
+\item There are many typos, here are a few examples:
+
+Page 6: under Eq.(1.1) partial/partial x should be partial/partial r; $V_0$ could be any potential, not just trapping potential Page 7: second line: “Which” should be “which” Page 28: partial A/partial i should be something else
+
+\jrs{These have all been addressed. I have also read through the thesis thoroughly and addressed every inconsistency I could find.}
+
+\end{enumerate}
+[comments after the oral examination]
+
+Mr. James Schloss gave a very good presentation in his oral examination, which is very well organized and logically clear. In the closed-door examination, James was able to answer most of the questions raised by examiners. When he was able to answer questions, his answers were coherent and convincing; when he was not able to answer, he would quickly concede that he did not know the answer.
+
+My overall impression is that Mr. James Schloss is solid in physics and very strong in computer programming, in particular with GPU. The amount of work that he has put into his thesis work is remarkable. I recommend that he pass the oral examination with minor revisions to his thesis. In the revision, Mr. James Schloss should address the following issues:
+
+\begin{enumerate}
+\item Justification of his calculation of Lyaponov exponent;
+
+\jrs{This has been addressed as described above}
+
+\item Why four vortecies are needed to see the chaotic motion; 
+
+\jrs{This statement was made based on the work of Aref and Pomphrey (\textit{Proc. R. Soc. Lond. A} 380, 359(1982)), who showed that the dynamics of 4 \textit{co-rotating} can display non-integrable dynamics.
+In fact, it was shown that for a harmonic trap, chaos can be induced with as few as 3 vortices (2 co-rotating with 1 anti-vortex, example: \textit{Chaos} 24, 024410(2014)).
+With this in mind, I have added the following statement (with appropriate citations in the text):}
+
+\jrs{
+When analyzed with a reduced Hamiltonian approach, harmonically trapped BECs seem to exhibit chaotic effects with as few as three vortices, two co-rotating vortices and an anti-vortex rotating in the other direction.
+In this approach, the system can be seen as having three degrees of freedom with two integrals of motion, the energy and angular momentum.
+This can be further reduced to two degrees of freedom with appropriate canonical transformations and using the angular momentum as a parameter.
+For this reason, it seems that three point-vortices is the minimum number necessary for chaotic dynamics.}
+
+\end{enumerate}
+
+\section{Addressing comments from examiner 2}
+
+[Preliminary recommendation]
+
+This thesis represents an excellent body of work, combining both cutting-edge computational development with applications to interesting ultracold atomic physics. The GPUE package contains complex and well-motivated optimisations for the analysis of vortices in degenerate Bose gases. These dynamics require high spatial and temporal resolution, and require computing resources to be carefully optimised. The proposals to generate NOON states and nonstandard phase imprinting via artificial magnetic fields are very interesting, and clearly explained. I recommend this thesis be awarded a PhD. The candidate should consider minor revisions according to the comments below.
+
+Chapter 1: In the beginning, the benefits of SSFM are compared with RK, Euler and Crank-Nicholson methods, which I found odd. Runge-Kutta, Euler, Crank-Nicholson are all timestep methods, and can be used happily in conjunction with Fourier-based derivative calculations. Runge-Kutta and Euler are also explicit, and technically parallelisable in exactly the same way as SSFM. I am interested in the claim that there are extra difficulties with parallelising RK methods, as referenced. Compared to those methods, one key advantage of SSFM is that the sub-units in each space are often solvable to all order (exponential solutions in time), this can lead to better stability properties.
+
+Runge-Kutta can be superior for many problems, however. Importantly, Runge-Kutta can also be executed using the all-order correct exponential solutions within each space for each step. This can give high order stability with the other benefits of SSFM. This is done in the XMDS2 package, and parallelised for some cases in the xSDPE package. I would be interested to hear more details on the specific advantages of the SSFM over (for example) RK4IP in a GPU context. Is the issue essentially one of memory?
+
+\jrs{This is correct. I have modified this statement to account for this: \\
+For example, the SSFM relies on embarrassingly parallel element-wise matrix multiplications and Fast Fourier Transform (FFT) routines that have been optimized for parallel and distributed systems, but it also requires less memory than Runge-Kutta, which requires multiple arrays of the size of the wavefunction in memory.}
+
+In chapter 2, I know that local and global searching algorithms are often called 'optimal control', but I believe this is confusing given the extensive literature on optimal control that finds provable optimal solutions. Most of the algorithms discussed in machine learning are certainly \textit{optimising} the control scheme, but technically without exhaustive search, they do not find the provably optimal control. It might be better to talk in terms of optimising without claims of 'optimal control'.
+
+On p45: the fact that optimisations over rotation outperform optimisations over both rotation and barrier height shows that the results are definitely not optimal, and that the infidelity landscape is not densely searched. This is not a criticism of the method - high dimensional searches are rarely safely dense - but it does point to the benefit of distinction in the nomenclature.
+
+\jrs{I acknowledge this distinction and have changed all instances of ``optimal control'' to either ``optimization'' or ``quantum optimal control,'' which are more accurate descriptions.}
+
+In eq1.44 and below, need to designate lambda as a vector of parameters to use the later vector notation. Using a curl for the magnetic field analogy then requires lambda to be a spatial degree of freedom.
+
+\jrs{all $\lambda$s have been bolded to signify they are vectors.}
+
+
+Minor typos:
+
+\begin{itemize}
+\item In eq.1.9, I think the $c_{n}$s should still be included. They are less important due to the renormalisation, but they are still required for the equation to be correct (most trivially at dt=0).
+
+\item eq 1.31 $J \rightarrow j$
+\item cyllindrically $\rightarrow$ cylindrically
+\item "follow the magnetic fields lines" $\rightarrow$ "follow the magnetic field lines"
+\item "In addition GPU memory considerations" $\rightarrow$ "In addition to GPU memory considerations"
+\item "parallel reduction has exists in GPUE" $\rightarrow$ "parallel reduction exists in GPUE"
+\item eq 3.7 is still a template of the copy
+\item "With an appropriate distributed transpose methods" $\rightarrow$ "With an appropriate distributed transpose method"
+\item "inhomogeniously" $\rightarrow$ "inhomogenously"
+\item "various quantum phenomenon that were computational intractable" $\rightarrow$ "various quantum phenomena that were computationally intractable"
+
+\end{itemize}
+
+\jrs{These have all been addressed}
+
+[comments after the oral examination]
+
+James’ presentation was excellent. His performance on the oral examination was satisfactory. We all agreed that James had demonstrated sufficient mastery of his subject, and had produced more than enough original work to be awarded his doctorate.
+
+He was asked a number of questions, some regarding technical mathematical elements of his work, some on implementation details, and several on the algorithmic choices demonstrated in his computational work. Most of his answers were entirely satisfactory, although there were a couple of points that we felt would be best clarified in the thesis before the final version was submitted. They were:
+
+\begin{enumerate}
+\item The nature and motivations of the specific Lyapunov calculations done on the group of four vortices should be expanded upon. The definition of the Lyapunov exponent should be correct.
+
+\jrs{This was addressed in the previous section}
+\item Experimental considerations for constructing the toroidal potential around the fibre should be discussed. James mentioned in the examination that he chose parameters compatible with fibre trapping. These details should be included.
+
+\jrs{I have modified the text and added necessary citations to read: \\
+...where the frequencies in the $\hat r$ and $\hat z$ directions are chosen to be $\omega_r = \omega_z = 7071$Hz to match typical experimental conditions in fiber trapping and is roughly consistent with the known trapping frequencies for toroidal traps}
+
+\item The underlying mechanism behind the artificial magnetic fields seems very close to the one that makes light shifts, yet the effective term in the Hamiltonian is different. The reason for the difference should be discussed. 
+
+\jrs{I have added the following (with appropriate citations): \\
+As an important note, the fields typically used for fiber trapping have very large detunings, as small detunings lead to higher scattering rates and losses.
+These values will lead to insignificant gauge fields.}
+\end{enumerate}
+\end{document}

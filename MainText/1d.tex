@@ -5,6 +5,9 @@ Until recently, simulating dynamic control protocols to engineer specific quantu
 This meant that researchers wishing to engineer specific quantum states by using GPU simulations would be required to have domain-specific knowledge in both software design and quantum mechanics, neither of which are trivial to understand.
 This chapter serves as motivation for several methods to be discussed in Chapter~\ref{ch:gpu} to allow for the simulation of quantum control methods on GPU devices, with a particular focus on quantum optimal control~\cite{werschnik2007} and Shortcuts To Adiabaticity (STA)~\cite{guery2019}.
 Both of these control protocols will be used in a physical example for the non-adiabatic generation of superposition states in a one-dimensional Tonks--Girardeau (TG) gas~\cite{schloss2016}.
+Between the two methods, the drawbacks to STA methods are the strengths of quantum optimal control.
+Where shortcuts can only be used on a specific subset of problems to evolve adiabatically and that are amenable to the analytical methods used, quantum optimal control is a more general tool for a wider variety of systems.
+On the other hand, STA protocols are semi-analytical and if such protocols can be found, they greatly reduce the computational cost to engineering particular quantum states.
 To start, I will discuss the field of optimization algorithms before moving to STA protocols and a physical system using both in practice.
 
 The work in this chapter has been published in \textit{New Journal of Physics}~\cite{schloss2016}, and in this publication, I performed all calculations for all the figures generated and focused primarily on optimal control methods.
@@ -15,7 +18,7 @@ The STA protocol was devised by J\'er\'emie Gillet, and the research was supervi
 Optimization algorithms have become essential to many areas of modern computing and focus on either minimizing or maximizing a cost function by modifying several control parameters~\cite{lewis2012}.
 The number of control parameters create an $n$-dimensional space to traverse, and optimization algorithms are tasked at finding the global minimum or maximum of this domain.
 For certain domains, it is difficult to find a global optimization strategy and many methods instead get caught in local minima while attempting to find the appropriate solution.
-Because generalized optimization is such a fundamental problem, there are many known optimal control methods, such as gradient descent~\cite{ruder2016}, the Nelder--Mead or simplex method~\cite{nelder1965}, genetic algorithms~\cite{koza1997}, and many more~\cite{lewis2012}.
+Because generalized optimization is such a fundamental problem, there are many known optimization methods, such as gradient descent~\cite{ruder2016}, the Nelder--Mead or simplex method~\cite{nelder1965}, genetic algorithms~\cite{koza1997}, and many more~\cite{lewis2012}.
 Of these, gradient descent is often considered to be one of the easiest to implement with favorable complexity and convergence guarantees, and because of this, it has become ubiquitous in many areas such as machine learning, which is of particular interest for GPU engineering. 
 Even so, there are limitations to gradient descent, such as its dependence on calculating the gradient of the cost function's solution domain along with lengthy convergence times for high-precision solutions.
 
@@ -33,6 +36,8 @@ The Nelder--Mead method is one of the most commonly implemented gradient-less op
 For example, a 0-simplex is a point, a 1-simplex is a line, a 2-simplex is a triangle, a 3-simplex is a tetrahedron, and so on.
 If the Nelder--Mead method is attempting to optimize a cost function with $n$ control parameters, an $n+1$ point simplex will be created, and the points of this simplex will be manipulated until they have converged to a minimum or maximum in the domain.
 For this section, I will focus on the method introduced in the original work by Nelder and Mead in 1965 while working at the National Vegetable Research Station in Warwick, England~\cite{nelder1965}.
+For this method, one is attempting to find the minimum value in some $n$-dimensional space.
+In Nelder and Mead's original notation, a ``height'' is defined as the value of the cost function with provided input parameters, often depicted as the an elevation out of the plane.
 
 For $P_i \in i=\{0,...,n\}$ simplex points with heights of $y_i \in i=\{0,...,n\}$, the Nelder--Mead method is tasked at minimizing all points such that $\sqrt{\sum(y_i-\bar y)^2/n} < \eta$, where $\bar y$ denotes the height of the centroid location of the simplex, and $\eta$ is some pre-defined convergence threshold value.
 This convergence criteria assumes that if all points have converged with this method, the final location must be the minimum of the optimization domain; however, as mentioned in the previous section, this method may become trapped in a local minimum.
@@ -104,7 +109,7 @@ For example, one might use
 \lambda(t) = \frac{T^2}{4t(t-T)},
 \end{equation}
 \noindent which satisfies the provided conditions.
-This then transforms the optimal control problem into an optimization of the space spanning $\{A_j, B_j, \nu_j\}$, which can be done by using Nelder--Mead with a simplex of random initial points.
+This then transforms the optimization problem into an optimization of the space spanning $\{A_j, B_j, \nu_j\}$, which can be done by using Nelder--Mead with a simplex of random initial points.
 As an example, if $J = 10$, a thirty-dimensional space would be created and a thirty-one simplex would be formed to traverse this space.
 It is important to remember that each new simplex and simplex-operation requires re-solving the Schr\"odinger equation for those values, and as such, this is a computational costly technique.
 Even though higher $J$ values will produce a more accurate result, lower values should be chosen, if possible.
@@ -161,9 +166,6 @@ I = \frac{1}{2m}[\rho(p-m\dot x_c)-m\dot \rho(x-x_c)]2 + \frac{1}{2}m\omega_0^2\
 \noindent with $\omega_0$ as a constant whose physical interpretation depends on the system.
 As in the case of quantum optimal control, additional constraints must be considered to ensure the Hamiltonian and its invariant commute at initial and final times $t_0$ and $T$.
 
-The obvious drawbacks to STA methods are the strengths of quantum optimal control.
-Where shortcuts can only be used on a specific subset of problems to evolve adiabatically and that are amenable to the analytical methods used, quantum optimal control is a more general tool for a wider variety of systems.
-On the other hand, STA protocols are semi-analytical and if such protocols can be found, they greatly reduce the computational cost to engineering particular quantum states.
 Now that I have provided specific examples of methods used in quantum engineering, it is time to put them into practice with an example of creating large-scale superposition states non-adiabatically in the highly-correlated TG gas regime.
 
 \section{Non-adiabatic generation of NOON states in a Tonks--Girardeau gas}
@@ -275,10 +277,10 @@ which follows directly from the form of the TG state~\cite{girardeau1960}
 \label{eq:TG}
 \end{equation}
 Here $P$ represents the set of all permutations of $N$ elements, $\epsilon_\eta$ represents the anti-symmetric tensor of the permutation $\eta$, and $\psi_i$ represent the orbitals.
-Now I will discuss the findings with both optimal control and STA protocols.
+Now I will discuss the findings with both quantum optimal control and STA protocols.
 
 
-\subsection{Optimal control protocols}
+\subsection{Quantum optimal control protocols}
 
 \begin{figure}
  \centering
@@ -301,7 +303,7 @@ as such, longer evolution times effectively produce noisy signals and the Nelder
 For shorter evolution times, the pulse greatly affects the system and the shapes vary greatly from the initial linear ramp.
 The infidelities for the linear guess pulse and its corresponding optimized pulse can be found in Figure~\ref{fig:lfid}, and one can see an improvement of several orders of magnitude.
 Here, for longer evolution times, the initial linear pulse is a reasonable method to generate NOON states with an infidelity of $10^{-2}$ because it is already close to adiabatic; however, even in this case, the NOON state generation fidelity is better with optimization.
-For all optimal control results in this chapter, the CRAB method was run 100 times and the data with the highest fidelity was kept.
+For all quantum optimal control results in this chapter, the CRAB method was run 100 times and the data with the highest fidelity was kept.
 
 For optimizations of the barrier strength, a simple linear ramp for $\Omega$ and an initial and final height for the barrier of $b = 1$ were chosen.
 The optimal pulses for the barrier height for $T=1$, 10, and 100 are shown in Figure~\ref{fig:pulses}(b) and shorter evolution times similarly produce larger deviations from the initial pulse.

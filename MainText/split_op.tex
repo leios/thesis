@@ -2,9 +2,9 @@
 \label{ch:splitop}
 The Split-Step Fourier Method (SSFM) is an essential technique for simulating a variety of physical systems and is particularly useful for simulating the propagation of wave packets in single and multimode fibers~\cite{agrawal2000, sinkin2003, meirelles2005, min2003} and in various quantum systems~\cite{bayindir2015, weideman1986, wang2005}.
 Though other methods, such as explicit and implicit Euler~\cite{butcher2016}, Crank-Nicholson~\cite{crank1947}, and Runge-Kutta~\cite{butcher2016}, can solve similar differential equations, the SSFM has distinct advantages over these methods.
-For example, because the SSFM primarily relies on embarrassingly parallel element-wise matrix multiplications and Fast Fourier Transform (FFT) routines that have been optimized for parallel and distributed systems, is often much easier to parallelize the SSFM than Runge-Kutta~\cite{murray2011}.
+For example, the SSFM relies on embarrassingly parallel element-wise matrix multiplications and Fast Fourier Transform (FFT) routines that have been optimized for parallel and distributed systems, but it also requires less memory than Runge-Kutta, which requires multiple arrays of the size of the wavefunction in memory~\cite{murray2011}.
 The SSFM also provides a lower error bound than either the Euler or Crank-Nicholson methods, and does not require an implicit or tridiagonal solver \cite{conte2017, thomas1949} which are also not easily parallelizable~\cite{goddeke2010, wang1981, sweet1977}.
-In addition, the SSFM is faster and requires fewer FFTs than similar methods, such as Runge-Kutta 4 in the Interaction Picture (RK4IP)~\cite{brehler2017}; however, the SSFM method's speed comes at a cost in accuracy.
+In addition, the SSFM is faster and requires fewer FFTs per step than similar methods, such as Runge-Kutta 4 in the Interaction Picture (RK4IP)~\cite{brehler2017}; however, the SSFM method's speed comes at a cost in accuracy.
 Though much of this work focuses on using the SSFM to simulate superfluid vortex states, I will not be discussing alternative methods, such as point-vortex~\cite{benzi1992} or vortex-filament~\cite{schwarz1988} models in rigorous detail, as this work focuses primarily on engineering appropriate quantum states, while point-vortex and vortex filament methods focus primarily on vortex structures, themselves.
 
 In the work presented in this chapter, I will be focusing on the application of the SSFM to superfluid vortex simulations and will use primarily physical arguments to understand the details of the method itself.
@@ -24,12 +24,12 @@ i\hbar \frac{\partial \Psi(\mathbf{r}, t)}{\partial t} = \left(\frac{\hat p^2}{2
 \label{eqn:schrody}
 \end{equation}
 
-\noindent where $\hat p = -i\hbar\frac{\partial}{\partial x}$ is the canonical momentum operator, $m$ is the mass, $V_0(\mathbf{r})$ is the trapping potential, and $\Psi(\mathbf{r},t)$ is the single-particle wavefunction.
+\noindent where $\hat p = -i\hbar\frac{\partial}{\partial \mathbf{r}}$ is the canonical momentum operator, $m$ is the mass, $V_0(\mathbf{r})$ is the potential, and $\Psi(\mathbf{r},t)$ is the single-particle wavefunction.
 In this case, one often replaces most of the right-hand side of the equation with a Hamiltonian operator, which for this case would be $\mathcal{\hat H} = \frac{\hat p^2}{2m} + V_0(\mathbf{r})$.
 Noticeably, this has two components, one acting in position-space, $\mathcal{\hat H}_v = V_0(\mathbf{r})$ and another in momentum-space, $\mathcal{\hat H}_p = \frac{\hat p^2}{2m}$.
 For consistency, I will denote all variables in momentum-space with a $p$, and real-space with a $v$.
-Additionally, any wavefunction can be expanded into a complete set of eigenkets of the Hamiltonian, with $\mathcal{\hat H}\ket{\phi_n} = E_n\ket{\phi_n}$.
-Which allows one to write
+Additionally, any wavefunction can be expanded into a complete set of eigenkets of the Hamiltonian, with $\mathcal{\hat H}\ket{\phi_n} = E_n\ket{\phi_n}$,
+which allows one to write
 
 \begin{equation}
 \ket{\Psi(\mathbf{r})} = \sum_{n=0}^\infty c_n \ket{\phi_n(\mathbf{r})},
@@ -115,7 +115,7 @@ In addition to this, one can find the lowest energy state of the system by perfo
 This changes the solution from the complex sinusoid shown in Equation~\eqref{eqn:rsolve} to an exponential decay,
 
 \begin{equation}
-\Psi(\mathbf{r},\tau + d\tau) = \left[e^{-\frac{\mathcal{\hat{H}}d\tau}{\hbar}}\right]\Psi(\mathbf{r},\tau) = \sum_{n=0}^N\left[e^{-\frac{(E_n d\tau)}{\hbar}}\right]\phi_n(\mathbf{r},\tau).
+\Psi(\mathbf{r},\tau + d\tau) = \left[e^{-\frac{\mathcal{\hat{H}}d\tau}{\hbar}}\right]\Psi(\mathbf{r},\tau) = \sum_{n=0}^N\left[c_n e^{-\frac{(E_n d\tau)}{\hbar}}\right]\phi_n(\mathbf{r},\tau).
 \end{equation}
 
 \noindent Note that it is not necessary to include the $c_n$ coefficients in the expansion as this form of time stepping is no longer unitary.
@@ -346,7 +346,7 @@ This simulation was performed with the GPUE codebase \cite{schloss2018}, and the
 \label{fig:rot}
 \end{figure}
 
-In a cyllindrically symmetric condensate with a single vortex at its center, the wavefunction can then be written as
+In a cylindrically symmetric condensate with a single vortex at its center, the wavefunction can then be written as
 \begin{equation}
 \Psi(\mathbf{r}) = |\Psi(\mathbf{r})|e^{i\ell\phi},
 \end{equation}
@@ -464,15 +464,15 @@ Important implementation details for how to use artificial magnetic fields with 
 
 As I have already described how rotation can act as an artificial Lorentz force, I will now turn the attention towards methods that might allow us to generate more general rotational effects and vortex structures.
 In particular, I will discuss the adiabatic motion of free atoms undergoing geometric phase transformations through a Berry phase. 
-For this, one can assume that the system has an external parameter $\lambda$ such that
+For this, one can assume that the system has an external parameter $\mathbf{\lambda}$ such that
 \begin{equation}
-\hat H(\lambda) \ket{\psi_n(\lambda)} = E_n(\lambda)\ket{\psi_n(\lambda)},
+\hat H(\mathbf{\lambda}) \ket{\psi_n(\mathbf{\lambda})} = E_n(\mathbf{\lambda})\ket{\psi_n(\mathbf{\lambda})},
 \end{equation}
-where the set of eigenstates $\left\{ \ket{\psi_n(\lambda)} \right\}$ allows us to define the time evolution of the system such that
+where the set of eigenstates $\left\{ \ket{\psi_n(\mathbf{\lambda})} \right\}$ allows us to define the time evolution of the system such that
 \begin{equation}
-\ket{\psi(t)} = \sum_n c_n(t) \ket{\psi_n(\lambda(t))},
+\ket{\psi(t)} = \sum_n c_n(t) \ket{\psi_n(\mathbf{\lambda}(t))},
 \end{equation}
-where $\lambda$ evolves slowly with time. If one considers the initial state of the system to be
+where $\mathbf{\lambda}$ evolves slowly with time. If one considers the initial state of the system to be
 \begin{equation}
 c_l(0) = 1,
 \qquad
@@ -480,15 +480,15 @@ c_n(0) = 0,
 \qquad
 \text{for all } n\neq l,
 \end{equation}
-the state of the system is proportional to $\ket{\psi_l(\lambda(t))}$.
+the state of the system is proportional to $\ket{\psi_l(\mathbf{\lambda}(t))}$.
 In this case, $c_l(t)$ is determined by the equation
 \begin{equation}
-i \hbar \dot{c}_l =  [E_l(t) - \dot{\lambda} \cdot \mathbf{A}_l(\lambda)]c_l,
+i \hbar \dot{c}_l =  [E_l(t) - \dot{\mathbf{\lambda}} \cdot \mathbf{A}_l(\mathbf{\lambda})]c_l,
 \label{Bcnx-1}
 \end{equation}
 where 
 \begin{equation}
-\mathbf{A}_l(\lambda) = i \hbar \braket{\psi_l|\nabla\psi_l}.
+\mathbf{A}_l(\mathbf{\lambda}) = i \hbar \braket{\psi_l|\nabla\psi_l}.
 \label{eqn:Bcnx}
 \end{equation}
 This quantity is called the Berry connection, which is considered to be a vector potential, such that one can define a new artificial magnetic field, the Berry curvature as
@@ -497,7 +497,7 @@ This quantity is called the Berry connection, which is considered to be a vector
 \label{eqn:BC}
 \end{equation}
 
-Now imagine that the $\lambda$ parameter follows the closed contour $C$ such that $\lambda(T) = \lambda(0)$. 
+Now imagine that the $\mathbf{\lambda}$ parameter follows the closed contour $C$ such that $\mathbf{\lambda}(T) = \mathbf{\lambda}(0)$. 
 By integrating Equation~\eqref{Bcnx-1}, one finds
 \begin{equation}
 c_l(t) = e^{i \Phi_{\text{dyn}}(t)}e^{i\Phi_{\text B}(T)}c_l(0),
@@ -507,14 +507,14 @@ where
 \begin{equation}
 \begin{split}
 \Phi_{\text{dyn}}(T) &= - \frac{1}{\hbar}\int_0^TE_l(t)dt \\
-\Phi_{\text{Berry}} (T)&= \frac{1}{\hbar} \int_0 ^T \dot{\lambda} \cdot \mathbf{A}_l(\lambda)dt = \frac{1}{\hbar}\oint\mathbf{A}_l(\lambda) \cdot d\lambda.
+\Phi_{\text{Berry}} (T)&= \frac{1}{\hbar} \int_0 ^T \dot{\mathbf{\lambda}} \cdot \mathbf{A}_l(\mathbf{\lambda})dt = \frac{1}{\hbar}\oint\mathbf{A}_l(\mathbf{\lambda}) \cdot d\mathbf{\lambda}.
 \end{split}
 \end{equation}
-In this case $\Phi_{\text{Berry}}$ is called the Berry phase and it only depends on the motion path of $\lambda$. 
-It should be mentioned that both of the exponential terms in Equation~\eqref{eqn:c} are gauge invariant and thus remain unchanged when $\ket{\psi_n(\lambda)}$ is multiplied by a phase factor.
+In this case $\Phi_{\text{Berry}}$ is called the Berry phase and it only depends on the motion path of $\mathbf{\lambda}$. 
+It should be mentioned that both of the exponential terms in Equation~\eqref{eqn:c} are gauge invariant and thus remain unchanged when $\ket{\psi_n(\mathbf{\lambda})}$ is multiplied by a phase factor.
 The Berry phase allows us to transfer angular momentum into a BEC and generate a vortex geometry, which 
 has been experimentally demonstrated in 2009 by Lin~\textit{et~al.}~\cite{lin2009}.
-As a note, the vortex structures generated in this way follow the magnetic fields lines, thus providing the capability to generate complex vortex structures beyond simple, straight lines.
+As a note, the vortex structures generated in this way follow the magnetic field lines, thus providing the capability to generate complex vortex structures beyond simple, straight lines.
 A method to generate these gauge fields in an experimentally realizable way with the evanescent field of a dielectric system undergoing total internal reflection will be described in Chapter~\ref{ch:vortex_states}, and there are a wealth of applications of these fields in different areas of physics~\cite{niu2017}.
 In addition, other field effects can be generated in a similar manner and with similar effects as the Berry phase~\cite{wu2005}, but these are not considered in this work.
 For now I will discuss how these fields can be implemented in the SSFM, with an emphasis on their effects for superfluid simulations.

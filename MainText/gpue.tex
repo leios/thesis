@@ -281,7 +281,7 @@ Texture memory has a relatively long write time, but is quick to read.
 It is also faster than global memory for non-coalesced access patterns and therefore can be useful for certain tasks with slowly varying operators.
 In principle, this is the case for the momentum-space operator in the SSFM; however, because texture memory uses single-precision, it will not be used further in this work.
 
-In addition GPU memory considerations, it is also essential to minimize data transfers between the device and host and between devices in multi-GPU setups.
+In addition to GPU memory considerations, it is also essential to minimize data transfers between the device and host and between devices in multi-GPU setups.
 The data transfer between the host and device or between devices must send data through the PCIE slot on the motherboard, which is a slow operation.
 For data transfer between devices, this transfer time can be slightly alleviated on Power architecture where NVlink technology can directly transfer data from device to device~\cite{foley2017}, but the data transfer between devices will still likely be the slowest part of the computation.
 Though CUDA-aware MPI for multi-GPU setups functions can be used, the development of this API is still in its early stages, and using such functionality may greatly increase software development time~\cite{lonvcar2016, wang2013}.
@@ -528,7 +528,7 @@ E = \braket{\Psi|\mathcal{\hat H}|\Psi}
 \end{equation}
 
 \noindent The first problem with this operation is that it requires a summation for the final energy value, and as discussed, this is a poorly-suited problem for GPU hardware.
-Even though a robust implementation of parallel reduction has exists in GPUE, this is still a slow process.
+Even though a robust implementation of parallel reduction exists in GPUE, this is still a slow process.
 The next problem comes from the nature of the Hamiltonian, itself.
 As described in Chapter~\ref{ch:splitop}, the Hamiltonian is essentially composed of three separate components for vortex simulations:
 \begin{align}
@@ -603,7 +603,7 @@ In addition, distributed transposes of this nature on GPU devices are most often
 
 At its current state, the DistributedTranspose.jl package is able to do out-of-place, distributed transposes; however, when feature-complete, it should allow for the implementation of new distributed methods for such computation.
 It should be mentioned that this package has potential to be used by many other software packages that require using spectral methods on multiple GPU devices.
-With an appropriate distributed transpose methods, it might be more optimal to perform spectral and pseudo-spectral simulations in certain regimes over other methods.
+With an appropriate distributed transpose method, it might be more optimal to perform spectral and pseudo-spectral simulations in certain regimes over other methods.
 
 \section{Outlook}
 

@@ -22,9 +22,9 @@
 \contentsline {section}{\numberline {2.2}Shortcuts to adiabaticity}{36}{section.2.2}% 
 \contentsline {section}{\numberline {2.3}Non-adiabatic generation of NOON states in a Tonks--Girardeau gas}{38}{section.2.3}% 
 \contentsline {subsection}{\numberline {2.3.1}Tonks--Girardeau gas}{38}{subsection.2.3.1}% 
-\contentsline {subsection}{\numberline {2.3.2}NOON states in a TG gas}{40}{subsection.2.3.2}% 
-\contentsline {subsection}{\numberline {2.3.3}Optimal control protocols}{43}{subsection.2.3.3}% 
-\contentsline {subsection}{\numberline {2.3.4}Results with STA protocols}{47}{subsection.2.3.4}% 
+\contentsline {subsection}{\numberline {2.3.2}NOON states in a TG gas}{39}{subsection.2.3.2}% 
+\contentsline {subsection}{\numberline {2.3.3}Quantum optimal control protocols}{43}{subsection.2.3.3}% 
+\contentsline {subsection}{\numberline {2.3.4}Results with STA protocols}{46}{subsection.2.3.4}% 
 \contentsline {section}{\numberline {2.4}Outlook}{53}{section.2.4}% 
 \contentsline {chapter}{\numberline {3}General Purpose computing with Graphics Processing Units and the GPUE codebase}{54}{chapter.3}% 
 \contentsline {section}{\numberline {3.1}Types of parallelism}{55}{section.3.1}% 
@@ -48,8 +48,8 @@
 \contentsline {section}{\numberline {3.5}Outlook}{85}{section.3.5}% 
 \contentsline {chapter}{\numberline {4}Vortex analysis of chaotic, two-dimensional superfluid simulations for few-vortex systems}{87}{chapter.4}% 
 \contentsline {section}{\numberline {4.1}Model}{89}{section.4.1}% 
-\contentsline {section}{\numberline {4.2}Regular and irregular vortex dynamics}{90}{section.4.2}% 
-\contentsline {section}{\numberline {4.3}Characterizing chaotic vortex dynamics}{93}{section.4.3}% 
+\contentsline {section}{\numberline {4.2}Regular and irregular vortex dynamics}{91}{section.4.2}% 
+\contentsline {section}{\numberline {4.3}Characterizing chaotic vortex dynamics}{96}{section.4.3}% 
 \contentsline {section}{\numberline {4.4}Outlook}{97}{section.4.4}% 
 \contentsline {chapter}{\numberline {5}Generation, control and detection of 3D vortex structures in superfluid systems}{99}{chapter.5}% 
 \contentsline {section}{\numberline {5.1}Three-dimensional vortex structures}{100}{section.5.1}% 

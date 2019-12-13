@@ -2,48 +2,48 @@ This is BibTeX, Version 0.99d (TeX Live 2019/Arch Linux)
 Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Temporary_Thesis.aux
 The style file: unsrtnat.bst
-Reallocated field_info (elt_size=8) to 11496 items from 5000.
+Reallocated field_info (elt_size=8) to 11580 items from 5000.
 Database file #1: Preamble/Thesis_bibliography.bib
 Warning--empty journal in koza1997
-You've used 232 entries,
+You've used 235 entries,
             2481 wiz_defined-function locations,
-            1843 strings with 43683 characters,
-and the built_in function-call counts, 93320 in all, are:
-= -- 7598
-> -- 5280
-< -- 127
-+ -- 2025
-- -- 1560
-* -- 7815
-:= -- 15196
-add.period$ -- 800
-call.type$ -- 232
-change.case$ -- 438
-chr.to.int$ -- 231
-cite$ -- 233
-duplicate$ -- 4529
-empty$ -- 8367
-format.name$ -- 1898
-if$ -- 19618
+            1858 strings with 44249 characters,
+and the built_in function-call counts, 94737 in all, are:
+= -- 7713
+> -- 5367
+< -- 130
++ -- 2057
+- -- 1586
+* -- 7939
+:= -- 15421
+add.period$ -- 810
+call.type$ -- 235
+change.case$ -- 444
+chr.to.int$ -- 234
+cite$ -- 236
+duplicate$ -- 4595
+empty$ -- 8490
+format.name$ -- 1929
+if$ -- 19920
 int.to.chr$ -- 2
-int.to.str$ -- 233
-missing$ -- 245
-newline$ -- 1260
-num.names$ -- 696
-pop$ -- 1767
+int.to.str$ -- 236
+missing$ -- 248
+newline$ -- 1275
+num.names$ -- 705
+pop$ -- 1792
 preamble$ -- 1
-purify$ -- 232
+purify$ -- 235
 quote$ -- 0
-skip$ -- 2593
+skip$ -- 2631
 stack$ -- 0
-substring$ -- 4183
-swap$ -- 649
-text.length$ -- 25
+substring$ -- 4257
+swap$ -- 661
+text.length$ -- 27
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 1558
+type$ -- 1579
 warning$ -- 1
-while$ -- 739
+while$ -- 751
 width$ -- 0
-write$ -- 3189
+write$ -- 3230
 (There was 1 warning)
